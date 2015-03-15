@@ -682,15 +682,31 @@ public class PlanController implements ProjectItemController {
         int yMax = plan.getWalls().getYMax();
         int zMin = plan.getWalls().getZMin();
         int zMax = plan.getWalls().getZMax();
+
+        int vno = 0; // vertex's no
         try (PrintWriter out = new PrintWriter(objName)) {
             for (Wall wall : plan.getWalls()) {
-                PathIterator itor = wall.getShape().getPathIterator(null, 0.01f);
-                float seg[] = new float[6];
-                while (!itor.isDone()) {
-                    itor.currentSegment(seg);
-                    gl.glVertex2f(seg[0], seg[1]);
-                    itor.next();
-                }
+                out.println("v " + wall.getXStart() + " " + wall.getYStart() + " " + wall.getZStart());
+                out.println("v " + wall.getXStart() + " " + wall.getYStart() + " " + wall.getZEnd());
+                out.println("v " + wall.getXStart() + " " + wall.getYEnd() + " " + wall.getZStart());
+                out.println("v " + wall.getXStart() + " " + wall.getYEnd() + " " + wall.getZEnd());
+                out.println("v " + wall.getXEnd() + " " + wall.getYStart() + " " + wall.getZStart());
+                out.println("v " + wall.getXEnd() + " " + wall.getYStart() + " " + wall.getZEnd());
+                out.println("v " + wall.getXEnd() + " " + wall.getYEnd() + " " + wall.getZStart());
+                out.println("v " + wall.getXEnd() + " " + wall.getYEnd() + " " + wall.getZEnd());
+                out.println("f " + (vno + 1) + " " + (vno + 7) + " " + (vno + 5));
+                out.println("f " + (vno + 1) + " " + (vno + 3) + " " + (vno + 7));
+                out.println("f " + (vno + 1) + " " + (vno + 4) + " " + (vno + 3));
+                out.println("f " + (vno + 1) + " " + (vno + 2) + " " + (vno + 4));
+                out.println("f " + (vno + 3) + " " + (vno + 8) + " " + (vno + 7));
+                out.println("f " + (vno + 3) + " " + (vno + 4) + " " + (vno + 8));
+                out.println("f " + (vno + 5) + " " + (vno + 7) + " " + (vno + 8));
+                out.println("f " + (vno + 5) + " " + (vno + 8) + " " + (vno + 6));
+                out.println("f " + (vno + 1) + " " + (vno + 5) + " " + (vno + 6));
+                out.println("f " + (vno + 1) + " " + (vno + 6) + " " + (vno + 2));
+                out.println("f " + (vno + 2) + " " + (vno + 6) + " " + (vno + 8));
+                out.println("f " + (vno + 2) + " " + (vno + 8) + " " + (vno + 4));
+                vno += 8;
             }
         } catch (IOException ex) {
             ex.printStackTrace();

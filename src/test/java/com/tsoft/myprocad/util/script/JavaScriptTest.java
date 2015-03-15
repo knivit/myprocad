@@ -67,6 +67,7 @@ public class JavaScriptTest extends AbstractItemTest {
     @Test
     public void calcRoof() throws Exception {
         JavaScript js = new JavaScript();
+        js.addBinding(new ObjBinding());
         js.loadLibrary("lib/js/БиблиотекаФункций.js");
         js.loadLibrary("lib/js/СопротивлениеМатериалов.js");
         js.loadLibrary("lib/js/Дерево.js");
