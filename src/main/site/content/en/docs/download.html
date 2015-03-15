@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Product Updates</title>
+    <link rel="icon" type="image/ico" href="../../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../styles.css" />
+    <style>
+        P { text-align: justify; }
+    </style>
+</head>
+<body>
+<div class="topbar headroom headroom--top headroom--pinned">
+    <div class="fill">
+        <div class="container">
+            <a class="brand" href="/">MyProCAD</a>
+            <ul class="nav">
+                <li class="active"><a href="#catalog">Product Updates</a></li>
+                <li><a href="#library">Examples</a></li>
+                <li><a href="#dependencies">Dependencies</a></li>
+                <li><a href="#changelog">Change Log</a></li>
+            </ul>
+
+            <div style="text-align: right">
+                <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                    <option value="">Add-ons</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+        <section id="catalog">
+            <div class="page-header"><h1>Product Updates</h1></div>
+            <div class="row">
+                <div class="offset1">
+                    <p>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Link to download and MD5 hash</th>
+                            <th>Size</th>
+                            <th>Updated</th>
+                            <th>Notes</th>
+                        </tr>
+                        <tr>
+                            <td>My Pro CAD 1.0</td>
+                            <td><a href="/download/myprocad-1.0.jar">myprocad-1.0.jar</a><br><code>##HASH##</code></td><td>##SIZE##</td><td>##DATE##</td>
+                            <td>First public release</td>
+                        </tr>
+                    </table>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="library">
+            <div class="page-header"><h1>Projects made in MyProCAD</h1></div>
+            <div class="row">
+                <div class="offset1">
+                    <p>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Link to download and MD5 hash</th>
+                            <th>Size</th>
+                            <th>Updated</th>
+                            <th>Notes</th>
+                        </tr>
+                        <tr>
+                            <td>First Project</td>
+                            <td><a href="/download/demo-en.mpc">demo-en.mpc</a><br><code>##HASH##</code></td><td>##SIZE##</td><td>##DATE##</td>
+                            <td>A project described in <a href="index.html">Documentation</a></td>
+                        </tr>
+                    </table>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="dependencies">
+            <div class="page-header"><h1>Dependencies</h1></div>
+            <div class="row">
+                <div class="offset1">
+                    <p>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Link to download and MD5 hash</th>
+                            <th>Size</th>
+                            <th>Updated</th>
+                            <th>Notes</th>
+                        </tr>
+                        <tr>
+                            <td>Oracle Java 8u5 JDK</td>
+                            <td><a href="/download/jdk-8u5-windows-x64.exe">jdk-8u5-windows-x64.exe</a><br><code>##HASH##</code></td><td>##SIZE##</td><td>##DATE##</td>
+                            <td>Windows x64</td>
+                        </tr>
+                    </table>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="changelog">
+            <div class="page-header"><h1>Change Log</h1></div>
+            <div class="row">
+                <div class="offset1">
+                    <h2 id="changelog-1.0">05-Sep-2014 MyProCAD 1.0 Released, Now Supports All Desktop Platforms</h2>
+                    <p>
+                        - This site is made;<br>
+                        - Dialogs to work with folders, plans and notes are unified;<br>
+                        - A possibility to add several notes to a project is added;<br>
+                        - Implemented an algorithm to calculate a total outer length for the selected walls;<br>
+                        - Made a localization to Russian;<br>
+                        - Fixed some small bugs.<br>
+                    </p>
+
+                    <h2 id="changelog-0.7">19-May-2014 Support Java 8 added</h2>
+                    <p>
+                        - The program is rewritten to use latest Java 8 features including Streams, Lambdas and Function's References;<br>
+                        - Print to PDF;<br>
+                        - Added level marks.<br>
+                    </p>
+
+                    <h2 id="changelog-0.1">22-Sep-2013 Version 0.1 Initial release</h2>
+                    <p>
+                        - Added the Property Editor;<br>
+                        - Removed dependencies to closed libraries;<br>
+                        - Grid and Rules now can be printed.<br>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<footer>
+    <p id="copyright" align="center">&copy; 2013&ndash;2014 <a href="http://myprocad.com">MyProCAD</a>.</p>
+</footer>
+</body>
+</html>

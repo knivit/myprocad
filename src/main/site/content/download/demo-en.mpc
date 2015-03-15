@@ -1,0 +1,1446 @@
+{
+"@id":1,"@type":"com.tsoft.myprocad.model.Project","materials":{
+"@id":22918,"@items":[{
+"@id":22927,"@type":"com.tsoft.myprocad.model.Material","name":"Unknown","specificGravity":1.0,"price":0.0}
+,{
+"@id":22924,"@type":"com.tsoft.myprocad.model.Material","name":"Ytong","specificGravity":1.2,"price":300.0}
+,{
+"@id":22922,"@type":"com.tsoft.myprocad.model.Material","name":"Brick M125","specificGravity":1.4,"price":100.0}
+,{
+"@id":22920,"@type":"com.tsoft.myprocad.model.Material","name":"Ceramic brick","specificGravity":0.8,"price":150.0}
+]}
+,"folders":{
+"@type":"java.util.ArrayList","@items":[{
+"@id":24589,"@type":"com.tsoft.myprocad.model.Folder","name":"Default","tabIndex":0}
+]}
+,"activeFolder":{"@ref":24589},"items":{
+"@id":58959,"@type":"java.util.HashMap","@keys":[{"@ref":24589}],"@items":[{
+"@type":"java.util.ArrayList","@items":[{
+"@id":30035,"@type":"com.tsoft.myprocad.model.Plan","project":{"@ref":1},"name":"My Plan","gridVisible":true,"rulersVisible":true,"scale":0.12,"walls":[{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"@id":35271,"name":"YTONG D400 625x200x250 (ДШВ)","specificGravity":0.4,"price":3500.0}
+,"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"6e5f1ff2-d107-40a2-9d52-dc9e34dbca4d","xStart":802,"xEnd":1427,"yStart":3600,"yEnd":3700,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"cdfecfa1-8b45-4d3e-ae0b-e5338cf03e0e","xStart":1429,"xEnd":2054,"yStart":3600,"yEnd":3700,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"e1791cf2-6642-4860-bf55-daa0b994ebd7","xStart":2056,"xEnd":2681,"yStart":3600,"yEnd":3700,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"2632ed2e-097c-4129-bdd4-2819f466f3fe","xStart":2683,"xEnd":3308,"yStart":3600,"yEnd":3700,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"0228bac9-2708-452b-b8fe-665c590c9822","xStart":3310,"xEnd":3900,"yStart":3600,"yEnd":3700,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"background","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"8b21f594-a053-495a-9f8f-123451bb2f66","xStart":8113,"xEnd":8738,"yStart":3500,"yEnd":3700,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"b634d295-606f-4da7-9e76-58a97dec37f4","xStart":8740,"xEnd":9365,"yStart":3500,"yEnd":3700,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"2ec2a82c-b342-4d47-bfe6-6cf0ab701506","xStart":9367,"xEnd":9992,"yStart":3500,"yEnd":3700,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"01b31bcc-f746-41b8-b73e-ff7b76f0880a","xStart":9994,"xEnd":10200,"yStart":3500,"yEnd":3700,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"5b310dd3-fd1d-43ce-b90b-0b756467d3cd","xStart":6310,"xEnd":6877,"yStart":8800,"yEnd":9000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"background","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"16115b0a-176c-4649-8f63-0a8f7c5993d3","xStart":6879,"xEnd":7504,"yStart":8800,"yEnd":9000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"background","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"30c4a30a-5575-43a0-be7b-78dc061f832a","xStart":7506,"xEnd":8131,"yStart":8800,"yEnd":9000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"d8d2a615-2b93-46ad-921a-2706df0e1da4","xStart":8133,"xEnd":8758,"yStart":8800,"yEnd":9000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"63508e3c-a187-41cc-9ed7-e0a7725580e8","xStart":8760,"xEnd":9385,"yStart":8800,"yEnd":9000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"1246780d-55ae-4764-8316-dd50565b9a84","xStart":9387,"xEnd":10012,"yStart":8800,"yEnd":9000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":35271},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"c5999843-ec03-4a60-bf6b-0b6a920cb2e8","xStart":10014,"xEnd":10198,"yStart":8800,"yEnd":9000,"zStart":830,"zEnd":1030}
+,{
+"@id":35248,"@type":"com.tsoft.myprocad.model.Wall","material":{
+"@id":35258,"name":"Кирпич M125","specificGravity":1.74,"price":5000.0}
+,"patternName":"brick","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"660ee55c-b80b-4f99-963d-547cd4a769d9","xStart":7830,"xEnd":7950,"yStart":9800,"yEnd":10930,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"@id":33714,"name":"КББ стеновой","specificGravity":1.05,"price":3000.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"7d0dd4ef-75c4-4b1c-afec-ad1ac43034d8","xStart":10200,"xEnd":10600,"yStart":2110,"yEnd":2310,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"41f2403a-c29d-40e8-aae5-46b661e34d5a","xStart":820,"xEnd":1020,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"47fc1953-f37f-4008-817a-dbafa17501be","xStart":1030,"xEnd":1230,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"156fd299-efc2-4d7f-8950-13082f0b9fc7","xStart":1240,"xEnd":1440,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"d6eb8312-cf86-40fc-816b-34ceb328feaa","xStart":1450,"xEnd":1500,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"f14dc011-cb7f-45cb-b7d6-3dc6d38c0998","xStart":1730,"xEnd":1930,"yStart":600,"yEnd":650,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"5777bc1f-c1db-41ea-8969-d216ae9ee529","xStart":1940,"xEnd":2140,"yStart":600,"yEnd":650,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"da0f02ed-6d14-41e7-8752-447292f59b6e","xStart":2150,"xEnd":2350,"yStart":600,"yEnd":650,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"cb1a7cfa-d5ce-40b8-8a3a-45ab10bbe916","xStart":2360,"xEnd":2560,"yStart":600,"yEnd":650,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"ef502da9-a087-48a6-a69a-7118eef15b23","xStart":2570,"xEnd":2770,"yStart":600,"yEnd":650,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"15e332ab-3b09-4230-972a-0b7486b24f54","xStart":2780,"xEnd":2980,"yStart":600,"yEnd":650,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"aade7c6c-79ab-4eea-81da-622318a4f65c","xStart":3000,"xEnd":3120,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"fd167388-6c0a-4bdb-8e92-ec5ba9a75d25","xStart":3130,"xEnd":3330,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"38d5a5d8-ae31-4aa2-8bd7-8a23fb5fc977","xStart":3340,"xEnd":3540,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"94067ff4-47b5-4a66-a0c1-b018a7086856","xStart":3550,"xEnd":3750,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"de67e433-1e6d-4d32-9b9b-7b0f9e951b74","xStart":3760,"xEnd":3960,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"c5adcd76-e8fc-44e7-a977-4ecff9992e54","xStart":3970,"xEnd":4170,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"0efa425c-361e-4827-98b9-7d818c9c1916","xStart":4180,"xEnd":4380,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"8dac84b3-5788-408f-b9f6-a7e4bb646a1e","xStart":4390,"xEnd":4590,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"78628de8-339d-464d-b532-ea7621739037","xStart":4600,"xEnd":4800,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"8b0252f6-6ffa-452f-8e13-2b70d0019e60","xStart":5860,"xEnd":6060,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"ba85b286-310a-483a-b3e3-356b0828b6da","xStart":6070,"xEnd":6270,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"69507b19-6fac-4c69-beb3-0a0f73771f95","xStart":6280,"xEnd":6480,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"fe0d1d8a-665c-420e-91fe-b4e3f82c8ff9","xStart":6490,"xEnd":6690,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"06896195-5fec-431c-8450-cb0ea0fe3068","xStart":6700,"xEnd":6900,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"5f66cb8d-7728-4d1c-bde2-2dff39aa32b5","xStart":6910,"xEnd":7110,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"7165a120-ef18-4168-9b2d-a6dcb5d40038","xStart":7120,"xEnd":7320,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"101c9e2a-302a-402d-9f68-a9508b7068a7","xStart":7330,"xEnd":7530,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"99e037d0-bfa6-43e1-801b-9e2f93dcc5f5","xStart":7540,"xEnd":7740,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"16d059b0-cb7a-439a-8dd2-96bab9b3547b","xStart":7750,"xEnd":7950,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"7cf73a39-e46d-463d-9693-059b33a64840","xStart":7960,"xEnd":8160,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"1d0bd987-65f3-4f54-8ed5-4b2e1a3271eb","xStart":8170,"xEnd":8370,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"9761b23a-8b4e-4c0e-bf6b-c6d996f58d8b","xStart":8380,"xEnd":8580,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"201eb0a9-0ad6-4b5b-995d-9bff5d0d0992","xStart":8590,"xEnd":8790,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"c1972bb4-7d8b-4214-8272-35ecc04c598a","xStart":8800,"xEnd":9000,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"748e8cd6-1f4f-4b2c-b34f-6b862e56006b","xStart":9010,"xEnd":9210,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"828d0a45-dceb-463c-98d6-93278ad3c32c","xStart":9220,"xEnd":9420,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"9e4e8517-b13f-4db2-b579-8b121358db63","xStart":9430,"xEnd":9630,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"cb55ccbc-a8a1-4ac0-9d08-63da117fb933","xStart":9640,"xEnd":9840,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"73d656f9-6fd9-42e8-932b-1aa511487da8","xStart":9850,"xEnd":10050,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"43e77256-300a-4ad0-bccf-f3738134151a","xStart":10060,"xEnd":10260,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"0f4922b9-31a2-49f1-a313-83ffe0438678","xStart":10270,"xEnd":10470,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"8b3ecc4c-73a8-4d50-ab97-0501f0336def","xStart":10480,"xEnd":10600,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"9cf10f31-4854-4850-9217-40eb27acc9ba","xStart":10200,"xEnd":10600,"yStart":3580,"yEnd":3780,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"ab05d802-81a7-4cf0-9059-79daeaf2ca02","xStart":10200,"xEnd":10600,"yStart":3790,"yEnd":3990,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"69880f1e-35b9-4a49-93c7-e4942ed42a3e","xStart":10200,"xEnd":10600,"yStart":4000,"yEnd":4200,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"70e372c8-c06a-4a0a-83da-3d3a0f32cb7f","xStart":10200,"xEnd":10600,"yStart":4210,"yEnd":4410,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"c6bfc58e-f9d3-4627-9861-de3fcd3af544","xStart":10200,"xEnd":10600,"yStart":4420,"yEnd":4620,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"e8b2d37a-12cb-4662-b1c2-a1f579bb5c8c","xStart":10400,"xEnd":10450,"yStart":4630,"yEnd":4830,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"b4be75aa-2263-4193-b920-155de508b86c","xStart":10400,"xEnd":10450,"yStart":4840,"yEnd":5040,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"41bd0a69-8877-4d55-ada5-7e1f48dc71a8","xStart":10400,"xEnd":10450,"yStart":5050,"yEnd":5250,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"83e4348c-9c56-4c09-8bcb-8bec4e3c31da","xStart":10400,"xEnd":10450,"yStart":5260,"yEnd":5460,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"f7ae7d21-4d28-4290-a45d-606c895829de","xStart":10400,"xEnd":10450,"yStart":5470,"yEnd":5670,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"e9c1b843-ed96-469f-b393-aa105a398e7d","xStart":10400,"xEnd":10450,"yStart":5680,"yEnd":5880,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"225fa3d5-6301-4028-99a2-166fb87ceddf","xStart":10400,"xEnd":10450,"yStart":5890,"yEnd":6090,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"a22ebc4f-0a51-4d84-a383-d739c716e864","xStart":10200,"xEnd":10600,"yStart":6100,"yEnd":6300,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"e1dafcb2-01c9-4e82-a774-6d25235deeb2","xStart":10200,"xEnd":10600,"yStart":6310,"yEnd":6510,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"1a8d770c-d78b-43dd-9646-3f12d9cbaba4","xStart":10200,"xEnd":10600,"yStart":6520,"yEnd":6720,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"e4245cd5-a11e-4be5-b3dd-9b84cd5144d7","xStart":10400,"xEnd":10450,"yStart":6730,"yEnd":6930,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"6c92ba52-7c38-41e9-b03e-39395c505c30","xStart":10400,"xEnd":10450,"yStart":6940,"yEnd":7140,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"76cec720-4f48-4067-8095-93189e66d700","xStart":10400,"xEnd":10450,"yStart":7150,"yEnd":7350,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"f2edc34b-0f40-4a0d-ab34-f15f12202bc8","xStart":10400,"xEnd":10450,"yStart":7360,"yEnd":7560,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"a528d50c-5f81-4ce1-bcf5-c94f82ba02c4","xStart":10400,"xEnd":10450,"yStart":7570,"yEnd":7770,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"55010e33-1c09-4e02-8a8d-680538c3c110","xStart":10400,"xEnd":10450,"yStart":7780,"yEnd":7980,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"537e6193-0086-4487-b66d-b8584c1c63d3","xStart":10400,"xEnd":10450,"yStart":7990,"yEnd":8190,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"45692c84-1442-4ccc-9621-1a4e01b3942a","xStart":10200,"xEnd":10600,"yStart":8200,"yEnd":8400,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"9c46bdeb-f94f-4fe5-aa64-a3d8272a2ab0","xStart":10200,"xEnd":10600,"yStart":8410,"yEnd":8610,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"319d0c19-1544-420e-a412-b32427b1148d","xStart":10200,"xEnd":10600,"yStart":8620,"yEnd":8820,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"2c1f3029-1656-4e13-935c-b328977919b9","xStart":10200,"xEnd":10600,"yStart":8830,"yEnd":9030,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"adecee60-3670-4410-937b-0e497935c08b","xStart":10200,"xEnd":10600,"yStart":9040,"yEnd":9240,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"6f0148cf-c15d-4c7c-ba78-5dffcf1fa3fd","xStart":10200,"xEnd":10600,"yStart":9250,"yEnd":9450,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"c50dae97-9418-4355-80e1-9f13405ce516","xStart":10200,"xEnd":10600,"yStart":9460,"yEnd":9660,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"ff9435f4-1717-4512-8df6-4cbae6dfbb23","xStart":10200,"xEnd":10600,"yStart":9670,"yEnd":9870,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"caaf990d-9fe7-486a-98fe-c845d977d28d","xStart":10200,"xEnd":10600,"yStart":9880,"yEnd":10080,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"f64ef7a2-0ef5-498f-a913-6ab082e6dea8","xStart":10200,"xEnd":10600,"yStart":10090,"yEnd":10290,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"8dfbeebb-1d26-4075-bf65-6334534cbabc","xStart":10200,"xEnd":10600,"yStart":10300,"yEnd":10500,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"5020457c-3717-4f56-bb81-3714e1ff4665","xStart":10200,"xEnd":10600,"yStart":10510,"yEnd":10710,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"4541bf88-9557-4faa-be43-ce9547e51afb","xStart":10200,"xEnd":10600,"yStart":10720,"yEnd":10920,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"bc7ce927-37a6-4e44-a2d9-de8adc4c48bc","xStart":10200,"xEnd":10600,"yStart":10930,"yEnd":11130,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"0e4b72f5-4e76-4219-8f09-85ef021961b4","xStart":10200,"xEnd":10600,"yStart":11140,"yEnd":11340,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"1aea2756-7eba-421b-ba9c-2610bd5b4c5c","xStart":10200,"xEnd":10600,"yStart":11350,"yEnd":11550,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"c169d64b-e39a-425b-a3dc-abcec8a99744","xStart":10200,"xEnd":10600,"yStart":11560,"yEnd":11760,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"c26c1eec-73d4-46c8-a250-c79333af9977","xStart":10200,"xEnd":10600,"yStart":11770,"yEnd":11970,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"c526be00-d274-4b86-9770-08950bae3c17","xStart":10200,"xEnd":10600,"yStart":11980,"yEnd":12180,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"ce8ad4fa-3803-4c40-a199-8a46c084b503","xStart":10200,"xEnd":10600,"yStart":12190,"yEnd":12390,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"40a506f2-b743-4da2-ae6b-24dd1f182f2d","xStart":10200,"xEnd":10600,"yStart":12400,"yEnd":12600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"cc7f5c21-992d-461f-a0b3-11173937e74d","xStart":10200,"xEnd":10600,"yStart":12610,"yEnd":12810,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"ccb67d6a-d374-40f8-8132-683c61a2c750","xStart":10200,"xEnd":10600,"yStart":12820,"yEnd":13020,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"fbeb5b39-8067-45e1-bace-2e76d9ac6b80","xStart":10200,"xEnd":10600,"yStart":13030,"yEnd":13230,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"437f1840-0c1c-4eeb-8fac-e96a8040f1c3","xStart":10200,"xEnd":10600,"yStart":13240,"yEnd":13440,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"a465b931-2751-482e-80de-91bab383dbf5","xStart":10200,"xEnd":10600,"yStart":13450,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"d2d17ba6-f0ea-4cb7-9fcd-86c7b9c5e8fd","xStart":830,"xEnd":1030,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"42053cc2-434f-40a7-be6a-8cdb7d081ea8","xStart":1040,"xEnd":1240,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"91caceb3-cd6c-4c84-9c62-daff26d9d40c","xStart":1250,"xEnd":1450,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"7a1eb9f0-cd4c-46c9-bf26-76584036f1e9","xStart":1460,"xEnd":1660,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"ce299a13-2f73-4a18-af89-dc17c8553c9a","xStart":1670,"xEnd":1870,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"07c6229b-0e49-463d-a29e-c46e65fd49b9","xStart":1880,"xEnd":2080,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"0f14cff9-13e8-4f61-9e3f-aafbdd19ae00","xStart":2090,"xEnd":2200,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"79ca3602-ad93-4eb9-a22a-f563b5cb5c99","xStart":2220,"xEnd":2420,"yStart":13400,"yEnd":13450,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"36ba17d6-300e-41b3-aecb-437e42511413","xStart":2430,"xEnd":2630,"yStart":13400,"yEnd":13450,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"4da5e675-6a0a-4be9-8c0b-6464ede27669","xStart":2640,"xEnd":2840,"yStart":13400,"yEnd":13450,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"61f6c3fc-e2b1-462b-afe0-81305d548a1f","xStart":2850,"xEnd":3050,"yStart":13400,"yEnd":13450,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"56cf705d-81bb-49d9-81fe-d19db5c7b187","xStart":3060,"xEnd":3260,"yStart":13400,"yEnd":13450,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"9cd8db0e-e3af-4350-9572-73850305faeb","xStart":3270,"xEnd":3470,"yStart":13400,"yEnd":13450,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"0dc65b7c-6a0d-4dba-85c7-4c7536d750af","xStart":3700,"xEnd":3760,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"d521e6e7-248f-4828-b014-31f631763cb3","xStart":3770,"xEnd":3970,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"7d746db5-dd0e-4fda-9d68-7d3cf9c804e2","xStart":3980,"xEnd":4180,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"d35fe944-b19b-4f6b-b61c-3be4e16fdaa7","xStart":4190,"xEnd":4390,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"bf4bf070-2cec-45af-9a9f-48b01843974c","xStart":4400,"xEnd":4600,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"bd5ffd62-1d6f-461b-8496-183ce1be914c","xStart":4610,"xEnd":4810,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"bfac0262-7d3e-4b65-bb40-19319f30d473","xStart":4820,"xEnd":5020,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"62915e86-adc3-4cce-88ab-05ea9dc5c087","xStart":5030,"xEnd":5230,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"9ba0dbfc-7204-4955-bd63-beaa9c2e502a","xStart":5240,"xEnd":5440,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"d95bd7dc-0839-42a6-8c2e-c8d30bfcbb03","xStart":5450,"xEnd":5650,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"aa38d3a8-cc9c-4467-9884-a73bdacbf3fc","xStart":5660,"xEnd":5860,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"652aaebe-1979-4974-8c5a-44940ea48d32","xStart":5870,"xEnd":6070,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"09b76539-0867-483d-b259-e6d17411a5c7","xStart":6080,"xEnd":6280,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"215b2d15-3100-4872-8ebc-4d875432dd74","xStart":6290,"xEnd":6490,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":33714},"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"d13fff10-b44e-4f8b-99db-fb97951a85b9","xStart":6500,"xEnd":6700,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"5136777b-332e-4aa1-a4bb-9fab734f59c9","xStart":6710,"xEnd":6910,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"21ac61b6-69ff-4435-9297-08ba5ffdc203","xStart":6920,"xEnd":7120,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"b6940c63-ccde-4db5-b556-43e6e20fc4c2","xStart":7130,"xEnd":7330,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"85ba5be1-bbfb-423e-b1a4-d832c03c588d","xStart":7340,"xEnd":7540,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"e6b368bb-7f41-4db9-abc0-38098d4d98ed","xStart":7550,"xEnd":7750,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"16440399-5373-4457-a905-62f99a043ffd","xStart":7760,"xEnd":7960,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"bb5b068e-c5d3-4b37-99ad-9c00ec8dacf2","xStart":7970,"xEnd":8170,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"0d783148-72de-4eaf-93cf-73a0850cf3d7","xStart":8180,"xEnd":8380,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"f3f74f5e-8593-41b2-a959-45b77919248c","xStart":8390,"xEnd":8590,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"a2895c28-6712-4441-803a-5624161f6864","xStart":8600,"xEnd":8800,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"8497d7d8-ecf8-4ed6-81af-404afa328b32","xStart":8810,"xEnd":9010,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"da4929c0-3777-4a2e-9521-7d1b4e0508f6","xStart":9020,"xEnd":9220,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"464ac665-a080-40d5-a16e-42b21c210ae1","xStart":9230,"xEnd":9430,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"80d5c498-d705-4ca1-82cc-2ed5aee84015","xStart":9440,"xEnd":9640,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"894088c5-8447-4f87-8faa-83e942c9943d","xStart":9650,"xEnd":9850,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"883fd64d-8899-4e89-bb87-110a10b2126e","xStart":9860,"xEnd":10060,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"7aa07d7b-677f-4cc5-903d-bb769eb7a45a","xStart":10070,"xEnd":10200,"yStart":13200,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"16007281-20f8-406b-96dc-7a83345bf9bf","xStart":400,"xEnd":800,"yStart":1700,"yEnd":1900,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"24a3fbf8-8cec-4130-9cb6-51553b6e1555","xStart":400,"xEnd":800,"yStart":1910,"yEnd":2110,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"3c61c234-c394-4b55-8a0c-6f4420033d36","xStart":400,"xEnd":800,"yStart":2120,"yEnd":2300,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"941b4231-de81-4c95-981f-b8e479ddb27c","xStart":400,"xEnd":800,"yStart":3380,"yEnd":3580,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"6a35ad5c-0523-41a7-b4c6-0d4b39b83d26","xStart":400,"xEnd":800,"yStart":3590,"yEnd":3790,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"418d7e1a-c535-4ea9-8852-83ff1a02ce64","xStart":400,"xEnd":800,"yStart":3800,"yEnd":4000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"528b30a5-455f-402d-a1b5-5a14ee9a0e6f","xStart":400,"xEnd":800,"yStart":4010,"yEnd":4210,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"f0993cee-82dc-4d1f-a016-2b9b59005ba3","xStart":400,"xEnd":800,"yStart":4220,"yEnd":4420,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"c7332d6c-05a0-40df-abea-218629029922","xStart":400,"xEnd":800,"yStart":4430,"yEnd":4630,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"caa76838-56c1-4263-9b40-153a0a680b6d","xStart":400,"xEnd":800,"yStart":4640,"yEnd":4840,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"647d1087-d485-4fda-909b-6e058acd8369","xStart":400,"xEnd":800,"yStart":4850,"yEnd":5050,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"7a9f0dba-6f8f-4f5a-8525-f350ad41a6f3","xStart":400,"xEnd":800,"yStart":5060,"yEnd":5260,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"7786c76a-daf1-40de-a5db-bc323160a57c","xStart":400,"xEnd":800,"yStart":5270,"yEnd":5470,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"c55bfc40-e9e6-4c54-8f7e-20814356e817","xStart":400,"xEnd":800,"yStart":5480,"yEnd":5680,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"99502fbf-5850-4eb2-8828-51716d105b6c","xStart":400,"xEnd":800,"yStart":5690,"yEnd":5890,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"fde16f34-dd18-46ce-a563-a3c50257a2ce","xStart":400,"xEnd":800,"yStart":5900,"yEnd":6100,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"9843a91f-aed7-4ac1-87ae-eac6a1ed3eca","xStart":400,"xEnd":800,"yStart":6110,"yEnd":6310,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"e569fead-2028-49e2-92fb-e02c0deea393","xStart":400,"xEnd":800,"yStart":6320,"yEnd":6520,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"57fa4cd1-ae46-4696-bb88-f95fc9502948","xStart":600,"xEnd":650,"yStart":6530,"yEnd":6730,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"7b1b33ef-46ed-4ca9-946e-ccab20b1a3fb","xStart":600,"xEnd":650,"yStart":6740,"yEnd":6940,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"1230bb1d-d67f-4a7e-a5b3-0752e9eafb81","xStart":600,"xEnd":650,"yStart":6950,"yEnd":7150,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"2e30b683-21a5-405b-bda5-691004f8d7e8","xStart":600,"xEnd":650,"yStart":7160,"yEnd":7360,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"a6252013-4245-4b6a-9482-820bda2043d8","xStart":600,"xEnd":650,"yStart":7370,"yEnd":7570,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"6185d4d1-d4c5-4b56-8a42-d76ff3bf3336","xStart":600,"xEnd":650,"yStart":7580,"yEnd":7780,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"6f8831b3-c99d-4800-8ae4-05545ef50fdd","xStart":600,"xEnd":650,"yStart":7790,"yEnd":7990,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"fb12a50b-9460-40c5-be35-26916fd66202","xStart":400,"xEnd":800,"yStart":8000,"yEnd":8200,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"24756a36-a641-4854-9cfe-dd60963aebb1","xStart":400,"xEnd":800,"yStart":8210,"yEnd":8410,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"c18b511b-3b9d-4a83-8503-91e58a053b17","xStart":400,"xEnd":800,"yStart":8420,"yEnd":8620,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"ffbff2d8-9b0d-4ddc-8476-cd1ed1e702bf","xStart":400,"xEnd":800,"yStart":8630,"yEnd":8830,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"f8cf106f-931b-4bb6-bd1b-e04c6b67a6a9","xStart":400,"xEnd":800,"yStart":8840,"yEnd":9040,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"77f9a07f-fa52-4ec6-b641-897e41cc9a2c","xStart":400,"xEnd":800,"yStart":9050,"yEnd":9250,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"85574619-5764-4596-a5d1-f66bc50f1763","xStart":400,"xEnd":800,"yStart":9260,"yEnd":9460,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"817b98fc-f81b-433f-971a-f7594e3f06ea","xStart":400,"xEnd":800,"yStart":9470,"yEnd":9670,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"ffb4031a-adf0-4e18-9473-e23eb16f8d6f","xStart":400,"xEnd":800,"yStart":9680,"yEnd":9880,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"3794338d-f026-42db-9e32-05cc9c5e7cda","xStart":400,"xEnd":800,"yStart":9890,"yEnd":10090,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"ee162f58-1a2f-491e-84c4-b956873221ae","xStart":400,"xEnd":800,"yStart":10100,"yEnd":10300,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"02edbbbe-cfc7-4b3c-8674-8b0a94e7f1a8","xStart":400,"xEnd":800,"yStart":10310,"yEnd":10510,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"a2d99114-b055-41c1-8d90-2faf889b148b","xStart":400,"xEnd":800,"yStart":10520,"yEnd":10720,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"4096d34c-4ad6-4469-bd74-7ed57b3f5556","xStart":400,"xEnd":800,"yStart":10730,"yEnd":10930,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"7b03cf20-fc19-45c0-857a-96bd614c24e4","xStart":400,"xEnd":800,"yStart":10940,"yEnd":11000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"80c3fe59-3892-471f-a702-111447316749","xStart":600,"xEnd":650,"yStart":11230,"yEnd":11430,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"b61730b1-e86c-4fff-aba1-b3572bead16c","xStart":600,"xEnd":650,"yStart":11440,"yEnd":11640,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"2c3e3b80-e361-4e1b-9e9f-ec7a08515c1d","xStart":600,"xEnd":650,"yStart":11650,"yEnd":11850,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"f472d81b-ad22-4e80-a4d7-63f0916cf111","xStart":600,"xEnd":650,"yStart":11860,"yEnd":12060,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"a718e2ff-76ca-41d0-b390-2ecefe2c5f3f","xStart":600,"xEnd":650,"yStart":12070,"yEnd":12270,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"06faaef6-baff-4b0e-be74-5c2028cb2978","xStart":600,"xEnd":650,"yStart":12280,"yEnd":12480,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"5391c4cb-caea-4a0d-aba9-ddd51a3679d6","xStart":400,"xEnd":800,"yStart":12500,"yEnd":12610,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"04c2bda5-7de4-492b-9524-ef0017e3beec","xStart":400,"xEnd":800,"yStart":12620,"yEnd":12820,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"2fafe6ba-c287-4943-927c-fcc4a785caf4","xStart":400,"xEnd":800,"yStart":12830,"yEnd":13030,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"03375065-f54a-4aa5-ae8b-dc4bbd164281","xStart":400,"xEnd":800,"yStart":13040,"yEnd":13240,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"47a27098-9879-40da-a2c3-47e2b3727b91","xStart":400,"xEnd":800,"yStart":13250,"yEnd":13600,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"@id":32767,"name":"Облицовочный кирпич","specificGravity":1.2,"price":0.0}
+,"patternName":"brick","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"b479e337-2f5a-46d8-9234-de2bcf32bbba","xStart":320,"xEnd":2200,"yStart":13680,"yEnd":13800,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":32767},"patternName":"brick","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"a3fc86b7-7e7c-46b2-8fe9-fb024557b14b","xStart":10680,"xEnd":10800,"yStart":8200,"yEnd":13800,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":32767},"patternName":"brick","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"0f95d92a-3c27-46a2-aab7-5a46edacb00c","xStart":200,"xEnd":320,"yStart":200,"yEnd":2300,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":32767},"patternName":"brick","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"cbba5b89-3553-4da0-8399-f7a30ddbca8c","xStart":200,"xEnd":320,"yStart":3300,"yEnd":6500,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":32767},"patternName":"brick","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"342b5ebb-2a61-4d05-9d57-c757d02594b8","xStart":10680,"xEnd":10800,"yStart":6100,"yEnd":6700,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":32767},"patternName":"brick","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"3f5bffb6-c48d-4827-9e0a-3e0e0306cba1","xStart":10680,"xEnd":10800,"yStart":3300,"yEnd":4600,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"286ab61c-102b-47ed-8aaa-c4db9c5852fa","xStart":5900,"xEnd":6300,"yStart":3370,"yEnd":3570,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"9b05f793-7dee-449c-8996-dcd0ed856888","xStart":5900,"xEnd":6300,"yStart":3580,"yEnd":3780,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"04724b3b-0bec-42fc-ab54-a98d354c0103","xStart":5900,"xEnd":6300,"yStart":3790,"yEnd":3990,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"499d64fb-9104-4b3c-a1d8-b39d044496c8","xStart":5900,"xEnd":6300,"yStart":4000,"yEnd":4200,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"ebb222e7-c3b3-4781-b70d-570cb7ecfc33","xStart":5900,"xEnd":6300,"yStart":4210,"yEnd":4410,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"39e7b338-fece-4145-bf6d-bd1254633d51","xStart":5900,"xEnd":6300,"yStart":4420,"yEnd":4620,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"0378f518-88aa-4dce-9252-f03880912c6e","xStart":5900,"xEnd":6300,"yStart":4630,"yEnd":4830,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"7e35a217-61ce-4ef7-a260-30307068bb4f","xStart":5900,"xEnd":6300,"yStart":4840,"yEnd":5000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"4a96ddc9-db29-4c82-906d-a19136b0f25d","xStart":5900,"xEnd":6300,"yStart":6500,"yEnd":6700,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"e553dbba-cb26-47bf-ac1b-b3123c5f216a","xStart":5900,"xEnd":6300,"yStart":6710,"yEnd":6910,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"6aad0305-6fc0-4aeb-af5c-a1f7c06ff291","xStart":5900,"xEnd":6300,"yStart":6920,"yEnd":7120,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"e5bcf92f-a7ed-49e4-8d0e-f7e41785c487","xStart":5900,"xEnd":6300,"yStart":7130,"yEnd":7330,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"5ef3f747-e10b-413a-aff1-3449763561d0","xStart":5900,"xEnd":6300,"yStart":7340,"yEnd":7540,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"1d5c0a37-05c4-4ccd-a5eb-2550fe43dc5c","xStart":5900,"xEnd":6300,"yStart":7550,"yEnd":7750,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"45c4b8e0-a96d-4ea4-9533-2ca48b459e93","xStart":5900,"xEnd":6300,"yStart":7760,"yEnd":7960,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"1e86bfc7-ba43-474e-a18a-d8521a3dc847","xStart":5900,"xEnd":6300,"yStart":7970,"yEnd":8170,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"f43f1f16-40e9-4113-96ec-23f23a022cd6","xStart":5900,"xEnd":6300,"yStart":8180,"yEnd":8380,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"deb9195e-fc46-4a24-b2d6-bc6986ef411a","xStart":5900,"xEnd":6300,"yStart":8390,"yEnd":8590,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"dcdf8e24-51fe-4c0d-b9a6-a8a1880b714c","xStart":5900,"xEnd":6300,"yStart":8600,"yEnd":8800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"64ea7cd7-42a4-44ad-bd4e-fe18d094fbfc","xStart":5900,"xEnd":6300,"yStart":8810,"yEnd":9010,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"27eb5725-61be-49b8-a000-f660a1db7469","xStart":5900,"xEnd":6300,"yStart":9800,"yEnd":10000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"1685760c-dfa1-4435-a08e-5ea0a4834220","xStart":5900,"xEnd":6300,"yStart":10010,"yEnd":10210,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"6b7e507a-188e-4c06-82e3-7600fa4840d2","xStart":5900,"xEnd":6300,"yStart":10220,"yEnd":10420,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"3560e9cb-4e2b-48ca-9b87-43da0a306213","xStart":5900,"xEnd":6300,"yStart":10430,"yEnd":10630,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"f59dd2c4-5704-4bbd-8489-0b1e8a544786","xStart":5900,"xEnd":6300,"yStart":10640,"yEnd":10840,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"f83f6908-dbf5-41e0-a934-8034200cccaf","xStart":5900,"xEnd":6300,"yStart":10850,"yEnd":11050,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"771d45a5-d06a-450d-bd8a-dca049316bd4","xStart":5900,"xEnd":6300,"yStart":11060,"yEnd":11260,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"d8d21764-3664-4d2c-8f06-ad55063dbcb1","xStart":5900,"xEnd":6300,"yStart":11270,"yEnd":11470,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"1d498e6f-f9a9-40b5-b78b-d0db848947ee","xStart":5900,"xEnd":6300,"yStart":11480,"yEnd":11680,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"3d2983b2-1491-4bb9-9408-16bf4af5a4b8","xStart":5900,"xEnd":6300,"yStart":11690,"yEnd":11890,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"a8f663c6-4769-40ee-aa64-b58273ddbdca","xStart":5900,"xEnd":6300,"yStart":11900,"yEnd":12100,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"c49879c2-a8e3-452d-ab1b-7b586dd8a8c4","xStart":5900,"xEnd":6300,"yStart":12110,"yEnd":12310,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"637e2d1e-93c5-4cfc-a575-125f0fedddee","xStart":5900,"xEnd":6300,"yStart":12320,"yEnd":12520,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"d5812f06-5a2a-47be-b54e-8715501bdc94","xStart":5900,"xEnd":6300,"yStart":12530,"yEnd":12730,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"1d1ff564-e961-4951-b631-183030dc5ce8","xStart":5900,"xEnd":6300,"yStart":12740,"yEnd":12940,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"1d673df8-ef80-4d54-91cd-f3361b5ae56c","xStart":5900,"xEnd":6300,"yStart":12950,"yEnd":13190,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"Облицовочный кирпич","specificGravity":1.2,"price":0.0}
+,"patternName":"brick","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"e657488d-10cc-432b-ab62-bf3f71f4420a","xStart":320,"xEnd":1500,"yStart":200,"yEnd":320,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"Облицовочный кирпич","specificGravity":1.2,"price":0.0}
+,"patternName":"brick","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"ba549574-16f7-462a-8e12-6c04cb1f0980","xStart":10680,"xEnd":10800,"yStart":200,"yEnd":2300,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"300e3369-8776-432f-b81a-d6660c4395d2","xStart":400,"xEnd":800,"yStart":1490,"yEnd":1690,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"fe89e3e9-dbfe-43cc-8f0a-f92d6bcbcc28","xStart":400,"xEnd":800,"yStart":1280,"yEnd":1480,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"c54c488e-2c24-4d95-a679-76666eea6332","xStart":400,"xEnd":800,"yStart":1070,"yEnd":1270,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"b7542061-5837-4e4f-b2c7-7aee7c4f320c","xStart":400,"xEnd":800,"yStart":860,"yEnd":1060,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"7e389401-ba1a-40cb-a681-024a210cd4bb","xStart":400,"xEnd":800,"yStart":650,"yEnd":850,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"a7bcb488-63d7-4f4f-8349-933ca72ef04f","xStart":400,"xEnd":800,"yStart":400,"yEnd":640,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"779e19cd-b02f-41ec-a604-2656d71ac7c5","xStart":5900,"xEnd":6300,"yStart":3160,"yEnd":3360,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"5c5c1e8a-7aea-41bc-8856-55cd614a9ba4","xStart":5900,"xEnd":6300,"yStart":2950,"yEnd":3150,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"93c24dcd-8257-4ae0-a2d4-6e02c12c9aa2","xStart":5900,"xEnd":6300,"yStart":2740,"yEnd":2940,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"10f92791-197f-4132-8cf7-efe219d3e601","xStart":5900,"xEnd":6300,"yStart":2530,"yEnd":2730,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"b40f058f-557b-44c6-bdd3-7d3fa85f672e","xStart":5900,"xEnd":6300,"yStart":2320,"yEnd":2520,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"6a6c775d-f394-4ac5-ad8f-3eaea82d87fe","xStart":5900,"xEnd":6300,"yStart":2110,"yEnd":2310,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"43f4b419-13f2-42b0-bfa2-76946770e00d","xStart":5900,"xEnd":6300,"yStart":1900,"yEnd":2100,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"5eec0a7a-9426-4979-aac9-9506ea80b6f7","xStart":5900,"xEnd":6300,"yStart":1690,"yEnd":1890,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"9e778226-2dae-47d8-97b1-f890abcf3e71","xStart":5900,"xEnd":6300,"yStart":1480,"yEnd":1680,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"af37a58b-9530-4db7-931a-c0d72da8795d","xStart":5900,"xEnd":6300,"yStart":1270,"yEnd":1470,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"2a97ffcc-72a8-4672-bee8-1b423874d2ee","xStart":5900,"xEnd":6300,"yStart":1060,"yEnd":1260,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"dd2a47e6-ad52-43ca-b25d-66e944d67e00","xStart":5900,"xEnd":6300,"yStart":850,"yEnd":1050,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"535a44c6-7875-41ce-a03e-2862a5024dd0","xStart":4810,"xEnd":5010,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"9bb9fded-336d-4318-8540-32d349dccf67","xStart":5020,"xEnd":5220,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"18c2bee1-64ae-458c-8ead-7cb4cecddc42","xStart":5230,"xEnd":5430,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"7d716f27-c98b-4eae-8640-12582772bcad","xStart":5440,"xEnd":5640,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"b1876cce-71ba-4225-af23-eaa3bb31e5b3","xStart":5650,"xEnd":5850,"yStart":400,"yEnd":800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"99bf6b26-a1c4-4a8f-8431-db9bb2189d4d","xStart":-20,"xEnd":180,"yStart":1600,"yEnd":1800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"b1025df4-9b11-4a96-bf3a-879776047b0f","xStart":-20,"xEnd":180,"yStart":3800,"yEnd":4000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"9e3dc293-d1ee-4434-a1b6-253e7e5dcc42","xStart":-230,"xEnd":-30,"yStart":1600,"yEnd":1800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"0e0ac4f4-a9a2-4fab-b351-e4911ea9f872","xStart":-230,"xEnd":-30,"yStart":3800,"yEnd":4000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"687b4441-4993-4906-a8bc-a89842825ba6","xStart":-440,"xEnd":-240,"yStart":1600,"yEnd":1800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"d29dcabd-8a25-4409-a765-3ec4e14f7e39","xStart":-440,"xEnd":-240,"yStart":3800,"yEnd":4000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"484b04c5-0d6f-4f9c-a457-9aad520f9d76","xStart":-650,"xEnd":-450,"yStart":1600,"yEnd":1800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"427bdf2b-992e-4b62-92f4-c7b81997d7ab","xStart":-650,"xEnd":-450,"yStart":3800,"yEnd":4000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"bfe5d3a5-e4e1-4282-a5db-643afc794c51","xStart":-650,"xEnd":-450,"yStart":1810,"yEnd":2000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"1b490cce-0fbd-4872-bb01-06884af9edfe","xStart":-650,"xEnd":-450,"yStart":3600,"yEnd":3790,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"0bc68da8-2bae-4aa0-b541-8cacc965e597","xStart":10200,"xEnd":10600,"yStart":1900,"yEnd":2100,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"fda023ad-c68d-476d-b90e-05ab4d70a544","xStart":10200,"xEnd":10600,"yStart":1690,"yEnd":1890,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"e7571579-07fc-42cb-8eac-47cc29cdc40b","xStart":10200,"xEnd":10600,"yStart":1480,"yEnd":1680,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"71548d69-afa5-4611-8076-ea71912b712d","xStart":10200,"xEnd":10600,"yStart":1270,"yEnd":1470,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"76b2de0a-5c1f-43fe-a586-498009c92f7d","xStart":10200,"xEnd":10600,"yStart":1060,"yEnd":1260,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"db65a13b-fcd6-4980-8407-ad91f22170ba","xStart":10200,"xEnd":10600,"yStart":850,"yEnd":1050,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"d293aeb8-055a-4054-823e-a910cb9a2fea","xStart":10820,"xEnd":11020,"yStart":3800,"yEnd":4000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"ccfd6ed0-2144-4402-9318-19a76164154b","xStart":10820,"xEnd":11020,"yStart":1600,"yEnd":1800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"a6d5d62d-c526-48af-88a0-c04d5e477636","xStart":11030,"xEnd":11230,"yStart":1600,"yEnd":1800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"94d74bba-fe9c-45ab-abd7-a784c206b8dd","xStart":11030,"xEnd":11230,"yStart":3800,"yEnd":4000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"008b750c-916e-43a3-986d-44a3b6fda910","xStart":11240,"xEnd":11440,"yStart":1600,"yEnd":1800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"6ec3f918-b742-439a-9990-5dd2f135115f","xStart":11240,"xEnd":11440,"yStart":3800,"yEnd":4000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"1fd17a45-2f3c-4642-8de5-6b3ff95cabd3","xStart":11450,"xEnd":11650,"yStart":1600,"yEnd":1800,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"ccc135e3-60a3-444c-92fc-da16a7024f67","xStart":11450,"xEnd":11650,"yStart":3800,"yEnd":4000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"fafc2d5a-eb1f-4935-a58f-cef021c38720","xStart":11450,"xEnd":11650,"yStart":1810,"yEnd":2000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"b36d996b-872a-4a3a-ac1a-a44d4800c302","xStart":11450,"xEnd":11650,"yStart":3600,"yEnd":3791,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"Unknown","specificGravity":1.0,"price":0.0}
+,"patternName":"background","alwaysShowBorders":false,"skipInReports":true,"plan":{"@ref":30035},"id":"e948463c-6373-499b-a829-bdcb81c4a13f","xStart":6300,"xEnd":7000,"yStart":10500,"yEnd":10800,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"@id":31590,"name":"YTONG D400 625x200x250 (ДШВ)","specificGravity":0.4,"price":0.0}
+,"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"f1605305-c22d-4411-a588-ee2bb32bd3af","xStart":4400,"xEnd":4926,"yStart":9900,"yEnd":10000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":31590},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"33223131-9335-410b-989c-a9d2b25c53cc","xStart":4928,"xEnd":5553,"yStart":9900,"yEnd":10000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":31590},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"b4264190-694e-43ac-bf45-6410d1a74746","xStart":5555,"xEnd":5900,"yStart":9900,"yEnd":10000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"@id":31527,"name":"YTONG D400 625x200x250 (ДШВ)","specificGravity":0.4,"price":0.0}
+,"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"cf9bcdde-109d-4e1e-946e-0d5405f0ebc4","xStart":802,"xEnd":1427,"yStart":8800,"yEnd":9000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":31527},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"b0e09565-84e4-4d62-a68f-2c2028765d5e","xStart":1429,"xEnd":2054,"yStart":8800,"yEnd":9000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":31527},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"35a410b7-5f54-43ae-a205-b4f95d585bd7","xStart":2056,"xEnd":2681,"yStart":8800,"yEnd":9000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":31527},"patternName":"background","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"9d08adc4-18d4-40ed-889b-bee40f5e5fa0","xStart":2683,"xEnd":3308,"yStart":8800,"yEnd":9000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":31527},"patternName":"background","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"5fde7552-24cb-4771-8707-6eb57045ddfe","xStart":3310,"xEnd":3935,"yStart":8800,"yEnd":9000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{"@ref":31527},"patternName":"sand","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"6302b04e-af8f-45af-bc35-b1b019d7f7a5","xStart":3937,"xEnd":4500,"yStart":8800,"yEnd":9000,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"bb0fadc3-6bf2-4b0c-acde-4fadc30b4346","xStart":400,"xEnd":800,"yStart":3300,"yEnd":3370,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"bc0ad523-830b-4b15-83c3-a789070125d7","xStart":600,"xEnd":650,"yStart":11020,"yEnd":11220,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"01b75e8f-8081-4dd2-9357-4b15d42c5b56","xStart":1520,"xEnd":1720,"yStart":600,"yEnd":650,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":true,"skipInReports":false,"plan":{"@ref":30035},"id":"a43d4f6b-4751-44b3-841b-6dbcfa5f62fb","xStart":3480,"xEnd":3680,"yStart":13400,"yEnd":13450,"zStart":830,"zEnd":1030}
+,{
+"@id":31447,"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"Кирпич M125","specificGravity":1.74,"price":5000.0}
+,"patternName":"brick","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"f1a08128-89ae-4fa0-9b61-a2b5e9555bdc","xStart":6300,"xEnd":7830,"yStart":10800,"yEnd":10930,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"Unknown","specificGravity":1.0,"price":0.0}
+,"patternName":"hatchUp","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"b99ea03b-8522-48ff-91e0-67ee19e70266","xStart":7500,"xEnd":9000,"yStart":2100,"yEnd":2200,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"9be3924f-1913-4253-8391-021c89ddfdbc","xStart":10200,"xEnd":10600,"yStart":3370,"yEnd":3570,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"КББ стеновой","specificGravity":1.05,"price":0.0}
+,"patternName":"dottedVertical","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"eeb6e807-de3b-46d3-928a-5385e9875005","xStart":10200,"xEnd":10600,"yStart":3300,"yEnd":3360,"zStart":830,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"Облицовочный кирпич","specificGravity":1.2,"price":0.0}
+,"patternName":"brick","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"b779ddab-964b-4c13-b5e4-e9883abf96fb","xStart":3000,"xEnd":10680,"yStart":200,"yEnd":320,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"Облицовочный кирпич","specificGravity":1.2,"price":0.0}
+,"patternName":"brick","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"6c469813-89ec-419e-84f8-bd066034420d","xStart":3700,"xEnd":10680,"yStart":13680,"yEnd":13800,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"Облицовочный кирпич","specificGravity":1.2,"price":0.0}
+,"patternName":"brick","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"7f83e564-7619-4d86-8f2d-8e3be025a7d8","xStart":200,"xEnd":320,"yStart":8000,"yEnd":11000,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"Облицовочный кирпич","specificGravity":1.2,"price":0.0}
+,"patternName":"brick","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"ac6b6749-029f-4d8d-ac21-822a9c0e1f95","xStart":200,"xEnd":320,"yStart":12500,"yEnd":13800,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Wall","material":{
+"name":"Unknown","specificGravity":1.0,"price":0.0}
+,"patternName":"background","alwaysShowBorders":false,"skipInReports":false,"plan":{"@ref":30035},"id":"34bbf29b-4218-4443-a027-bc8ef7703f9e","xStart":10000,"xEnd":10200,"yStart":10500,"yEnd":10800,"zStart":-50000,"zEnd":50000}
+],"dimensionLines":[{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{
+"@id":7799,"name":"DIMENSION","ordinal":1}
+,"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"bfbe287b-00e7-47bb-b0e1-1fd657b09834","xStart":800,"xEnd":5900,"yStart":1600,"yEnd":1600,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"adc74051-c64f-4752-a52e-b3c3e725e2a7","xStart":3600,"xEnd":3600,"yStart":800,"yEnd":3500,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"63025256-539c-46af-ad0b-94e200a7ad80","xStart":800,"xEnd":3900,"yStart":4000,"yEnd":4000,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"b99b9c02-2673-452d-b8cc-cd14ccdaa9e6","xStart":6100,"xEnd":6100,"yStart":4994,"yEnd":6494,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"50484cc2-4e2e-458c-9996-64ee557c190a","xStart":6300,"xEnd":10200,"yStart":4000,"yEnd":4000,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"dc878183-bfa5-4365-b1dc-afcff113669c","xStart":9300,"xEnd":9300,"yStart":3704,"yEnd":8804,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"d4cb56cc-100a-4f4f-8735-ad1028f6b087","xStart":6162,"xEnd":6158,"yStart":9000,"yEnd":9800,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"711fc68c-adb5-4d85-a804-13380fe4631a","xStart":1100,"xEnd":1100,"yStart":9000,"yEnd":13200,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"0e8de2bd-60bc-4fae-87a1-fd202d968e58","xStart":800,"xEnd":4500,"yStart":9200,"yEnd":9200,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"0a069ff7-1c30-4e70-bbfb-47c536870149","xStart":5550,"xEnd":5550,"yStart":10000,"yEnd":13200,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"eb917b62-8b1c-4567-a274-26baa8f87a61","xStart":3900,"xEnd":5900,"yStart":3600,"yEnd":3600,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"bfa02a31-75f5-4630-a7f4-f7dd083591be","xStart":1100,"xEnd":1100,"yStart":3700,"yEnd":8800,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":950,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"6af5b021-5bdf-4874-96aa-720656216ad9","xStart":0,"xEnd":0,"yStart":700,"yEnd":4900,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"2b301489-4850-43e3-85f7-226bc7a68839","xStart":576,"xEnd":576,"yStart":2300,"yEnd":3300,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":153,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"62da8118-3dcc-4d85-9d8c-b0aaf868d561","xStart":-650,"xEnd":-650,"yStart":1600,"yEnd":4000,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"f89ef743-1b0c-43e3-9e37-b791d6bd4223","xStart":10395,"xEnd":10395,"yStart":2300,"yEnd":3300,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"8be319ea-a92c-4a7f-82e3-645402fe487e","xStart":6300,"xEnd":8100,"yStart":3600,"yEnd":3600,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"e5b74611-a58f-41d6-8dc9-2f6471bcacac","xStart":4407,"xEnd":4407,"yStart":9000,"yEnd":9900,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"e7b594d9-4bd4-434a-8b3e-4a08c5a39c59","xStart":11547,"xEnd":11553,"yStart":2000,"yEnd":3600,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"4fdbbf21-1a19-4499-a670-6addd4fd7eca","xStart":-587,"xEnd":-587,"yStart":2000,"yEnd":3600,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"549570df-558b-40b7-91f7-cb9ffc645e23","xStart":4408,"xEnd":5908,"yStart":10144,"yEnd":10144,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":0,"startPointShapeType":{
+"@id":7803,"name":"NONE","ordinal":0}
+,"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"24b11cc1-292b-40b1-adab-0b261c94e3a4","xStart":9000,"xEnd":10205,"yStart":2000,"yEnd":1604,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":0,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"c2615630-1ac3-43ed-8306-f61daada59ab","xStart":9000,"xEnd":10188,"yStart":2000,"yEnd":1188,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":0,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"7f0ffc87-86bf-4147-9283-57a8b7071051","xStart":9000,"xEnd":10024,"yStart":2000,"yEnd":800,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":0,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"5b488472-c066-47d9-9294-82e932712c1b","xStart":9000,"xEnd":9525,"yStart":2000,"yEnd":800,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":" ","offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"6d7736a9-5a2e-489a-9c4f-6e782cc18671","xStart":9000,"xEnd":9000,"yStart":800,"yEnd":2000,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"fb496d14-4b5b-4b98-84e1-c4795279210d","xStart":6300,"xEnd":7500,"yStart":2000,"yEnd":2000,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":0,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"0207d8f2-e3aa-4af2-bf75-dde9d94d46c5","xStart":7500,"xEnd":6300,"yStart":2000,"yEnd":1612,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":0,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"e10cd644-536c-4f11-8381-6471c27034e2","xStart":7500,"xEnd":6300,"yStart":2000,"yEnd":1200,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":0,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"de96cf65-6d61-45ee-9655-a6a02b8a6a29","xStart":7532,"xEnd":6491,"yStart":2000,"yEnd":800,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":0,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"ed08838e-9980-4a2f-945a-17ce5efc0340","xStart":7524,"xEnd":7024,"yStart":2000,"yEnd":800,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":" ","offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"2f5732ed-5fe0-4bda-87cd-967d8868a28f","xStart":7500,"xEnd":7500,"yStart":800,"yEnd":2000,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":" ","offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"4d9b1ff3-fdf4-4f3d-86f5-72e800cdc1fc","xStart":9000,"xEnd":10200,"yStart":2008,"yEnd":2008,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"0f3ad135-bcde-4750-808d-b498bdfe5411","xStart":8843,"xEnd":8851,"yStart":2200,"yEnd":3500,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":0,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"afdb52f0-e2ca-4cfc-ad66-415801435d55","xStart":7800,"xEnd":7800,"yStart":800,"yEnd":2000,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":0,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"0c9cab2a-00f8-42f4-adc6-a1954a48424b","xStart":8100,"xEnd":8100,"yStart":800,"yEnd":2000,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":0,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"ef135859-3961-4bd9-b935-c40b9ef7884b","xStart":8400,"xEnd":8400,"yStart":800,"yEnd":2000,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":0,"startPointShapeType":{"@ref":7803},"endPointShapeType":{"@ref":7803},"plan":{"@ref":30035},"id":"953905ba-cb68-4c0e-b7fc-e9dc3bbf3103","xStart":8700,"xEnd":8700,"yStart":800,"yEnd":2000,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"90659e0d-578b-4253-b007-c2778b18a4a7","xStart":6300,"xEnd":7800,"yStart":10000,"yEnd":10000,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"6ed71f6c-e6d2-4025-8d8e-89d8b0dda962","xStart":9300,"xEnd":9300,"yStart":9000,"yEnd":13200,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"6e5dd998-030a-41cd-94fb-b362bc575560","xStart":7623,"xEnd":7614,"yStart":9795,"yEnd":10795,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.DimensionLine","text":null,"offset":0,"fontFamily":"SansSerif","fontSize":100,"startPointShapeType":{"@ref":7799},"endPointShapeType":{"@ref":7799},"plan":{"@ref":30035},"id":"2a61cee6-afbb-4470-8d21-158d9474a8e8","xStart":8100,"xEnd":10200,"yStart":3850,"yEnd":3850,"zStart":-50000,"zEnd":50000}
+],"labels":[{
+"@type":"com.tsoft.myprocad.model.Label","text":"Lobby\nS=15 m2","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"dab9b9f4-3f1a-48d3-90a2-6853c892ab62","xStart":2158,"xEnd":3451,"yStart":2167,"yEnd":2712,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"Bedroom\nS=15 m2","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"1f53926b-a98a-4551-ba42-d896ccea73c8","xStart":2769,"xEnd":3969,"yStart":10805,"yEnd":11258,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"Kitchen\nS=20 m2","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"d935dca0-d37d-4c3f-9c93-a5361b8d8613","xStart":7746,"xEnd":8946,"yStart":5746,"yEnd":6199,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"Room 1\nS=22 m2","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"bf2a4a5e-d9b6-4965-b482-5b05d0951edf","xStart":2799,"xEnd":3999,"yStart":5715,"yEnd":6168,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"Room 2\nS=17 m2","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"6088e651-b430-493e-91dd-7df955a72bdc","xStart":7822,"xEnd":9329,"yStart":11339,"yEnd":11798,"zStart":865,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"First Floor","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"e9fd5bef-2c42-4851-b350-df03d2048745","xStart":1194,"xEnd":2250,"yStart":1181,"yEnd":1467,"zStart":860,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"Enter","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"394b1658-8d5a-4ded-8e1f-dab54e9131a9","xStart":-406,"xEnd":281,"yStart":2610,"yEnd":2880,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"Lobby\nS=4 m2","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"093a3712-3ae3-43d4-87b5-03feb2592ec9","xStart":6960,"xEnd":8160,"yStart":2405,"yEnd":2858,"zStart":820,"zEnd":1030}
+,{
+"@id":30566,"@type":"com.tsoft.myprocad.model.Label","text":"Enter","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"39f54bf7-9da4-45a6-8c99-8a7a7552286d","xStart":10897,"xEnd":11497,"yStart":2630,"yEnd":2873,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+20","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"6b96dc0e-0a69-4178-94c8-648d2fd5cd56","xStart":6373,"xEnd":6756,"yStart":1743,"yEnd":1976,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+40","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"9b72fcf0-65af-48a9-8d99-506429c872fc","xStart":6414,"xEnd":6806,"yStart":1451,"yEnd":1693,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+60","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"1dc139f3-26b2-4a7e-abe7-7bfc3241aadd","xStart":6463,"xEnd":6846,"yStart":1190,"yEnd":1432,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+80","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"94fd57f9-b10e-4c9e-bb99-76a2cb702412","xStart":6756,"xEnd":7148,"yStart":933,"yEnd":1158,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+100","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"00f17a9c-c74b-4629-89b6-0793d6e72de1","xStart":7114,"xEnd":7631,"yStart":1214,"yEnd":1439,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+120","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"978ff28b-1afd-41e3-8c4c-009cdf362e95","xStart":7433,"xEnd":7925,"yStart":951,"yEnd":1168,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+140","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"165f20a0-0fc5-4292-878f-5478b98ec6df","xStart":7698,"xEnd":8231,"yStart":1226,"yEnd":1476,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+160","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"65fe155b-516a-4438-b37b-ed88027698f6","xStart":8023,"xEnd":8548,"yStart":960,"yEnd":1193,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+180","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"d54d857b-0a90-4f8d-bce5-804caaf1309c","xStart":8306,"xEnd":8831,"yStart":1235,"yEnd":1460,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+200","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"05206cfa-a1a6-4ff6-aceb-cc1356bf9d67","xStart":8631,"xEnd":9139,"yStart":959,"yEnd":1209,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+240","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"89e45c55-5eac-4f4d-b0b7-132240dc1cc0","xStart":8891,"xEnd":9391,"yStart":1252,"yEnd":1485,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+260","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"51b59b88-5e88-4d2f-82a7-0926226e7e87","xStart":9313,"xEnd":9846,"yStart":967,"yEnd":1200,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+280","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"4f1b6a6c-c5d1-4815-830d-e986ee32fdbf","xStart":9550,"xEnd":10083,"yStart":1251,"yEnd":1459,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+300","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"9179e1f2-981a-4401-af66-875c2868aff5","xStart":9665,"xEnd":10165,"yStart":1487,"yEnd":1689,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.Label","text":"+320","fontFamily":"SansSerif","fontSize":200,"rotated":false,"drawBorders":false,"plan":{"@ref":30035},"id":"8053305c-4159-4d08-b7e6-07a9cd2d0db3","xStart":9690,"xEnd":10232,"yStart":1768,"yEnd":1993,"zStart":-50000,"zEnd":50000}
+],"levelMarks":[{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +1600","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"67ba2c86-546a-4a7e-a242-c5b1c0ca6062","xStart":-270,"xEnd":180,"yStart":1400,"yEnd":1600,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +3900","fontFamily":"SansSerif","fontSize":100,"rotated":true,"plan":{"@ref":30035},"id":"c5a3ffcb-8272-4fbc-abe7-fd176ce56687","xStart":3601,"xEnd":4051,"yStart":3108,"yEnd":3308,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +5000","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"eeb306ef-f380-4bcf-b6e0-2f8dcd4aab98","xStart":5493,"xEnd":5943,"yStart":4796,"yEnd":4996,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +6500","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"1d06f985-1e4e-4b5a-9c7f-7fed083ff87e","xStart":-286,"xEnd":164,"yStart":6298,"yEnd":6498,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +8000","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"cbb9e2ac-be75-4140-b68f-c591d7b3841a","xStart":-290,"xEnd":160,"yStart":7797,"yEnd":7997,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +11000","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"5cf7f6de-3b95-4323-82f3-7495c6e935cf","xStart":-290,"xEnd":160,"yStart":10803,"yEnd":11003,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +12500","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"af0de783-dad3-4b24-9c25-f1b11621c008","xStart":-300,"xEnd":150,"yStart":12299,"yEnd":12499,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +2200","fontFamily":"SansSerif","fontSize":100,"rotated":true,"plan":{"@ref":30035},"id":"40a1bead-ae87-48ff-b94e-a4d7e21740ea","xStart":1899,"xEnd":2349,"yStart":12897,"yEnd":13097,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +3700","fontFamily":"SansSerif","fontSize":100,"rotated":true,"plan":{"@ref":30035},"id":"faeb8ab2-36de-49a1-add6-c12cfa84226c","xStart":3399,"xEnd":3849,"yStart":12871,"yEnd":13071,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +8200","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"52478b45-a14c-4738-a7be-62d6fdabc931","xStart":9774,"xEnd":10224,"yStart":8003,"yEnd":8203,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +6700","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"61c60c59-9cbe-4018-aa4b-c5ff74eb7cab","xStart":9764,"xEnd":10214,"yStart":6503,"yEnd":6703,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +6100","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"15a520f9-ecce-43d7-8a45-1763c2b213db","xStart":9750,"xEnd":10200,"yStart":5903,"yEnd":6103,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +4600","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"ad1a1dbb-de14-4604-951f-2442a67c259f","xStart":9750,"xEnd":10200,"yStart":4400,"yEnd":4600,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +8100","fontFamily":"SansSerif","fontSize":100,"rotated":true,"plan":{"@ref":30035},"id":"c984f667-297d-4e8c-bfa2-5486646ba04b","xStart":7798,"xEnd":8248,"yStart":3127,"yEnd":3327,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +2300","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"61f7d093-3db4-429f-bdc7-27a5837fd7ba","xStart":800,"xEnd":1250,"yStart":2100,"yEnd":2300,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +3600","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"ece439d1-9676-47d8-bdbc-e3623c679e93","xStart":1399,"xEnd":1849,"yStart":3398,"yEnd":3598,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +700","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"ef2f5e2f-55a7-4496-9faa-fd4d949648c6","xStart":-282,"xEnd":168,"yStart":499,"yEnd":699,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +4900","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"7b232901-e52c-4f61-9ef7-21a16a674fc6","xStart":-270,"xEnd":180,"yStart":4698,"yEnd":4898,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +1500","fontFamily":"SansSerif","fontSize":100,"rotated":true,"plan":{"@ref":30035},"id":"c724a087-bdd8-488c-b02c-a16ebecbcf2d","xStart":1197,"xEnd":1647,"yStart":815,"yEnd":1015,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +3000","fontFamily":"SansSerif","fontSize":100,"rotated":true,"plan":{"@ref":30035},"id":"2eb9df8f-2ade-4772-9213-0fd865d1f0f9","xStart":2704,"xEnd":3154,"yStart":866,"yEnd":1066,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +3500","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"656f2f7e-e975-421c-aef9-16887ccc6a91","xStart":9337,"xEnd":9787,"yStart":3302,"yEnd":3502,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +8800","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"a3940935-7871-4d76-927d-c5eee72df79d","xStart":4074,"xEnd":4524,"yStart":8601,"yEnd":8801,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +10500","fontFamily":"SansSerif","fontSize":100,"rotated":false,"plan":{"@ref":30035},"id":"7a18da50-e70d-4aff-a1b9-c4473307b599","xStart":6932,"xEnd":7382,"yStart":10302,"yEnd":10502,"zStart":820,"zEnd":1030}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +7300","fontFamily":"SansSerif","fontSize":100,"rotated":true,"plan":{"@ref":30035},"id":"3206a4a4-7e50-4388-802c-2d6229677459","xStart":7000,"xEnd":7450,"yStart":8450,"yEnd":8650,"zStart":-50000,"zEnd":50000}
+,{
+"@type":"com.tsoft.myprocad.model.LevelMark","text":" +2800","fontFamily":"SansSerif","fontSize":100,"rotated":true,"plan":{"@ref":30035},"id":"3cd3137b-ab79-4a59-b770-928b48000d9c","xStart":2500,"xEnd":2950,"yStart":8406,"yEnd":8606,"zStart":-50000,"zEnd":50000}
+],"levels":{
+"list":[{
+"@id":30037,"@type":"com.tsoft.myprocad.model.Level","name":"Custom","start":-50000,"end":50000}
+]}
+,"level":{"@ref":30037},"pasteOffsetX":0,"pasteOffsetY":0,"pasteOffsetZ":0,"pasteOperation":{
+"@id":4583,"@type":"com.tsoft.myprocad.viewcontroller.PasteOperation$1","name":"MOVE_TO","ordinal":0}
+,"pageSetup":{
+"paperOrientation":{
+"@id":4538,"@type":"com.tsoft.myprocad.model.PaperOrientation$1","name":"PORTRAIT","ordinal":0}
+,"paperSize":{
+"@id":4494,"@type":"com.tsoft.myprocad.util.printer.PaperSize$1","width":2100,"height":2970,"name":"A4","ordinal":0}
+,"paperWidth":2100.0,"paperHeight":2970.0,"paperTopMargin":10.0,"paperLeftMargin":15.0,"paperBottomMargin":10.0,"paperRightMargin":10.0,"rulersPrinted":true,"gridPrinted":true,"printScale":{
+"@id":4277,"@type":"com.tsoft.myprocad.model.PageSetup$PrintScale$1","value":null,"name":"ONE_PAGE","ordinal":0}
+}
+}
+]}
+]}
+}

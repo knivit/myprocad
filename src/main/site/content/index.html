@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Pro CAD</title>
+
+  <script language="JavaScript">
+    var language = window.navigator.userLanguage || window.navigator.language;
+    var loc = 'en/index.html';
+    if (typeof language != 'undefined') {
+        if (language.indexOf('ru') > -1) loc = 'ru/index.html';
+    }
+
+    window.location.href = loc;
+  </script>
+</head>
+<body>
+</body>
+</html>

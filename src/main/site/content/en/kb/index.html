@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Knowledge Base</title>
+    <link rel="icon" type="image/ico" href="../../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../styles.css" />
+    <style>
+        P { text-align: justify; }
+    </style>
+</head>
+<body>
+<div class="topbar headroom headroom--top headroom--pinned">
+    <div class="fill">
+        <div class="container">
+            <a class="brand" href="/">MyProCAD</a>
+            <ul class="nav">
+                <li class="active"><a href="#faq">FAQ</a></li>
+            </ul>
+
+            <div style="text-align: right">
+                <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                    <option value="">Add-ons</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+        <section id="faq">
+            <div class="page-header"><h1>Frequently Asked Questions</h1></div>
+            <div class="row">
+                <div class="offset1">
+                    <h2>1. What is the program for ?</h2>
+                    <p>
+                        The program helps you easily draw house's plan using only a few graphical elements.
+                        If you wish, you can create a material's library, assign the materials to the elements and the
+                        program will calculate the needed amounts (in units and in cubic meters) and a price (if defined).
+                        Results can be stored in a file, printed or saved as PDF-file.
+                    </p>
+                    <h2>2. How to install it ?</h2>
+                    <p>
+                        Download its jar-file from our site <a href="../docs/download.html">MyProCAD</a> and save it somewhere
+                        on your PC (on a desktop, for example).
+                    </p>
+                    <h2>3. How to remove it ?</h2>
+                    <p>
+                        Remove the downloaded jar-file.
+                    </p>
+                    <h2>4. Is it a virus ?</h2>
+                    <p>
+                        No. The program doesn't change Browser's settings, doesn't use a network, doesn't listen ports,
+                        doesn't spies for the keyboard, doesn't take screen shots. At any moment you can verify it by
+                        installing it into a virtual PC, sending it to a online virus-scanner etc. Its compiled jar-file
+                        isn't obfuscated and can be easily disassembled.
+                    </p>
+                    <h2>5. Can it damage anything on my PC ?</h2>
+                    <p>
+                        No. Below a full list of actions the program takes:<br>
+                        a) Creates .MyProCAD folder in user's home directory to keep its settings there (1-2 KB);<br>
+                        b) When saving a project, you do name a file to be saved;<br>
+                        c) When opening a project, you to select a file to be opened.<br>
+                        There are no actions with Windows registry, no shortcuts creation, it doesn't have an installer.
+                    </p>
+                    <h2>6. I have ideas how to improve it, what to do ?</h2>
+                    <p>
+                        Send an e-mail to <a href="mailto:support@myprocad.com?subject=MyProCAD">support@myprocad.com</a><br>
+                    </p>
+                    <h2>7. Why the program is absolutely FREE ?</h2>
+                    <p>
+                        It is absolutely FREE, because:<br>
+                        a) We think that the more free software, the better;<br>
+                        b) The program was developed using free software - Kubuntu, Subversion, Java, Maven, Intellij Idea;<br>
+                        c) There are about 30% of code from another free project <a href="http://www.sweethome3d.com">Sweet Home 3D</a> in it.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<footer>
+    <p id="copyright" align="center">&copy; 2013&ndash;2014 <a href="http://myprocad.com">MyProCAD</a>.</p>
+</footer>
+</body>
+</html>

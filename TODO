@@ -1,0 +1,11 @@
+BUGS
+  Refs always regenerate, so every commit is huge
+  After plan's reordering the project must be marked as changed
+  Logs, console in Cygwin
+
+FEATURES
+  Add Material's unit of measurement (m, m2, m3) and generate reports accordingly
+  Add selection mode "Labels", "Walls", "Dimensions" etc
+  Inverted rulers
+  Colors (walls - fg/bg; dimensions - line/font gf/bg)
+  Calculate wall's area (m2) and length (i.e. summarize walls length)

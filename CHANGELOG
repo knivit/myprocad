@@ -1,0 +1,32 @@
+- Added java script;
+- Added types of Wall (digonal, circle etc);
+- Added colors;
+- Implemented calculations for Wood Beams;
+- Implemented calculations for Beams;
+- Added menu "Calculations";
+- Labels and Level Marks may be rotated on 90,180 and 270 degrees;
+- Added Status Panel;
+- Project's file size is reduced by removing Item's ID;
+- Folder can be renamed;
+- Material's property "specificGravity" was renamed to "density";
+  (You need to open your projects in Notepad and find & replace old property name to the new one)
+- Property Panel is simplified (Item's properties merged with Selection's properties);
+- Two menus added: "Selection: Rotate Clockwise" and "Selection: Split in two";
+
+05-Sep-2014 MyProCAD 1.0 Released, Now Supports All Desktop Platforms
+- This site is made;
+- Dialogs to work with folders, plans and notes are unified;
+- A possibility to add several notes to a project is added;
+- Implemented an algorithm to calculate a total outer length for the selected walls;
+- Made a localization to Russian;
+- Fixed some small bugs.
+
+19-May-2014 Support Java 8 added
+- The program is rewritten to use latest Java 8 features including Streams, Lambdas and Function's References;
+- Print to PDF;
+- Added level marks.
+
+22-Sep-2013 Version 0.1 Initial release
+- Added the Property Editor;
+- Removed dependencies to closed libraries;
+- Grid and Rules now can be printed.

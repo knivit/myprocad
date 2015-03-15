@@ -1,0 +1,30 @@
+package com.tsoft.myprocad.swing.menu;
+
+import javax.swing.*;
+
+public class BeamPanelMenu {
+    // static class
+    private BeamPanelMenu() { }
+
+    public static void createMenus() {
+        updateMenuBar();
+        updateToolBar();
+    }
+
+    public static void setVisible(boolean isVisible) {
+        Menu.BEAM_MENU.setVisible(isVisible);
+    }
+
+    private static void updateMenuBar() {
+        // Beam menu
+        JMenu menu = Menu.BEAM_MENU.addToMenuBar();
+        menu.add(Menu.ADD_BEAM.getMenuItem());
+        menu.add(Menu.DELETE_BEAM.getMenuItem());
+        menu.addSeparator();
+        menu.add(Menu.BEAM_PRINT_TO_PDF.getMenuItem());
+        menu.add(Menu.BEAM_PRINT_PREVIEW.getMenuItem());
+        menu.add(Menu.BEAM_PRINT.getMenuItem());
+    }
+
+    private static void updateToolBar() { }
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Documentation</title>
+    <link rel="icon" type="image/ico" href="../../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../styles.css" />
+    <style>
+        P { text-align: justify; }
+    </style>
+</head>
+<body>
+<div class="topbar headroom headroom--top headroom--pinned">
+    <div class="fill">
+        <div class="container">
+            <a class="brand" href="/">MyProCAD</a>
+            <ul class="nav">
+                <li class="active"><a href="#installation">Installation</a></li>
+                <li><a href="#project">First Project</a></li>
+                <li><a href="#conclusion">What's next ?</a></li>
+            </ul>
+
+            <div style="text-align: right">
+                <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                    <option value="">Add-ons</option>
+                    <option value="MyProCAD-Manual.pdf">Get this as PDF</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+        <section id="installation">
+            <div class="page-header"><h1>Installation</h1></div>
+            <div class="row">
+                <div class="offset1">
+                    <p>
+                        The program needs Java 8 to be installed on your PC. Get Java 8 from
+                        <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle's site</a> or from
+                        <a href="download.html">our site</a>. There is a chance that Java 8 is already installed.
+                        <a href="../../download/myprocad-1.0.jar">Download MyProCAD</a> to your PC and double click on it in
+                        Windows Explorer. In case Windows asks what to do with the downloaded file, install Java 8.<br>
+                        To remove the program delete the downloaded jar-file. The program works without Internet access, it doesn't
+                        need the LAN at all. To keep its settings the program creates .MyProCAD folder inside user's home directory.
+                        This folder is small (about 1-2 KB) and it can be deleted at any time to reset program's settings.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="project">
+            <div class="page-header"><h1>First Project</h1></div>
+            <div class="row">
+                <div class="offset1">
+                    <p>
+                        The program works with projects stored in a file. At the same time a running program can work with several
+                        projects. Or, you can start several programs and work with one or several projects in them. The point is,
+                        you work as you like.<br>
+                        The clipboard (i.e. if you have selected elements on a plan and copied them) have plain text format.
+                        Using that, you can paste it, for example, to an e-mail, send it and a recipient will be able to copy the
+                        text from there and paste it to its project. There are no any binary formats, closed information, restrictions -
+                        we keep it open, simple and reliable.
+                    </p>
+                    <p>
+                        A project contains one or more plans and notes. A plan contains walls, rulers, labels and level marks. At any time
+                        a plan can be printed or saved as PDF-file.<br>
+                        Go to "File", "New" to create a new plan named by default "My Plan". Let's rename it, for example, to "First Floor".
+                        Click to "Name" property and enter a value and press Enter (fig. 1):
+                        <div align="center">
+                            <img src="../images/new-project.png" alt="New Project" width="400" height="300"><br>
+                            Figure 1. A new project
+                        </div>
+                    </p>
+                    <p>
+                        Usually, a plan it is a horizontal section, i.e. making a floor, imagine that you are flying above a house and looking
+                        down on it. Let us think that the walls of our house are Ytong blocks panelled by ceramic bricks. The first floor
+                        is beginning at 60 cm above the earth's level. House's outer size is 13,600 mm by 10,600 mm. Now we will add the panelling.
+                        Go to "Plan", "Create walls" and click on the plan anywhere around (0,0) coordinate. Move the cursor right and down
+                        and set up the wall by a double click. You don't have to try to hit a coordinate exactly - the mouse is used to place
+                        elements roughly. After that you can enter needed coordinates in the Property Panel (fig. 2):
+                        <div align="center">
+                            <img src="../images/brick-facing-1.png" alt="Brick's panelling" width="500" height="410"><br>
+                            Figure 2. Panelling
+                        </div>
+                    </p>
+                    <p>
+                        Switch off wall's creation mode by going to "Plan", "Select". Assuming that a brick's width is 12 cm do select the wall
+                        on the plan (click on it) and enter in the Property Editor next values:
+                        <ul>
+                            <li>X Coordinate: Start (mm): 0; End (mm): 120</li>
+                            <li>Y Coordinate: Start (mm): 0; End (mm): 13600</li>
+                            <li>View: Pattern: brick</li>
+                        </ul>
+                    </p>
+                    <p>
+                        The same is for front panelling (X: 120, 10600; Y: 0, 120), right (X: 10600-120, 10600; Y: 120, 13600) and
+                        back (X: 120, 10600-120; Y: 13600-120, 13600). There is a useful feature: you can type an expression
+                        like 10600-120, press Enter and the program will calculate the result. After the panelling is done let's review
+                        the whole plan by changing the scale: "Plan", "Zoom Out" (fig. 3):
+                        <div align="center">
+                            <img src="../images/brick-facing-2.png" alt="The panelling is done" width="700" height="550"><br>
+                            Figure 3. The panelling is done
+                        </div>
+                    </p>
+                    <p>
+                        Now start building the walls. Ytong block is 300 mm (length) by 190 mm (width) by 190 mm (height) size. Wall's width
+                        is a one block. Zoom in the plan and set the first Ytong block in the right top corner. Select any pattern you like
+                        for it. After that add a material: "Project", "Materials" (fig. 4):
+                        <div align="center">
+                            <img src="../images/kbb-1.png" alt="First block" width="850" height="580"><br>
+                            Figure 4. The first block
+                        </div>
+                    </p>
+                    <p>
+                        Set up other blocks by copying the first one into a clipboard and have set Plan's paste operation to
+                        "Plus Offsets to Selection". Close Materials' window, select the block and copy it (Ctrl+C). Let's build the
+                        left wall. Click to the empty space to select the Plan and set the Paste offsets to X (mm): 0, Y (mm): 200,
+                        Paste Operation: Plus Offsets to Selection. After that select the block and paste the new one by pressing Ctrl+V.
+                        You will see the second block below the first. Press Ctrl+V again and again till the wall will be built.
+                        Build other three outer walls and the inner one. You can select, copy to the clipboard and paste the whole wall.
+                        In the end you should get the next (fig. 5):
+                        <div align="center">
+                            <img src="../images/kbb-2.png" alt="Walls done" width="650" height="500"><br>
+                            Figure 5. Walls done
+                        </div>
+                    </p>
+                    <p>
+                        After that add other plan's attributes - labels, rulers and level marks. You can print the plan, get
+                        material's report - and go out to made your dream a reality !
+                        <div align="center">
+                            <img src="../images/plan-done.png" alt="Plan is done" width="850" height="500"><br>
+                            Figure 6. Plan is done
+                        </div>
+                        <a class="btn success" href="/download/demo-en.mpc" download="demo.mpc">Download the project (150 KB)</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion">
+            <div class="page-header"><h1>What's next ?</h1></div>
+            <div class="row">
+                <div class="offset1">
+                    <p>
+                        That's all, and by our meaning that's enough to start a construction. The main rule we kept in mind during
+                        MyProCAD's developing this is "CAD it is simple". Good luck !
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<footer>
+    <p id="copyright" align="center">&copy; 2013&ndash;2014 <a href="http://myprocad.com">MyProCAD</a>.</p>
+</footer>
+</body>
+</html>

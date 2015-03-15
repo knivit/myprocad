@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+    <meta charset="UTF-8">
+    <title>Документация</title>
+    <link rel="icon" type="image/ico" href="../../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../styles.css" />
+    <style>
+        P { text-indent: 3em; text-align: justify; }
+    </style>
+</head>
+<body>
+<div class="topbar headroom headroom--top headroom--pinned">
+    <div class="fill">
+        <div class="container">
+            <a class="brand" href="/">MyProCAD</a>
+            <ul class="nav">
+                <li class="active"><a href="#faq">FAQ</a></li>
+            </ul>
+
+            <div style="text-align: right">
+                <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                    <option value="">Дополнительно</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+        <section id="faq">
+            <div class="page-header"><h1>Часто задаваемые вопросы</h1></div>
+            <div class="row">
+                <div class="offset1">
+                    <h2>1. Для чего нужна программа ?</h2>
+                    <p>
+                        Программа позволяет нарисовать план дома, коттеджа используя несколько простых графических элементов.
+                        При желании, можно назначить элементам материал, тогда программа посчитает требуемое количество материала
+                        (в штуках, кубометрах) и его стоимость (если указана). Результаты можно сохранить в файле, распечатать на
+                        принтере или в PDF-файл.
+                    </p>
+                    <h2>2. Как установить программу ?</h2>
+                    <p>
+                        Скачайте jar-файл с нашего сайта <a href="../docs/download.html">MyProCAD</a> и сохраните его в любую папку
+                        (можно и на Рабочий стол).
+                    </p>
+                    <h2>3. Как удалить программу ?</h2>
+                    <p>
+                        Удалите скаченный jar-файл.
+                    </p>
+                    <h2>4. Есть ли в программе вирусы ?</h2>
+                    <p>
+                        Нет. Также программа не меняет настройки браузеров, вообще не обращается к сети, не слушает портов,
+                        не перехватывает нажатия клавиатуры, не делает скриншотов. В любой момент Вы можете проверить это,
+                        установив программу в виртуальную машину, послав ее на online-сканирование на вирусы и т.п. Скомпилированный
+                        jar-файл программы не обфусцирован и легко может быть дизассемблирован.
+                    </p>
+                    <h2>5. Портит ли программа что-нибудь на моем компьютере ?</h2>
+                    <p>
+                        Нет. Вот полный перечень действий, производимых программой на жестком диске Вашего компьютера:<br>
+                        а) В рабочей папке пользователя создается папка .MyProCAD с настройками программы (1-2 КБ);<br>
+                        б) При сохранении проекта, Вы указываете, в какой файл сохранить результаты работы;<br>
+                        в) При открытии проекта, Вы указываете, какой файл прочитать.<br>
+                        Программа ничего не пишет и не читает из реестра, не создает ярлыков и не имеет инсталлятора.
+                    </p>
+                    <h2>6. Есть идеи по улучшению программы, что делать ?</h2>
+                    <p>
+                        Напишите письмо на <a href="mailto:support@myprocad.com?subject=MyProCAD">support@myprocad.com</a><br>
+                    </p>
+                    <h2>7. Почему программа бесплатна ?</h2>
+                    <p>
+                        Программа бесплатна, потому что:<br>
+                        а) Мы считаем, что чем больше хорошего бесплатного программного обеспечения, тем лучше;<br>
+                        б) Разработка программы выполняется на бесплатном ПО - Kubuntu, Subversion, Java, Maven, Intellij Idea;<br>
+                        в) В основу MyProCAD легли иходные тексты (примерно на 30%) другого бесплатного ПО - <a href="http://www.sweethome3d.com">Sweet Home 3D</a><br>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<footer>
+    <p id="copyright" align="center">&copy; 2013&ndash;2014 <a href="http://myprocad.com">MyProCAD</a>.</p>
+</footer>
+</body>
+</html>
