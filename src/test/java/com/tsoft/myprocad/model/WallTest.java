@@ -1,9 +1,18 @@
 package com.tsoft.myprocad.model;
 
 import com.tsoft.myprocad.AbstractItemTest;
+import com.tsoft.myprocad.swing.menu.Menu;
 import org.junit.Test;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class WallTest extends AbstractItemTest {
     @Test
@@ -66,5 +75,17 @@ public class WallTest extends AbstractItemTest {
         wall.setWallShape(WallShape.DIAGONAL1U);
 
         assertEquals(0.5, wall.getArea(), 0.1);
+    }
+
+    @Test
+    public void exportToObj() throws IOException {
+        plan.createWall(0, 1000, 0, 1000, 0, 1000);
+        File out = File.createTempFile(getClass().getSimpleName(), ".obj");
+        assertNotNull(out);
+
+        planController.doExportToObj(out.getAbsolutePath());
+        System.out.println(out.getAbsolutePath());
+        List<String> lines = Files.readAllLines(out.toPath(), Charset.forName("UTF-8"));
+        lines.stream().forEach(System.out::println);
     }
 }

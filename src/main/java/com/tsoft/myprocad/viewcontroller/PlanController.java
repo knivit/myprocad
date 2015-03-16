@@ -673,27 +673,39 @@ public class PlanController implements ProjectItemController {
     private void exportToObj() {
         String fileName = project.getFolders().size() > 1 ? String.format("%s_%s", project.getActiveFolder().name, plan.getName()) : plan.getName();
         fileName = fileName.replace(' ', '_');
-        String objName = SwingTools.showSaveDialog(fileName, ContentManager.ContentType.OBJ);
-        if (objName == null) return;
+        String objFileName = SwingTools.showSaveDialog(fileName, ContentManager.ContentType.OBJ);
+        if (objFileName != null) {
+            try {
+                doExportToObj(objFileName);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                SwingTools.showError("Can't write to file '" + objFileName + "'. " + ex.getMessage());
+            }
+        }
+    }
 
-        int xMin = plan.getWalls().getXMin();
-        int xMax = plan.getWalls().getXMax();
-        int yMin = plan.getWalls().getYMin();
-        int yMax = plan.getWalls().getYMax();
-        int zMin = plan.getWalls().getZMin();
-        int zMax = plan.getWalls().getZMax();
-
+    public void doExportToObj(String outputFileName) throws IOException {
         int vno = 0; // vertex's no
-        try (PrintWriter out = new PrintWriter(objName)) {
+        try (PrintWriter out = new PrintWriter(outputFileName)) {
             for (Wall wall : plan.getWalls()) {
-                out.println("v " + wall.getXStart() + " " + wall.getYStart() + " " + wall.getZStart());
-                out.println("v " + wall.getXStart() + " " + wall.getYStart() + " " + wall.getZEnd());
-                out.println("v " + wall.getXStart() + " " + wall.getYEnd() + " " + wall.getZStart());
-                out.println("v " + wall.getXStart() + " " + wall.getYEnd() + " " + wall.getZEnd());
-                out.println("v " + wall.getXEnd() + " " + wall.getYStart() + " " + wall.getZStart());
-                out.println("v " + wall.getXEnd() + " " + wall.getYStart() + " " + wall.getZEnd());
-                out.println("v " + wall.getXEnd() + " " + wall.getYEnd() + " " + wall.getZStart());
-                out.println("v " + wall.getXEnd() + " " + wall.getYEnd() + " " + wall.getZEnd());
+                String xs = Integer.toString(-wall.getXStart());
+                String xe = Integer.toString(-wall.getXEnd());
+                String ys = Integer.toString(wall.getYStart());
+                String ye = Integer.toString(wall.getYEnd());
+                String zs = Integer.toString(wall.getZStart());
+                String ze = Integer.toString(wall.getZEnd());
+
+                // vertexes
+                out.println("v " + xe + " " + ys + " " + zs);
+                out.println("v " + xe + " " + ys + " " + ze);
+                out.println("v " + xe + " " + ye + " " + zs);
+                out.println("v " + xe + " " + ye + " " + ze);
+                out.println("v " + xs + " " + ys + " " + zs);
+                out.println("v " + xs + " " + ys + " " + ze);
+                out.println("v " + xs + " " + ye + " " + zs);
+                out.println("v " + xs + " " + ye + " " + ze);
+
+                // faces
                 out.println("f " + (vno + 1) + " " + (vno + 7) + " " + (vno + 5));
                 out.println("f " + (vno + 1) + " " + (vno + 3) + " " + (vno + 7));
                 out.println("f " + (vno + 1) + " " + (vno + 4) + " " + (vno + 3));
@@ -706,11 +718,9 @@ public class PlanController implements ProjectItemController {
                 out.println("f " + (vno + 1) + " " + (vno + 6) + " " + (vno + 2));
                 out.println("f " + (vno + 2) + " " + (vno + 6) + " " + (vno + 8));
                 out.println("f " + (vno + 2) + " " + (vno + 8) + " " + (vno + 4));
+
                 vno += 8;
             }
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            SwingTools.showError("Can't write to file '" + objName + "'. " + ex.getMessage());
         }
     }
 
