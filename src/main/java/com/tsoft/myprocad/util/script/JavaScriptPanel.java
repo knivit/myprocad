@@ -31,6 +31,7 @@ public class JavaScriptPanel extends JPanel {
         js = new JavaScript();
         js.addBinding(new ProjectBinding(plan.getProject()));
         js.addBinding(new PlanBinding(plan));
+
         final OutputBinding outputBinding = new OutputBinding(js) {
             public void print(String text) {
                 doPrint(text, JavaScriptPanel.REGULAR_OUTPUT);
@@ -67,9 +68,8 @@ public class JavaScriptPanel extends JPanel {
         });
         JScrollPane commandPanel = new JScrollPane(commandArea);
 
-        JPanel resultPanel = new JPanel();
-        resultPanel.setLayout(new BorderLayout());
         JPanel buttonsPanel = new JPanel();
+        buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.LINE_AXIS));
         btnExecute.addActionListener((e) -> {
             String commands = commandArea.getSelectedText();
             if (StringUtil.isEmpty(commands)) commands = commandArea.getText();
@@ -79,15 +79,21 @@ public class JavaScriptPanel extends JPanel {
                 outputBinding.error(ex.getMessage());
             }
         });
+        buttonsPanel.add(Box.createHorizontalStrut(8));
         buttonsPanel.add(btnExecute);
-        buttonsPanel.add(Box.createHorizontalBox());
+        buttonsPanel.add(Box.createHorizontalGlue());
         buttonsPanel.add(btnHide);
+        buttonsPanel.add(Box.createHorizontalStrut(8));
         btnHide.addActionListener((e) -> planPanel.hideCommandWindow());
+
+        JPanel resultPanel = new JPanel();
+        resultPanel.setLayout(new BorderLayout());
         resultPanel.add(buttonsPanel, BorderLayout.NORTH);
 
         resultsArea = new JTextPane();
         output = resultsArea.getStyledDocument();
         addStylesToDocument(output);
+
         JScrollPane resultScrollPane = new JScrollPane(resultsArea);
         resultScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         resultPanel.add(resultScrollPane, BorderLayout.CENTER);

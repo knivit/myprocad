@@ -43,17 +43,14 @@ public class JavaScriptTest extends AbstractItemTest {
         assertEquals("22", js.getVariable("Балка.Номер"));
     }
 
-    public void calcDeden() throws Exception {
+    //@Test
+    public void calcPorch() throws Exception {
         JavaScript js = new JavaScript();
         js.loadLibrary("lib/js/БиблиотекаФункций.js");
         js.loadLibrary("lib/js/СопротивлениеМатериалов.js");
         js.loadLibrary("lib/js/ЖелезнаяБалка.js");
         js.loadLibrary("lib/js/Железобетон.js");
-        js.loadLibrary("lib/js/Дерево.js");
-        js.loadLibrary("lib/js/ДомДеденево.js");
-
-        js.execute("Расчет_Крыльца_На_Балках();", new ConsoleOutputBinding(js));
-        js.execute("Расчет_Крыльца_Железобетон();", new ConsoleOutputBinding(js));
+        js.executeScript("lib/js/Деденево/РасчетКрыльца.js", new ConsoleOutputBinding(js));
     }
 
     //@Test

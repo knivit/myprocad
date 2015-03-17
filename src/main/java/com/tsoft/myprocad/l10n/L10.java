@@ -555,5 +555,5 @@ public class L10 {
             "Constants\n" +
             "  pi" };
     public static String[] EXECUTE_JAVA_SCRIPT = { "Run", "Пуск" };
-    public static String[] HIDE_JAVA_SCRIPT_PANEL = { "Hide", "Скрыть" };
+    public static String[] HIDE_JAVA_SCRIPT_PANEL = { "X", "X" };
 }

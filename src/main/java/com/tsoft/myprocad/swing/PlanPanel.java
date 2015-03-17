@@ -65,7 +65,6 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
 
     public static PlanPanel createPlanPanel(PlanController planController) {
         PlanPanel planPanel = new PlanPanel(planController);
-        //planPanel.scrollPane = SwingTools.createScrollPane(planPanel);
         return planPanel;
     }
 
@@ -76,7 +75,7 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
         setOpaque(true);
 
         scrollPane = SwingTools.createScrollPane(this);
-        commandPanel = new JavaScriptPanel(plan, this);
+        commandPanel = null;
 
         splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, scrollPane, commandPanel);
         splitPane.setFocusable(false);
@@ -87,18 +86,15 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
     }
 
     public void toggleCommandWindow() {
-        int dividerLocation = splitPane.getDividerLocation();
-
-        // The command window is hidden
-        if (dividerLocation == splitPane.getMaximumDividerLocation()) {
-            splitPane.setDividerLocation(splitPane.getMaximumDividerLocation() - 350);
-        } else {
-            hideCommandWindow();
-        }
+        if (splitPane.getRightComponent() == null) {
+            if (commandPanel == null) commandPanel = new JavaScriptPanel(plan, this);
+            splitPane.setRightComponent(commandPanel);
+            splitPane.setDividerLocation(0.7);
+        } else splitPane.setRightComponent(null);
     }
 
     public void hideCommandWindow() {
-        splitPane.setDividerLocation(1.0);
+        splitPane.setRightComponent(null);
     }
 
     public void afterOpen(PropertiesManagerPanel propertiesManagerPanel) {
@@ -106,7 +102,6 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
 
         createSubComponents();
         initPanelComponent();
-        hideCommandWindow();
 
         // set state according to the plan
         setRulersVisible(plan.isRulersVisible());
