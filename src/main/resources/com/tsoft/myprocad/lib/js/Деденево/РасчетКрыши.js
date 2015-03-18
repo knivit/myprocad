@@ -27,8 +27,8 @@ output.print("                                  Рис. 1 Ферма\n");
 
 output.print("       x +---------------------------- j ---------------------------+ y");
 output.print("         |  \\                                                  /   |");
-output.print("      mx |         \\+ m               +                 +/         |");
-output.print("      bx |                 \\+ bb                 +/                 |");
+output.print("       s |         \\+ m               +                 +/         |");
+output.print("       t |                 \\+ d                  +/                 |");
 output.print("         |                        \\   c   /                         |");
 output.print("       a +------------------ b --------+---------+------------------+ e");
 output.print("         |                   |         |         |                  |");

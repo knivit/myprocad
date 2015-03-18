@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
-import java.util.concurrent.Executors;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -292,56 +291,6 @@ public class SwingTools {
                     ((Timer)ev.getSource()).stop();
                 }
             }).start();
-        }
-    }
-
-    /**
-     * Displays the image referenced by <code>imageUrl</code> in an AWT window
-     * disposed once an other AWT frame is created.
-     * If the <code>imageUrl</code> is incorrect, nothing happens.
-     */
-    public static void showSplashScreenWindow(URL imageUrl) {
-        try {
-            final BufferedImage image = ImageIO.read(imageUrl);
-            final Window splashScreenWindow = new Window(new Frame()) {
-                @Override
-                public void paint(Graphics g) {
-                    g.drawImage(image, 0, 0, this);
-                }
-            };
-
-            splashScreenWindow.setSize(image.getWidth(), image.getHeight());
-            splashScreenWindow.setLocationRelativeTo(null);
-            splashScreenWindow.setVisible(true);
-
-            Executors.newSingleThreadExecutor().execute(new Runnable() {
-                public void run() {
-                    try {
-                        Thread.sleep(500);
-                        while (splashScreenWindow.isVisible()) {
-                            // If an other frame is showing, dispose splash window
-                            EventQueue.invokeLater(new Runnable() {
-                                public void run() {
-                                    for (Frame frame : Frame.getFrames()) {
-                                        if (frame.isShowing()) {
-                                            splashScreenWindow.dispose();
-                                        }
-                                    }
-                                }
-                            });
-                            Thread.sleep(300);
-                        }
-                    } catch (InterruptedException ex) {
-                        EventQueue.invokeLater(new Runnable() {
-                            public void run() {
-                                splashScreenWindow.dispose();
-                            }
-                        });
-                    };
-                }
-            });
-        } catch (IOException ex) {
-            // Ignore splash screen
         }
     }
 

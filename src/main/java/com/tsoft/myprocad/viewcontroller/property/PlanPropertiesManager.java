@@ -58,20 +58,14 @@ public class PlanPropertiesManager {
         planPropertiesController.refreshValues();
     }
 
-    public void wallChanged() {
-        if (! reloadDisabled) wallPropertiesController.loadAndRefreshValues();
-    }
+    public void itemChanged(Item item) {
+        if (reloadDisabled) return;
 
-    public void dimensionLineChanged() {
-        if (!reloadDisabled) dimensionLinePropertiesController.loadAndRefreshValues();
-    }
-
-    public void labelChanged() {
-        if (!reloadDisabled) labelPropertiesController.loadAndRefreshValues();
-    }
-
-    public void levelMarkChanged() {
-        if (!reloadDisabled) levelMarkPropertiesController.loadAndRefreshValues();
+        if (Wall.class.equals(item.getClass())) wallPropertiesController.loadAndRefreshValues();
+        else if (DimensionLine.class.equals(item.getClass())) dimensionLinePropertiesController.loadAndRefreshValues();
+        else if (Label.class.equals(item.getClass())) labelPropertiesController.loadAndRefreshValues();
+        else if (LevelMark.class.equals(item.getClass())) levelMarkPropertiesController.loadAndRefreshValues();
+        else throw new IllegalArgumentException("Unknown item " + item.getClass().getName());
     }
 
     public void materialListChanged() {

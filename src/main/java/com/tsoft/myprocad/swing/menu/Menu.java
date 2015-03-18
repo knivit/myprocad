@@ -78,6 +78,7 @@ public class Menu {
     public static final Menu MOVE_SELECTION_FAST_UP = new Menu(L10.get(L10.MENU_MOVE_SELECTION_FAST_UP_NAME));
     public static final Menu MOVE_SELECTION_FAST_DOWN = new Menu(L10.get(L10.MENU_MOVE_SELECTION_FAST_DOWN_NAME));
     public static final Menu MOVE_SELECTION_FAST_RIGHT = new Menu(L10.get(L10.MENU_MOVE_SELECTION_FAST_RIGHT_NAME));
+    public static final Menu GENERATE_SCRIPT = new Menu(L10.get(L10.MENU_GENERATE_SCRIPT_NAME));
 
     public static final Menu PLAN_MENU = new Menu(L10.get(L10.PLAN_MENU));
 

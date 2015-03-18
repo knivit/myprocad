@@ -11,7 +11,6 @@ import com.tsoft.myprocad.swing.menu.PlanPanelMenu;
 import com.tsoft.myprocad.swing.properties.PatternComboBoxRenderer;
 import com.tsoft.myprocad.util.ContentManager;
 import com.tsoft.myprocad.util.SwingTools;
-import com.tsoft.myprocad.util.script.JavaScriptPanel;
 import com.tsoft.myprocad.viewcontroller.component.DimensionLineController;
 import com.tsoft.myprocad.viewcontroller.component.LabelController;
 import com.tsoft.myprocad.viewcontroller.component.LevelListController;
@@ -19,8 +18,6 @@ import com.tsoft.myprocad.viewcontroller.component.LevelMarkController;
 import com.tsoft.myprocad.viewcontroller.component.WallController;
 import com.tsoft.myprocad.viewcontroller.property.PlanPropertiesManager;
 
-import java.awt.geom.AffineTransform;
-import java.awt.geom.PathIterator;
 import java.awt.geom.Rectangle2D;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -41,7 +38,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.Callable;
 
 public class PlanController implements ProjectItemController {
     public static class Mode {
@@ -236,9 +232,9 @@ public class PlanController implements ProjectItemController {
         planPanel.planChanged(property);
     }
 
-    public void wallChanged(ListenedField listenedField) {
-        planPropertiesManager.wallChanged();
-        planPanel.wallChanged(listenedField);
+    public void itemChanged(Item item) {
+        planPropertiesManager.itemChanged(item);
+        planPanel.itemChanged(item);
     }
 
     public void wallListChanged(CollectionEvent.Type event, ItemList<Item> changes) {
@@ -249,27 +245,12 @@ public class PlanController implements ProjectItemController {
         planPanel.wallListChanged();
     }
 
-    public void dimensionLineChanged() {
-        planPropertiesManager.dimensionLineChanged();
-        planPanel.dimensionLineChanged();
-    }
-
     public void dimensionLineListChanged() {
         planPanel.dimensionLineListChanged();
     }
 
-    public void labelChanged() {
-        planPropertiesManager.labelChanged();
-        planPanel.labelChanged();
-    }
-
     public void labelListChanged() {
         planPanel.labelListChanged();
-    }
-
-    public void levelMarkChanged() {
-        planPropertiesManager.levelMarkChanged();
-        planPanel.levelMarkChanged();
     }
 
     public void levelMarkListChanged() {
@@ -354,6 +335,18 @@ public class PlanController implements ProjectItemController {
         }
         history.push(CollectionEvent.Type.ADD, newItems);
         history.push(oldItems);
+    }
+
+    private void generateScript() {
+        StringBuilder buf = new StringBuilder();
+        for (Wall wall : selectedItems.getWallsSubList()) {
+            buf.append(String.format("plan.addWall(%d, %d, %d, %d, %d, %d);\n",
+                    wall.getXStart(), wall.getYStart(), wall.getXEnd(), wall.getYEnd(),
+                    wall.getZStart(), wall.getZEnd()));
+        }
+        TextDialog dialog = new TextDialog();
+        dialog.setText(buf.toString());
+        dialog.displayView(L10.get(L10.MENU_GENERATE_SCRIPT_NAME), DialogButton.CLOSE);
     }
 
     public void deleteSelection() {
@@ -780,6 +773,8 @@ public class PlanController implements ProjectItemController {
 
         if (Menu.ROTATE_CLOCKWISE.equals(menu)) { rotate(); return true; }
         if (Menu.SPLIT_IN_TWO.equals(menu)) { splitInTwo(); return true; }
+
+        if (Menu.GENERATE_SCRIPT.equals(menu)) { generateScript(); return true; }
 
         if (Menu.REMEMBER_SELECTION.equals(menu)) { rememberSelection(); return true; }
         if (Menu.RESTORE_LAST_SELECTION.equals(menu)) { restoreLastSelection(); return true; }

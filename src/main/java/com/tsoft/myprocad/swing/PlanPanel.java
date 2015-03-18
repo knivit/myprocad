@@ -1,5 +1,6 @@
 package com.tsoft.myprocad.swing;
 
+import com.tsoft.myprocad.model.Label;
 import com.tsoft.myprocad.swing.menu.PlanPanelMenu;
 import com.tsoft.myprocad.swing.properties.PropertiesManagerPanel;
 
@@ -16,7 +17,14 @@ import java.awt.print.Printable;
 import java.io.InterruptedIOException;
 import java.util.concurrent.Callable;
 
-import javax.swing.*;
+import javax.swing.JComponent;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import javax.swing.JViewport;
+import javax.swing.Scrollable;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 import javax.swing.event.MouseInputAdapter;
 
 import com.tsoft.myprocad.model.*;
@@ -156,7 +164,6 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
         }
 
         if (PlanProperties.LEVEL.equals(property)) {
-            resetCaches();
             plan.getWalls().resetItemCaches();
             plan.getDimensionLines().resetItemCaches();
             plan.getLabels().resetItemCaches();
@@ -167,26 +174,18 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
         }
     }
 
-    public void wallChanged(ListenedField listenedField) {
-        wallComponent.wallChanged(listenedField);
+    public void itemChanged(Item item) {
+        if (Wall.class.equals(item.getClass())) wallComponent.wallChanged();
+        else if (DimensionLine.class.equals(item.getClass())) dimensionLineComponent.dimensionLineChanged();
+        else if (Label.class.equals(item.getClass())) labelComponent.labelChanged();
+        else if (LevelMark.class.equals(item.getClass())) levelMarkComponent.levelMarkChanged();
+        else throw new IllegalArgumentException("Unknown item " + item.getClass().getName());
     }
 
     public void wallListChanged() { wallComponent.wallListChanged(); }
 
-    public void dimensionLineChanged() {
-        dimensionLineComponent.dimensionLineChanged();
-    }
-
     public void dimensionLineListChanged() {
         dimensionLineComponent.dimensionLineListChanged();
-    }
-
-    public void labelChanged() {
-        labelComponent.labelChanged();
-    }
-
-    public void levelMarkChanged() {
-        levelMarkComponent.levelMarkChanged();
     }
 
     public void labelListChanged() {
@@ -395,10 +394,6 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
 
         planBoundsCacheValid = true;
         return planBoundsCache;
-    }
-
-    public void resetCaches() {
-        wallComponent.resetCaches();
     }
 
     /**

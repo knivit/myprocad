@@ -1,8 +1,10 @@
 package com.l2fprod.common.beans.editor;
 
-import com.tsoft.myprocad.util.TextDialog;
 import com.l2fprod.common.swing.ComponentFactory;
 import com.l2fprod.common.swing.PercentLayout;
+import com.tsoft.myprocad.swing.dialog.DialogButton;
+import com.tsoft.myprocad.swing.dialog.TextDialog;
+
 import java.awt.Component;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -45,16 +47,13 @@ public class TextPropertyEditor extends AbstractPropertyEditor {
 
     private void showTextEditor() {
         Object oldValue = getValue();
-        String value = TextOptionPane.showInputDialog((String) oldValue);
-        setValue(value);
-
-        firePropertyChange(oldValue, value);
-    }
-
-    static class TextOptionPane extends JOptionPane {
-        public static String showInputDialog(String value) {
-            String data = new TextDialog(value, true).getText();
-            return data;
+        TextDialog dialog = new TextDialog();
+        dialog.setText((String)oldValue, true);
+        String title = getObjectProperty().getLabelName();
+        if (dialog.displayView(title, DialogButton.OK, DialogButton.CANCEL) == DialogButton.OK) {
+            String value = dialog.getText();
+            setValue(value);
+            firePropertyChange(oldValue, value);
         }
     }
 }

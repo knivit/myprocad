@@ -1,14 +1,14 @@
 package com.tsoft.myprocad.model;
 
 import com.tsoft.myprocad.l10n.L10;
-import com.tsoft.myprocad.model.property.WallProperties;
 import com.tsoft.myprocad.util.Geometry2DLib;
 import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
 import com.tsoft.myprocad.util.json.JsonSerializable;
 import com.tsoft.myprocad.util.json.JsonWriter;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
@@ -38,59 +38,6 @@ public class Wall extends Item implements JsonSerializable {
 
     Wall() { super(); }
 
-    @Override
-    public void setXStart(int value) {
-        if (xStart == value) return;
-
-        xStart = value;
-        resetCaches();
-        if (plan != null) plan.wallChanged(WallProperties.X_START);
-    }
-
-    @Override
-    public void setXEnd(int value) {
-        if (xEnd == value) return;
-
-        xEnd = value;
-        resetCaches();
-        if (plan != null) plan.wallChanged(WallProperties.X_END);
-    }
-
-    @Override
-    public void setYStart(int value) {
-        if (yStart == value) return;
-
-        yStart = value;
-        resetCaches();
-        if (plan != null) plan.wallChanged(WallProperties.Y_START);
-    }
-
-    public void setYEnd(int value) {
-        if (yEnd == value) return;
-
-        yEnd = value;
-        resetCaches();
-        if (plan != null) plan.wallChanged(WallProperties.Y_END);
-    }
-
-    @Override
-    public void setZStart(int value) {
-        if (zStart == value) return;
-
-        zStart = value;
-        resetCaches();
-        if (plan != null) plan.wallChanged(WallProperties.Z_START);
-    }
-
-    @Override
-    public void setZEnd(int value) {
-        if (zEnd == value) return;
-
-        zEnd = value;
-        resetCaches();
-        if (plan != null) plan.wallChanged(WallProperties.Z_END);
-    }
-
     public int getDiagonalWidth() {
         return diagonalWidth;
     }
@@ -107,7 +54,7 @@ public class Wall extends Item implements JsonSerializable {
 
         diagonalWidth = value;
         resetCaches();
-        if (plan != null) plan.wallChanged(WallProperties.WALL_SHAPE);
+        if (plan != null) plan.itemChanged(this);
     }
 
     public long getMaterialId() { return materialId; }
@@ -122,7 +69,7 @@ public class Wall extends Item implements JsonSerializable {
         materialId = value.getId();
         material = value;
 
-        if (plan != null) plan.wallChanged(WallProperties.MATERIAL);
+        if (plan != null) plan.itemChanged(this);
     }
 
     public float getDensity() {
@@ -144,7 +91,7 @@ public class Wall extends Item implements JsonSerializable {
         wallShapeId = value.getId();
         wallShape = value;
         resetCaches();
-        if (plan != null) plan.wallChanged(WallProperties.WALL_SHAPE);
+        if (plan != null) plan.itemChanged(this);
     }
 
     public Pattern getPattern() {
@@ -159,7 +106,7 @@ public class Wall extends Item implements JsonSerializable {
 
         patternId = value.getId();
         pattern = value;
-        if (plan != null) plan.wallChanged(WallProperties.PATTERN);
+        if (plan != null) plan.itemChanged(this);
     }
 
     public int getBackgroundColor() {
@@ -170,7 +117,7 @@ public class Wall extends Item implements JsonSerializable {
         if (backgroundColor == value) return;
 
         backgroundColor = value;
-        if (plan != null) plan.wallChanged(WallProperties.PATTERN);
+        if (plan != null) plan.itemChanged(this);
     }
 
     public int getForegroundColor() {
@@ -181,7 +128,7 @@ public class Wall extends Item implements JsonSerializable {
         if (foregroundColor == value) return;
 
         foregroundColor = value;
-        if (plan != null) plan.wallChanged(WallProperties.PATTERN);
+        if (plan != null) plan.itemChanged(this);
     }
 
     public int getBorderColor() {
@@ -192,7 +139,7 @@ public class Wall extends Item implements JsonSerializable {
         if (borderColor == value) return;
 
         borderColor = value;
-        if (plan != null) plan.wallChanged(WallProperties.PATTERN);
+        if (plan != null) plan.itemChanged(this);
     }
 
     public int getBorderWidth() {
@@ -210,7 +157,7 @@ public class Wall extends Item implements JsonSerializable {
 
         borderWidth = value;
         resetCaches();
-        if (plan != null) plan.wallChanged(WallProperties.BORDER_WIDTH);
+        if (plan != null) plan.itemChanged(this);
     }
 
     public boolean isAlwaysShowBorders() { return alwaysShowBorders; }
@@ -219,7 +166,7 @@ public class Wall extends Item implements JsonSerializable {
         if (alwaysShowBorders == value) return;
         alwaysShowBorders = value;
 
-        if (plan != null) plan.wallChanged(WallProperties.ALWAYS_SHOW_BORDERS);
+        if (plan != null) plan.itemChanged(this);
     }
 
     public boolean isSkipInReports() { return skipInReports; }
@@ -228,7 +175,7 @@ public class Wall extends Item implements JsonSerializable {
         if (skipInReports == value) return;
         skipInReports = value;
 
-        if (plan != null) plan.wallChanged(WallProperties.SKIP_IN_REPORTS);
+        if (plan != null) plan.itemChanged(this);
     }
 
     public double getVolume() {

@@ -1,8 +1,11 @@
 package com.tsoft.myprocad.swing.component;
 
-import com.tsoft.myprocad.model.*;
-import com.tsoft.myprocad.model.property.ListenedField;
-import com.tsoft.myprocad.model.property.WallProperties;
+import com.tsoft.myprocad.model.ItemList;
+import com.tsoft.myprocad.model.Pattern;
+import com.tsoft.myprocad.model.Plan;
+import com.tsoft.myprocad.model.Wall;
+import com.tsoft.myprocad.model.WallList;
+import com.tsoft.myprocad.model.WallPattern;
 import com.tsoft.myprocad.swing.PlanPanel;
 import com.tsoft.myprocad.swing.SelectionPaintInfo;
 
@@ -119,24 +122,11 @@ public class WallComponent {
         return WALL_STROKE_WIDTH;
     }
 
-    public void wallChanged(ListenedField property) {
-        if (property.inList(WallProperties.X_START, WallProperties.X_END, WallProperties.Y_START, WallProperties.Y_END,
-                WallProperties.Z_START, WallProperties.Z_END, WallProperties.UNDO_OPERATION, WallProperties.WALL_SHAPE)) {
-            resetCaches();
-            planPanel.revalidate();
-            return;
-        }
-
-        if (property.inList(WallProperties.PATTERN, WallProperties.BORDER_WIDTH)) {
-            planPanel.revalidate();
-            return;
-        }
+    public void wallChanged() {
+       planPanel.revalidate();
     }
 
     public void wallListChanged() {
-        resetCaches();
         planPanel.revalidate();
     }
-
-    public void resetCaches() { }
 }

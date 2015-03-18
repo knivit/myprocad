@@ -88,6 +88,8 @@ public class PlanPanelMenu {
         selectionMenu.add(Menu.SELECT_BY_MATERIAL.getMenuItem());
         selectionMenu.add(Menu.SELECT_BY_PATTERN.getMenuItem());
         selectionMenu.addSeparator();
+        selectionMenu.add(Menu.GENERATE_SCRIPT.getMenuItem());
+        selectionMenu.addSeparator();
         selectionMenu.add(Menu.REMEMBER_SELECTION.getMenuItem());
         selectionMenu.add(Menu.RESTORE_LAST_SELECTION.getMenuItem());
         selectionMenu.add(Menu.ADD_TO_LAST_SELECTION.getMenuItem());
@@ -158,6 +160,7 @@ public class PlanPanelMenu {
 
         planViewPopup.add(Menu.DELETE.getPopupMenuItem());
         planViewPopup.add(Menu.SELECT_ALL.getPopupMenuItem());
+        planViewPopup.add(Menu.GENERATE_SCRIPT.getPopupMenuItem());
 
         component.setComponentPopupMenu(planViewPopup);
     }

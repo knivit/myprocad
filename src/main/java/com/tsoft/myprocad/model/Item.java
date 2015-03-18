@@ -30,12 +30,53 @@ public abstract class Item implements Cloneable, JsonSerializable {
     private transient Plan plan_save; // keeps the plan references when notifications were switched off
     private transient Shape shapeCache;
 
-    public abstract void setXStart(int value);
-    public abstract void setXEnd(int value);
-    public abstract void setYStart(int value);
-    public abstract void setYEnd(int value);
-    public abstract void setZStart(int value);
-    public abstract void setZEnd(int value);
+    public void setXStart(int value) {
+        if (xStart == value) return;
+
+        xStart = value;
+        resetCaches();
+        if (plan != null) plan.itemChanged(this);
+    }
+
+    public void setXEnd(int value) {
+        if (xEnd == value) return;
+
+        xEnd = value;
+        resetCaches();
+        if (plan != null) plan.itemChanged(this);
+    }
+
+    public void setYStart(int value) {
+        if (yStart == value) return;
+
+        yStart = value;
+        resetCaches();
+        if (plan != null) plan.itemChanged(this);
+    }
+
+    public void setYEnd(int value) {
+        if (yEnd == value) return;
+
+        yEnd = value;
+        resetCaches();
+        if (plan != null) plan.itemChanged(this);
+    }
+
+    public void setZStart(int value) {
+        if (zStart == value) return;
+
+        zStart = value;
+        resetCaches();
+        if (plan != null) plan.itemChanged(this);
+    }
+
+    public void setZEnd(int value) {
+        if (zEnd == value) return;
+
+        zEnd = value;
+        resetCaches();
+        if (plan != null) plan.itemChanged(this);
+    }
 
     public abstract String getPopupItemName();
 

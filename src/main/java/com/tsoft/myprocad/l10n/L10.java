@@ -68,6 +68,7 @@ public class L10 {
     public static String[] MENU_SELECT_BY_MATERIAL_NAME = { "Select by material", "Выделить по материалу" };
     public static String[] MENU_SELECT_BY_PATTERN_NAME = { "Select by pattern", "Выделить по шаблону" };
     public static String[] MENU_ESCAPE_NAME = { "Escape", "Сброс" };
+    public static String[] MENU_GENERATE_SCRIPT_NAME = { "Generate a script", "Сгенерировать скрипт" };
     public static String[] MENU_REMEMBER_SELECTION_NAME = { "Remember selection", "Запомнить выделение" };
     public static String[] MENU_RESTORE_LAST_SELECTION_NAME = { "Restore last selection", "Восстановить последнее выделение" };
     public static String[] MENU_ADD_TO_LAST_SELECTION_NAME = { "Add current to last selection", "Добавить объект в последнее выделение" };

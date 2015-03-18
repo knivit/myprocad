@@ -35,60 +35,6 @@ public class DimensionLine extends Item implements JsonSerializable {
 
     DimensionLine() { super(); }
 
-    @Override
-    public void setXStart(int value) {
-        if (xStart == value) return;
-
-        xStart = value;
-        resetCaches();
-        if (plan != null) plan.dimensionLineChanged();
-    }
-
-    @Override
-    public void setXEnd(int value) {
-        if (xEnd == value) return;
-
-        xEnd = value;
-        resetCaches();
-        if (plan != null) plan.dimensionLineChanged();
-    }
-
-    @Override
-    public void setYStart(int value) {
-        if (yStart == value) return;
-
-        yStart = value;
-        resetCaches();
-        if (plan != null) plan.dimensionLineChanged();
-    }
-
-    @Override
-    public void setYEnd(int value) {
-        if (yEnd == value) return;
-
-        yEnd = value;
-        resetCaches();
-        if (plan != null) plan.dimensionLineChanged();
-    }
-
-    @Override
-    public void setZStart(int value) {
-        if (zStart == value) return;
-
-        zStart = value;
-        resetCaches();
-        if (plan != null) plan.dimensionLineChanged();
-    }
-
-    @Override
-    public void setZEnd(int value) {
-        if (zEnd == value) return;
-
-        zEnd = value;
-        resetCaches();
-        if (plan != null) plan.dimensionLineChanged();
-    }
-
     public int getOffset() {
         return offset;
     }
@@ -105,7 +51,7 @@ public class DimensionLine extends Item implements JsonSerializable {
         offset = value;
         resetCaches();
 
-        if (plan != null) plan.dimensionLineChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public int getColor() {
@@ -116,7 +62,7 @@ public class DimensionLine extends Item implements JsonSerializable {
         if (color == value) return;
 
         color = value;
-        if (plan != null) plan.dimensionLineChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public int getLineWidth() {
@@ -134,7 +80,7 @@ public class DimensionLine extends Item implements JsonSerializable {
 
         lineWidth = value;
         resetCaches();
-        if (plan != null) plan.dimensionLineChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public float getLength() {
@@ -149,7 +95,7 @@ public class DimensionLine extends Item implements JsonSerializable {
         this.fontFamily = fontFamily;
         font = null;
 
-        if (plan != null) plan.dimensionLineChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public int getFontSize() { return fontSize; }
@@ -165,7 +111,7 @@ public class DimensionLine extends Item implements JsonSerializable {
 
         fontSize = value;
         font = null;
-        if (plan != null) plan.dimensionLineChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public Font getFont() {
@@ -185,7 +131,7 @@ public class DimensionLine extends Item implements JsonSerializable {
 
         startPointShapeTypeId = value.getId();
         startPointShapeType = value;
-        if (plan != null) plan.dimensionLineChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public PointShapeType getEndPointShapeType() {
@@ -198,7 +144,7 @@ public class DimensionLine extends Item implements JsonSerializable {
 
         endPointShapeTypeId = value.getId();
         endPointShapeType = value;
-        if (plan != null) plan.dimensionLineChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public String getText() {
@@ -209,7 +155,7 @@ public class DimensionLine extends Item implements JsonSerializable {
         if (ObjectUtil.equals(this.text, text)) return;
 
         this.text = text;
-        if (plan != null) plan.dimensionLineChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public String getLengthText() {

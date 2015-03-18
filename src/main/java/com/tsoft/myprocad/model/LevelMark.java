@@ -31,60 +31,6 @@ public class LevelMark extends Item implements JsonSerializable {
 
     public void setY(int value) { setYStart(value - 200); setYEnd(value); }
 
-    @Override
-    public void setXStart(int value) {
-        if (xStart == value) return;
-
-        xStart = value;
-        resetCaches();
-        if (plan != null) plan.levelMarkChanged();
-    }
-
-    @Override
-    public void setXEnd(int value) {
-        if (xEnd == value) return;
-
-        xEnd = value;
-        resetCaches();
-        if (plan != null) plan.levelMarkChanged();
-    }
-
-    @Override
-    public void setYStart(int value) {
-        if (yStart == value) return;
-
-        yStart = value;
-        resetCaches();
-        if (plan != null) plan.levelMarkChanged();
-    }
-
-    @Override
-    public void setYEnd(int value) {
-        if (yEnd == value) return;
-
-        yEnd = value;
-        resetCaches();
-        if (plan != null) plan.levelMarkChanged();
-    }
-
-    @Override
-    public void setZStart(int value) {
-        if (zStart == value) return;
-
-        zStart = value;
-        resetCaches();
-        if (plan != null) plan.levelMarkChanged();
-    }
-
-    @Override
-    public void setZEnd(int value) {
-        if (zEnd == value) return;
-
-        zEnd = value;
-        resetCaches();
-        if (plan != null) plan.levelMarkChanged();
-    }
-
     public Rotation getRotation() {
         if (rotation == null) rotation = Rotation.findById(rotationId);
         return rotation;
@@ -96,7 +42,7 @@ public class LevelMark extends Item implements JsonSerializable {
         rotationId = value.getId();
         rotation = value;
         resetCaches();
-        if (plan != null) plan.levelMarkChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public String getText() {
@@ -112,7 +58,7 @@ public class LevelMark extends Item implements JsonSerializable {
         if (ObjectUtil.equals(getText(), value)) return;
 
         this.text = value;
-        if (plan != null) plan.levelMarkChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public String getFontFamily() { return fontFamily; }
@@ -124,7 +70,7 @@ public class LevelMark extends Item implements JsonSerializable {
         font = null;
 
         resetCaches();
-        if (plan != null) plan.levelMarkChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public int getFontSize() {
@@ -138,7 +84,7 @@ public class LevelMark extends Item implements JsonSerializable {
         font = null;
 
         resetCaches();
-        if (plan != null) plan.levelMarkChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public Font getFont() {

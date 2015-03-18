@@ -26,60 +26,6 @@ public class Label extends Item implements JsonSerializable {
 
     Label() { super(); }
 
-    @Override
-    public void setXStart(int value) {
-        if (xStart == value) return;
-
-        xStart = value;
-        resetCaches();
-        if (plan != null)  plan.labelChanged();
-    }
-
-    @Override
-    public void setXEnd(int value) {
-        if (xEnd == value) return;
-
-        xEnd = value;
-        resetCaches();
-        if (plan != null) plan.labelChanged();
-    }
-
-    @Override
-    public void setYStart(int value) {
-        if (yStart == value) return;
-
-        yStart = value;
-        resetCaches();
-        if (plan != null) plan.labelChanged();
-    }
-
-    @Override
-    public void setYEnd(int value) {
-        if (yEnd == value) return;
-
-        yEnd = value;
-        resetCaches();
-        if (plan != null)  plan.labelChanged();
-    }
-
-    @Override
-    public void setZStart(int value) {
-        if (zStart == value) return;
-
-        zStart = value;
-        resetCaches();
-        if (plan != null) plan.labelChanged();
-    }
-
-    @Override
-    public void setZEnd(int value) {
-        if (zEnd == value) return;
-
-        zEnd = value;
-        resetCaches();
-        if (plan != null) plan.labelChanged();
-    }
-
     public Rotation getRotation() {
         if (rotation == null) rotation = Rotation.findById(rotationId);
         return rotation;
@@ -90,7 +36,7 @@ public class Label extends Item implements JsonSerializable {
 
         rotationId = value.getId();
         rotation = value;
-        if (plan != null) plan.labelChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public int getBorderColor() {
@@ -101,7 +47,7 @@ public class Label extends Item implements JsonSerializable {
         if (borderColor == value) return;
 
         borderColor = value;
-        if (plan != null) plan.labelChanged();
+        if (plan != null) plan.itemChanged(this);;
     }
 
     public int getBorderWidth() {
@@ -119,7 +65,7 @@ public class Label extends Item implements JsonSerializable {
 
         borderWidth = value;
         resetCaches();
-        if (plan != null) plan.labelChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public String getText() {
@@ -132,7 +78,7 @@ public class Label extends Item implements JsonSerializable {
         this.text = text;
 
         resetCaches();
-        if (plan != null) plan.labelChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public String getFontFamily() { return fontFamily; }
@@ -144,7 +90,7 @@ public class Label extends Item implements JsonSerializable {
         font = null;
 
         resetCaches();
-        if (plan != null) plan.labelChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public int getFontSize() {
@@ -158,7 +104,7 @@ public class Label extends Item implements JsonSerializable {
         font = null;
 
         resetCaches();
-        if (plan != null) plan.labelChanged();
+        if (plan != null) plan.itemChanged(this);
     }
 
     public Font getFont() {

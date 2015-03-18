@@ -1,9 +1,7 @@
 package com.tsoft.myprocad.model;
 
 import com.tsoft.myprocad.l10n.L10;
-import com.tsoft.myprocad.model.property.ListenedField;
 import com.tsoft.myprocad.model.property.PlanProperties;
-import com.tsoft.myprocad.model.property.WallProperties;
 import com.tsoft.myprocad.swing.dialog.TableDialogPanelSupport;
 import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.StringUtil;
@@ -47,13 +45,13 @@ public class Plan extends ProjectItem implements Cloneable {
     private transient Level level;
     private transient PasteOperation pasteOperation;
 
-    // Don't remove this constructor, it is needed for JsonReader
-    Plan() { }
+    Plan() {
+        levels.setPlan(this);
+    }
 
     /** Invoked on Project loading or Project creation */
     public void afterOpen() {
         if (levels.isEmpty()) {
-            levels.setPlan(this);
             Level customLevel = new Level(L10.get(L10.PLAN_CUSTOM_LEVEL_PROPERTY), Item.MIN_COORDINATE, Item.MAX_COORDINATE);
             customLevel.setId(getProject().generateNextId());
             levelId = customLevel.getId();
@@ -222,11 +220,6 @@ public class Plan extends ProjectItem implements Cloneable {
         items.forEach(this, this::addItem);
     }
 
-    public void wallChanged(ListenedField listenedField) {
-        getProject().setModified(true);
-        planController.wallChanged(listenedField);
-    }
-
     public WallList findWallsWithMaterial(MaterialList materials) {
         WallList levelWalls = new WallList(getLevelWalls());
         return levelWalls.filterByMaterials(materials);
@@ -243,13 +236,7 @@ public class Plan extends ProjectItem implements Cloneable {
     }
 
     public void undoItem(Item item) {
-        if (item == null) return;
-
-        if ((item instanceof Wall) && walls.undoItem((Wall)item)) wallChanged(WallProperties.UNDO_OPERATION);
-        else if ((item instanceof DimensionLine) && dimensionLines.undoItem((DimensionLine)item)) dimensionLineChanged();
-        else if ((item instanceof Label) && labels.undoItem((Label)item)) labelChanged();
-        else if ((item instanceof LevelMark) && levelMarks.undoItem((LevelMark)item)) levelMarkChanged();
-        else throw new IllegalArgumentException("Unknown item " + item.getClass().getName());
+        if (item != null) itemChanged(item);
     }
 
     // Don't move this method to Item
@@ -303,6 +290,11 @@ public class Plan extends ProjectItem implements Cloneable {
         }
     }
 
+    public void itemChanged(Item item) {
+        getProject().setModified(true);
+        planController.itemChanged(item);
+    }
+
     public ItemList<DimensionLine> getDimensionLines() {
         return dimensionLines.getCopy();
     }
@@ -337,11 +329,6 @@ public class Plan extends ProjectItem implements Cloneable {
         planController.deselectItem(dimensionLine);
         dimensionLines.deleteItem(dimensionLine);
         planController.dimensionLineListChanged();
-    }
-
-    public void dimensionLineChanged() {
-        getProject().setModified(true);
-        planController.dimensionLineChanged();
     }
 
     public ItemList<Label> getLabels() {
@@ -382,11 +369,6 @@ public class Plan extends ProjectItem implements Cloneable {
         planController.labelListChanged();
     }
 
-    public void labelChanged() {
-        getProject().setModified(true);
-        planController.labelChanged();
-    }
-
     public ItemList<LevelMark> getLevelMarks() {
         return levelMarks.getCopy();
     }
@@ -421,11 +403,6 @@ public class Plan extends ProjectItem implements Cloneable {
         planController.deselectItem(levelMark);
         levelMarks.deleteItem(levelMark);
         planController.levelMarkListChanged();
-    }
-
-    public void levelMarkChanged() {
-        getProject().setModified(true);
-        planController.levelMarkChanged();
     }
 
     public WallList getLevelWalls() {
