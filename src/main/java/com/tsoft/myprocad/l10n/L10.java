@@ -238,6 +238,7 @@ public class L10 {
     /** Property Editors */
     public static String[] PLAN_PROPERTIES_INFO_MESSAGE = { "Plan", "План" };
     public static String[] WALL_PROPERTIES_INFO_MESSAGE = { "Wall", "Стена" };
+    public static String[] BEAM_PROPERTIES_INFO_MESSAGE = { "Beam", "Балка" };
     public static String[] DIMENSION_LINE_PROPERTIES_INFO_MESSAGE = { "Dimension Line", "Размер" };
     public static String[] LABEL_PROPERTIES_INFO_MESSAGE = { "Label", "Надпись" };
     public static String[] LEVEL_MARK_PROPERTIES_INFO_MESSAGE = { "Selection", "Метка уровня" };
@@ -473,6 +474,7 @@ public class L10 {
 
     /** Items */
     public static String[] WALL_TYPE_NAME = { "Wall", "Стена" };
+    public static String[] BEAM_TYPE_NAME = { "Beam", "Балка" };
     public static String[] DIMENSION_LINE_TYPE_NAME = { "Dimension Line", "Размер" };
     public static String[] LABEL_TYPE_NAME = { "Label", "Метка" };
     public static String[] LEVEL_MARK_TYPE_NAME = { "Level mark", "Метка уровня" };
@@ -493,6 +495,7 @@ public class L10 {
 
     public static String[] ITEM_INVALID_COORDINATE = { "Item's coordinate must be in [%d, %d]", "Координата элемента должна быть в интервале [%d, %d]" };
     public static String[] ITEM_INVALID_DIAGONAL_WIDTH = { "Diagonal width must be positive and within the rectangle", "Ширина по диагонали д.б. положительна и вписываться в прямоугольник" };
+    public static String[] ITEM_INVALID_INTEGER_PROPERTY = { "Property '%s' must be in [%d, %d]", "Свойство '%s' должно быть в диапазоне [%d, %d]" };
 
     /** Plan Panel hint */
     public static String[] MOUSE_LOCATION_HINT1 = { "%dcm", "%dсм" };

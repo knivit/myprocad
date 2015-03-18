@@ -105,6 +105,11 @@ public class JsonReader {
         return this;
     }
 
+    public JsonReader defByType(String fieldName, JsonReaderObjectConsumer consumer) {
+        def(fieldName, consumer);
+        return this;
+    }
+
     public void read() throws IOException {
         try {
             doRead();

@@ -9,16 +9,6 @@ public class ListenedField {
         this.name = UUID.randomUUID().toString();
     }
 
-    public boolean inList(ListenedField ... fields) {
-        if (fields == null) return false;
-        for (ListenedField field : fields) {
-            if (field.equals(this)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -1,6 +1,8 @@
 package com.tsoft.myprocad.model;
 
 import com.tsoft.myprocad.l10n.L10;
+import com.tsoft.myprocad.model.property.ItemProperty;
+import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
 import com.tsoft.myprocad.util.json.JsonSerializable;
 import com.tsoft.myprocad.util.json.JsonWriter;
@@ -9,6 +11,8 @@ import java.awt.*;
 import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public abstract class Item implements Cloneable, JsonSerializable {
@@ -23,12 +27,31 @@ public abstract class Item implements Cloneable, JsonSerializable {
     protected int zStart;
     protected int zEnd;
 
+    protected transient Map<ItemProperty, Object> properties = new HashMap<>();
+
     protected abstract Shape getItemShape();
 
     private transient String id;
     public transient Plan plan;
     private transient Plan plan_save; // keeps the plan references when notifications were switched off
     private transient Shape shapeCache;
+
+    public Object getPropertyValue(ItemProperty property) {
+        return properties.get(property);
+    }
+
+    public String validatePropertyValue(ItemProperty property, Object value) {
+        return property.validateValue(value);
+    }
+
+    public void setPropertyValue(ItemProperty property, Object value) {
+        Object oldValue = getPropertyValue(property);
+        if (!ObjectUtil.equals(oldValue, value)) {
+            properties.put(property, value);
+            resetCaches();
+            if (plan != null) plan.itemChanged(this);
+        }
+    }
 
     public void setXStart(int value) {
         if (xStart == value) return;
