@@ -4,36 +4,35 @@ public enum ItemType {
     WALL("Wall") {
         @Override
         public Item newInstance() {
-            Wall wall = new Wall();
-            wall.setTypeName(WALL.getTypeName());
-            return wall;
+            return new Wall();
+        }
+    },
+
+    BEAM("Beam") {
+        @Override
+        public Item newInstance() {
+            return new Beam();
         }
     },
 
     LABEL("Label") {
         @Override
         public Item newInstance() {
-            Label label = new Label();
-            label.setTypeName(LABEL.getTypeName());
-            return label;
+            return new Label();
         }
     },
 
     DIMENSION_LINE("DimensionLine") {
         @Override
         public Item newInstance() {
-            DimensionLine dimensionLine = new DimensionLine();
-            dimensionLine.setTypeName(DIMENSION_LINE.getTypeName());
-            return dimensionLine;
+            return new DimensionLine();
         }
     },
 
     LEVEL_MARK("LevelMark") {
         @Override
         public Item newInstance() {
-            LevelMark levelMark = new LevelMark();
-            levelMark.setTypeName(LEVEL_MARK.getTypeName());
-            return levelMark;
+            return new LevelMark();
         }
     };
 

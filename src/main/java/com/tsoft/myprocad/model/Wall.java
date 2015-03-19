@@ -36,7 +36,10 @@ public class Wall extends Item implements JsonSerializable {
     private transient int diagonalShapeOff1;
     private transient int diagonalShapeOff2;
 
-    Wall() { super(); }
+    Wall() {
+        super();
+        setTypeName(ItemType.WALL.getTypeName());
+    }
 
     public int getDiagonalWidth() {
         return diagonalWidth;
@@ -194,31 +197,6 @@ public class Wall extends Item implements JsonSerializable {
         Material material = getMaterial();
         if (material != null) return getVolume() * material.getPrice();
         return 0;
-    }
-
-    public float getStartPointToEndPointDistance() {
-        return (float)Point2D.distance(xStart, yStart, xEnd, yEnd);
-    }
-
-    @Override
-    public Wall splitInTwo() {
-        normalizeStartAndEnd();
-
-        Wall newWall = (Wall)clone();
-        plan.addWall(newWall);
-
-        if (getXDistance() >= getYDistance()) {
-            // split vertically
-            int xs = xStart + getXDistance() / 2;
-            newWall.setXStart(xs);
-            setXEnd(xs);
-        } else {
-            // split horizontally
-            int ys = yStart + getYDistance() / 2;
-            newWall.setYStart(ys);
-            setYEnd(ys);
-        }
-        return newWall;
     }
 
     public double getArea() {

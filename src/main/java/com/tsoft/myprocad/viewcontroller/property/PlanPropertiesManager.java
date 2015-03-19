@@ -1,13 +1,6 @@
 package com.tsoft.myprocad.viewcontroller.property;
 
-import com.tsoft.myprocad.model.DimensionLine;
-import com.tsoft.myprocad.model.Item;
-import com.tsoft.myprocad.model.ItemList;
-import com.tsoft.myprocad.model.Label;
-import com.tsoft.myprocad.model.LevelMark;
-import com.tsoft.myprocad.model.Plan;
-import com.tsoft.myprocad.model.Selection;
-import com.tsoft.myprocad.model.Wall;
+import com.tsoft.myprocad.model.*;
 import com.tsoft.myprocad.swing.properties.PropertiesManagerPanel;
 
 import java.util.Arrays;
@@ -18,6 +11,7 @@ public class PlanPropertiesManager {
 
     private SelectionPropertiesController selectionPropertiesController;
     private WallPropertiesController wallPropertiesController;
+    private BeamPropertiesController beamPropertiesController;
     private LabelPropertiesController labelPropertiesController;
     private DimensionLinePropertiesController dimensionLinePropertiesController;
     private LevelMarkPropertiesController levelMarkPropertiesController;
@@ -41,6 +35,7 @@ public class PlanPropertiesManager {
     private void createSubControllers() {
         selectionPropertiesController = new SelectionPropertiesController(this);
         wallPropertiesController = new WallPropertiesController(this);
+        beamPropertiesController = new BeamPropertiesController(this);
         labelPropertiesController = new LabelPropertiesController(this);
         levelMarkPropertiesController = new LevelMarkPropertiesController(this);
         dimensionLinePropertiesController = new DimensionLinePropertiesController(this);
@@ -87,46 +82,54 @@ public class PlanPropertiesManager {
         if (reloadDisabled) return;
 
         ItemList<Wall> walls = selectedItems.getWallsSubList();
+        ItemList<Beam> beams = selectedItems.getBeamsSubList();
         ItemList<Label> labels = selectedItems.getLabelsSubList();
         ItemList<DimensionLine> dimensionLines = selectedItems.getDimensionLinesSubList();
         ItemList<LevelMark> levelMarks = selectedItems.getLevelMarksSubList();
 
         // plan selected
-        if (walls.isEmpty() && labels.isEmpty() && dimensionLines.isEmpty() && levelMarks.isEmpty()) {
+        if (walls.isEmpty() && beams.isEmpty() && labels.isEmpty() && dimensionLines.isEmpty() && levelMarks.isEmpty()) {
             selectPlanPropertiesComponent();
             return;
         }
 
         // wall(s) selected
-        if (!walls.isEmpty() && labels.isEmpty() && dimensionLines.isEmpty() && levelMarks.isEmpty()) {
+        if (!walls.isEmpty() && beams.isEmpty() && labels.isEmpty() && dimensionLines.isEmpty() && levelMarks.isEmpty()) {
             currentPropertiesController = wallPropertiesController;
             wallPropertiesController.selectObjects(walls);
             return;
         }
 
+        // beam(s) selected
+        if (walls.isEmpty() && !beams.isEmpty() && labels.isEmpty() && dimensionLines.isEmpty() && levelMarks.isEmpty()) {
+            currentPropertiesController = beamPropertiesController;
+            beamPropertiesController.selectObjects(beams);
+            return;
+        }
+
         // label(s)
-        if (walls.isEmpty() && !labels.isEmpty() && dimensionLines.isEmpty() && levelMarks.isEmpty()) {
+        if (walls.isEmpty() && beams.isEmpty() && !labels.isEmpty() && dimensionLines.isEmpty() && levelMarks.isEmpty()) {
             currentPropertiesController = labelPropertiesController;
             labelPropertiesController.selectObjects(labels);
             return;
         }
 
         // dimension line(s)
-        if (walls.isEmpty() && labels.isEmpty() && !dimensionLines.isEmpty() && levelMarks.isEmpty()) {
+        if (walls.isEmpty() && beams.isEmpty() && labels.isEmpty() && !dimensionLines.isEmpty() && levelMarks.isEmpty()) {
             currentPropertiesController = dimensionLinePropertiesController;
             dimensionLinePropertiesController.selectObjects(dimensionLines);
             return;
         }
 
         // level marks
-        if (walls.isEmpty() && labels.isEmpty() && dimensionLines.isEmpty() && !levelMarks.isEmpty()) {
+        if (walls.isEmpty() && beams.isEmpty() && labels.isEmpty() && dimensionLines.isEmpty() && !levelMarks.isEmpty()) {
             currentPropertiesController = levelMarkPropertiesController;
             levelMarkPropertiesController.selectObjects(levelMarks);
             return;
         }
 
         // mix of them
-        if (!walls.isEmpty() || !labels.isEmpty() || !dimensionLines.isEmpty() || !levelMarks.isEmpty()) {
+        if (!walls.isEmpty() || !beams.isEmpty() || !labels.isEmpty() || !dimensionLines.isEmpty() || !levelMarks.isEmpty()) {
             currentPropertiesController= selectionPropertiesController;
             Selection selection = new Selection(selectedItems);
             selectionPropertiesController.selectObjects(Arrays.asList(selection));

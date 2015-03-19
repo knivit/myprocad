@@ -23,6 +23,7 @@ public class JavaScriptPanel extends JPanel {
     private StyledDocument output;
 
     private JButton btnExecute = new JButton(L10.get(L10.EXECUTE_JAVA_SCRIPT));
+    private JButton btnClear = new JButton(L10.get(L10.CLEAR_JAVA_SCRIPT_OUTPUT));
     private JButton btnHide = new JButton(L10.get(L10.HIDE_JAVA_SCRIPT_PANEL));
 
     public JavaScriptPanel(Plan plan, PlanPanel planPanel) {
@@ -79,8 +80,12 @@ public class JavaScriptPanel extends JPanel {
                 outputBinding.error(ex.getMessage());
             }
         });
+        btnClear.addActionListener((e) -> resultsArea.setText(""));
+
         buttonsPanel.add(Box.createHorizontalStrut(8));
         buttonsPanel.add(btnExecute);
+        buttonsPanel.add(Box.createHorizontalStrut(8));
+        buttonsPanel.add(btnClear);
         buttonsPanel.add(Box.createHorizontalGlue());
         buttonsPanel.add(btnHide);
         buttonsPanel.add(Box.createHorizontalStrut(8));

@@ -1,6 +1,5 @@
 package com.tsoft.myprocad.viewcontroller.state;
 
-import com.tsoft.myprocad.MyProCAD;
 import com.tsoft.myprocad.model.Application;
 import com.tsoft.myprocad.model.CollectionEvent;
 import com.tsoft.myprocad.model.Wall;
@@ -33,6 +32,8 @@ public class WallDrawingState extends ControllerState {
             setState(getSelectionState());
         } else if (mode == Mode.PANNING) {
             setState(planController.getPanningState());
+        } else if (mode == Mode.BEAM_CREATION) {
+            setState(getBeamController().creationState);
         } else if (mode == Mode.DIMENSION_LINE_CREATION) {
             setState(getDimensionLineController().dimensionLineCreationState);
         } else if (mode == Mode.LABEL_CREATION) {
@@ -86,7 +87,7 @@ public class WallDrawingState extends ControllerState {
         if (!Application.getInstance().isItemCreationToggled()) return;
 
         // Create a new wall only when it will have a distance between start and end points > 0
-        if (newWall != null && newWall.getStartPointToEndPointDistance() > 0) {
+        if (newWall != null && (newWall.getXDistance() > 0 || newWall.getYDistance() > 0)) {
             selectItem(newWall);
             endWallCreation();
         }
@@ -108,9 +109,7 @@ public class WallDrawingState extends ControllerState {
 
     @Override
     public void escape() {
-        if (newWall != null) {
-            plan.deleteWall(newWall);
-        }
+        if (newWall != null) plan.deleteItem(newWall);
         setWallCreationState();
     }
 

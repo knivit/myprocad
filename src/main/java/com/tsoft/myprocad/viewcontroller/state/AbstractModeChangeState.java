@@ -19,6 +19,8 @@ public abstract class AbstractModeChangeState extends ControllerState {
             setState(planController.getPanningState());
         } else if (mode == Mode.WALL_CREATION) {
             setState(getWallController().wallCreationState);
+        } else if (mode == Mode.BEAM_CREATION) {
+            setState(getBeamController().creationState);
         } else if (mode == Mode.DIMENSION_LINE_CREATION) {
             setState(getDimensionLineController().dimensionLineCreationState);
         } else if (mode == Mode.LABEL_CREATION) {

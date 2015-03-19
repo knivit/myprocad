@@ -181,12 +181,4 @@ public class DimensionLineComponent {
         }
         return itemBounds;
     }
-
-    public void dimensionLineChanged() {
-        planPanel.revalidate();
-    }
-
-    public void dimensionLineListChanged() {
-        planPanel.revalidate();
-    }
 }

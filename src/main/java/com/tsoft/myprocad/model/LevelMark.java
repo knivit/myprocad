@@ -21,7 +21,10 @@ public class LevelMark extends Item implements JsonSerializable {
     private transient Font font;
     private transient Rotation rotation;
 
-    LevelMark() { super(); }
+    LevelMark() {
+        super();
+        setTypeName(ItemType.LEVEL_MARK.getTypeName());
+    }
 
     public int getX() { return xEnd - 150; }
 

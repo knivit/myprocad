@@ -106,7 +106,7 @@ public class LevelMarkPropertiesController extends AbstractComponentPropertiesCo
             });
 
         new ObjectProperty(this)
-            .setCategoryName(L10.get(L10.LEVEL_MARK_PROPERTIES_CATEGORY))
+            .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.LEVEL_MARK_ROTATED_PROPERTY))
             .setType(ComboBoxPropertyEditor.class)
             .setAvailableValues(Rotation.values())
@@ -114,14 +114,14 @@ public class LevelMarkPropertiesController extends AbstractComponentPropertiesCo
                 .setValueSetter((object, value) -> ((LevelMark)object).setRotation((Rotation) value));
 
         new ObjectProperty(this)
-            .setCategoryName(L10.get(L10.LEVEL_MARK_PROPERTIES_CATEGORY))
+            .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.LEVEL_MARK_TEXT_PROPERTY))
             .setType(String.class)
             .setValueGetter(object -> ((LevelMark)object).getText())
             .setValueSetter((object, value) -> ((LevelMark)object).setText((String) value));
 
         new ObjectProperty(this)
-            .setCategoryName(L10.get(L10.LEVEL_MARK_PROPERTIES_CATEGORY))
+            .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.LEVEL_MARK_FONT_FAMILY_PROPERTY))
             .setType(ComboBoxPropertyEditor.class)
             .setAvailableValues(Font.DIALOG, Font.SERIF, Font.SANS_SERIF, Font.MONOSPACED)
@@ -129,7 +129,7 @@ public class LevelMarkPropertiesController extends AbstractComponentPropertiesCo
             .setValueSetter((object, value) -> { if (value != null) ((LevelMark) object).setFontFamily((String) value); });
 
         new ObjectProperty(this)
-            .setCategoryName(L10.get(L10.LEVEL_MARK_PROPERTIES_CATEGORY))
+            .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.LEVEL_MARK_FONT_SIZE_PROPERTY))
             .setType(Integer.class)
             .setValueGetter(object -> ((LevelMark)object).getFontSize())

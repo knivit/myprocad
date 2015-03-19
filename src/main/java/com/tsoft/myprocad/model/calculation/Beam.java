@@ -5,7 +5,6 @@ import com.tsoft.myprocad.model.ProjectItem;
 import com.tsoft.myprocad.swing.dialog.TableDialogPanelSupport;
 import com.tsoft.myprocad.util.json.JsonReader;
 import com.tsoft.myprocad.util.json.JsonWriter;
-import com.tsoft.myprocad.viewcontroller.BeamController;
 import com.tsoft.myprocad.viewcontroller.ProjectItemController;
 
 import java.io.IOException;
@@ -21,7 +20,7 @@ public class Beam extends ProjectItem {
     private ForceList forces = new ForceList();    // Normal Force, kN
     private DistributedForceList distributedForces = new DistributedForceList(); // Distributed Normal Forces, kN/m
 
-    private transient BeamController controller;
+    //private transient BeamController controller;
 
     /* Static calculation results */
     public transient BeamSolution[] solutions = new BeamSolution[6];
@@ -59,7 +58,7 @@ public class Beam extends ProjectItem {
         if (this.length == length) return;
 
         this.length = length;
-        controller.beamChanged();
+        //controller.beamChanged();
     }
 
     public double getLeftSupport() {
@@ -81,7 +80,7 @@ public class Beam extends ProjectItem {
         }
 
         this.leftSupport = leftSupport;
-        controller.beamChanged();
+        //controller.beamChanged();
     }
 
     public double getRightSupport() {
@@ -103,7 +102,7 @@ public class Beam extends ProjectItem {
         }
 
         this.rightSupport = rightSupport;
-        controller.beamChanged();
+        //controller.beamChanged();
     }
 
     public double getElasticStrength() {
@@ -115,7 +114,7 @@ public class Beam extends ProjectItem {
         if (elasticStrength <= 0.001) elasticStrength = 0.001;
 
         this.elasticStrength = elasticStrength;
-        controller.beamChanged();
+        //controller.beamChanged();
     }
 
     public double getAllowableStress() {
@@ -127,7 +126,7 @@ public class Beam extends ProjectItem {
         if (allowableStress <= 0.001) allowableStress = 0.001;
 
         this.allowableStress = allowableStress;
-        controller.beamChanged();
+        //controller.beamChanged();
     }
 
     public MomentList getMoments() {
@@ -137,7 +136,7 @@ public class Beam extends ProjectItem {
     public void setMoments(MomentList moments) {
         if (this.moments.equals(moments)) return;
         this.moments = moments;
-        controller.beamChanged();
+        //controller.beamChanged();
     }
 
     public String validateMoments(TableDialogPanelSupport<Moment> moments) {
@@ -157,7 +156,7 @@ public class Beam extends ProjectItem {
     public void setForces(ForceList forces) {
         if (this.forces.equals(forces)) return;
         this.forces = forces;
-        controller.beamChanged();
+        //controller.beamChanged();
     }
 
     public String validateForces(TableDialogPanelSupport<Force> forces) {
@@ -177,7 +176,7 @@ public class Beam extends ProjectItem {
     public void setDistributedForces(DistributedForceList distributedForces) {
         if (this.distributedForces.equals(distributedForces)) return;
         this.distributedForces = distributedForces;
-        controller.beamChanged();
+        //controller.beamChanged();
     }
 
     public String validateDistributedForces(TableDialogPanelSupport<DistributedForce> distributedForces) {
@@ -216,10 +215,11 @@ public class Beam extends ProjectItem {
 
     @Override
     public ProjectItemController getController() {
-        if (controller == null) {
-            controller = BeamController.createBeamController(this);
-        }
-        return controller;
+        //if (controller == null) {
+        //    controller = BeamController.createBeamController(this);
+        //}
+        //return controller;
+        return null;
     }
 
     @Override

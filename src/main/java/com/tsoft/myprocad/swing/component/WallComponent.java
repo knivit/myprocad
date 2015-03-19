@@ -9,22 +9,26 @@ import com.tsoft.myprocad.model.WallPattern;
 import com.tsoft.myprocad.swing.PlanPanel;
 import com.tsoft.myprocad.swing.SelectionPaintInfo;
 
-import java.awt.*;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.Shape;
+import java.awt.TexturePaint;
 import java.awt.geom.*;
 import java.awt.image.BufferedImage;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class WallComponent {
     private static final float WALL_STROKE_WIDTH = 1.5f; // mm
 
     private Plan plan;
-    private PlanPanel planPanel;
 
     private Map<WallPattern, BufferedImage>  patternImagesCache = new HashMap<>();
 
-    public WallComponent(PlanPanel planPanel) {
-        this.planPanel = planPanel;
-        this.plan = planPanel.getPlan();
+    public WallComponent(Plan plan) {
+        this.plan = plan;
     }
 
     public void paintWalls(Graphics2D g2D, SelectionPaintInfo selectionPaintInfo) {
@@ -120,13 +124,5 @@ public class WallComponent {
     public float getStrokeWidth(PlanPanel.PaintMode paintMode) {
         if (paintMode == PlanPanel.PaintMode.PRINT) return WALL_STROKE_WIDTH;
         return WALL_STROKE_WIDTH;
-    }
-
-    public void wallChanged() {
-       planPanel.revalidate();
-    }
-
-    public void wallListChanged() {
-        planPanel.revalidate();
     }
 }

@@ -84,10 +84,11 @@ public class Menu {
 
     public static final Menu SELECT = new Menu(L10.get(L10.MENU_SELECT_NAME), "resources/icons/plan-select.png", L10.get(L10.MENU_SELECT_HINT));
     public static final Menu PAN = new Menu(L10.get(L10.MENU_PAN_NAME), "resources/icons/plan-pan.png", L10.get(L10.MENU_PAN_HINT));
-    public static final Menu CREATE_WALLS = new Menu(L10.get(L10.MENU_CREATE_WALLS_NAME), "resources/icons/plan-create-walls.png", L10.get(L10.MENU_CREATE_WALLS_HINT));
-    public static final Menu CREATE_DIMENSION_LINES = new Menu(L10.get(L10.MENU_CREATE_DIMENSION_LINES_NAME), "resources/icons/plan-create-dimension-lines.png", L10.get(L10.MENU_CREATE_DIMENSION_LINES_HINT));
-    public static final Menu CREATE_LABELS = new Menu(L10.get(L10.MENU_CREATE_LABELS_NAME), "resources/icons/plan-create-labels.png", L10.get(L10.MENU_CREATE_LABELS_HINT));
-    public static final Menu CREATE_LEVEL_MARKS = new Menu(L10.get(L10.MENU_CREATE_LEVEL_MARKS_NAME), "resources/icons/plan-create-level-marks.png", L10.get(L10.MENU_CREATE_LEVEL_MARKS_HINT));
+    public static final Menu CREATE_WALLS = new Menu(L10.get(L10.MENU_CREATE_WALLS_NAME), "resources/icons/plan-create-walls.png", L10.get(L10.MENU_CREATE_WALLS_NAME));
+    public static final Menu CREATE_BEAMS = new Menu(L10.get(L10.MENU_CREATE_BEAMS_NAME), "resources/icons/plan-create-beams.png", L10.get(L10.MENU_CREATE_BEAMS_NAME));
+    public static final Menu CREATE_DIMENSION_LINES = new Menu(L10.get(L10.MENU_CREATE_DIMENSION_LINES_NAME), "resources/icons/plan-create-dimension-lines.png", L10.get(L10.MENU_CREATE_DIMENSION_LINES_NAME));
+    public static final Menu CREATE_LABELS = new Menu(L10.get(L10.MENU_CREATE_LABELS_NAME), "resources/icons/plan-create-labels.png", L10.get(L10.MENU_CREATE_LABELS_NAME));
+    public static final Menu CREATE_LEVEL_MARKS = new Menu(L10.get(L10.MENU_CREATE_LEVEL_MARKS_NAME), "resources/icons/plan-create-level-marks.png", L10.get(L10.MENU_CREATE_LEVEL_MARKS_NAME));
     public static final Menu EDIT_FOLDERS = new Menu(L10.get(L10.MENU_EDIT_FOLDERS_NAME));
     public static final Menu EDIT_PROJECT = new Menu(L10.get(L10.MENU_EDIT_PROJECT_NAME));
 
@@ -101,13 +102,6 @@ public class Menu {
     public static final Menu NOTES_PRINT_PREVIEW = new Menu(L10.get(L10.MENU_PRINT_PREVIEW_NAME), "resources/icons/document-print-preview.png");
     public static final Menu NOTES_PRINT = new Menu(L10.get(L10.MENU_PRINT_NAME), "resources/icons/document-print.png");
     public static final Menu NOTES_PRINT_TO_PDF = new Menu(L10.get(L10.MENU_PRINT_TO_PDF_NAME), "resources/icons/document-print-pdf.png");
-
-    public static final Menu BEAM_MENU = new Menu(L10.get(L10.BEAM_MENU));
-    public static final Menu ADD_BEAM = new Menu(L10.get(L10.MENU_ADD_BEAM_NAME));
-    public static final Menu DELETE_BEAM = new Menu(L10.get(L10.MENU_DELETE_BEAM_NAME));
-    public static final Menu BEAM_PRINT_PREVIEW = new Menu(L10.get(L10.MENU_PRINT_PREVIEW_NAME), "resources/icons/document-print-preview.png");
-    public static final Menu BEAM_PRINT = new Menu(L10.get(L10.MENU_PRINT_NAME), "resources/icons/document-print.png");
-    public static final Menu BEAM_PRINT_TO_PDF = new Menu(L10.get(L10.MENU_PRINT_TO_PDF_NAME), "resources/icons/document-print-pdf.png");
 
     public static final Menu WOOD_BEAM_MENU = new Menu(L10.get(L10.WOOD_BEAM_MENU));
     public static final Menu ADD_WOOD_BEAM = new Menu(L10.get(L10.MENU_ADD_WOOD_BEAM_NAME));

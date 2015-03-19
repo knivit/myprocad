@@ -37,6 +37,7 @@ public class PlanPanelMenu {
         Menu.SELECT.setVisible(isVisible);
         Menu.PAN.setVisible(isVisible);
         Menu.CREATE_WALLS.setVisible(isVisible);
+        Menu.CREATE_BEAMS.setVisible(isVisible);
         Menu.CREATE_LABELS.setVisible(isVisible);
         Menu.CREATE_DIMENSION_LINES.setVisible(isVisible);
         Menu.CREATE_LABELS.setVisible(isVisible);
@@ -59,6 +60,7 @@ public class PlanPanelMenu {
         planMenu.add(Menu.SELECT.getMenuItem());
         planMenu.add(Menu.PAN.getMenuItem());
         planMenu.add(Menu.CREATE_WALLS.getMenuItem());
+        planMenu.add(Menu.CREATE_BEAMS.getMenuItem());
         planMenu.add(Menu.CREATE_DIMENSION_LINES.getMenuItem());
         planMenu.add(Menu.CREATE_LABELS.getMenuItem());
         planMenu.add(Menu.CREATE_LEVEL_MARKS.getMenuItem());
@@ -113,6 +115,7 @@ public class PlanPanelMenu {
         Menu.SELECT.addToToolBar();
         Menu.PAN.addToToolBar();
         Menu.CREATE_WALLS.addToToolBar();
+        Menu.CREATE_BEAMS.addToToolBar();
         Menu.CREATE_DIMENSION_LINES.addToToolBar();
         Menu.CREATE_LABELS.addToToolBar();
         Menu.CREATE_LEVEL_MARKS.addToToolBar();

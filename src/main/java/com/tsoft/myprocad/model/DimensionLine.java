@@ -33,7 +33,10 @@ public class DimensionLine extends Item implements JsonSerializable {
     private transient PointShapeType startPointShapeType;
     private transient PointShapeType endPointShapeType;
 
-    DimensionLine() { super(); }
+    DimensionLine() {
+        super();
+        setTypeName(ItemType.DIMENSION_LINE.getTypeName());
+    }
 
     public int getOffset() {
         return offset;
@@ -247,27 +250,6 @@ public class DimensionLine extends Item implements JsonSerializable {
         shapeCache.append(new Line2D.Float(xEnd, yEnd, xEnd + dx, yEnd + dy), false);
 
         return shapeCache;
-    }
-
-    @Override
-    public DimensionLine splitInTwo() {
-        normalizeStartAndEnd();
-
-        DimensionLine newDimensionLine = (DimensionLine)clone();
-        plan.addDimensionLine(newDimensionLine);
-
-        if (getXDistance() >= getYDistance()) {
-            // split vertically
-            int xs = xStart + getXDistance() / 2;
-            newDimensionLine.setXStart(xs);
-            setXEnd(xs);
-        } else {
-            // split horizontally
-            int ys = yStart + getYDistance() / 2;
-            newDimensionLine.setYStart(ys);
-            setYEnd(ys);
-        }
-        return newDimensionLine;
     }
 
     @Override

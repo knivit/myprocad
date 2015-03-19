@@ -24,6 +24,7 @@ public class Plan extends ProjectItem implements Cloneable {
     private int originLocationId = CoordinatesOriginLocation.TOP_LEFT.getId();
 
     private WallList walls = new WallList();
+    private ItemList<Beam> beams = new ItemList<>();
     private ItemList<DimensionLine> dimensionLines = new ItemList<>();
     private ItemList<Label> labels = new ItemList<>();
     private ItemList<LevelMark> levelMarks = new ItemList<>();
@@ -185,31 +186,8 @@ public class Plan extends ProjectItem implements Cloneable {
         wall.setZEnd(zEnd);
         wall.setMaterial(getProject().getMaterials().getDefault());
 
-        addWall(wall);
+        addItem(wall);
         return wall;
-    }
-
-    public void addWall(Wall wall) {
-        if (wall == null) return;
-        getProject().setModified(true);
-
-        wall.plan = this;
-        walls.add(wall);
-
-        planController.wallListChanged(CollectionEvent.Type.ADD, new ItemList<Item>(wall));
-    }
-
-    public void deleteWall(Wall wall) {
-        if (wall == null) return;
-        getProject().setModified(true);
-
-        // first, deselect and remove wall from the list
-        planController.deselectItem(wall);
-        walls.deleteItem(wall);
-
-        // second, clear the references
-        wall.plan = null;
-        planController.wallListChanged(CollectionEvent.Type.DELETE, new ItemList<Item>(wall));
     }
 
     public void undoAddItems(ItemList<Item> items) {
@@ -244,21 +222,34 @@ public class Plan extends ProjectItem implements Cloneable {
     public void addItem(Item item) {
         if (item == null) return;
 
-        if (item instanceof Wall) addWall((Wall) item);
-        else if (item instanceof DimensionLine) addDimensionLine((DimensionLine) item);
-        else if (item instanceof Label) addLabel((Label) item);
-        else if (item instanceof LevelMark) addLevelMark((LevelMark) item);
+        getProject().setModified(true);
+        item.plan = this;
+
+        if (item instanceof Wall) walls.add((Wall) item);
+        else if (item instanceof Beam) beams.add((Beam)item);
+        else if (item instanceof DimensionLine) dimensionLines.add((DimensionLine) item);
+        else if (item instanceof Label) labels.add((Label) item);
+        else if (item instanceof LevelMark) levelMarks.add((LevelMark) item);
         else throw new IllegalArgumentException("Unknown item " + item.getClass().getName());
+
+        planController.itemListChanged(CollectionEvent.Type.ADD, new ItemList<Item>(item));
     }
 
     public void deleteItem(Item item) {
         if (item == null) return;
 
-        if (item instanceof Wall) deleteWall((Wall) item);
-        else if (item instanceof DimensionLine) deleteDimensionLine((DimensionLine) item);
-        else if (item instanceof Label) deleteLabel((Label) item);
-        else if (item instanceof LevelMark) deleteLevelMark((LevelMark) item);
+        getProject().setModified(true);
+        planController.deselectItem(item);
+
+        if (item instanceof Wall) walls.deleteItem((Wall) item);
+        else if (item instanceof Beam) beams.deleteItem((Beam)item);
+        else if (item instanceof DimensionLine) dimensionLines.deleteItem((DimensionLine) item);
+        else if (item instanceof Label) labels.deleteItem((Label) item);
+        else if (item instanceof LevelMark) levelMarks.deleteItem((LevelMark) item);
         else throw new IllegalArgumentException("Unknown item " + item.getClass().getName());
+
+        item.plan = null;
+        planController.itemListChanged(CollectionEvent.Type.DELETE, new ItemList<Item>(item));
     }
 
     public void deleteItems(ItemList<Item> items) {
@@ -273,6 +264,9 @@ public class Plan extends ProjectItem implements Cloneable {
             ItemList<Wall> wl = items.getWallsSubList();
             wl.stream().forEach(item -> action.accept(walls.findById(item.getId())));
 
+            ItemList<Beam> bl = items.getBeamsSubList();
+            bl.stream().forEach(item -> action.accept(beams.findById(item.getId())));
+
             ItemList<DimensionLine> dl = items.getDimensionLinesSubList();
             dl.stream().forEach(item -> action.accept(dimensionLines.findById(item.getId())));
 
@@ -283,7 +277,7 @@ public class Plan extends ProjectItem implements Cloneable {
             lm.stream().forEach(item -> action.accept(levelMarks.findById(item.getId())));
 
             if (items.size() != (wl.size() + dl.size() + ll.size() + lm.size())) {
-                throw new IllegalArgumentException("Not all items were processes");
+                throw new IllegalArgumentException("Not all items were processed");
             }
         } finally {
             planController.stopBatchUpdate();
@@ -293,6 +287,26 @@ public class Plan extends ProjectItem implements Cloneable {
     public void itemChanged(Item item) {
         getProject().setModified(true);
         planController.itemChanged(item);
+    }
+
+    public ItemList<Beam> getBeams() {
+        return beams.getCopy();
+    }
+
+    public Beam createBeam(float xStart, float yStart, int zStart, float xEnd, float yEnd, int zEnd, int width, int height) {
+        Beam beam = (Beam)ItemType.BEAM.newInstance();
+        beam.setXStart(xStart);
+        beam.setYStart(yStart);
+        beam.setZStart(zStart);
+        beam.setXEnd(xEnd);
+        beam.setYEnd(yEnd);
+        beam.setZEnd(zEnd);
+        beam.setPropertyValue(Beam.WIDTH_PROPERTY, width);
+        beam.setPropertyValue(Beam.HEIGHT_PROPERTY, height);
+        beam.setMaterial(getProject().getMaterials().getDefault());
+
+        addItem(beam);
+        return beam;
     }
 
     public ItemList<DimensionLine> getDimensionLines() {
@@ -309,26 +323,8 @@ public class Plan extends ProjectItem implements Cloneable {
         dimensionLine.setZEnd(getLevel().getEnd());
         dimensionLine.setOffset(offset);
 
-        addDimensionLine(dimensionLine);
+        addItem(dimensionLine);
         return dimensionLine;
-    }
-
-    public void addDimensionLine(DimensionLine dimensionLine) {
-        getProject().setModified(true);
-        dimensionLine.plan = this;
-
-        dimensionLines.add(dimensionLine);
-        planController.dimensionLineListChanged();
-    }
-
-    public void deleteDimensionLine(DimensionLine dimensionLine) {
-        getProject().setModified(true);
-        dimensionLine.plan = null;
-
-        // Ensure selectedItems don't keep a reference to dimension line
-        planController.deselectItem(dimensionLine);
-        dimensionLines.deleteItem(dimensionLine);
-        planController.dimensionLineListChanged();
     }
 
     public ItemList<Label> getLabels() {
@@ -345,28 +341,8 @@ public class Plan extends ProjectItem implements Cloneable {
         label.setZEnd(getLevel().getEnd());
         label.setText(text);
 
-        addLabel(label);
+        addItem(label);
         return label;
-    }
-
-    private void addLabel(Label label) {
-        getProject().setModified(true);
-
-        label.plan = this;
-        labels.add(label);
-        if (planController == null) return;
-        planController.labelListChanged();
-    }
-
-    public void deleteLabel(Label label) {
-        getProject().setModified(true);
-
-        label.plan = null;
-
-        // Ensure selectedItems don't keep a reference to label
-        planController.deselectItem(label);
-        labels.deleteItem(label);
-        planController.labelListChanged();
     }
 
     public ItemList<LevelMark> getLevelMarks() {
@@ -382,31 +358,16 @@ public class Plan extends ProjectItem implements Cloneable {
         levelMark.setZStart(getLevel().getStart());
         levelMark.setZEnd(getLevel().getEnd());
 
-        addLevelMark(levelMark);
+        addItem(levelMark);
         return levelMark;
-    }
-
-    private void addLevelMark(LevelMark levelMark) {
-        getProject().setModified(true);
-
-        levelMark.plan = this;
-        levelMarks.add(levelMark);
-        planController.levelMarkListChanged();
-    }
-
-    public void deleteLevelMark(LevelMark levelMark) {
-        getProject().setModified(true);
-
-        levelMark.plan = null;
-
-        // Ensure selectedItems don't keep a reference to label
-        planController.deselectItem(levelMark);
-        levelMarks.deleteItem(levelMark);
-        planController.levelMarkListChanged();
     }
 
     public WallList getLevelWalls() {
         return new WallList(getWalls().atLevel(this));
+    }
+
+    public ItemList<Beam> getLevelBeams() {
+        return getBeams().atLevel(this);
     }
 
     public ItemList<DimensionLine> getLevelDimensionLines() {
@@ -600,6 +561,7 @@ public class Plan extends ProjectItem implements Cloneable {
                 .write("scale", scale)
                 .write("originLocationId", originLocationId)
                 .write("walls", walls)
+                .write("beams", beams)
                 .write("dimensionLines", dimensionLines)
                 .write("labels", labels)
                 .write("levelMarks", levelMarks)
@@ -616,6 +578,7 @@ public class Plan extends ProjectItem implements Cloneable {
     @Override
     public void fromJson(JsonReader reader) throws IOException {
         walls = new WallList();
+        beams = new ItemList<>();
         dimensionLines = new ItemList<>();
         labels = new ItemList<>();
         levelMarks = new ItemList<>();
@@ -630,6 +593,7 @@ public class Plan extends ProjectItem implements Cloneable {
                     .defFloat("scale", ((value) -> scale = value))
                     .defInteger("originLocationId", ((value) -> originLocationId = value))
                     .defCollection("walls", Wall::new, ((value) -> walls.add((Wall) value)))
+                    .defCollection("beams", Beam::new, ((value) -> beams.add((Beam) value)))
                     .defCollection("dimensionLines", DimensionLine::new, ((value) -> dimensionLines.add((DimensionLine) value)))
                     .defCollection("labels", Label::new, ((value) -> labels.add((Label) value)))
                     .defCollection("levelMarks", LevelMark::new, ((value) -> levelMarks.add((LevelMark) value)))
@@ -646,15 +610,10 @@ public class Plan extends ProjectItem implements Cloneable {
             // update references
             levels.setPlan(this);
             walls.stream().forEach(e -> e.setPlan(this));
+            beams.stream().forEach(e -> e.setPlan(this));
             dimensionLines.stream().forEach(e -> e.setPlan(this));
             labels.stream().forEach(e -> e.setPlan(this));
             levelMarks.stream().forEach(e -> e.setPlan(this));
-
-            // set types (as they don't saved in toJson()
-            walls.stream().forEach(e -> e.setTypeName(ItemType.WALL.getTypeName()));
-            dimensionLines.stream().forEach(e -> e.setTypeName(ItemType.DIMENSION_LINE.getTypeName()));
-            labels.stream().forEach(e -> e.setTypeName(ItemType.LABEL.getTypeName()));
-            levelMarks.stream().forEach(e -> e.setTypeName(ItemType.LEVEL_MARK.getTypeName()));
         }
     }
 }

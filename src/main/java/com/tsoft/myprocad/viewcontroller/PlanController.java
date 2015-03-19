@@ -11,11 +11,7 @@ import com.tsoft.myprocad.swing.menu.PlanPanelMenu;
 import com.tsoft.myprocad.swing.properties.PatternComboBoxRenderer;
 import com.tsoft.myprocad.util.ContentManager;
 import com.tsoft.myprocad.util.SwingTools;
-import com.tsoft.myprocad.viewcontroller.component.DimensionLineController;
-import com.tsoft.myprocad.viewcontroller.component.LabelController;
-import com.tsoft.myprocad.viewcontroller.component.LevelListController;
-import com.tsoft.myprocad.viewcontroller.component.LevelMarkController;
-import com.tsoft.myprocad.viewcontroller.component.WallController;
+import com.tsoft.myprocad.viewcontroller.component.*;
 import com.tsoft.myprocad.viewcontroller.property.PlanPropertiesManager;
 
 import java.awt.geom.Rectangle2D;
@@ -44,6 +40,7 @@ public class PlanController implements ProjectItemController {
         public static final Mode SELECTION = new Mode("SELECTION", L10.get(L10.STATUS_PANEL_SELECTION_MODE));
         public static final Mode PANNING = new Mode("PANNING", L10.get(L10.STATUS_PANEL_PANNING_MODE));
         public static final Mode WALL_CREATION = new Mode("WALL_CREATION", L10.get(L10.STATUS_PANEL_WALL_CREATION_MODE));
+        public static final Mode BEAM_CREATION = new Mode("BEAM_CREATION", L10.get(L10.STATUS_PANEL_BEAM_CREATION_MODE));
         public static final Mode DIMENSION_LINE_CREATION = new Mode("DIMENSION_LINE_CREATION", L10.get(L10.STATUS_PANEL_DIMENSION_LINE_MODE));
         public static final Mode LABEL_CREATION = new Mode("LABEL_CREATION", L10.get(L10.STATUS_PANEL_LABEL_MODE));
         public static final Mode LEVEL_MARK_CREATION = new Mode("LEVEL_MARK_CREATION", L10.get(L10.STATUS_PANEL_LEVEL_MARK_MODE));
@@ -102,6 +99,7 @@ public class PlanController implements ProjectItemController {
 
     // Sub-controllers
     public WallController wallController;
+    public BeamController beamController;
     public DimensionLineController dimensionLineController;
     public LabelController labelController;
     public LevelMarkController levelMarkController;
@@ -126,6 +124,7 @@ public class PlanController implements ProjectItemController {
 
     private void createSubControllers() {
         wallController = new WallController(this);
+        beamController = new BeamController(this);
         dimensionLineController = new DimensionLineController(this);
         labelController = new LabelController(this);
         levelMarkController = new LevelMarkController(this);
@@ -237,24 +236,12 @@ public class PlanController implements ProjectItemController {
         planPanel.itemChanged(item);
     }
 
-    public void wallListChanged(CollectionEvent.Type event, ItemList<Item> changes) {
+    public void itemListChanged(CollectionEvent.Type event, ItemList<Item> changes) {
         if (CollectionEvent.Type.DELETE.equals(event)) {
             rememberedSelections.stream().forEach(e -> e.removeItems(changes));
         }
 
-        planPanel.wallListChanged();
-    }
-
-    public void dimensionLineListChanged() {
-        planPanel.dimensionLineListChanged();
-    }
-
-    public void labelListChanged() {
-        planPanel.labelListChanged();
-    }
-
-    public void levelMarkListChanged() {
-        planPanel.levelMarkListChanged();
+        planPanel.itemListChanged();
     }
 
     public void materialListChanged() {
@@ -329,12 +316,33 @@ public class PlanController implements ProjectItemController {
     private void splitInTwo() {
         ItemList<Item> newItems = new ItemList<>();
         ItemList<Item> oldItems = selectedItems.getCopy();
-        for (Item item : selectedItems) {
-            Item newItem = item.splitInTwo();
-            newItems.add(newItem);
-        }
+
+        for (Wall item : selectedItems.getWallsSubList()) newItems.add(splitInTwo(item));
+        for (Beam item : selectedItems.getBeamsSubList()) newItems.add(splitInTwo(item));
+        for (DimensionLine item : selectedItems.getDimensionLinesSubList()) newItems.add(splitInTwo(item));
+
         history.push(CollectionEvent.Type.ADD, newItems);
         history.push(oldItems);
+    }
+
+    private Item splitInTwo(Item originItem) {
+        originItem.normalizeStartAndEnd();
+
+        Item newItem = originItem.clone();
+        plan.addItem(newItem);
+
+        if (originItem.getXDistance() >= originItem.getYDistance()) {
+            // split vertically
+            int xs = originItem.getXStart() + originItem.getXDistance() / 2;
+            newItem.setXStart(xs);
+            originItem.setXEnd(xs);
+        } else {
+            // split horizontally
+            int ys = originItem.getYStart() + originItem.getYDistance() / 2;
+            newItem.setYStart(ys);
+            originItem.setYEnd(ys);
+        }
+        return newItem;
     }
 
     private void generateScript() {
@@ -758,6 +766,7 @@ public class PlanController implements ProjectItemController {
         if (Menu.SELECT.equals(menu)) { setMode(PlanController.Mode.SELECTION); return true; }
         if (Menu.PAN.equals(menu)) { setMode(PlanController.Mode.PANNING); return true; }
         if (Menu.CREATE_WALLS.equals(menu)) { setMode(PlanController.Mode.WALL_CREATION); return true; }
+        if (Menu.CREATE_BEAMS.equals(menu)) { setMode(PlanController.Mode.BEAM_CREATION); return true; }
         if (Menu.CREATE_DIMENSION_LINES.equals(menu)) { setMode(PlanController.Mode.DIMENSION_LINE_CREATION); return true; }
         if (Menu.CREATE_LABELS.equals(menu)) { setMode(PlanController.Mode.LABEL_CREATION); return true; }
         if (Menu.CREATE_LEVEL_MARKS.equals(menu)) { setMode(PlanController.Mode.LEVEL_MARK_CREATION); return true; }

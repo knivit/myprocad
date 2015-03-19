@@ -76,12 +76,4 @@ public class LevelMarkComponent {
         if (paintMode == PlanPanel.PaintMode.PRINT) return BORDER_STROKE_WIDTH;
         return BORDER_STROKE_WIDTH;
     }
-
-    public <T> void levelMarkChanged() {
-        planPanel.revalidate();
-    }
-
-    public void levelMarkListChanged() {
-        planPanel.revalidate();
-    }
 }

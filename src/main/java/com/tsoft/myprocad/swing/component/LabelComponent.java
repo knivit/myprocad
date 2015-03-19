@@ -188,12 +188,4 @@ public class LabelComponent {
         g2D.scale(scaleInverse, scaleInverse);
         g2D.setTransform(previousTransform);
     }
-
-    public void labelChanged() {
-        planPanel.revalidate();
-    }
-
-    public void labelListChanged() {
-        planPanel.revalidate();
-    }
 }

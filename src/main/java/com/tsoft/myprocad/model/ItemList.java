@@ -79,6 +79,10 @@ public class ItemList<T extends Item> extends ArrayList<T> {
         return getSubList(Wall.class);
     }
 
+    public ItemList<Beam> getBeamsSubList() {
+        return getSubList(Beam.class);
+    }
+
     public ItemList<DimensionLine> getDimensionLinesSubList() {
         return getSubList(DimensionLine.class);
     }

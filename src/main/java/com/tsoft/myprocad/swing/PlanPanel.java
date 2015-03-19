@@ -1,6 +1,16 @@
 package com.tsoft.myprocad.swing;
 
-import com.tsoft.myprocad.model.Label;
+import com.tsoft.myprocad.model.Item;
+import com.tsoft.myprocad.model.ItemList;
+import com.tsoft.myprocad.model.PageSetup;
+import com.tsoft.myprocad.model.Plan;
+import com.tsoft.myprocad.swing.component.BeamComponent;
+import com.tsoft.myprocad.swing.component.DimensionLineComponent;
+import com.tsoft.myprocad.swing.component.LabelComponent;
+import com.tsoft.myprocad.swing.component.LevelMarkComponent;
+import com.tsoft.myprocad.swing.component.PlanGridComponent;
+import com.tsoft.myprocad.swing.component.PlanRulerComponent;
+import com.tsoft.myprocad.swing.component.WallComponent;
 import com.tsoft.myprocad.swing.menu.PlanPanelMenu;
 import com.tsoft.myprocad.swing.properties.PropertiesManagerPanel;
 
@@ -27,11 +37,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.event.MouseInputAdapter;
 
-import com.tsoft.myprocad.model.*;
 import com.tsoft.myprocad.model.property.ListenedField;
 import com.tsoft.myprocad.model.property.PlanProperties;
-import com.tsoft.myprocad.swing.component.*;
-import com.tsoft.myprocad.swing.component.PlanRulerComponent;
 
 import com.tsoft.myprocad.util.OperatingSystem;
 import com.tsoft.myprocad.util.PrintDialog;
@@ -64,6 +71,7 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
     private boolean planBoundsCacheValid = false;
 
     private WallComponent wallComponent;
+    private BeamComponent beamComponent;
     private DimensionLineComponent dimensionLineComponent;
     private LabelComponent labelComponent;
     private LevelMarkComponent levelMarkComponent;
@@ -118,7 +126,8 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
     public JComponent getParentComponent() { return parentComponent; }
 
     private void createSubComponents() {
-        wallComponent = new WallComponent(this);
+        wallComponent = new WallComponent(plan);
+        beamComponent = new BeamComponent(plan);
         dimensionLineComponent = new DimensionLineComponent(this);
         labelComponent = new LabelComponent(this);
         levelMarkComponent = new LevelMarkComponent(this);
@@ -174,27 +183,9 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
         }
     }
 
-    public void itemChanged(Item item) {
-        if (Wall.class.equals(item.getClass())) wallComponent.wallChanged();
-        else if (DimensionLine.class.equals(item.getClass())) dimensionLineComponent.dimensionLineChanged();
-        else if (Label.class.equals(item.getClass())) labelComponent.labelChanged();
-        else if (LevelMark.class.equals(item.getClass())) levelMarkComponent.levelMarkChanged();
-        else throw new IllegalArgumentException("Unknown item " + item.getClass().getName());
-    }
+    public void itemChanged(Item item) { revalidate(); }
 
-    public void wallListChanged() { wallComponent.wallListChanged(); }
-
-    public void dimensionLineListChanged() {
-        dimensionLineComponent.dimensionLineListChanged();
-    }
-
-    public void labelListChanged() {
-        labelComponent.labelListChanged();
-    }
-
-    public void levelMarkListChanged() {
-        levelMarkComponent.levelMarkListChanged();
-    }
+    public void itemListChanged() { revalidate(); }
 
     public void disableRevalidate() {
         revalidateDisabled = true;
@@ -582,6 +573,7 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
 
         Graphics2D g2D = (Graphics2D)g;
         wallComponent.paintWalls(g2D, selectionPaintInfo);
+        beamComponent.paintBeams(g2D, selectionPaintInfo);
         dimensionLineComponent.paintDimensionLines(g2D, plan.getLevelDimensionLines(), selectedItems, selectionPaintInfo);
         labelComponent.paintLabels(g2D, selectedItems, selectionPaintInfo);
         levelMarkComponent.paintLevelMarks(g2D, plan.getLevelLevelMarks(), selectedItems, selectionPaintInfo);

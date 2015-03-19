@@ -24,7 +24,10 @@ public class Label extends Item implements JsonSerializable {
     private transient Font font;
     private transient Rotation rotation;
 
-    Label() { super(); }
+    Label() {
+        super();
+        setTypeName(ItemType.LABEL.getTypeName());
+    }
 
     public Rotation getRotation() {
         if (rotation == null) rotation = Rotation.findById(rotationId);

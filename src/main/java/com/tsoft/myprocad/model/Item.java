@@ -103,7 +103,9 @@ public abstract class Item implements Cloneable, JsonSerializable {
 
     public abstract String getPopupItemName();
 
-    protected Item() { generateId(); }
+    protected Item() {
+        generateId();
+    }
 
     public String getId() { return id; }
 
@@ -126,8 +128,6 @@ public abstract class Item implements Cloneable, JsonSerializable {
         plan = plan_save;
         plan_save = null;
     }
-
-    public Item splitInTwo() { return null; }
 
     public void populateFrom(Item item) {
         xStart = item.xStart;
@@ -155,7 +155,7 @@ public abstract class Item implements Cloneable, JsonSerializable {
 
         return type.newInstance();   }
 
-    protected void normalizeStartAndEnd() {
+    public void normalizeStartAndEnd() {
         if (xStart > xEnd) { int t = xStart; xStart = xEnd; xEnd = t; }
         if (yStart > yEnd) { int t = yStart; yStart = yEnd; yEnd = t; }
     }

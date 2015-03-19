@@ -48,17 +48,14 @@ public class L10 {
     public static String[] MENU_ZOOM_IN_HINT = { "Zoom in (Ctrl++)", "Увеличить (Ctrl++)" };
     public static String[] MENU_CALCULATOR_HELP_NAME = { "Help", "Справка" };
     public static String[] MENU_CALCULATOR_HELP_HINT = { "Calculator Help", "Справка по калькулятору" };
-    public static String[] MENU_CREATE_LABELS_NAME = { "Create text", "Создать текст" };
-    public static String[] MENU_CREATE_LABELS_HINT = { "Create text", "Создать текст" };
-    public static String[] MENU_CREATE_LEVEL_MARKS_NAME = { "Create level mark", "Создать отметку уровня" };
-    public static String[] MENU_CREATE_LEVEL_MARKS_HINT = { "Create level mark", "Создать отметку уровня" };
+    public static String[] MENU_CREATE_LABELS_NAME = { "Create a label", "Создать надпись" };
+    public static String[] MENU_CREATE_LEVEL_MARKS_NAME = { "Create a level mark", "Создать отметку уровня" };
     public static String[] MENU_EDIT_FOLDERS_NAME = { "Folders", "Папки" };
     public static String[] MENU_EDIT_PROJECT_NAME = { "Project's items", "Состав проекта" };
 
-    public static String[] MENU_CREATE_DIMENSION_LINES_NAME = { "Create dimension", "Создать размер" };
-    public static String[] MENU_CREATE_DIMENSION_LINES_HINT = { "Create dimension", "Создать размер" };
-    public static String[] MENU_CREATE_WALLS_NAME = { "Create walls", "Создать стены" };
-    public static String[] MENU_CREATE_WALLS_HINT = { "Create walls", "Создать стены" };
+    public static String[] MENU_CREATE_DIMENSION_LINES_NAME = { "Create s dimension", "Создать размер" };
+    public static String[] MENU_CREATE_WALLS_NAME = { "Create a wall", "Создать стену" };
+    public static String[] MENU_CREATE_BEAMS_NAME = { "Create a beam", "Создать балку" };
     public static String[] MENU_PAN_NAME = { "Pan", "Обзор" };
     public static String[] MENU_PAN_HINT = { "Pan in plan", "Обзор плана" };
     public static String[] MENU_SELECT_NAME = { "Select", "Выбрать" };
@@ -204,6 +201,16 @@ public class L10 {
     /** Common */
     public static String[] CANCEL = { "Cancel", "Отмена" };
     public static String[] SELECT_ITEM = { "Select an item", "Выберите элемент" };
+    public static String[] VIEW_CATEGORY = { "View", "Представление" };
+    public static String[] PROPERTIES_CATEGORY = { "Properties", "Свойства" };
+    public static String[] INFO_CATEGORY = { "Info", "Информация" };
+    public static String[] X_CATEGORY = { "X Coordinate", "Координата X" };
+    public static String[] Y_CATEGORY = { "Y Coordinate", "Координата Y" };
+    public static String[] Z_CATEGORY = { "Z Coordinate", "Координата Z" };
+    public static String[] START_PROPERTY = { "Start (mm)", "Начало (мм)" };
+    public static String[] END_PROPERTY = { "End (mm)", "Конец (мм)" };
+    public static String[] MIN_PROPERTY = { "Min (mm)", "Минимум (мм)" };
+    public static String[] MAX_PROPERTY = { "Max (mm)", "Максимум (мм)" };
     public static String[] ROTATION_ANGLE_0 = { "0", "0" };
     public static String[] ROTATION_ANGLE_90 = { "90", "90" };
     public static String[] ROTATION_ANGLE_180 = { "180", "180" };
@@ -224,6 +231,7 @@ public class L10 {
     public static String[] STATUS_PANEL_SELECTION_MODE = { "Selection", "Выбор" };
     public static String[] STATUS_PANEL_PANNING_MODE = { "Panning", "Обзор" };
     public static String[] STATUS_PANEL_WALL_CREATION_MODE = { "Wall Creation", "Создание стен" };
+    public static String[] STATUS_PANEL_BEAM_CREATION_MODE = { "Beam Creation", "Создание балки" };
     public static String[] STATUS_PANEL_DIMENSION_LINE_MODE = { "Dimension Line Creation", "Создание размеров" };
     public static String[] STATUS_PANEL_LABEL_MODE = { "Label Creation", "Создание надписи" };
     public static String[] STATUS_PANEL_LEVEL_MARK_MODE = { "Level Mark Creation", "Создание метки уровня" };
@@ -274,16 +282,6 @@ public class L10 {
     public static String[] PLAN_PRINT_GRID_PROPERTY = { "Print Grid", "Печать сетки" };
     public static String[] PLAN_PRINT_SCALE_PROPERTY = { "Print Scale", "Масштаб печати" };
 
-    public static String[] WALL_X_CATEGORY = { "X Coordinate", "Координата X" };
-    public static String[] WALL_Y_CATEGORY = { "Y Coordinate", "Координата Y" };
-    public static String[] WALL_Z_CATEGORY = { "Z Coordinate", "Координата Z" };
-    public static String[] WALL_VIEW_CATEGORY = { "View", "Представление" };
-    public static String[] WALL_PROPERTIES_CATEGORY = { "Properties", "Свойства" };
-    public static String[] WALL_INFO_CATEGORY = { "Info", "Информация" };
-    public static String[] WALL_START_PROPERTY = { "Start (mm)", "Начало (мм)" };
-    public static String[] WALL_END_PROPERTY = { "End (mm)", "Конец (мм)" };
-    public static String[] WALL_MIN_PROPERTY = { "Min (mm)", "Минимум (мм)" };
-    public static String[] WALL_MAX_PROPERTY = { "Max (mm)", "Максимум (мм)" };
     public static String[] WALL_SHAPE_PROPERTY = { "Shape", "Фигура" };
     public static String[] WALL_DIAGONAL_WIDTH_PROPERTY = { "Diagonal Width (mm)", "Диагональная ширина (мм)" };
     public static String[] WALL_PATTERN_PROPERTY = { "Pattern", "Шаблон" };
@@ -297,12 +295,11 @@ public class L10 {
     public static String[] WALL_WEIGHT_PROPERTY = { "Weight (tn)", "Вес (тн)" };
     public static String[] WALL_PRICE_PROPERTY = { "Price", "Цена" };
 
-    public static String[] DIMENSION_LINE_X_CATEGORY = { "X Coordinate", "Координата X" };
-    public static String[] DIMENSION_LINE_Y_CATEGORY = { "Y Coordinate", "Координата Y" };
-    public static String[] DIMENSION_LINE_Z_CATEGORY = { "Z Coordinate", "Координата Z" };
-    public static String[] DIMENSION_VIEW_CATEGORY = { "View", "Представление" };
-    public static String[] DIMENSION_LINE_START_PROPERTY = { "Start (mm)", "Начало (мм)" };
-    public static String[] DIMENSION_LINE_END_PROPERTY = { "End (mm)", "Конец (мм)" };
+    public static String[] BEAM_PATTERN_PROPERTY = { "Pattern", "Шаблон" };
+    public static String[] BEAM_MATERIAL_PROPERTY = { "Material", "Материал" };
+    public static String[] BEAM_WIDTH_PROPERTY = { "Width (mm)", "Ширина (мм)" };
+    public static String[] BEAM_HEIGHT_PROPERTY = { "Height (mm)", "Высота (мм)" };
+
     public static String[] DIMENSION_LINE_COLOR_PROPERTY = { "Line Color", "Цвет линии" };
     public static String[] DIMENSION_LINE_WIDTH_PROPERTY = { "Line Width", "Толщина линии" };
     public static String[] DIMENSION_TEXT_PROPERTY = { "Text (empty for default)", "Тест (пусто по умолчанию)" };
@@ -314,19 +311,12 @@ public class L10 {
     public static String[] DIMENSION_LINE_LENGTH_PROPERTY = { "Length", "Длина" };
     public static String[] DIMENSION_LINE_ANGLE_PROPERTY = { "Angle (degrees)", "Угол (градусы)" };
 
-    public static String[] LABEL_X_CATEGORY = { "X Coordinate", "Координата X" };
-    public static String[] LABEL_Y_CATEGORY = { "Y Coordinate", "Координата Y" };
-    public static String[] LABEL_Z_CATEGORY = { "Z Coordinate", "Координата Z" };
-    public static String[] LABEL_PROPERTIES_CATEGORY = { "Properties", "Свойства" };
-    public static String[] LABEL_START_PROPERTY = { "Start (mm)", "Начало (мм)" };
-    public static String[] LABEL_END_PROPERTY = { "End (mm)", "Конец (мм)" };
     public static String[] LABEL_ROTATION_PROPERTY = { "Rotation", "Поворот" };
     public static String[] LABEL_TEXT_PROPERTY = { "Text", "Текст" };
     public static String[] LABEL_FONT_FAMILY_PROPERTY = { "Font Family", "Семейство шрифтов" };
     public static String[] LABEL_FONT_SIZE_PROPERTY = { "Font Size", "Размер шрифта" };
 
     public static String[] LEVEL_MARK_COORDINATES_CATEGORY = { "Coordinates", "Координаты" };
-    public static String[] LEVEL_MARK_PROPERTIES_CATEGORY = { "Properties", "Свойства" };
     public static String[] LEVEL_MARK_X_PROPERTY = { "X (mm)", "X (мм)" };
     public static String[] LEVEL_MARK_Y_PROPERTY = { "Y (mm)", "Y (мм)" };
     public static String[] LEVEL_MARK_Z_START_PROPERTY = { "Z Start (mm)", "Начало по Z (мм)" };
@@ -559,5 +549,6 @@ public class L10 {
             "Constants\n" +
             "  pi" };
     public static String[] EXECUTE_JAVA_SCRIPT = { "Run", "Пуск" };
+    public static String[] CLEAR_JAVA_SCRIPT_OUTPUT = { "Clear output", "Очистить результат" };
     public static String[] HIDE_JAVA_SCRIPT_PANEL = { "X", "X" };
 }

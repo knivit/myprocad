@@ -39,6 +39,8 @@ public class DimensionLineDrawingState extends ControllerState {
             setState(planController.getPanningState());
         } else if (mode == Mode.WALL_CREATION) {
             setState(getWallController().wallCreationState);
+        } else if (mode == Mode.BEAM_CREATION) {
+            setState(getBeamController().creationState);
         } else if (mode == Mode.LABEL_CREATION) {
             setState(getLabelController().labelCreationState);
         } else if (mode == Mode.LEVEL_MARK_CREATION) {
@@ -132,12 +134,7 @@ public class DimensionLineDrawingState extends ControllerState {
 
     @Override
     public void escape() {
-        if (newDimensionLine != null) {
-            // Delete current created dimension line
-            plan.deleteDimensionLine(newDimensionLine);
-        }
-
-        // Change state to DimensionLineCreationState
+        if (newDimensionLine != null) plan.deleteItem(newDimensionLine);
         setState(getDimensionLineController().dimensionLineCreationState);
     }
 

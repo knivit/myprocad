@@ -8,10 +8,7 @@ import com.tsoft.myprocad.model.Item;
 import com.tsoft.myprocad.swing.PlanPanel;
 import com.tsoft.myprocad.viewcontroller.PlanController;
 import com.tsoft.myprocad.viewcontroller.PlanController.Mode;
-import com.tsoft.myprocad.viewcontroller.component.DimensionLineController;
-import com.tsoft.myprocad.viewcontroller.component.LabelController;
-import com.tsoft.myprocad.viewcontroller.component.LevelMarkController;
-import com.tsoft.myprocad.viewcontroller.component.WallController;
+import com.tsoft.myprocad.viewcontroller.component.*;
 
 public abstract class ControllerState  {
     protected Plan plan;
@@ -52,6 +49,8 @@ public abstract class ControllerState  {
     public void zoom(float factor) { }
 
     public WallController getWallController() { return planController.wallController; }
+
+    public BeamController getBeamController() { return planController.beamController; }
 
     public DimensionLineController getDimensionLineController() {
         return planController.dimensionLineController;
