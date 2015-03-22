@@ -48,9 +48,8 @@ public class Beam extends Item implements JsonSerializable {
 
     public void setPattern(Pattern value) {
         if (ObjectUtil.equals(getPattern(), value)) return;
-
-        setPropertyValue(PATTERN_ID_PROPERTY, value.getId());
         pattern = value;
+        setPropertyValue(PATTERN_ID_PROPERTY, value.getId());
     }
 
     public Material getMaterial() {
@@ -63,12 +62,13 @@ public class Beam extends Item implements JsonSerializable {
 
     public void setMaterial(Material value) {
         if (ObjectUtil.equals(getMaterial(), value)) return;
-        setPropertyValue(MATERIAL_ID_PROPERTY, value.getId());
         material = value;
+        setPropertyValue(MATERIAL_ID_PROPERTY, value.getId());
     }
 
     @Override
     protected Shape getItemShape() {
+        int
         return null;
     }
 

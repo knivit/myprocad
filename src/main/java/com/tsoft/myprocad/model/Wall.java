@@ -1,7 +1,7 @@
 package com.tsoft.myprocad.model;
 
 import com.tsoft.myprocad.l10n.L10;
-import com.tsoft.myprocad.util.Geometry2DLib;
+import com.tsoft.myprocad.util.linealg.Geometry2DLib;
 import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
 import com.tsoft.myprocad.util.json.JsonSerializable;

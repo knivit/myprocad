@@ -136,7 +136,12 @@ public class Menu {
         this.hint = hint;
 
         // we need an exception to be thrown here if the resource doesn't exists
-        icon = iconFileName == null ? null : new ImageIcon(MyProCAD.class.getResource(iconFileName));
+        try {
+            icon = iconFileName == null ? null : new ImageIcon(MyProCAD.class.getResource(iconFileName));
+        } catch (Exception ex) {
+            System.err.println("Resource " + iconFileName + " not found");
+            throw ex;
+        }
     }
 
     public static void init() {

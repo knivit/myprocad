@@ -1,4 +1,4 @@
-package com.tsoft.myprocad.util;
+package com.tsoft.myprocad.util.linealg;
 
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;

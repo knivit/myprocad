@@ -1,5 +1,6 @@
 package com.tsoft.myprocad.util;
 
+import com.tsoft.myprocad.util.linealg.Geometry2DLib;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
