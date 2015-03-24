@@ -7,6 +7,9 @@ import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
 import com.tsoft.myprocad.util.json.JsonSerializable;
 import com.tsoft.myprocad.util.json.JsonWriter;
+import com.tsoft.myprocad.util.linealg.Plane;
+import com.tsoft.myprocad.util.linealg.Segment;
+import com.tsoft.myprocad.util.linealg.Vec3f;
 
 import java.awt.*;
 import java.io.IOException;
@@ -68,7 +71,14 @@ public class Beam extends Item implements JsonSerializable {
 
     @Override
     protected Shape getItemShape() {
-        int
+        Vec3f startPoint = new Vec3f(getXStart(), getYStart(), getZStart());
+        Vec3f endPoint = new Vec3f(getXEnd(), getYEnd(), getZEnd());
+        Segment se = new Segment(startPoint, endPoint);
+        Vec3f startNormal = se.getEquation();
+        startNormal.normalize();
+        Plane startPlane = new Plane(startNormal, startPoint);
+
+        Vec3f[] intPts = new
         return null;
     }
 
