@@ -10,6 +10,7 @@ import com.tsoft.myprocad.util.json.JsonWriter;
 import com.tsoft.myprocad.util.linealg.Plane;
 import com.tsoft.myprocad.util.linealg.Segment;
 import com.tsoft.myprocad.util.linealg.Vec3f;
+import com.tsoft.myprocad.model.property.CalculatedItemProperty;
 
 import java.awt.*;
 import java.io.IOException;
@@ -23,6 +24,11 @@ public class Beam extends Item implements JsonSerializable {
     public static final transient ItemProperty BORDER_WIDTH_PROPERTY = new ItemProperty("borderWidth", Integer.class, new IntegerPropertyValidator(1, 8));
     public static final transient ItemProperty PATTERN_ID_PROPERTY = new ItemProperty("patternId", Integer.class);
     public static final transient ItemProperty MATERIAL_ID_PROPERTY = new ItemProperty("materialId", Integer.class);
+
+    /* Calculated */
+    public static final transient CalculatedItemProperty XOZ_ANGLE = new CalculatedItemProperty("xozAngle", Double.class);
+    public static final transient CalculatedItemProperty XOY_ANGLE = new CalculatedItemProperty("xoyAngle", Double.class);
+    public static final transient CalculatedItemProperty YOZ_ANGLE = new CalculatedItemProperty("yozAngle", Double.class);
 
     private transient Material material;
     private transient Pattern pattern;
@@ -74,11 +80,13 @@ public class Beam extends Item implements JsonSerializable {
         Vec3f startPoint = new Vec3f(getXStart(), getYStart(), getZStart());
         Vec3f endPoint = new Vec3f(getXEnd(), getYEnd(), getZEnd());
         Segment se = new Segment(startPoint, endPoint);
-        Vec3f startNormal = se.getEquation();
-        startNormal.normalize();
-        Plane startPlane = new Plane(startNormal, startPoint);
+        float xozAngle = se.getAngle(Plane.XOZ);
+        float xoyAngle = se.getAngle(Plane.XOY);
+        float zoyAngle = se.getAngle(Plane.YOZ);
+        setPropertyValue(XOZ_ANGLE, Math.toDegrees(xozAngle));
+        setPropertyValue(XOY_ANGLE, Math.toDegrees(xoyAngle));
+        setPropertyValue(YOZ_ANGLE, Math.toDegrees(zoyAngle));
 
-        Vec3f[] intPts = new
         return null;
     }
 
@@ -92,7 +100,7 @@ public class Beam extends Item implements JsonSerializable {
         super.toJson(writer);
 
         for (ItemProperty property : properties.keySet()) {
-            writer.write(property.getName(), properties.get(property));
+            if (!property.isCalculated()) writer.write(property.getName(), properties.get(property));
         }
     }
 

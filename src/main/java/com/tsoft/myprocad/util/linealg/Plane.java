@@ -13,6 +13,9 @@ public class Plane {
     private Vec3f normal;
     private Vec3f point;
 
+    /** Equation */
+    private float A, B, C, D;
+
     /** Constant for faster projection and intersection */
     private float c;
 
@@ -33,6 +36,11 @@ public class Plane {
         this.point = new Vec3f(point);
         recalc();
     }
+
+    public float A() { return A; }
+    public float B() { return B; }
+    public float C() { return C; }
+    public float D() { return D; }
 
     /** Setter does some work to maintain internal caches. Normal does
      not need to be unit length but must not be the zero vector. */
@@ -78,6 +86,7 @@ public class Plane {
 
     private void recalc() {
         c = normal.dot(point);
+        calcEquation();
     }
 
     /** intersect3D_SegmentPlane(): find the 3D intersection of a segment and a plane
@@ -114,6 +123,84 @@ public class Plane {
         return 1;
     }
 
+    /** intersect3D_2Planes(): find the 3D intersection of two planes
+     * Input:  two planes Pn1 and Pn2
+     * Output: *L = the intersection line (when it exists)
+     * Return: 0 = disjoint (no intersection)
+     *        1 = the two  planes coincide
+     *        2 =  intersection in the unique line *L
+     * http://geomalgorithms.com/a05-_intersect-1.html
+    */
+    int intersectPlane(Plane plane, Segment line) {
+        Vec3f u = normal.cross(plane.normal);          // cross product
+        float ax = (u.x() >= 0 ? u.x() : -u.x());
+        float ay = (u.y() >= 0 ? u.y() : -u.y());
+        float az = (u.z() >= 0 ? u.z() : -u.z());
+
+        // test if the two planes are parallel
+        if ((ax+ay+az) < 0.00000001) {        // Pn1 and Pn2 are near parallel
+            // test if disjoint or coincide
+            Vec3f v = plane.point.minus(point);
+            if (v.dot(normal) == 0)      // Pn2.V0 lies in Pn1
+                return 1;                    // Pn1 and Pn2 coincide
+            else
+                return 0;                    // Pn1 and Pn2 are disjoint
+        }
+
+        // Pn1 and Pn2 intersect in a line
+        // first determine max abs coordinate of cross product
+        int maxc;                       // max coordinate
+        if (ax > ay) {
+            if (ax > az) maxc =  1;
+            else maxc = 3;
+        } else {
+            if (ay > az) maxc =  2;
+            else maxc = 3;
+        }
+
+        // next, to get a point on the intersect line
+        // zero the max coord, and solve for the other two
+        float d1, d2;            // the constants in the 2 plane equations
+        d1 = -(normal.dot(point));  // note: could be pre-stored  with plane
+        d2 = -(plane.normal.dot(plane.point));  // ditto
+
+        float x, y, z;              // intersect point
+        switch (maxc) {             // select max coordinate
+            case 1:                     // intersect with x=0
+                x = 0;
+                y = (d2*normal.z() - d1*plane.normal.z()) / u.x();
+                z = (d1*plane.normal.y() - d2*normal.y()) / u.x();
+                break;
+            case 2:                     // intersect with y=0
+                x = (d1*plane.normal.z() - d2*normal.z()) / u.y();
+                y = 0;
+                z = (d2*normal.x() - d1*plane.normal.x()) / u.y();
+                break;
+            case 3:                     // intersect with z=0
+                x = (d2*normal.y() - d1*plane.normal.y()) / u.z();
+                y = (d1*plane.normal.x() - d2*normal.x()) / u.z();
+                z = 0;
+                break;
+            default: throw new IllegalStateException();
+        }
+
+        Vec3f p0 = new Vec3f(x, y, z);
+        line.setP0P1(p0, u.plus(p0));
+        return 2;
+    }
+
+    /**
+      Determine the equation of the plane as
+      Ax + By + Cz + D = 0
+    */
+    private void calcEquation() {
+        float l = (float)Math.sqrt(normal.x() * normal.x() + normal.y() * normal.y() + normal.z() * normal.z());
+        A = normal.x() / l;
+        B = normal.y() / l;
+        C = normal.z() / l;
+        D = -(normal.x()*point.x() + normal.y()*point.y() + normal.z()*point.z());
+    }
+
     /*-------------------------------------------------------------------------
        Clip a 3 vertex facet in place
        The 3 point facet is defined by vertices p[0],p[1],p[2], "p[3]"
@@ -126,16 +213,6 @@ public class Plane {
     */
     public int ClipFacet(Vec3f[] p) {
         float[] side = new float[3];
-
-        /*
-          Determine the equation of the plane as
-          Ax + By + Cz + D = 0
-        */
-        float l = (float)Math.sqrt(normal.x() * normal.x() + normal.y() * normal.y() + normal.z() * normal.z());
-        float A = normal.x() / l;
-        float B = normal.y() / l;
-        float C = normal.z() / l;
-        float D = -(normal.x()*point.x() + normal.y()*point.y() + normal.z()*point.z());
 
         /*
           Evaluate the equation of the plane for each vertex

@@ -165,6 +165,12 @@ public class Vec3f {
         z = a.x * b.y - a.y * b.x;
     }
 
+    public Vec3f mul(Vec3f arg) {
+        Vec3f tmp = new Vec3f(this);
+        tmp.componentMul(arg);
+        return tmp;
+    }
+
     /** Sets each component of this vector to the product of the
      component with the corresponding component of the argument
      vector. */
