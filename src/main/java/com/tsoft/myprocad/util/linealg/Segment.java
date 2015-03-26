@@ -1,6 +1,8 @@
 package com.tsoft.myprocad.util.linealg;
 
 public class Segment {
+    public static final Segment OX = new Segment(new Vec3f(0, 0, 0), new Vec3f(1, 0, 0));
+
     private Vec3f p0;
     private Vec3f p1;
     private Vec3f direction;

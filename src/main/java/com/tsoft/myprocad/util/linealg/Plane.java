@@ -63,15 +63,14 @@ public class Plane {
         recalc();
     }
 
-
     public Vec3f getPoint() {
         return point;
     }
 
     /** Project a point onto the plane */
-    public void projectPoint(Vec3f pt, Vec3f projPt) {
+    public Vec3f projectPoint(Vec3f pt) {
         float scale = normal.dot(pt) - c;
-        projPt.set(pt.minus(normal.times(normal.dot(point) - c)));
+        return pt.minus(normal.times(normal.dot(point) - c));
     }
 
     /** Intersect a ray with the plane. Returns true if intersection occurred, false
@@ -211,7 +210,7 @@ public class Plane {
        Return the number of vertices in the clipped polygon
        http://paulbourke.net/geometry/polygonmesh/source3.c
     */
-    public int ClipFacet(Vec3f[] p) {
+    public int clipFacet(Vec3f[] p) {
         float[] side = new float[3];
 
         /*
