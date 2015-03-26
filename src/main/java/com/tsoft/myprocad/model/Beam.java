@@ -156,14 +156,17 @@ public class Beam extends Item implements JsonSerializable {
         Vec3f[] pt = new Vec3f[4];
         Vec3f[] pb = new Vec3f[4];
         for (int i = 0; i < 4; i ++) pt[i] = top.projectPoint(v[i]);
-        for (int i = 4; i < 8; i ++) pb[i] = bottom.projectPoint(v[i + 4]);
+        for (int i = 0; i < 4; i ++) pb[i] = bottom.projectPoint(v[i + 4]);
 
         // draw the shapes of top and bottom projections
         GeneralPath path = new GeneralPath();
         path.moveTo(pt[0].x(), pt[0].y());
         for (int i = 1; i < 4; i++) path.lineTo(pt[i].x(), pt[i].y());
+        path.closePath();
+
         path.moveTo(pb[0].x(), pb[0].y());
         for (int i = 1; i < 4; i++) path.lineTo(pb[i].x(), pb[i].y());
+        path.closePath();
 
         return path;
     }

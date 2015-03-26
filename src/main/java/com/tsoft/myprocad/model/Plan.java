@@ -29,7 +29,7 @@ public class Plan extends ProjectItem implements Cloneable {
     private ItemList<Label> labels = new ItemList<>();
     private ItemList<LevelMark> levelMarks = new ItemList<>();
 
-    private LevelList levels = new LevelList();
+    private LevelList levels;
     private long levelId;
 
     /* For paste operations */
@@ -47,7 +47,7 @@ public class Plan extends ProjectItem implements Cloneable {
     private transient PasteOperation pasteOperation;
 
     Plan() {
-        levels.setPlan(this);
+        levels = new LevelList(this);
     }
 
     /** Invoked on Project loading or Project creation */
@@ -582,7 +582,7 @@ public class Plan extends ProjectItem implements Cloneable {
         dimensionLines = new ItemList<>();
         labels = new ItemList<>();
         levelMarks = new ItemList<>();
-        levels = new LevelList();
+        levels = new LevelList(this);
         pageSetup = new PageSetup();
 
         try {
@@ -608,7 +608,6 @@ public class Plan extends ProjectItem implements Cloneable {
                     .read();
         } finally {
             // update references
-            levels.setPlan(this);
             walls.stream().forEach(e -> e.setPlan(this));
             beams.stream().forEach(e -> e.setPlan(this));
             dimensionLines.stream().forEach(e -> e.setPlan(this));

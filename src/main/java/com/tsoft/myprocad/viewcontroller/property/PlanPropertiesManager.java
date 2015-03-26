@@ -57,6 +57,7 @@ public class PlanPropertiesManager {
         if (reloadDisabled) return;
 
         if (Wall.class.equals(item.getClass())) wallPropertiesController.loadAndRefreshValues();
+        else if (Beam.class.equals(item.getClass())) beamPropertiesController.loadAndRefreshValues();
         else if (DimensionLine.class.equals(item.getClass())) dimensionLinePropertiesController.loadAndRefreshValues();
         else if (Label.class.equals(item.getClass())) labelPropertiesController.loadAndRefreshValues();
         else if (LevelMark.class.equals(item.getClass())) levelMarkPropertiesController.loadAndRefreshValues();

@@ -15,13 +15,14 @@ public class LevelList extends ArrayList<Level> implements TableDialogPanelSuppo
     private transient Plan plan;
     private transient LevelsTableModel tableModel;
 
-    public LevelList() { super(); }
-
-    public void setPlan(Plan plan) { this.plan = plan; }
+    public LevelList(Plan plan) {
+        super();
+        this.plan = plan;
+    }
 
     @Override
     public TableDialogPanelSupport<Level> getDeepClone() {
-        LevelList copyList = new LevelList();
+        LevelList copyList = new LevelList(plan);
         for (Level level : this) {
             Level copy = level.clone();
             copyList.add(copy);
