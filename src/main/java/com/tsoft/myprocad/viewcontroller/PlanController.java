@@ -15,9 +15,7 @@ import com.tsoft.myprocad.viewcontroller.component.*;
 import com.tsoft.myprocad.viewcontroller.property.PlanPropertiesManager;
 
 import java.awt.geom.Rectangle2D;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 
 import com.tsoft.myprocad.model.property.PlanProperties;
 
@@ -29,7 +27,6 @@ import com.tsoft.myprocad.viewcontroller.state.SelectionMoveState;
 import com.tsoft.myprocad.viewcontroller.state.SelectionState;
 
 import javax.swing.JComponent;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -725,6 +722,20 @@ public class PlanController implements ProjectItemController {
         }
     }
 
+    private void show3D() {
+        try {
+            File objFile = File.createTempFile("3dscene", "obj");
+            String objFileName = objFile.getAbsolutePath();
+            doExportToObj(objFileName);
+            J3dDialog j3d = new J3dDialog();
+            j3d.addModelToUniverse(objFileName);
+            j3d.displayView("3D View");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            SwingTools.showError(ex.getMessage());
+        }
+    }
+
     private void addPlan() { projectController.addProjectItem(); }
 
     private void deletePlan() {
@@ -753,6 +764,7 @@ public class PlanController implements ProjectItemController {
         if (Menu.ADD_PLAN.equals(menu)) { addPlan(); return true; }
         if (Menu.DELETE_PLAN.equals(menu)) { deletePlan(); return true; }
 
+        if (Menu.SHOW_PLAN_IN_3D.equals(menu)) { show3D(); return true; }
         if (Menu.PLAN_PRINT_TO_PDF.equals(menu)) { printPlanToPDF(); return true; }
         if (Menu.PLAN_PRINT_PREVIEW.equals(menu)) { printPreview(); return true; }
         if (Menu.PLAN_PRINT.equals(menu)) { print(); return true; }

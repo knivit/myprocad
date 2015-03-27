@@ -316,4 +316,9 @@ public class Plane {
         /* Shouldn't get here */
         throw new IllegalStateException();
     }
+
+    @Override
+    public String toString() {
+        return "{normal=" + normal.toString() + ", point=" + point.toString() + ", equation=" + A + "x + " + B + "y + " + C + "z + " + D + " = 0}";
+    }
 }

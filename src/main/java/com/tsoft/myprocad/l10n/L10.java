@@ -94,6 +94,7 @@ public class L10 {
     public static String[] MENU_ROTATE_CLOCKWISE_NAME = { "Rotate Clockwise", "Повернуть по часовой стрелке" };
     public static String[] MENU_SPLIT_IN_TWO_NAME = { "Split in two", "Разбить на две" };
 
+    public static String[] MENU_SHOW_PLAN_IN_3D_NAME = { "Show in 3D", "Показать в 3D" };
     public static String[] MENU_PRINT_TO_PDF_NAME = { "Print to PDF", "Распечатать в PDF" };
     public static String[] MENU_MATERIALS_NAME = { "Materials", "Материалы" };
     public static String[] MENU_FIND_MATERIALS_USAGE_NAME = { "Find materials", "Найти материалы" };

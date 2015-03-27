@@ -182,6 +182,6 @@ public class Vec3f {
 
     @Override
     public String toString() {
-        return "(" + x + ", " + y + ", " + z + ")";
+        return "(x=" + x + ", y=" + y + ", z=" + z + ")";
     }
 }

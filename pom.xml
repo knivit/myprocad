@@ -13,6 +13,29 @@
     </properties>
 
     <dependencies>
+        <!-- J3D 1.5.1 from Oracle official site -->
+        <!-- You need to install J3D as the installator contains native Windows dll -->
+        <dependency>
+            <groupId>java3d</groupId>
+            <artifactId>j3d-core</artifactId>
+            <version>1.5.1</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>java3d</groupId>
+            <artifactId>j3d-core-utils</artifactId>
+            <version>1.5.1</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>java3d</groupId>
+            <artifactId>vecmath</artifactId>
+            <version>1.5.1</version>
+            <scope>compile</scope>
+        </dependency>
+
         <!-- Print to PDF -->
         <dependency>
             <groupId>com.lowagie</groupId>

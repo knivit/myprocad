@@ -30,6 +30,7 @@ public class Segment {
      */
     private void recalc() {
         direction = p1.minus(p0);
+        direction.normalize();
     }
 
     public Vec3f direction() { return direction; }
@@ -120,5 +121,10 @@ public class Segment {
         // get the difference of the two closest points
         Vec3f dP = w.plus(u.times(sc)).minus(v.times(tc));  // =  S1(sc) - S2(tc)
         return dP.length(); // return the closest distance
+    }
+
+    @Override
+    public String toString() {
+        return "{p0=" + p0.toString() + ", p1=" + p1.toString() + ", direction=" + direction.toString() + "}";
     }
 }

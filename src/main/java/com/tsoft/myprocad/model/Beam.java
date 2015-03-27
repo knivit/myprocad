@@ -45,7 +45,7 @@ public class Beam extends Item implements JsonSerializable {
         properties.put(BACKGROUND_COLOR_PROPERTY, Color.WHITE.getRGB());
         properties.put(BORDER_COLOR_PROPERTY, Color.BLACK.getRGB());
         properties.put(BORDER_WIDTH_PROPERTY, 1);
-        properties.put(PATTERN_ID_PROPERTY, Pattern.HATCH_UP.getId());
+        properties.put(PATTERN_ID_PROPERTY, Pattern.BACKGROUND.getId());
         properties.put(MATERIAL_ID_PROPERTY, null);
     }
 
@@ -111,6 +111,7 @@ public class Beam extends Item implements JsonSerializable {
         return degrees;
     }
 
+    /** Online graph http://www.livephysics.com/tools/mathematical-tools/online-3-d-function-grapher/ */
     @Override
     protected Shape getItemShape() {
         // rotate along the OX
@@ -123,51 +124,49 @@ public class Beam extends Item implements JsonSerializable {
         int width = (int)getPropertyValue(WIDTH_PROPERTY);
         int height = (int)getPropertyValue(HEIGHT_PROPERTY);
         Vec3f[] v = new Vec3f[8];
-        v[0] = rcore.p0().minus(new Vec3f(0, -width/2, height/2));
-        v[1] = rcore.p0().minus(new Vec3f(0, width/2, height/2));
-        v[2] = rcore.p1().minus(new Vec3f(0, width/2, height/2));
-        v[3] = rcore.p1().minus(new Vec3f(0, -width/2, height/2));
+        v[0] = rcore.p0().plus(new Vec3f(0, width/2, height/2));
+        v[1] = rcore.p0().plus(new Vec3f(0, -width/2, height/2));
+        v[2] = rcore.p1().plus(new Vec3f(0, -width/2, height/2));
+        v[3] = rcore.p1().plus(new Vec3f(0, width/2, height/2));
 
         // bottom side
-        v[4] = rcore.p0().minus(new Vec3f(0, -width/2, -height/2));
-        v[5] = rcore.p0().minus(new Vec3f(0, width/2, -height/2));
-        v[6] = rcore.p1().minus(new Vec3f(0, width/2, -height/2));
-        v[7] = rcore.p1().minus(new Vec3f(0, -width/2, -height/2));
+        v[4] = rcore.p0().plus(new Vec3f(0, width/2, -height/2));
+        v[5] = rcore.p0().plus(new Vec3f(0, -width/2, -height/2));
+        v[6] = rcore.p1().plus(new Vec3f(0, -width/2, -height/2));
+        v[7] = rcore.p1().plus(new Vec3f(0, width/2, -height/2));
 
         // rotate the vertexes back
         rot.invert();
         for (int i = 0; i < 8; i ++) v[i] = rot.rotateVector(v[i]);
 
-        // find out min/max of Z coordinates among the vertexes and Plan's level
-        float zMin = Float.MAX_VALUE;
-        float zMax = Float.MIN_VALUE;
-        for (int i = 0; i < 8; i ++) {
-            if (zMin > v[i].z()) zMin = v[i].z();
-            if (zMax < v[i].z()) zMax = v[i].z();
-        }
-        zMin = Math.min(zMin, plan.getLevel().getStart());
-        zMax = Math.max(zMax, plan.getLevel().getEnd());
-
-        // create bottom and top XOY planes of the visible level
-        Plane bottom = new Plane(new Vec3f(0, 1, 0), new Vec3f(0, 0, zMin));
-        Plane top = new Plane(new Vec3f(0, 1, 0), new Vec3f(0, 0, zMax));
-
-        // find out their projections on that planes
-        Vec3f[] pt = new Vec3f[4];
-        Vec3f[] pb = new Vec3f[4];
-        for (int i = 0; i < 4; i ++) pt[i] = top.projectPoint(v[i]);
-        for (int i = 0; i < 4; i ++) pb[i] = bottom.projectPoint(v[i + 4]);
-
-        // draw the shapes of top and bottom projections
+        // draw a top
         GeneralPath path = new GeneralPath();
-        path.moveTo(pt[0].x(), pt[0].y());
-        for (int i = 1; i < 4; i++) path.lineTo(pt[i].x(), pt[i].y());
+        path.moveTo(v[0].x(), v[0].y());
+        path.lineTo(v[1].x(), v[1].y());
+        path.lineTo(v[2].x(), v[2].y());
+        path.lineTo(v[3].x(), v[3].y());
         path.closePath();
 
-        path.moveTo(pb[0].x(), pb[0].y());
-        for (int i = 1; i < 4; i++) path.lineTo(pb[i].x(), pb[i].y());
+        // draw a bottom
+        path.moveTo(v[4].x(), v[4].y());
+        path.lineTo(v[5].x(), v[5].y());
+        path.lineTo(v[6].x(), v[6].y());
+        path.lineTo(v[7].x(), v[7].y());
         path.closePath();
 
+        // draw a left side
+        path.moveTo(v[0].x(), v[0].y());
+        path.lineTo(v[1].x(), v[1].y());
+        path.lineTo(v[5].x(), v[5].y());
+        path.lineTo(v[4].x(), v[4].y());
+        path.closePath();
+
+        // draw a right side
+        path.moveTo(v[2].x(), v[2].y());
+        path.lineTo(v[3].x(), v[3].y());
+        path.lineTo(v[7].x(), v[7].y());
+        path.lineTo(v[6].x(), v[6].y());
+        path.closePath();
         return path;
     }
 

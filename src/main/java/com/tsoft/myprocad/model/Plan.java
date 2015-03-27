@@ -389,6 +389,7 @@ public class Plan extends ProjectItem implements Cloneable {
     public ItemList<Item> getLevelItems(Level level) {
         ItemList<Item> items = new ItemList<>();
         items.addAll(getWalls().atLevel(level));
+        items.addAll(getBeams().atLevel(level));
         items.addAll(getDimensionLines().atLevel(level));
         items.addAll(getLabels().atLevel(level));
         items.addAll(getLevelMarks().atLevel(level));

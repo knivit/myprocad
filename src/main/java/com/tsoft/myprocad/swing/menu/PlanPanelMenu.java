@@ -52,6 +52,7 @@ public class PlanPanelMenu {
         planMenu.add(Menu.ADD_PLAN.getMenuItem());
         planMenu.add(Menu.DELETE_PLAN.getMenuItem());
         planMenu.addSeparator();
+        planMenu.add(Menu.SHOW_PLAN_IN_3D.getMenuItem());
         planMenu.add(Menu.PLAN_PRINT_TO_PDF.getMenuItem());
         planMenu.add(Menu.PLAN_PRINT_PREVIEW.getMenuItem());
         planMenu.add(Menu.PLAN_PRINT.getMenuItem());

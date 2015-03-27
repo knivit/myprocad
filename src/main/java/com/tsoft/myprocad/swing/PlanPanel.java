@@ -174,6 +174,7 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
 
         if (PlanProperties.LEVEL.equals(property)) {
             plan.getWalls().resetItemCaches();
+            plan.getBeams().resetItemCaches();
             plan.getDimensionLines().resetItemCaches();
             plan.getLabels().resetItemCaches();
             plan.getLevelMarks().resetItemCaches();

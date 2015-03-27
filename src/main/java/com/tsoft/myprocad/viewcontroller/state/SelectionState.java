@@ -42,17 +42,23 @@ public class SelectionState extends AbstractModeChangeState {
         if (getDimensionLineController().getResizedDimensionLineStartAt(x, y) != null
                 || getDimensionLineController().getResizedDimensionLineEndAt(x, y) != null
                 || getWallController().getResizedWallStartAt(x, y) != null
-                || getWallController().getResizedWallEndAt(x, y) != null) {
+                || getWallController().getResizedWallEndAt(x, y) != null
+                || getBeamController().getResizedBeamStartAt(x, y) != null
+                || getBeamController().getResizedBeamEndAt(x, y) != null) {
             planPanel.setCursor(Cursors.RESIZE);
-        } else if (getDimensionLineController().getOffsetDimensionLineAt(x, y) != null) {
+            return;
+        }
+
+        if (getDimensionLineController().getOffsetDimensionLineAt(x, y) != null) {
             planPanel.setCursor(Cursors.HEIGHT);
+            return;
+        }
+
+        // If a selected item is under cursor position
+        if (planController.isItemSelectedAt(x, y)) {
+            planPanel.setCursor(Cursors.MOVE);
         } else {
-            // If a selected item is under cursor position
-            if (planController.isItemSelectedAt(x, y)) {
-                planPanel.setCursor(Cursors.MOVE);
-            } else {
-                planPanel.setCursor(Cursors.SELECTION);
-            }
+            planPanel.setCursor(Cursors.SELECTION);
         }
     }
 
@@ -67,6 +73,11 @@ public class SelectionState extends AbstractModeChangeState {
 
         if (getWallController().getResizedWallStartAt(x, y) != null || getWallController().getResizedWallEndAt(x, y) != null) {
             setState(getWallController().wallResizeState);
+            return;
+        }
+
+        if (getBeamController().getResizedBeamStartAt(x, y) != null || getBeamController().getResizedBeamEndAt(x, y) != null) {
+            setState(getBeamController().resizeState);
             return;
         }
 

@@ -271,6 +271,6 @@ public class Rotf {
 
     @Override
     public String toString() {
-        return "(" + q0 + ", " + q1 + ", " + q2 + ", " + q3 + ")";
+        return "(q0=" + q0 + ", q1=" + q1 + ", q2=" + q2 + ", q3=" + q3 + ")";
     }
 }

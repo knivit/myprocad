@@ -127,6 +127,7 @@ public abstract class Item implements Cloneable, JsonSerializable {
     public void startNotifications() {
         plan = plan_save;
         plan_save = null;
+        resetCaches();
     }
 
     public void populateFrom(Item item) {
