@@ -12,7 +12,7 @@ public class JavaScriptTest extends AbstractItemTest {
         public void print(String text) {
             System.out.println(text);
         }
-    };
+    }
 
     public void testBinding() throws Exception {
         JavaScript js = new JavaScript();
@@ -64,6 +64,8 @@ public class JavaScriptTest extends AbstractItemTest {
     @Test
     public void calcRoof() throws Exception {
         JavaScript js = new JavaScript();
+        js.addBinding(new ProjectBinding(plan.getProject()));
+        js.addBinding(new PlanBinding(plan));
         js.addBinding(new ObjBinding());
         js.loadLibrary("lib/js/БиблиотекаФункций.js");
         js.loadLibrary("lib/js/СопротивлениеМатериалов.js");

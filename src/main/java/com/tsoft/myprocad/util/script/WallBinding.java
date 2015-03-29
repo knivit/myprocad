@@ -9,6 +9,10 @@ public class WallBinding extends ItemBinding<Wall> {
 
     public MaterialBinding getMaterial() { return new MaterialBinding(item.getMaterial()); }
 
+    public void setMaterial(MaterialBinding materialBinding) {
+        item.setMaterial(materialBinding.getMaterial());
+    }
+
     @Override
     public String getBindingName() {
         return "wall";

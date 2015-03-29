@@ -549,7 +549,7 @@ public class L10 {
             "  qe(a, b, c) Quadratic Equation. Example: qe(1, 0, 0)\n" +
             "Constants\n" +
             "  pi" };
-    public static String[] EXECUTE_JAVA_SCRIPT = { "Run", "Пуск" };
-    public static String[] CLEAR_JAVA_SCRIPT_OUTPUT = { "Clear output", "Очистить результат" };
+    public static String[] EXECUTE_JAVA_SCRIPT = { "Execute Script", "Выполнить скрипт" };
+    public static String[] CLEAR_JAVA_SCRIPT_OUTPUT = { "Clear Output", "Очистить результат" };
     public static String[] HIDE_JAVA_SCRIPT_PANEL = { "X", "X" };
 }

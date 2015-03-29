@@ -93,13 +93,7 @@ public class ProjectController {
     }
 
     public ProjectItem addItem(ProjectItemType itemType, String name, int index) {
-        ProjectItem item = itemType.newInstance();
-        item.setName(name);
-        item.setProject(project);
-
-        ProjectItemList items = project.getActiveFolder().getItems();
-        items.add(index < 0 || index > items.size() ? items.size() : index, item);
-
+        ProjectItem item = project.addItem(itemType, name, index);
         addItemController(item);
         return item;
     }

@@ -176,14 +176,14 @@ public class Plan extends ProjectItem implements Cloneable {
         return walls.getCopy();
     }
 
-    public Wall createWall(float xStart, float xEnd, float yStart, float yEnd, int zStart, int zEnd) {
+    public Wall createWall(float xStart, float yStart, float zStart, float xEnd, float yEnd, float zEnd) {
         Wall wall = (Wall)ItemType.WALL.newInstance();
         wall.setXStart(xStart);
         wall.setXEnd(xEnd);
         wall.setYStart(yStart);
         wall.setYEnd(yEnd);
-        wall.setZStart(zStart);
-        wall.setZEnd(zEnd);
+        wall.setZStart(Math.round(zStart));
+        wall.setZEnd(Math.round(zEnd));
         wall.setMaterial(getProject().getMaterials().getDefault());
 
         addItem(wall);

@@ -21,8 +21,7 @@ public abstract class AbstractItemTest {
         MyProCAD myProCAD = new MyProCAD();
         myProCAD.init();
 
-        //EventQueue.invokeAndWait(
-                Menu.NEW_PROJECT.doAction();
+        Menu.NEW_PROJECT.doAction();
 
         ProjectController projectController = ApplicationController.getInstance().getActiveProjectController();
         Project project = projectController.project;

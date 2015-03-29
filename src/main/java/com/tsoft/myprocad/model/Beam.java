@@ -35,6 +35,9 @@ public class Beam extends Item implements JsonSerializable {
     private transient Material material;
     private transient Pattern pattern;
 
+    /* Inner props */
+    private Vec3f[] vertexes = new Vec3f[8];
+
     Beam() {
         super();
         setTypeName(ItemType.BEAM.getTypeName());
@@ -123,51 +126,75 @@ public class Beam extends Item implements JsonSerializable {
         // top side
         int width = (int)getPropertyValue(WIDTH_PROPERTY);
         int height = (int)getPropertyValue(HEIGHT_PROPERTY);
-        Vec3f[] v = new Vec3f[8];
-        v[0] = rcore.p0().plus(new Vec3f(0, width/2, height/2));
-        v[1] = rcore.p0().plus(new Vec3f(0, -width/2, height/2));
-        v[2] = rcore.p1().plus(new Vec3f(0, -width/2, height/2));
-        v[3] = rcore.p1().plus(new Vec3f(0, width/2, height/2));
+
+        vertexes[0] = rcore.p0().plus(new Vec3f(0, width/2, height/2));
+        vertexes[1] = rcore.p0().plus(new Vec3f(0, -width/2, height/2));
+        vertexes[2] = rcore.p1().plus(new Vec3f(0, -width/2, height/2));
+        vertexes[3] = rcore.p1().plus(new Vec3f(0, width/2, height/2));
 
         // bottom side
-        v[4] = rcore.p0().plus(new Vec3f(0, width/2, -height/2));
-        v[5] = rcore.p0().plus(new Vec3f(0, -width/2, -height/2));
-        v[6] = rcore.p1().plus(new Vec3f(0, -width/2, -height/2));
-        v[7] = rcore.p1().plus(new Vec3f(0, width/2, -height/2));
+        vertexes[4] = rcore.p0().plus(new Vec3f(0, width/2, -height/2));
+        vertexes[5] = rcore.p0().plus(new Vec3f(0, -width/2, -height/2));
+        vertexes[6] = rcore.p1().plus(new Vec3f(0, -width/2, -height/2));
+        vertexes[7] = rcore.p1().plus(new Vec3f(0, width/2, -height/2));
 
         // rotate the vertexes back
         rot.invert();
-        for (int i = 0; i < 8; i ++) v[i] = rot.rotateVector(v[i]);
+        for (int i = 0; i < 8; i ++) vertexes[i] = rot.rotateVector(vertexes[i]);
 
         // draw a top
         GeneralPath path = new GeneralPath();
-        path.moveTo(v[0].x(), v[0].y());
-        path.lineTo(v[1].x(), v[1].y());
-        path.lineTo(v[2].x(), v[2].y());
-        path.lineTo(v[3].x(), v[3].y());
+        path.moveTo(vertexes[0].x(), vertexes[0].y());
+        path.lineTo(vertexes[1].x(), vertexes[1].y());
+        path.lineTo(vertexes[2].x(), vertexes[2].y());
+        path.lineTo(vertexes[3].x(), vertexes[3].y());
         path.closePath();
 
         // draw a bottom
-        path.moveTo(v[4].x(), v[4].y());
-        path.lineTo(v[5].x(), v[5].y());
-        path.lineTo(v[6].x(), v[6].y());
-        path.lineTo(v[7].x(), v[7].y());
+        path.moveTo(vertexes[4].x(), vertexes[4].y());
+        path.lineTo(vertexes[5].x(), vertexes[5].y());
+        path.lineTo(vertexes[6].x(), vertexes[6].y());
+        path.lineTo(vertexes[7].x(), vertexes[7].y());
         path.closePath();
 
         // draw a left side
-        path.moveTo(v[0].x(), v[0].y());
-        path.lineTo(v[1].x(), v[1].y());
-        path.lineTo(v[5].x(), v[5].y());
-        path.lineTo(v[4].x(), v[4].y());
+        path.moveTo(vertexes[0].x(), vertexes[0].y());
+        path.lineTo(vertexes[1].x(), vertexes[1].y());
+        path.lineTo(vertexes[5].x(), vertexes[5].y());
+        path.lineTo(vertexes[4].x(), vertexes[4].y());
         path.closePath();
 
         // draw a right side
-        path.moveTo(v[2].x(), v[2].y());
-        path.lineTo(v[3].x(), v[3].y());
-        path.lineTo(v[7].x(), v[7].y());
-        path.lineTo(v[6].x(), v[6].y());
+        path.moveTo(vertexes[2].x(), vertexes[2].y());
+        path.lineTo(vertexes[3].x(), vertexes[3].y());
+        path.lineTo(vertexes[7].x(), vertexes[7].y());
+        path.lineTo(vertexes[6].x(), vertexes[6].y());
         path.closePath();
         return path;
+    }
+
+    public String toObjString(int vno) {
+        StringBuilder buf = new StringBuilder();
+
+        // vertexes
+        for (int i = 0; i < 8; i ++) {
+            buf.append("v " + vertexes[i].x() + " " + vertexes[i].y() + " " + vertexes[i].z()).append('\n');
+        }
+
+        // faces
+        buf.append("f " + (vno + 1) + " " + (vno + 7) + " " + (vno + 5)).append('\n');
+        buf.append("f " + (vno + 1) + " " + (vno + 3) + " " + (vno + 7)).append('\n');
+        buf.append("f " + (vno + 1) + " " + (vno + 4) + " " + (vno + 3)).append('\n');
+        buf.append("f " + (vno + 1) + " " + (vno + 2) + " " + (vno + 4)).append('\n');
+        buf.append("f " + (vno + 3) + " " + (vno + 8) + " " + (vno + 7)).append('\n');
+        buf.append("f " + (vno + 3) + " " + (vno + 4) + " " + (vno + 8)).append('\n');
+        buf.append("f " + (vno + 5) + " " + (vno + 7) + " " + (vno + 8)).append('\n');
+        buf.append("f " + (vno + 5) + " " + (vno + 8) + " " + (vno + 6)).append('\n');
+        buf.append("f " + (vno + 1) + " " + (vno + 5) + " " + (vno + 6)).append('\n');
+        buf.append("f " + (vno + 1) + " " + (vno + 6) + " " + (vno + 2)).append('\n');
+        buf.append("f " + (vno + 2) + " " + (vno + 6) + " " + (vno + 8)).append('\n');
+        buf.append("f " + (vno + 2) + " " + (vno + 8) + " " + (vno + 4)).append('\n');
+        return buf.toString();
     }
 
     @Override

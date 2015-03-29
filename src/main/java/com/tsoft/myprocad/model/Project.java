@@ -35,23 +35,6 @@ public class Project implements JsonSerializable, Cloneable {
         if (activeFolderId == 0) activeFolderId = folders.get(0).getId();
     }
 
-    /** Create a folder and default plan in it */
-    public Folder createFolder(String folderName, int index) {
-        Folder folder = new Folder();
-        folder.setId(generateNextId());
-        folder.name = folderName;
-        folder.setProject(this);
-
-        folders.add(index < 0 || index >= folders.size() ? folders.size() : index, folder);
-
-        Plan plan = (Plan)ProjectItemType.PLAN.newInstance();
-        plan.setName(L10.get(L10.DEFAULT_PLAN_NAME));
-        plan.setProject(this);
-        folder.addItem(plan);
-
-        return folder;
-    }
-
     public void afterOpen() {
         createDefaultFolder();
 
@@ -106,18 +89,6 @@ public class Project implements JsonSerializable, Cloneable {
         setModified(true);
     }
 
-    public MaterialList getMaterials() {
-        return materials;
-    }
-
-    public void setMaterials(MaterialList materials) {
-        this.materials = materials;
-        setModified(true);
-
-        ProjectItemController controller = projectController.getActiveController();
-        if (controller != null) controller.materialListChanged();
-    }
-
     public Folder getActiveFolder() {
         if (activeFolder == null) activeFolder = folders.findById(activeFolderId);
         return activeFolder;
@@ -137,6 +108,34 @@ public class Project implements JsonSerializable, Cloneable {
 
     public FolderList getFolders() { return folders; }
 
+    /** Create a folder and default plan in it */
+    public Folder createFolder(String folderName, int index) {
+        Folder folder = new Folder();
+        folder.setId(generateNextId());
+        folder.name = folderName;
+        folder.setProject(this);
+
+        folders.add(index < 0 || index >= folders.size() ? folders.size() : index, folder);
+
+        Plan plan = (Plan)ProjectItemType.PLAN.newInstance();
+        plan.setName(L10.get(L10.DEFAULT_PLAN_NAME));
+        plan.setProject(this);
+        folder.addItem(plan);
+
+        return folder;
+    }
+
+    public boolean deleteFolder(Folder folder) {
+        int index = folders.indexOf(folder);
+        if (index == -1) return false;
+
+        folders.remove(folder);
+        if (activeFolder.equals(folder)) setActiveFolder(folders.get(index == 0 ? 0 : index - 1));
+        projectController.projectChanged(ProjectProperties.FOLDERS);
+
+        return true;
+    }
+
     public List<Plan> getAllPlans() {
         List<Plan> allPlans = new ArrayList<>();
         for (Folder folder : folders) {
@@ -145,6 +144,33 @@ public class Project implements JsonSerializable, Cloneable {
             });
         }
         return allPlans;
+    }
+
+    public ProjectItem addItem(ProjectItemType itemType, String name, int index) {
+        ProjectItem item = itemType.newInstance();
+        item.setName(name);
+        item.setProject(this);
+
+        ProjectItemList items = getActiveFolder().getItems();
+        items.add(index < 0 || index > items.size() ? items.size() : index, item);
+        return item;
+    }
+
+    public MaterialList getMaterials() {
+        return materials;
+    }
+
+    public void setMaterials(MaterialList materials) {
+        this.materials = materials;
+        setModified(true);
+
+        ProjectItemController controller = projectController.getActiveController();
+        if (controller != null) controller.materialListChanged();
+    }
+
+    public void addMaterial(Material material) {
+        material.setId(generateNextId());
+        materials.add(material);
     }
 
     public String validateMaterials(TableDialogPanelSupport<Material> materials) {
@@ -166,17 +192,6 @@ public class Project implements JsonSerializable, Cloneable {
         }
 
         return null;
-    }
-
-    public boolean deleteFolder(Folder folder) {
-        int index = folders.indexOf(folder);
-        if (index == -1) return false;
-
-        folders.remove(folder);
-        if (activeFolder.equals(folder)) setActiveFolder(folders.get(index == 0 ? 0 : index - 1));
-        projectController.projectChanged(ProjectProperties.FOLDERS);
-
-        return true;
     }
 
     @Override

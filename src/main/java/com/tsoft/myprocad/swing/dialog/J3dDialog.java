@@ -3,15 +3,22 @@ package com.tsoft.myprocad.swing.dialog;
 import com.sun.j3d.loaders.Scene;
 import com.sun.j3d.loaders.objectfile.ObjectFile;
 import com.sun.j3d.utils.universe.SimpleUniverse;
+import com.sun.j3d.utils.behaviors.mouse.MouseRotate;
+import com.sun.j3d.utils.behaviors.mouse.MouseWheelZoom;
 
 import javax.media.j3d.*;
 import javax.vecmath.Color3f;
 import javax.vecmath.Vector3f;
+import javax.vecmath.Point3d;
 import java.awt.*;
 import java.io.FileReader;
 import java.io.IOException;
 
-/** From http://www.daltonfilho.com/articles/java3d/SimpleModelView.html */
+/**
+ * From http://www.daltonfilho.com/articles/java3d/SimpleModelView.html
+ * http://www.java3d.org/selection.html
+ * https://java3d.java.net/
+ */
 public class J3dDialog extends AbstractDialogPanel {
     /** The canvas where the object is rendered. */
     private Canvas3D canvas;
@@ -55,26 +62,62 @@ public class J3dDialog extends AbstractDialogPanel {
      */
     public void addModelToUniverse(String objFileName) throws IOException {
         Scene scene = getSceneFromFile(objFileName);
-        BranchGroup root = scene.getSceneGroup();
-        addLightsToUniverse(root);
+        BranchGroup branchGroup = scene.getSceneGroup();
+        addLightsToUniverse(branchGroup);
 
-        root.compile();
-        universe.addBranchGraph(root);
+        TransformGroup rotating = new TransformGroup();
+        rotating.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+        rotating.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
+        rotating.addChild(branchGroup);
+
+        MouseRotate mouseRotate = new MouseRotate(rotating);
+        BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 10000.0);
+        mouseRotate.setSchedulingBounds(bounds);
+
+        TransformGroup zooming = new TransformGroup();
+        zooming.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+        zooming.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
+        //branchGroup.addChild();
+        MouseWheelZoom mouseWheelZoom = new MouseWheelZoom(zooming);
+
+        BranchGroup objRoot = new BranchGroup();
+        objRoot.addChild(mouseRotate);
+        objRoot.addChild(mouseWheelZoom);
+        objRoot.addChild(rotating);
+        objRoot.addChild(zooming);
+
+        objRoot.compile();
+
+        universe.getViewingPlatform().setNominalViewingTransform();
+        universe.addBranchGraph(objRoot);
+
+  //      root.compile();
+  //      universe.addBranchGraph(root);
     }
 
-    /**
-     * Adds a dramatic blue light...
-     */
-    private void addLightsToUniverse(BranchGroup root) {
+    private void addLightsToUniverse(BranchGroup branchGroup) {
+  /*      Color3f ambientColor = new Color3f(0.2f, 0.2f, 0.2f);
+        AmbientLight ambientLight = new AmbientLight(ambientColor);
+        BoundingSphere bounds = new BoundingSphere(new Point3d(0, 0, 0), 100000);
+        branchGroup.addChild(ambientLight);
+*/
         Bounds influenceRegion = new BoundingSphere();
-        Color3f lightColor = new Color3f(Color.YELLOW);
-        Vector3f lightDirection = new Vector3f(-1F, -1F, -1F);
-        DirectionalLight light = new DirectionalLight(lightColor, lightDirection);
-        light.setInfluencingBounds(influenceRegion);
-        root.addChild(light);
-    }
+        DirectionalLight light1 = new DirectionalLight(new Color3f(Color.YELLOW), new Vector3f(-1, -1, -1));
+        light1.setInfluencingBounds(influenceRegion);
+        branchGroup.addChild(light1);
 
-    // ACCESS ******************************************************************
+        DirectionalLight light2 = new DirectionalLight(new Color3f(Color.WHITE), new Vector3f(1, 1, 1));
+        light2.setInfluencingBounds(influenceRegion);
+        branchGroup.addChild(light2);
+
+        DirectionalLight light3 = new DirectionalLight(new Color3f(Color.GREEN), new Vector3f(1, 1, -1));
+        light3.setInfluencingBounds(influenceRegion);
+        branchGroup.addChild(light3);
+
+        DirectionalLight light4 = new DirectionalLight(new Color3f(Color.BLUE), new Vector3f(1, -1, -1));
+        light4.setInfluencingBounds(influenceRegion);
+        branchGroup.addChild(light4);
+    }
 
     /**
      * Loads a scene from a Wavefront .obj model.

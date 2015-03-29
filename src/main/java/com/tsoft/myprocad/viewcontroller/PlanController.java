@@ -344,11 +344,28 @@ public class PlanController implements ProjectItemController {
 
     private void generateScript() {
         StringBuilder buf = new StringBuilder();
-        for (Wall wall : selectedItems.getWallsSubList()) {
+        ItemList<Item> items = selectedItems;
+        if (items.isEmpty()) {
+            items.addAll(plan.getWalls());
+            items.addAll(plan.getBeams());
+        }
+
+        buf.append("// Walls\n");
+        for (Wall wall : items.getWallsSubList()) {
             buf.append(String.format("plan.addWall(%d, %d, %d, %d, %d, %d);\n",
                     wall.getXStart(), wall.getYStart(), wall.getXEnd(), wall.getYEnd(),
                     wall.getZStart(), wall.getZEnd()));
         }
+
+        buf.append("// Beams\n");
+        for (Beam beam : items.getBeamsSubList()) {
+            buf.append(String.format("plan.addBeam(%d, %d, %d, %d, %d, %d, %d, %d);\n",
+                    beam.getXStart(), beam.getYStart(), beam.getZStart(),
+                    beam.getXEnd(), beam.getYEnd(), beam.getZEnd(),
+                    (int)beam.getPropertyValue(Beam.WIDTH_PROPERTY),
+                    (int)beam.getPropertyValue(Beam.HEIGHT_PROPERTY)));
+        }
+
         TextDialog dialog = new TextDialog();
         dialog.setText(buf.toString());
         dialog.displayView(L10.get(L10.MENU_GENERATE_SCRIPT_NAME), DialogButton.CLOSE);
@@ -672,61 +689,34 @@ public class PlanController implements ProjectItemController {
         String fileName = project.getFolders().size() > 1 ? String.format("%s_%s", project.getActiveFolder().name, plan.getName()) : plan.getName();
         fileName = fileName.replace(' ', '_');
         String objFileName = SwingTools.showSaveDialog(fileName, ContentManager.ContentType.OBJ);
-        if (objFileName != null) {
-            try {
-                doExportToObj(objFileName);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-                SwingTools.showError("Can't write to file '" + objFileName + "'. " + ex.getMessage());
-            }
-        }
+        if (objFileName != null) exportToObjFile(objFileName);
     }
 
-    public void doExportToObj(String outputFileName) throws IOException {
+    public void exportToObjFile(String fileName) {
         int vno = 0; // vertex's no
-        try (PrintWriter out = new PrintWriter(outputFileName)) {
+        try (PrintWriter out = new PrintWriter(fileName)) {
+            // Walls
             for (Wall wall : plan.getWalls()) {
-                String xs = Integer.toString(-wall.getXStart());
-                String xe = Integer.toString(-wall.getXEnd());
-                String ys = Integer.toString(wall.getYStart());
-                String ye = Integer.toString(wall.getYEnd());
-                String zs = Integer.toString(wall.getZStart());
-                String ze = Integer.toString(wall.getZEnd());
-
-                // vertexes
-                out.println("v " + xe + " " + ys + " " + zs);
-                out.println("v " + xe + " " + ys + " " + ze);
-                out.println("v " + xe + " " + ye + " " + zs);
-                out.println("v " + xe + " " + ye + " " + ze);
-                out.println("v " + xs + " " + ys + " " + zs);
-                out.println("v " + xs + " " + ys + " " + ze);
-                out.println("v " + xs + " " + ye + " " + zs);
-                out.println("v " + xs + " " + ye + " " + ze);
-
-                // faces
-                out.println("f " + (vno + 1) + " " + (vno + 7) + " " + (vno + 5));
-                out.println("f " + (vno + 1) + " " + (vno + 3) + " " + (vno + 7));
-                out.println("f " + (vno + 1) + " " + (vno + 4) + " " + (vno + 3));
-                out.println("f " + (vno + 1) + " " + (vno + 2) + " " + (vno + 4));
-                out.println("f " + (vno + 3) + " " + (vno + 8) + " " + (vno + 7));
-                out.println("f " + (vno + 3) + " " + (vno + 4) + " " + (vno + 8));
-                out.println("f " + (vno + 5) + " " + (vno + 7) + " " + (vno + 8));
-                out.println("f " + (vno + 5) + " " + (vno + 8) + " " + (vno + 6));
-                out.println("f " + (vno + 1) + " " + (vno + 5) + " " + (vno + 6));
-                out.println("f " + (vno + 1) + " " + (vno + 6) + " " + (vno + 2));
-                out.println("f " + (vno + 2) + " " + (vno + 6) + " " + (vno + 8));
-                out.println("f " + (vno + 2) + " " + (vno + 8) + " " + (vno + 4));
-
+                out.println(wall.toObjString(vno));
                 vno += 8;
             }
+
+            // Beams
+            for (Beam beam : plan.getBeams()) {
+                out.println(beam.toObjString(vno));
+                vno += 8;
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            SwingTools.showError("Can't write to file '" + fileName + "'. " + ex.getMessage());
         }
     }
 
     private void show3D() {
         try {
-            File objFile = File.createTempFile("3dscene", "obj");
+            File objFile = File.createTempFile("3dScene", "obj");
             String objFileName = objFile.getAbsolutePath();
-            doExportToObj(objFileName);
+            exportToObjFile(objFileName);
             J3dDialog j3d = new J3dDialog();
             j3d.addModelToUniverse(objFileName);
             j3d.displayView("3D View");

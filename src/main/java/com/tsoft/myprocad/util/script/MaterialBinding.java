@@ -13,6 +13,8 @@ public class MaterialBinding implements JavaScriptBinding {
 
     public float getPrice() { return material.getPrice(); }
 
+    public Material getMaterial() { return material; }
+
     @Override
     public String getBindingName() {
         return "material";

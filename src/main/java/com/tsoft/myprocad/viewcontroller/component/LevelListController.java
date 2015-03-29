@@ -19,6 +19,7 @@ public class LevelListController {
         LevelList levels = (LevelList)plan.getLevels().getDeepClone();
         TableDialogPanel<Level> tableDialogPanel = new TableDialogPanel<>(plan, levels,
                 (entity, value) -> { return ((Plan)entity).validateLevels((TableDialogPanelSupport<Level>)value); });
+
         DialogButton result = tableDialogPanel.displayView(L10.get(L10.EDIT_LEVELS_TITLE), DialogButton.SAVE, DialogButton.CANCEL);
         if (DialogButton.SAVE.equals(result)) {
             // if the current level was removed, use the first

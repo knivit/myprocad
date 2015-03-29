@@ -19,7 +19,6 @@ public class MaterialList extends ArrayList<Material> implements TableDialogPane
     private Project project;
     private MaterialsTableModel tableModel;
 
-    // Don't remove this constructor, ait is needed for JsonReader
     public MaterialList() {
         super();
     }
@@ -84,8 +83,7 @@ public class MaterialList extends ArrayList<Material> implements TableDialogPane
     @Override
     public Material addDialog() {
         Material material = new Material();
-        material.setId(project.generateNextId());
-        add(material);
+        project.addMaterial(material);
         return material;
     }
 

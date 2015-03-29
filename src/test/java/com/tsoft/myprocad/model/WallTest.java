@@ -1,11 +1,9 @@
 package com.tsoft.myprocad.model;
 
 import com.tsoft.myprocad.AbstractItemTest;
-import com.tsoft.myprocad.swing.menu.Menu;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -17,7 +15,7 @@ import static org.junit.Assert.assertNotNull;
 public class WallTest extends AbstractItemTest {
     @Test
     public void testRotate() {
-        Wall wall = plan.createWall(1, 3, 1, 4, 0, 1);
+        Wall wall = plan.createWall(1, 3, 0, 1, 4, 1);
         planController.selectItem(wall);
 
         wall.rotate(1, 1, -90);
@@ -83,7 +81,7 @@ public class WallTest extends AbstractItemTest {
         File out = File.createTempFile(getClass().getSimpleName(), ".obj");
         assertNotNull(out);
 
-        planController.doExportToObj(out.getAbsolutePath());
+        planController.exportToObjFile(out.getAbsolutePath());
         System.out.println(out.getAbsolutePath());
         List<String> lines = Files.readAllLines(out.toPath(), Charset.forName("UTF-8"));
         lines.stream().forEach(System.out::println);
