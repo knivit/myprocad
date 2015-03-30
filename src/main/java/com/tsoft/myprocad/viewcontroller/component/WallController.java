@@ -30,7 +30,7 @@ public class WallController {
     }
 
     public Wall createWall(float xStart, float yStart, float xEnd, float yEnd) {
-        return plan.createWall(xStart, yStart, plan.getLevel().getStart(), xEnd, yEnd, plan.getLevel().getEnd());
+        return plan.addWall(xStart, yStart, plan.getLevel().getStart(), xEnd, yEnd, plan.getLevel().getEnd());
     }
 
     /**

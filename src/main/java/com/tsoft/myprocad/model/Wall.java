@@ -14,25 +14,15 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.io.IOException;
 
-public class Wall extends Item implements JsonSerializable {
-    public static transient final int MAX_BORDER_WIDTH = 5;
+public class Wall extends AbstractMaterialItem implements JsonSerializable {
     public static transient final String TYPE_NAME = "WL"; // do not localize
 
     private int wallShapeId = WallShape.RECTANGLE.getId();
     private int diagonalWidth = 100; // used in DIAGONAL shape
-
-    private long materialId;
-    private int patternId = Pattern.HATCH_UP.getId();
-    private int backgroundColor = Color.WHITE.getRGB();
-    private int foregroundColor = Color.BLACK.getRGB();
-    private int borderColor = Color.BLACK.getRGB();
-    private int borderWidth = 1;
     private boolean alwaysShowBorders;
     private boolean skipInReports;
 
     private transient WallShape wallShape;
-    private transient Pattern pattern;
-    private transient Material material;
     private transient int diagonalShapeOff1;
     private transient int diagonalShapeOff2;
 
@@ -60,27 +50,6 @@ public class Wall extends Item implements JsonSerializable {
         if (plan != null) plan.itemChanged(this);
     }
 
-    public long getMaterialId() { return materialId; }
-
-    public Material getMaterial() {
-        if (material == null && plan != null) material = plan.getProject().getMaterials().findById(materialId);
-        return material;
-    }
-
-    public void setMaterial(Material value) {
-        if (ObjectUtil.equals(getMaterial(), value)) return;
-        materialId = value.getId();
-        material = value;
-
-        if (plan != null) plan.itemChanged(this);
-    }
-
-    public float getDensity() {
-        Material material = getMaterial();
-        if (material != null) return material.getDensity();
-        return 1;
-    }
-
     public WallShape getWallShape() {
         if (wallShape == null) {
             wallShape = WallShape.findById(wallShapeId);
@@ -93,72 +62,6 @@ public class Wall extends Item implements JsonSerializable {
 
         wallShapeId = value.getId();
         wallShape = value;
-        resetCaches();
-        if (plan != null) plan.itemChanged(this);
-    }
-
-    public Pattern getPattern() {
-        if (pattern == null) {
-            pattern = Pattern.findById(patternId);
-        }
-        return pattern;
-    }
-
-    public void setPattern(Pattern value) {
-        if (ObjectUtil.equals(getPattern(), value)) return;
-
-        patternId = value.getId();
-        pattern = value;
-        if (plan != null) plan.itemChanged(this);
-    }
-
-    public int getBackgroundColor() {
-        return backgroundColor;
-    }
-
-    public void setBackgroundColor(int value) {
-        if (backgroundColor == value) return;
-
-        backgroundColor = value;
-        if (plan != null) plan.itemChanged(this);
-    }
-
-    public int getForegroundColor() {
-        return foregroundColor;
-    }
-
-    public void setForegroundColor(int value) {
-        if (foregroundColor == value) return;
-
-        foregroundColor = value;
-        if (plan != null) plan.itemChanged(this);
-    }
-
-    public int getBorderColor() {
-        return borderColor;
-    }
-
-    public void setBorderColor(int value) {
-        if (borderColor == value) return;
-
-        borderColor = value;
-        if (plan != null) plan.itemChanged(this);
-    }
-
-    public int getBorderWidth() {
-        return borderWidth;
-    }
-
-    public String validateBorderWidth(Integer value) {
-        if (value == null) return L10.get(L10.PROPERTY_CANT_BE_EMPTY);
-        if (value < 0 || value > MAX_BORDER_WIDTH) return L10.get(L10.PROPERTY_MUST_BE_BETWEEN_VALUES, 0, MAX_BORDER_WIDTH);
-        return null;
-    }
-
-    public void setBorderWidth(int value) {
-        if (borderWidth == value) return;
-
-        borderWidth = value;
         resetCaches();
         if (plan != null) plan.itemChanged(this);
     }
@@ -181,22 +84,13 @@ public class Wall extends Item implements JsonSerializable {
         if (plan != null) plan.itemChanged(this);
     }
 
+    @Override
     public double getVolume() {
        return getArea() * Math.abs(zEnd - zStart) / 1000.0;
     }
 
-    public double getWeight() {
-        return getVolume() * getDensity();
-    }
-
     public String getSize() {
         return L10.get(L10.WALL_SIZE_PROPERTY, Math.abs(xEnd - xStart), Math.abs(yEnd - yStart), Math.abs(zEnd - zStart));
-    }
-
-    public double getPrice() {
-        Material material = getMaterial();
-        if (material != null) return getVolume() * material.getPrice();
-        return 0;
     }
 
     public double getArea() {
@@ -405,22 +299,11 @@ public class Wall extends Item implements JsonSerializable {
     }
 
     @Override
-    public String getPopupItemName() {
-        return L10.get(L10.WALL_TYPE_NAME) + (material == null ? "" : " " + material);
-    }
-
-    @Override
     public void toJson(JsonWriter writer) throws IOException {
         super.toJson(writer);
         writer
                 .write("wallShapeId", wallShapeId)
                 .write("diagonalWidth", diagonalWidth)
-                .write("materialId", materialId)
-                .write("patternId", patternId)
-                .write("backgroundColor", backgroundColor)
-                .write("foregroundColor", foregroundColor)
-                .write("borderColor", borderColor)
-                .write("borderWidth", borderWidth)
                 .write("alwaysShowBorders", alwaysShowBorders)
                 .write("skipInReports", skipInReports);
     }
@@ -431,12 +314,6 @@ public class Wall extends Item implements JsonSerializable {
         reader
                 .defInteger("wallShapeId", ((value) -> wallShapeId = value))
                 .defInteger("diagonalWidth", ((value) -> diagonalWidth = value))
-                .defLong("materialId", ((value) -> materialId = value))
-                .defInteger("patternId", ((value) -> patternId = value))
-                .defInteger("backgroundColor", ((value) -> backgroundColor = value))
-                .defInteger("foregroundColor", ((value) -> foregroundColor = value))
-                .defInteger("borderColor", ((value) -> borderColor = value))
-                .defInteger("borderWidth", ((value) -> borderWidth = value))
                 .defBoolean("alwaysShowBorders", ((value) -> alwaysShowBorders = value))
                 .defBoolean("skipInReports", ((value) -> skipInReports = value))
                 .read();

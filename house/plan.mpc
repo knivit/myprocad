@@ -1,5 +1,6 @@
 {"materials":[
-{"id":"8", "name":"Доска 40х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
+{"id":"2", "name":"Unknown", "density":"1.0", "price":"1.0", "unitId":"3", "isDefault":"true"}
+,{"id":"8", "name":"Доска 40х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"9", "name":"Доска 50х100", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"10", "name":"Доска 50х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"34", "name":"Доска 50х200", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
@@ -7,7 +8,6 @@
 ,{"id":"22", "name":"КББ перегородочный", "density":"1.05", "price":"3000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"18", "name":"КББ стеновой", "density":"1.05", "price":"3000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"20", "name":"Кирпич облицовочный", "density":"1.2", "price":"8000.0", "unitId":"3", "isDefault":"false"}
-,{"id":"2", "name":"Неопределен", "density":"1.0", "price":"1.0", "unitId":"3", "isDefault":"true"}
 ,{"id":"21", "name":"Окно", "density":"100.0", "price":"8000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"16", "name":"Плита ПНО 42.12-8", "density":"1.38", "price":"7000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"15", "name":"Плита ПНО 54.12-8", "density":"1.38", "price":"7000.0", "unitId":"3", "isDefault":"false"}
@@ -537,7 +537,7 @@
 ,{"xStart":"10050", "xEnd":"10200", "yStart":"400", "yEnd":"4600", "zStart":"-50000", "zEnd":"50000", "wallShapeId":"0", "diagonalWidth":"100", "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "alwaysShowBorders":"false", "skipInReports":"false"}
 ,{"xStart":"200", "xEnd":"10400", "yStart":"13000", "yEnd":"13400", "zStart":"-50000", "zEnd":"40000", "wallShapeId":"0", "diagonalWidth":"100", "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "alwaysShowBorders":"false", "skipInReports":"false"}
 ,{"xStart":"550", "xEnd":"10050", "yStart":"13050", "yEnd":"13200", "zStart":"-50000", "zEnd":"50000", "wallShapeId":"0", "diagonalWidth":"100", "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"5700", "xEnd":"6100", "yStart":"400", "yEnd":"13200", "zStart":"-50000", "zEnd":"40000", "wallShapeId":"0", "diagonalWidth":"100", "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"5700", "xEnd":"6100", "yStart":"600", "yEnd":"13000", "zStart":"-50000", "zEnd":"40000", "wallShapeId":"0", "diagonalWidth":"100", "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "alwaysShowBorders":"false", "skipInReports":"false"}
 ,{"xStart":"5800", "xEnd":"6000", "yStart":"6700", "yEnd":"6900", "zStart":"-50000", "zEnd":"50000", "wallShapeId":"0", "diagonalWidth":"100", "materialId":"2", "patternId":"9", "backgroundColor":"-7843326", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "alwaysShowBorders":"false", "skipInReports":"false"}
 ,{"xStart":"5200", "xEnd":"5400", "yStart":"6700", "yEnd":"6900", "zStart":"-50000", "zEnd":"40000", "wallShapeId":"0", "diagonalWidth":"100", "materialId":"2", "patternId":"6", "backgroundColor":"-256", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "alwaysShowBorders":"false", "skipInReports":"false"}
 ,{"xStart":"400", "xEnd":"5300", "yStart":"10575", "yEnd":"10625", "zStart":"-50000", "zEnd":"50000", "wallShapeId":"0", "diagonalWidth":"100", "materialId":"34", "patternId":"5", "backgroundColor":"-13159", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "alwaysShowBorders":"false", "skipInReports":"false"}
@@ -562,6 +562,9 @@
 ,{"xStart":"2875", "xEnd":"2925", "yStart":"-300", "yEnd":"750", "zStart":"-50000", "zEnd":"50000", "wallShapeId":"0", "diagonalWidth":"100", "materialId":"2", "patternId":"5", "backgroundColor":"-13312", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"2", "alwaysShowBorders":"false", "skipInReports":"false"}
 ,{"xStart":"2075", "xEnd":"2125", "yStart":"-300", "yEnd":"500", "zStart":"-50000", "zEnd":"50000", "wallShapeId":"0", "diagonalWidth":"100", "materialId":"2", "patternId":"5", "backgroundColor":"-13312", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"2", "alwaysShowBorders":"false", "skipInReports":"false"}
 ], "beams":[
+{"xStart":"300", "xEnd":"6000", "yStart":"700", "yEnd":"700", "zStart":"-50000", "zEnd":"50000", "backgroundColor":"-10066330", "borderColor":"-16777216", "borderWidth":"1", "patternId":"5", "width":"50", "foregroundColor":"-16777216", "materialId":"2", "height":"150"}
+,{"xStart":"300", "xEnd":"6000", "yStart":"1800", "yEnd":"1800", "zStart":"-50000", "zEnd":"50000", "backgroundColor":null, "borderColor":null, "borderWidth":null, "patternId":null, "width":null, "foregroundColor":null, "materialId":null, "height":null}
+,{"xStart":"300", "xEnd":"6000", "yStart":"1800", "yEnd":"1800", "zStart":"-50000", "zEnd":"50000", "backgroundColor":null, "borderColor":null, "borderWidth":null, "patternId":null, "width":null, "foregroundColor":null, "materialId":null, "height":null}
 ], "dimensionLines":[
 {"xStart":"5300", "xEnd":"5900", "yStart":"6800", "yEnd":"6800", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"400", "xEnd":"5300", "yStart":"13200", "yEnd":"10600", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"5"}
@@ -602,12 +605,13 @@
 ,{"xStart":"-400", "xEnd":"-400", "yStart":"2500", "yEnd":"3000", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"-399", "xEnd":"-394", "yStart":"3000", "yEnd":"3525", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"4500", "xEnd":"5300", "yStart":"-300", "yEnd":"-300", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"-98", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"998", "xEnd":"998", "yStart":"608", "yEnd":"1170", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ], "labels":[
 {"xStart":"6100", "xEnd":"6600", "yStart":"10300", "yEnd":"10600", "zStart":"-50000", "zEnd":"50000", "text":"  ВК", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"3"}
 ], "levelMarks":[
 ], "levels":[
 {"id":"31", "name":"Custom", "start":"-50000", "end":"50000"}
-], "levelId":"31", "pasteOffsetX":"-800", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"true", "gridPrinted":"true", "printScaleId":"1"}
+], "levelId":"31", "pasteOffsetX":"0", "pasteOffsetY":"1100", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"true", "gridPrinted":"true", "printScaleId":"1"}
 , "script":null}
 ,"Plan":{"name":"Стропила 2", "gridVisible":"true", "rulersVisible":"true", "scale":"0.173", "originLocationId":"1", "walls":[
 {"xStart":"200", "xEnd":"10400", "yStart":"200", "yEnd":"600", "zStart":"-50000", "zEnd":"40000", "wallShapeId":"0", "diagonalWidth":"100", "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "alwaysShowBorders":"false", "skipInReports":"false"}

@@ -1,142 +1,130 @@
 package com.tsoft.myprocad.model;
 
 import com.tsoft.myprocad.l10n.L10;
-import com.tsoft.myprocad.model.property.IntegerPropertyValidator;
-import com.tsoft.myprocad.model.property.ItemProperty;
-import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
 import com.tsoft.myprocad.util.json.JsonSerializable;
 import com.tsoft.myprocad.util.json.JsonWriter;
-import com.tsoft.myprocad.util.linealg.Plane;
-import com.tsoft.myprocad.util.linealg.Rotf;
-import com.tsoft.myprocad.util.linealg.Segment;
-import com.tsoft.myprocad.util.linealg.Vec3f;
-import com.tsoft.myprocad.model.property.CalculatedItemProperty;
+import com.tsoft.myprocad.util.linealg.*;
 
 import java.awt.*;
 import java.awt.geom.GeneralPath;
 import java.io.IOException;
 
-public class Beam extends Item implements JsonSerializable {
-    public static final transient ItemProperty WIDTH_PROPERTY = new ItemProperty("width", Integer.class, new IntegerPropertyValidator(1, 1000));
-    public static final transient ItemProperty HEIGHT_PROPERTY = new ItemProperty("height", Integer.class, new IntegerPropertyValidator(1, 1000));
-    public static final transient ItemProperty FOREGROUND_COLOR_PROPERTY = new ItemProperty("foregroundColor", Integer.class);
-    public static final transient ItemProperty BACKGROUND_COLOR_PROPERTY = new ItemProperty("backgroundColor", Integer.class);
-    public static final transient ItemProperty BORDER_COLOR_PROPERTY = new ItemProperty("borderColor", Integer.class);
-    public static final transient ItemProperty BORDER_WIDTH_PROPERTY = new ItemProperty("borderWidth", Integer.class, new IntegerPropertyValidator(1, 8));
-    public static final transient ItemProperty PATTERN_ID_PROPERTY = new ItemProperty("patternId", Integer.class);
-    public static final transient ItemProperty MATERIAL_ID_PROPERTY = new ItemProperty("materialId", Integer.class);
+public class Beam extends AbstractMaterialItem implements JsonSerializable {
+    private int width = 50;
+    private int height = 150;
 
     /* Calculated */
-    public static final transient CalculatedItemProperty XOZ_ANGLE = new CalculatedItemProperty("xozAngle", Float.class);
-    public static final transient CalculatedItemProperty XOY_ANGLE = new CalculatedItemProperty("xoyAngle", Float.class);
-    public static final transient CalculatedItemProperty YOZ_ANGLE = new CalculatedItemProperty("yozAngle", Float.class);
-
-    private transient Material material;
-    private transient Pattern pattern;
+    private transient int xozAngle;
+    private transient int xoyAngle;
+    private transient int yozAngle;
 
     /* Inner props */
-    private Vec3f[] vertexes = new Vec3f[8];
+    private Vec3[] vertexes = new Vec3[8];
 
     Beam() {
         super();
         setTypeName(ItemType.BEAM.getTypeName());
-
-        properties.put(WIDTH_PROPERTY, 50);
-        properties.put(HEIGHT_PROPERTY, 150);
-        properties.put(FOREGROUND_COLOR_PROPERTY, Color.BLACK.getRGB());
-        properties.put(BACKGROUND_COLOR_PROPERTY, Color.WHITE.getRGB());
-        properties.put(BORDER_COLOR_PROPERTY, Color.BLACK.getRGB());
-        properties.put(BORDER_WIDTH_PROPERTY, 1);
-        properties.put(PATTERN_ID_PROPERTY, Pattern.BACKGROUND.getId());
-        properties.put(MATERIAL_ID_PROPERTY, null);
     }
 
-    public Pattern getPattern() {
-        if (pattern == null) {
-            int patternId = (int)getPropertyValue(PATTERN_ID_PROPERTY);
-            pattern = Pattern.findById(patternId);
-        }
-        return pattern;
+    public int getWidth() {
+        return width;
     }
 
-    public void setPattern(Pattern value) {
-        if (ObjectUtil.equals(getPattern(), value)) return;
-        pattern = value;
-        setPropertyValue(PATTERN_ID_PROPERTY, value.getId());
+    public String validateWidth(Integer value) {
+        if (value == null) return L10.get(L10.PROPERTY_CANT_BE_EMPTY);
+        if (value < 0 || value > 1000) return L10.get(L10.ITEM_INVALID_INTEGER_PROPERTY, 0, 1000);
+        return null;
     }
 
-    public Material getMaterial() {
-        if (material == null && plan != null) {
-            long materialId = (long)getPropertyValue(MATERIAL_ID_PROPERTY);
-            material = plan.getProject().getMaterials().findById(materialId);
-        }
-        return material;
+    public void setWidth(int value) {
+        if (width == value) return;
+
+        width = value;
+        resetCaches();
+        if (plan != null) plan.itemChanged(this);
     }
 
-    public void setMaterial(Material value) {
-        if (ObjectUtil.equals(getMaterial(), value)) return;
-        material = value;
-        setPropertyValue(MATERIAL_ID_PROPERTY, value.getId());
+    public int getHeight() {
+        return height;
     }
 
-    private Segment getBeamCoreSegment() {
-        Vec3f startPoint = new Vec3f(getXStart(), getYStart(), getZStart());
-        Vec3f endPoint = new Vec3f(getXEnd(), getYEnd(), getZEnd());
-        return new Segment(startPoint, endPoint);
+    public String validateHeight(Integer value) {
+        if (value == null) return L10.get(L10.PROPERTY_CANT_BE_EMPTY);
+        if (value < 0 || value > 1000) return L10.get(L10.ITEM_INVALID_INTEGER_PROPERTY, 0, 1000);
+        return null;
     }
 
-    /* Calculated properties */
-    private Float getXozAngle() {
-        if (properties.containsKey(XOZ_ANGLE)) return (Float)properties.get(XOZ_ANGLE);
+    public void setHeight(int value) {
+        if (height == value) return;
 
+        height = value;
+        resetCaches();
+        if (plan != null) plan.itemChanged(this);
+    }
+
+    public Seg3 getBeamCoreSegment() {
+        Vec3 startPoint = new Vec3(getXStart(), getYStart(), getZStart());
+        Vec3 endPoint = new Vec3(getXEnd(), getYEnd(), getZEnd());
+        return new Seg3(startPoint, endPoint);
+    }
+
+    public double getArea() {
+        return width * height;
+    }
+
+    public float getLength() {
+        return getBeamCoreSegment().getLength();
+    }
+
+    @Override
+    public double getVolume() {
+        return getArea() * getLength();
+    }
+
+    public int getXozAngle() {
         float angle = getBeamCoreSegment().getAngle(Plane.XOZ);
-        float degrees = (float)Math.toDegrees(angle);
-        setPropertyValue(XOZ_ANGLE, degrees);
-        return degrees;
+        xozAngle = (int)Math.round(Math.toDegrees(angle));
+        return xozAngle;
     }
 
-    private Float getXoyAngle() {
-        if (properties.containsKey(XOY_ANGLE)) return (Float)properties.get(XOY_ANGLE);
-
+    public int getXoyAngle() {
         float angle = getBeamCoreSegment().getAngle(Plane.XOY);
-        float degrees = (float)Math.toDegrees(angle);
-        setPropertyValue(XOY_ANGLE, degrees);
-        return degrees;
+        xoyAngle = (int)Math.round(Math.toDegrees(angle));
+        return xoyAngle;
     }
 
-    private Float getYozAngle() {
-        if (properties.containsKey(YOZ_ANGLE)) return (Float)properties.get(YOZ_ANGLE);
-
+    public int getYozAngle() {
         float angle = getBeamCoreSegment().getAngle(Plane.YOZ);
-        float degrees = (float)Math.toDegrees(angle);
-        setPropertyValue(YOZ_ANGLE, degrees);
-        return degrees;
+        yozAngle = (int)Math.round(Math.toDegrees(angle));
+        return yozAngle;
+    }
+
+    public Seg2 getXoYProjection() {
+        Seg3 seg = getBeamCoreSegment();
+        return seg.get2dProjectionOnPlane(Plane.XOY);
     }
 
     /** Online graph http://www.livephysics.com/tools/mathematical-tools/online-3-d-function-grapher/ */
     @Override
     protected Shape getItemShape() {
         // rotate along the OX
-        Segment core = getBeamCoreSegment();
-        Rotf rot = new Rotf(core.direction(), Segment.OX.direction());
-        Segment rcore = rot.rotateSegment(core);
+        Seg3 core = getBeamCoreSegment();
+        Rot rot = new Rot(core.direction(), Seg3.OX.direction());
+        Seg3 rcore = rot.rotateSegment(core);
 
         // calculate vertexes, counter-clockwise
         // top side
-        int width = (int)getPropertyValue(WIDTH_PROPERTY);
-        int height = (int)getPropertyValue(HEIGHT_PROPERTY);
-
-        vertexes[0] = rcore.p0().plus(new Vec3f(0, width/2, height/2));
-        vertexes[1] = rcore.p0().plus(new Vec3f(0, -width/2, height/2));
-        vertexes[2] = rcore.p1().plus(new Vec3f(0, -width/2, height/2));
-        vertexes[3] = rcore.p1().plus(new Vec3f(0, width/2, height/2));
+        vertexes[0] = rcore.p0().plus(new Vec3(0, width/2, height/2));
+        vertexes[1] = rcore.p0().plus(new Vec3(0, -width/2, height/2));
+        vertexes[2] = rcore.p1().plus(new Vec3(0, -width/2, height/2));
+        vertexes[3] = rcore.p1().plus(new Vec3(0, width/2, height/2));
 
         // bottom side
-        vertexes[4] = rcore.p0().plus(new Vec3f(0, width/2, -height/2));
-        vertexes[5] = rcore.p0().plus(new Vec3f(0, -width/2, -height/2));
-        vertexes[6] = rcore.p1().plus(new Vec3f(0, -width/2, -height/2));
-        vertexes[7] = rcore.p1().plus(new Vec3f(0, width/2, -height/2));
+        vertexes[4] = rcore.p0().plus(new Vec3(0, width/2, -height/2));
+        vertexes[5] = rcore.p0().plus(new Vec3(0, -width/2, -height/2));
+        vertexes[6] = rcore.p1().plus(new Vec3(0, -width/2, -height/2));
+        vertexes[7] = rcore.p1().plus(new Vec3(0, width/2, -height/2));
 
         // rotate the vertexes back
         rot.invert();
@@ -198,26 +186,19 @@ public class Beam extends Item implements JsonSerializable {
     }
 
     @Override
-    public String getPopupItemName() {
-        return L10.get(L10.BEAM_TYPE_NAME) + (material == null ? "" : " " + material);
-    }
-
-    @Override
     public void toJson(JsonWriter writer) throws IOException {
         super.toJson(writer);
-
-        for (ItemProperty property : properties.keySet()) {
-            if (!property.isCalculated()) writer.write(property.getName(), properties.get(property));
-        }
+        writer
+                .write("width", width)
+                .write("height", height);
     }
 
     @Override
     public void fromJson(JsonReader reader) throws IOException {
         super.fromJson(reader);
-
-        for (ItemProperty property : properties.keySet()) {
-            reader.defByType(property.getName(), ((value) -> properties.put(property, value)));
-        }
-        reader.read();
+        reader
+                .defInteger("width", ((value) -> width = value))
+                .defInteger("height", ((value) -> height = value))
+                .read();
     }
 }

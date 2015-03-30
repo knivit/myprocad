@@ -18,7 +18,7 @@ public class LabelPropertiesController extends AbstractComponentPropertiesContro
 
     @Override
     protected void initObjectProperties() {
-        super.initObjectProperties();
+        addCommonProperties();
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))

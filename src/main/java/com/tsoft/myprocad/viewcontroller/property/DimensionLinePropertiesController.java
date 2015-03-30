@@ -15,11 +15,11 @@ public class DimensionLinePropertiesController extends AbstractComponentProperti
 
     @Override
     protected void initObjectProperties() {
-        super.initObjectProperties();
+        addCommonProperties();
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.VIEW_CATEGORY))
-            .setLabelName(L10.get(L10.DIMENSION_LINE_LENGTH_PROPERTY))
+            .setLabelName(L10.get(L10.LENGTH_PROPERTY))
             .setType(Integer.class)
             .setValueGetter(dimensionLine -> Math.round(((DimensionLine) dimensionLine).getLength()));
 

@@ -1,24 +1,29 @@
 package com.tsoft.myprocad.util.linealg;
 
-public class Segment {
-    public static final Segment OX = new Segment(new Vec3f(0, 0, 0), new Vec3f(1, 0, 0));
+public class Seg3 {
+    public static final Seg3 OX = new Seg3(new Vec3(0, 0, 0), new Vec3(1, 0, 0));
 
-    private Vec3f p0;
-    private Vec3f p1;
-    private Vec3f direction;
+    private Vec3 p0;
+    private Vec3 p1;
+    private Vec3 direction;
 
-    public Segment(Vec3f p0, Vec3f p1) {
-        setP0P1(p0, p1);
+    public Seg3(Vec3 p0, Vec3 p1) {
+        set(p0, p1);
     }
 
-    public Vec3f p0() { return p0; }
+    public Vec3 p0() { return p0; }
 
-    public Vec3f p1() { return p1; }
+    public Vec3 p1() { return p1; }
 
-    public void setP0P1(Vec3f p0, Vec3f p1) {
-        this.p0 = new Vec3f(p0);
-        this.p1 = new Vec3f(p1);
+    public void set(Vec3 p0, Vec3 p1) {
+        this.p0 = new Vec3(p0);
+        this.p1 = new Vec3(p1);
         recalc();
+    }
+
+    private void recalc() {
+        direction = p1.minus(p0);
+        direction.normalize();
     }
 
     /**
@@ -28,16 +33,16 @@ public class Segment {
      * Find the equation of the line that pass through the points A = (1, 0, 1) and B = (0, 1, 1).
      * AB = (0-1, 1-0, 1-1) = (-1, 1, 0)
      */
-    private void recalc() {
-        direction = p1.minus(p0);
-        direction.normalize();
+    public Vec3 direction() { return direction; }
+
+    /** http://www.geom.uiuc.edu/docs/reference/CRC-formulas/node54.html */
+    public float getLength() {
+        return p0.minus(p1).length();
     }
 
-    public Vec3f direction() { return direction; }
-
     /** http://www.vitutor.com/geometry/space/collinear_points.html */
-    public Vec3f getMidpoint() {
-        Vec3f midp = new Vec3f((p0.x() + p1.x()) / 2, (p0.y() + p1.y()) / 2, (p0.z() + p1.z()) / 2);
+    public Vec3 getMidpoint() {
+        Vec3 midp = new Vec3((p0.x() + p1.x()) / 2, (p0.y() + p1.y()) / 2, (p0.z() + p1.z()) / 2);
         return midp;
     }
 
@@ -46,9 +51,22 @@ public class Segment {
      * the normal vector of the plane.
      */
     public float getAngle(Plane plane) {
-        Vec3f d = new Vec3f(direction);
+        Vec3 d = new Vec3(direction);
         float val = d.dot(plane.getNormal()) / (plane.getNormal().length() * direction.length());
         return (float)Math.asin(val);
+    }
+
+    /** The Distance between the point (x0,y0,z0) and the line through (x1,y1,z1) in direction (a,b,c)
+     * http://www.geom.uiuc.edu/docs/reference/CRC-formulas/node54.html
+     */
+    public float getDistanceToPoint(Vec3 p) {
+        Mat2 a = new Mat2(p0.y() - p.y(), p0.z() - p.z(), direction.y(), direction.z());
+        Mat2 b = new Mat2(p0.z() - p.z(), p0.x() - p.x(), direction.z(), direction.x());
+        Mat2 c = new Mat2(p0.x() - p.x(), p0.y() - p.y(), direction.x(), direction.y());
+        float ad = a.determinant();
+        float bd = b.determinant();
+        float cd = c.determinant();
+        return (float)Math.sqrt(ad*ad + bd*bd + cd*cd) / direction.length();
     }
 
     /** dist3D_Segment_to_Segment(): get the 3D minimum distance between 2 segments
@@ -56,10 +74,10 @@ public class Segment {
      * Return: the shortest distance between S1 and S2
      * http://geomalgorithms.com/a07-_distance.html#dist3D_Line_to_Line%28%29
      */
-    public float getMinimumDistance(Segment seg) {
-        Vec3f u = p1.minus(p0);
-        Vec3f v = seg.p1.minus(seg.p0);
-        Vec3f w = p0.minus(seg.p0);
+    public float getMinimumDistance(Seg3 seg) {
+        Vec3 u = p1.minus(p0);
+        Vec3 v = seg.p1.minus(seg.p0);
+        Vec3 w = p0.minus(seg.p0);
 
         float a = u.dot(u);         // always >= 0
         float b = u.dot(v);
@@ -119,8 +137,14 @@ public class Segment {
         tc = (Math.abs(tN) < 0.00000001 ? 0.0f : tN / tD);
 
         // get the difference of the two closest points
-        Vec3f dP = w.plus(u.times(sc)).minus(v.times(tc));  // =  S1(sc) - S2(tc)
+        Vec3 dP = w.plus(u.times(sc)).minus(v.times(tc));  // =  S1(sc) - S2(tc)
         return dP.length(); // return the closest distance
+    }
+
+    public Seg2 get2dProjectionOnPlane(Plane plane) {
+        Vec3 pp0 = plane.projectPoint(p0);
+        Vec3 pp1 = plane.projectPoint(p1);
+        return new Seg2(new Vec2(pp0.x(), pp0.y()), new Vec2(pp1.x(), pp1.y()));
     }
 
     @Override

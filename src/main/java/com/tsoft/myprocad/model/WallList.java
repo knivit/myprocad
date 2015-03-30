@@ -31,19 +31,6 @@ public class WallList extends ItemList<Wall> {
         return new WallList(list);
     }
 
-    public MaterialList getMaterials() {
-        Supplier<MaterialList> supplier = MaterialList::new;
-        BiConsumer<MaterialList, Material> add = MaterialList::add;
-        BiConsumer<MaterialList, MaterialList> addAll = MaterialList::addAll;
-        MaterialList list = stream().map(s -> s.getMaterial()).distinct().collect(supplier, add, addAll);
-        return list;
-    }
-
-    public List<String> getMaterialsNames() {
-        return stream().map(s -> s.getMaterial().getName()).
-                distinct().sorted().collect(Collectors.toList());
-    }
-
     public List<Pattern> getPatterns() {
         return stream().map(Wall::getPattern).distinct().collect(Collectors.toList());
     }

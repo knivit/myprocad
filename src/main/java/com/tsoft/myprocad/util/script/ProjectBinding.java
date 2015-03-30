@@ -9,17 +9,23 @@ import java.io.File;
 
 public class ProjectBinding implements JavaScriptBinding {
     private Project project;
+    private Plan plan;
 
-    public ProjectBinding(Project project) { this.project = project; }
+    public ProjectBinding(Project project, Plan plan) {
+        this.project = project;
+        this.plan = plan;
+    }
 
-    public MaterialBinding addMaterial(String name, float density, float price) {
+    public Plan getActivePlan() { return plan; }
+
+    public Material addMaterial(String name, float density, float price) {
         Material material = new Material();
         material.setName(name);
         material.setDensity(density);
         material.setPrice(price);
         project.addMaterial(material);
 
-        return new MaterialBinding(material);
+        return material;
     }
 
     public PlanBinding addPlan(String name) {

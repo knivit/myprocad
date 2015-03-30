@@ -186,34 +186,38 @@ public class Selection {
         return length / 1000f;
     }
 
-    public double getWallsArea() {
+    public double getMaterialItemsArea() {
         double area = 0;
         if (items != null) {
             area = items.getWallsSubList().stream().map(e -> e.getArea()).reduce(0.0, Double::sum);
+            area += items.getBeamsSubList().stream().map(e -> e.getArea()).reduce(0.0, Double::sum);
         }
         return area;
     }
 
-    public double getWallsVolume() {
+    public double getMaterialItemsVolume() {
         double volume = 0;
         if (items != null) {
             volume = items.getWallsSubList().stream().map(Wall::getVolume).reduce(0.0, Double::sum);
+            volume += items.getBeamsSubList().stream().map(Beam::getVolume).reduce(0.0, Double::sum);
         }
         return volume;
     }
 
-    public double getWallsWeight() {
+    public double getMaterialItemsWeight() {
         double weight = 0;
         if (items != null) {
             weight = items.getWallsSubList().stream().map(Wall::getWeight).reduce(0.0, Double::sum);
+            weight += items.getBeamsSubList().stream().map(Beam::getWeight).reduce(0.0, Double::sum);
         }
         return weight;
     }
 
-    public double getWallsPrice() {
+    public double getMaterialItemsPrice() {
         double price = 0;
         if (items != null) {
             price = items.getWallsSubList().stream().map(Wall::getPrice).reduce(0.0, Double::sum);
+            price += items.getBeamsSubList().stream().map(Beam::getPrice).reduce(0.0, Double::sum);
         }
         return price;
     }

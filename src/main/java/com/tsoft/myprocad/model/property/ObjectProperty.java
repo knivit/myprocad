@@ -1,8 +1,6 @@
 package com.tsoft.myprocad.model.property;
 
 import com.l2fprod.common.beans.editor.AbstractPropertyEditor;
-import com.tsoft.myprocad.model.Item;
-import com.tsoft.myprocad.model.Wall;
 import com.tsoft.myprocad.viewcontroller.property.AbstractPropertiesController;
 
 import java.awt.event.ActionListener;
@@ -86,17 +84,6 @@ public class ObjectProperty {
 
     public ObjectProperty setValueValidator(Validator validator) {
         this.validator = validator;
-        return this;
-    }
-
-    public ObjectProperty setItemProperty(ItemProperty itemProperty) {
-        setType(Integer.class);
-        setValueGetter(item -> ((Item) item).getPropertyValue(itemProperty));
-        setValueValidator((item, value) -> { return ((Item)item).validatePropertyValue(itemProperty, value); });
-        setValueSetter((item, value) -> {
-            //addToHistory((Wall) wall);
-            ((Item) item).setPropertyValue(itemProperty, value);
-        });
         return this;
     }
 

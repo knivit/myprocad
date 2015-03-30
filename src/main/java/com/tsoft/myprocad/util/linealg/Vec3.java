@@ -3,33 +3,33 @@ package com.tsoft.myprocad.util.linealg;
 /** 3-element single-precision vector
  * git://github.com/sgothel/jogl-demos.git : src/gleem/linalg
 */
-public class Vec3f {
-    public static final Vec3f X_AXIS = new Vec3f(1,  0,  0);
-    public static final Vec3f Y_AXIS = new Vec3f(0,  1,  0);
-    public static final Vec3f Z_AXIS = new Vec3f(0,  0,  1);
-    public static final Vec3f NEG_X_AXIS = new Vec3f(-1,  0,  0);
-    public static final Vec3f NEG_Y_AXIS = new Vec3f(0, -1,  0);
-    public static final Vec3f NEG_Z_AXIS = new Vec3f(0,  0, -1);
+public class Vec3 {
+    public static final Vec3 X_AXIS = new Vec3(1,  0,  0);
+    public static final Vec3 Y_AXIS = new Vec3(0,  1,  0);
+    public static final Vec3 Z_AXIS = new Vec3(0,  0,  1);
+    public static final Vec3 NEG_X_AXIS = new Vec3(-1,  0,  0);
+    public static final Vec3 NEG_Y_AXIS = new Vec3(0, -1,  0);
+    public static final Vec3 NEG_Z_AXIS = new Vec3(0,  0, -1);
 
     private float x;
     private float y;
     private float z;
 
-    public Vec3f() {}
+    public Vec3() {}
 
-    public Vec3f(Vec3f arg) {
+    public Vec3(Vec3 arg) {
         set(arg);
     }
 
-    public Vec3f(float x, float y, float z) {
+    public Vec3(float x, float y, float z) {
         set(x, y, z);
     }
 
-    public Vec3f copy() {
-        return new Vec3f(this);
+    public Vec3 copy() {
+        return new Vec3(this);
     }
 
-    public void set(Vec3f arg) {
+    public void set(Vec3 arg) {
         set(arg.x, arg.y, arg.z);
     }
 
@@ -67,7 +67,7 @@ public class Vec3f {
     public void setY(float y) { this.y = y; }
     public void setZ(float z) { this.z = z; }
 
-    public float dot(Vec3f arg) {
+    public float dot(Vec3 arg) {
         return x * arg.x + y * arg.y + z * arg.z;
     }
 
@@ -86,8 +86,8 @@ public class Vec3f {
     }
 
     /** Returns this * val; creates new vector */
-    public Vec3f times(float val) {
-        Vec3f tmp = new Vec3f(this);
+    public Vec3 times(float val) {
+        Vec3 tmp = new Vec3(this);
         tmp.scale(val);
         return tmp;
     }
@@ -100,73 +100,73 @@ public class Vec3f {
     }
 
     /** Returns this + arg; creates new vector */
-    public Vec3f plus(Vec3f arg) {
-        Vec3f tmp = new Vec3f();
+    public Vec3 plus(Vec3 arg) {
+        Vec3 tmp = new Vec3();
         tmp.add(this, arg);
         return tmp;
     }
 
     /** this = this + b */
-    public void add(Vec3f b) {
+    public void add(Vec3 b) {
         add(this, b);
     }
 
     /** this = a + b */
-    public void add(Vec3f a, Vec3f b) {
+    public void add(Vec3 a, Vec3 b) {
         x = a.x + b.x;
         y = a.y + b.y;
         z = a.z + b.z;
     }
 
     /** Returns this + s * arg; creates new vector */
-    public Vec3f addScaled(float s, Vec3f arg) {
-        Vec3f tmp = new Vec3f();
+    public Vec3 addScaled(float s, Vec3 arg) {
+        Vec3 tmp = new Vec3();
         tmp.addScaled(this, s, arg);
         return tmp;
     }
 
     /** this = a + s * b */
-    public void addScaled(Vec3f a, float s, Vec3f b) {
+    public void addScaled(Vec3 a, float s, Vec3 b) {
         x = a.x + s * b.x;
         y = a.y + s * b.y;
         z = a.z + s * b.z;
     }
     /** Returns this - arg; creates new vector */
-    public Vec3f minus(Vec3f arg) {
-        Vec3f tmp = new Vec3f();
+    public Vec3 minus(Vec3 arg) {
+        Vec3 tmp = new Vec3();
         tmp.sub(this, arg);
         return tmp;
     }
 
     /** this = this - b */
-    public void sub(Vec3f b) {
+    public void sub(Vec3 b) {
         sub(this, b);
     }
 
     /** this = a - b */
-    public void sub(Vec3f a, Vec3f b) {
+    public void sub(Vec3 a, Vec3 b) {
         x = a.x - b.x;
         y = a.y - b.y;
         z = a.z - b.z;
     }
 
     /** Returns this cross arg; creates new vector */
-    public Vec3f cross(Vec3f arg) {
-        Vec3f tmp = new Vec3f();
+    public Vec3 cross(Vec3 arg) {
+        Vec3 tmp = new Vec3();
         tmp.cross(this, arg);
         return tmp;
     }
 
     /** this = a cross b. NOTE: "this" must be a different vector than
      both a and b. */
-    public void cross(Vec3f a, Vec3f b) {
+    public void cross(Vec3 a, Vec3 b) {
         x = a.y * b.z - a.z * b.y;
         y = a.z * b.x - a.x * b.z;
         z = a.x * b.y - a.y * b.x;
     }
 
-    public Vec3f mul(Vec3f arg) {
-        Vec3f tmp = new Vec3f(this);
+    public Vec3 mul(Vec3 arg) {
+        Vec3 tmp = new Vec3(this);
         tmp.componentMul(arg);
         return tmp;
     }
@@ -174,7 +174,7 @@ public class Vec3f {
     /** Sets each component of this vector to the product of the
      component with the corresponding component of the argument
      vector. */
-    public void componentMul(Vec3f arg) {
+    public void componentMul(Vec3 arg) {
         x *= arg.x;
         y *= arg.y;
         z *= arg.z;

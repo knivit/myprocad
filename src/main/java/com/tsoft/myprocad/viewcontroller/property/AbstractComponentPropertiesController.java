@@ -1,11 +1,18 @@
 package com.tsoft.myprocad.viewcontroller.property;
 
+import com.l2fprod.common.beans.editor.ColorPropertyEditor;
+import com.l2fprod.common.beans.editor.ComboBoxPropertyEditor;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.model.*;
 import com.tsoft.myprocad.model.property.ObjectProperty;
+import com.tsoft.myprocad.swing.properties.PatternComboBoxPropertyEditor;
+
+import java.awt.*;
+import java.util.Collections;
 
 public abstract class AbstractComponentPropertiesController<T> extends AbstractPropertiesController<T> {
     protected Plan plan;
+    private ObjectProperty material;
 
     protected abstract void setPanelProperties();
 
@@ -27,8 +34,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
         plan.getController().history.cloneAndPush(items);
     }
 
-    @Override
-    protected void initObjectProperties() {
+    protected void addCommonProperties() {
         addXProperties();
         addYProperties();
         addZProperties();
@@ -190,5 +196,92 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.DISTANCE_PROPERTY))
             .setType(Integer.class)
             .setValueGetter(item -> ((Item) item).getZDistance());
+    }
+
+    protected void addMaterialItemProperties() {
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.VIEW_CATEGORY))
+                .setLabelName(L10.get(L10.WALL_PATTERN_PROPERTY))
+                .setType(PatternComboBoxPropertyEditor.class)
+                .setAvailableValues(Pattern.values())
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getPattern())
+                .setValueSetter((item, value) -> ((AbstractMaterialItem)item).setPattern(((Pattern) value)));
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.VIEW_CATEGORY))
+                .setLabelName(L10.get(L10.BACKGROUND_COLOR_PROPERTY))
+                .setType(ColorPropertyEditor.class)
+                .setValueGetter(item -> new Color(((AbstractMaterialItem) item).getBackgroundColor()))
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setBackgroundColor(((Color) value).getRGB()));
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.VIEW_CATEGORY))
+                .setLabelName(L10.get(L10.FOREGROUND_COLOR_PROPERTY))
+                .setType(ColorPropertyEditor.class)
+                .setValueGetter(item -> new Color(((AbstractMaterialItem) item).getForegroundColor()))
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setForegroundColor(((Color) value).getRGB()));
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.VIEW_CATEGORY))
+                .setLabelName(L10.get(L10.BORDER_COLOR_PROPERTY))
+                .setType(ColorPropertyEditor.class)
+                .setValueGetter(item -> new Color(((AbstractMaterialItem) item).getBorderColor()))
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setBorderColor(((Color) value).getRGB()));
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.VIEW_CATEGORY))
+                .setLabelName(L10.get(L10.BORDER_WIDTH_PROPERTY))
+                .setType(Integer.class)
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getBorderWidth())
+                .setValueValidator((item, value) -> ((AbstractMaterialItem) item).validateBorderWidth((Integer) value))
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setBorderWidth((int) value));
+
+        material = new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
+                .setLabelName(L10.get(L10.WALL_MATERIAL_PROPERTY))
+                .setType(ComboBoxPropertyEditor.class)
+                .setAvailableValues(getAvailableMaterials())
+                .setValueGetter(item -> ((AbstractMaterialItem)item).getMaterial())
+                .setValueSetter((item, value) -> ((AbstractMaterialItem)item).setMaterial((Material) value));
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
+                .setLabelName(L10.get(L10.MATERIAL_DENSITY_PROPERTY))
+                .setType(Float.class)
+                .setValueGetter(item -> ((AbstractMaterialItem)item).getDensity());
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.INFO_CATEGORY))
+                .setLabelName(L10.get(L10.AREA_PROPERTY))
+                .setType(Double.class)
+                .setValueGetter(item -> plan.getSelection().getMaterialItemsArea());
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.INFO_CATEGORY))
+                .setLabelName(L10.get(L10.VOLUME_PROPERTY))
+                .setType(Double.class)
+                .setValueGetter(item -> plan.getSelection().getMaterialItemsVolume());
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.INFO_CATEGORY))
+                .setLabelName(L10.get(L10.WEIGHT_PROPERTY))
+                .setType(Double.class)
+                .setValueGetter(item -> plan.getSelection().getMaterialItemsWeight());
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.INFO_CATEGORY))
+                .setLabelName(L10.get(L10.PRICE_PROPERTY))
+                .setType(Double.class)
+                .setValueGetter(item -> plan.getSelection().getMaterialItemsPrice());
+    }
+
+    protected void refreshMaterialList() {
+        material.setAvailableValues(getAvailableMaterials());
+    }
+
+    protected Object[] getAvailableMaterials() {
+        MaterialList list = getProject().getMaterials();
+        Collections.sort(list);
+        return list.toArray();
     }
 }

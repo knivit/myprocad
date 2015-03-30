@@ -173,6 +173,14 @@ public class Project implements JsonSerializable, Cloneable {
         materials.add(material);
     }
 
+    public void addMaterial(String name, float density, float price) {
+        Material material = new Material();
+        material.setName(name);
+        material.setDensity(density);
+        material.setPrice(price);
+        addMaterial(material);
+    }
+
     public String validateMaterials(TableDialogPanelSupport<Material> materials) {
         int row = 1;
         for (int i = 0; i < materials.size(); i ++) {

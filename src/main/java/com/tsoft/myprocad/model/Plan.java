@@ -7,10 +7,14 @@ import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.StringUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
 import com.tsoft.myprocad.util.json.JsonWriter;
+import com.tsoft.myprocad.util.linealg.Seg2;
+import com.tsoft.myprocad.util.linealg.Vec2;
+import com.tsoft.myprocad.util.linealg.Vec3;
 import com.tsoft.myprocad.util.printer.PaperSize;
 import com.tsoft.myprocad.viewcontroller.PasteOperation;
 import com.tsoft.myprocad.viewcontroller.PlanController;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.function.Consumer;
 
@@ -185,7 +189,11 @@ public class Plan extends ProjectItem implements Cloneable {
         wall.setZStart(Math.round(zStart));
         wall.setZEnd(Math.round(zEnd));
         wall.setMaterial(getProject().getMaterials().getDefault());
+        return wall;
+    }
 
+    public Wall addWall(float xStart, float yStart, float zStart, float xEnd, float yEnd, float zEnd) {
+        Wall wall = createWall(xStart, yStart, zStart, xEnd, yEnd, zEnd);
         addItem(wall);
         return wall;
     }
@@ -242,7 +250,7 @@ public class Plan extends ProjectItem implements Cloneable {
         planController.deselectItem(item);
 
         if (item instanceof Wall) walls.deleteItem((Wall) item);
-        else if (item instanceof Beam) beams.deleteItem((Beam)item);
+        else if (item instanceof Beam) beams.deleteItem((Beam) item);
         else if (item instanceof DimensionLine) dimensionLines.deleteItem((DimensionLine) item);
         else if (item instanceof Label) labels.deleteItem((Label) item);
         else if (item instanceof LevelMark) levelMarks.deleteItem((LevelMark) item);
@@ -301,12 +309,28 @@ public class Plan extends ProjectItem implements Cloneable {
         beam.setXEnd(xEnd);
         beam.setYEnd(yEnd);
         beam.setZEnd(zEnd);
-        beam.setPropertyValue(Beam.WIDTH_PROPERTY, width);
-        beam.setPropertyValue(Beam.HEIGHT_PROPERTY, height);
+        beam.setWidth(width);
+        beam.setHeight(height);
         beam.setMaterial(getProject().getMaterials().getDefault());
+        return beam;
+    }
 
+    public Beam addBeam(float xStart, float yStart, int zStart, float xEnd, float yEnd, int zEnd, int width, int height) {
+        Beam beam = createBeam(xStart, yStart, zStart, xEnd, yEnd, zEnd, width, height);
         addItem(beam);
         return beam;
+    }
+
+    /** Create a vertical beam which links two beams at their intersection point */
+    public Beam addLink(Beam beam1, Beam beam2, int width, int height) {
+        Seg2 seg1 = beam1.getXoYProjection();
+        Seg2 seg2 = beam2.getXoYProjection();
+        Vec2 intPt = seg1.getIntersectionPoint(seg2);
+        Vec3 intPtZ0 = new Vec3(intPt.x(), intPt.y(), 0);
+        float db1 = beam1.getBeamCoreSegment().getDistanceToPoint(intPtZ0);
+        float db2 = beam2.getBeamCoreSegment().getDistanceToPoint(intPtZ0);
+        Beam link = addBeam(intPt.x(), intPt.y(), (int) db1, intPt.x(), intPt.y(), (int) db2, width, height);
+        return link;
     }
 
     public ItemList<DimensionLine> getDimensionLines() {
@@ -546,6 +570,11 @@ public class Plan extends ProjectItem implements Cloneable {
         if (ObjectUtil.equals(script, value)) return;
         this.script = value;
         getProject().setModified(true);
+    }
+
+    public void exportToObjFile(String fileName) {
+        String userHome = System.getProperty("user.home") + File.separator;
+        planController.exportToObjFile(userHome + fileName);
     }
 
     @Override

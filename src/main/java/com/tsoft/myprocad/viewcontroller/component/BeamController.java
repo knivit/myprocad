@@ -27,7 +27,7 @@ public class BeamController {
     }
 
     public Beam createBeam(float xStart, float yStart, float xEnd, float yEnd) {
-        return plan.createBeam(xStart, yStart, plan.getLevel().getStart(), xEnd, yEnd, plan.getLevel().getEnd(), 50, 150);
+        return plan.addBeam(xStart, yStart, plan.getLevel().getStart(), xEnd, yEnd, plan.getLevel().getEnd(), 50, 150);
     }
 
     /**

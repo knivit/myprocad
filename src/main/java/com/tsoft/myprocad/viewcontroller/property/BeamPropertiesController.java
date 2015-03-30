@@ -1,93 +1,71 @@
 package com.tsoft.myprocad.viewcontroller.property;
 
-import com.l2fprod.common.beans.editor.ColorPropertyEditor;
-import com.l2fprod.common.beans.editor.ComboBoxPropertyEditor;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.model.*;
 import com.tsoft.myprocad.model.property.ObjectProperty;
-import com.tsoft.myprocad.swing.properties.PatternComboBoxPropertyEditor;
-
-import java.awt.*;
-import java.util.Collections;
 
 public class BeamPropertiesController extends AbstractComponentPropertiesController<Beam> {
-    private ObjectProperty material;
-
     public BeamPropertiesController(PlanPropertiesManager planPropertiesManager) {
         super(planPropertiesManager);
     }
 
     @Override
     protected void initObjectProperties() {
-        super.initObjectProperties();
+        addCommonProperties();
 
         new ObjectProperty(this)
-                .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
+                .setCategoryName(L10.get(L10.VIEW_CATEGORY))
                 .setLabelName(L10.get(L10.BEAM_WIDTH_PROPERTY))
-                .setItemProperty(Beam.WIDTH_PROPERTY);
+                .setType(Integer.class)
+                .setValueGetter(item -> ((Beam) item).getWidth())
+                .setValueValidator((item, value) -> { return ((Beam)item).validateWidth((Integer)value); })
+                .setValueSetter((item, value) -> {
+                    addToHistory((Beam) item);
+                    ((Beam) item).setWidth((int) value);
+                });
 
         new ObjectProperty(this)
-                .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
+                .setCategoryName(L10.get(L10.VIEW_CATEGORY))
                 .setLabelName(L10.get(L10.BEAM_HEIGHT_PROPERTY))
-                .setItemProperty(Beam.HEIGHT_PROPERTY);
-
-        material = new ObjectProperty(this)
-                .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
-                .setLabelName(L10.get(L10.BEAM_MATERIAL_PROPERTY))
-                .setType(ComboBoxPropertyEditor.class)
-                .setAvailableValues(getAvailableMaterials())
-                .setValueGetter(beam -> ((Beam)beam).getMaterial())
-                .setValueSetter((beam, value) -> ((Beam)beam).setMaterial((Material) value));
+                .setType(Integer.class)
+                .setValueGetter(item -> ((Beam) item).getHeight())
+                .setValueValidator((item, value) -> { return ((Beam)item).validateHeight((Integer)value); })
+                .setValueSetter((item, value) -> {
+                    addToHistory((Beam) item);
+                    ((Beam) item).setHeight((int) value);
+                });
 
         new ObjectProperty(this)
-                .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
-                .setLabelName(L10.get(L10.BEAM_PATTERN_PROPERTY))
-                .setType(PatternComboBoxPropertyEditor.class)
-                .setAvailableValues(Pattern.values())
-                .setValueGetter(beam -> ((Beam) beam).getPattern())
-                .setValueSetter((beam, value) -> ((Beam) beam).setPattern(((Pattern) value)));
+                .setCategoryName(L10.get(L10.INFO_CATEGORY))
+                .setLabelName(L10.get(L10.LENGTH_PROPERTY))
+                .setType(Float.class)
+                .setValueGetter(item -> ((Beam) item).getLength());
 
         new ObjectProperty(this)
                 .setCategoryName(L10.get(L10.VIEW_CATEGORY))
-                .setLabelName(L10.get(L10.BACKGROUND_COLOR_PROPERTY))
-                .setType(ColorPropertyEditor.class)
-                .setValueGetter(beam -> new Color((int)((Beam) beam).getPropertyValue(Beam.BACKGROUND_COLOR_PROPERTY)))
-                .setValueSetter((beam, value) -> ((Beam) beam).setPropertyValue(Beam.BACKGROUND_COLOR_PROPERTY, ((Color) value).getRGB()));
+                .setLabelName(L10.get(L10.BEAM_XOZ_ANGLE_PROPERTY))
+                .setType(Integer.class)
+                .setValueGetter(item -> ((Beam) item).getXozAngle());
 
         new ObjectProperty(this)
                 .setCategoryName(L10.get(L10.VIEW_CATEGORY))
-                .setLabelName(L10.get(L10.FOREGROUND_COLOR_PROPERTY))
-                .setType(ColorPropertyEditor.class)
-                .setValueGetter(beam -> new Color((int)((Beam) beam).getPropertyValue(Beam.FOREGROUND_COLOR_PROPERTY)))
-                .setValueSetter((beam, value) -> ((Beam) beam).setPropertyValue(Beam.FOREGROUND_COLOR_PROPERTY, ((Color) value).getRGB()));
+                .setLabelName(L10.get(L10.BEAM_XOY_ANGLE_PROPERTY))
+                .setType(Integer.class)
+                .setValueGetter(item -> ((Beam) item).getXoyAngle());
 
         new ObjectProperty(this)
                 .setCategoryName(L10.get(L10.VIEW_CATEGORY))
-                .setLabelName(L10.get(L10.BORDER_COLOR_PROPERTY))
-                .setType(ColorPropertyEditor.class)
-                .setValueGetter(beam -> new Color((int)((Beam) beam).getPropertyValue(Beam.BORDER_COLOR_PROPERTY)))
-                .setValueSetter((beam, value) -> ((Beam) beam).setPropertyValue(Beam.BORDER_COLOR_PROPERTY, ((Color) value).getRGB()));
+                .setLabelName(L10.get(L10.BEAM_YOZ_ANGLE_PROPERTY))
+                .setType(Integer.class)
+                .setValueGetter(item -> ((Beam) item).getYozAngle());
 
-        new ObjectProperty(this)
-                .setCategoryName(L10.get(L10.VIEW_CATEGORY))
-                .setLabelName(L10.get(L10.BORDER_WIDTH_PROPERTY))
-                .setItemProperty(Beam.BORDER_WIDTH_PROPERTY);
+        addMaterialItemProperties();
     }
 
     @Override
     public void refreshValues() {
         refreshMaterialList();
         super.refreshValues();
-    }
-
-    public void refreshMaterialList() {
-        material.setAvailableValues(getAvailableMaterials());
-    }
-
-    public Object[] getAvailableMaterials() {
-        MaterialList list = getProject().getMaterials();
-        Collections.sort(list);
-        return list.toArray();
     }
 
     @Override

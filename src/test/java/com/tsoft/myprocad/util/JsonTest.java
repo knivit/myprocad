@@ -41,7 +41,7 @@ public class JsonTest {
         assertNotNull(planItem.get());
 
         Plan plan = (Plan)planItem.get();
-        Wall wall = plan.createWall(0, 1000, 0, 1000, 0, 100);
+        Wall wall = plan.addWall(0, 1000, 0, 1000, 0, 100);
         wall.setPattern(Pattern.BRICK);
         Label label = plan.createLabel(2000, 0, "Test");
         label.setRotation(Rotation.ANGLE_180);
@@ -83,7 +83,7 @@ public class JsonTest {
 
         // create items on the default plan
         Plan plan1 = project.getAllPlans().get(0);
-        Wall wall1 = plan1.createWall(0, 1000, 0, 1000, 0, 1000);
+        Wall wall1 = plan1.addWall(0, 1000, 0, 1000, 0, 1000);
         DimensionLine dimensionLine1 = plan1.createDimensionLine(0, 1000, 0, 0, -100);
         Label label1 = plan1.createLabel(0, 0, "Test");
         LevelMark levelMark1 = plan1.createLevelMark(0, 1000, 0, 1000);

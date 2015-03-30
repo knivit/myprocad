@@ -288,16 +288,17 @@ public class L10 {
     public static String[] WALL_PATTERN_PROPERTY = { "Pattern", "Шаблон" };
     public static String[] WALL_ALWAYS_SHOW_BORDERS_PROPERTY = { "Always show borders", "Всегда показывать границы" };
     public static String[] WALL_MATERIAL_PROPERTY = { "Material", "Материал" };
-    public static String[] WALL_DENSITY_PROPERTY = { "Density (tn/m3)", "Удельный вес (тн/м3)" };
+    public static String[] MATERIAL_DENSITY_PROPERTY = { "Density (tn/m3)", "Удельный вес (тн/м3)" };
     public static String[] WALL_SKIP_IN_REPORTS_PROPERTY = { "Skip in reports", "Пропускать в отчетах" };
     public static String[] WALL_SIZE_PROPERTY = { "%dx%dx%dx (LWH)", "%dx%dx%dx (ДШВ)" };
     public static String[] WALL_OUTER_LENGTH_PROPERTY = { "Outer length (m)", "Внешняя длина (м)" };
-    public static String[] WALL_VOLUME_PROPERTY = { "Volume (m3)", "Объем (м3)" };
-    public static String[] WALL_WEIGHT_PROPERTY = { "Weight (tn)", "Вес (тн)" };
-    public static String[] WALL_PRICE_PROPERTY = { "Price", "Цена" };
+    public static String[] VOLUME_PROPERTY = { "Volume (m3)", "Объем (м3)" };
+    public static String[] WEIGHT_PROPERTY = { "Weight (tn)", "Вес (тн)" };
+    public static String[] PRICE_PROPERTY = { "Price", "Цена" };
 
-    public static String[] BEAM_PATTERN_PROPERTY = { "Pattern", "Шаблон" };
-    public static String[] BEAM_MATERIAL_PROPERTY = { "Material", "Материал" };
+    public static String[] BEAM_XOZ_ANGLE_PROPERTY = { "Angle XoZ", "Угол XoZ" };
+    public static String[] BEAM_XOY_ANGLE_PROPERTY = { "Angle XoY", "Угол XoY" };
+    public static String[] BEAM_YOZ_ANGLE_PROPERTY = { "Angle YoZ", "Угол YoZ" };
     public static String[] BEAM_WIDTH_PROPERTY = { "Width (mm)", "Ширина (мм)" };
     public static String[] BEAM_HEIGHT_PROPERTY = { "Height (mm)", "Высота (мм)" };
 
@@ -309,7 +310,7 @@ public class L10 {
     public static String[] DIMENSION_FONT_SIZE_PROPERTY = { "Font Size", "Размер шрифта" };
     public static String[] DIMENSION_START_POINT_SHAPE_TYPE_PROPERTY = { "Start Point", "Начальная точка" };
     public static String[] DIMENSION_END_POINT_SHAPE_TYPE_PROPERTY = { "End Point", "Конечная точка" };
-    public static String[] DIMENSION_LINE_LENGTH_PROPERTY = { "Length", "Длина" };
+    public static String[] LENGTH_PROPERTY = { "Length (mm)", "Длина (мм)" };
     public static String[] DIMENSION_LINE_ANGLE_PROPERTY = { "Angle (degrees)", "Угол (градусы)" };
 
     public static String[] LABEL_ROTATION_PROPERTY = { "Rotation", "Поворот" };

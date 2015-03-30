@@ -2,7 +2,7 @@ package com.tsoft.myprocad.util.linealg;
 
 /** Represents a rotation with single-precision components */
 
-public class Rotf {
+public class Rot {
     private static float EPSILON = 1.0e-7f;
 
     // Representation is a quaternion. Element 0 is the scalar part (=
@@ -14,23 +14,23 @@ public class Rotf {
     private float q3;
 
     /** Default constructor initializes to the identity quaternion */
-    public Rotf() {
+    public Rot() {
         init();
     }
 
-    public Rotf(Rotf arg) {
+    public Rot(Rot arg) {
         set(arg);
     }
 
     /** Axis does not need to be normalized but must not be the zero
      vector. Angle is in radians. */
-    public Rotf(Vec3f axis, float angle) {
+    public Rot(Vec3 axis, float angle) {
         set(axis, angle);
     }
 
     /** Creates a rotation which will rotate vector "from" into vector
      "to". */
-    public Rotf(Vec3f from, Vec3f to) {
+    public Rot(Vec3 from, Vec3 to) {
         set(from, to);
     }
 
@@ -44,7 +44,7 @@ public class Rotf {
     /** Test for "approximate equality" -- performs componentwise test
      to see whether difference between all components is less than
      epsilon. */
-    public boolean withinEpsilon(Rotf arg, float epsilon) {
+    public boolean withinEpsilon(Rot arg, float epsilon) {
         return ((Math.abs(q0 - arg.q0) < epsilon) &&
                 (Math.abs(q1 - arg.q1) < epsilon) &&
                 (Math.abs(q2 - arg.q2) < epsilon) &&
@@ -53,18 +53,18 @@ public class Rotf {
 
     /** Axis does not need to be normalized but must not be the zero
      vector. Angle is in radians. */
-    public void set(Vec3f axis, float angle) {
+    public void set(Vec3 axis, float angle) {
         float halfTheta = angle / 2.0f;
         q0 = (float) Math.cos(halfTheta);
         float sinHalfTheta = (float) Math.sin(halfTheta);
-        Vec3f realAxis = new Vec3f(axis);
+        Vec3 realAxis = new Vec3(axis);
         realAxis.normalize();
         q1 = realAxis.x() * sinHalfTheta;
         q2 = realAxis.y() * sinHalfTheta;
         q3 = realAxis.z() * sinHalfTheta;
     }
 
-    public void set(Rotf arg) {
+    public void set(Rot arg) {
         q0 = arg.q0;
         q1 = arg.q1;
         q2 = arg.q2;
@@ -73,8 +73,8 @@ public class Rotf {
 
     /** Sets this rotation to that which will rotate vector "from" into
      vector "to". from and to do not have to be the same length. */
-    public void set(Vec3f from, Vec3f to) {
-        Vec3f axis = from.cross(to);
+    public void set(Vec3 from, Vec3 to) {
+        Vec3 axis = from.cross(to);
         if (axis.lengthSquared() < EPSILON) {
             init();
             return;
@@ -93,7 +93,7 @@ public class Rotf {
 
     /** Returns angle (in radians) and mutates the given vector to be
      the axis. */
-    public float get(Vec3f axis) {
+    public float get(Vec3 axis) {
         // FIXME: Is this numerically stable? Is there a better way to
         // extract the angle from a quaternion?
         // NOTE: remove (float) to illustrate compiler bug
@@ -109,8 +109,8 @@ public class Rotf {
     }
 
     /** Returns inverse of this rotation; creates new rotation */
-    public Rotf inverse() {
-        Rotf tmp = new Rotf(this);
+    public Rot inverse() {
+        Rot tmp = new Rot(this);
         tmp.invert();
         return tmp;
     }
@@ -145,8 +145,8 @@ public class Rotf {
     }
 
     /** Returns this * b, in that order; creates new rotation */
-    public Rotf times(Rotf b) {
-        Rotf tmp = new Rotf();
+    public Rot times(Rot b) {
+        Rot tmp = new Rot();
         tmp.mul(this, b);
         return tmp;
     }
@@ -156,7 +156,7 @@ public class Rotf {
      implies that a vector rotated by the cumulative rotation will be
      rotated first by B, then A. NOTE: "this" must be different than
      both a and b. */
-    public void mul(Rotf a, Rotf b) {
+    public void mul(Rot a, Rot b) {
         q0 = (a.q0 * b.q0 - a.q1 * b.q1 - a.q2 * b.q2 - a.q3 * b.q3);
         q1 = (a.q0 * b.q1 + a.q1 * b.q0 + a.q2 * b.q3 - a.q3 * b.q2);
         q2 = (a.q0 * b.q2 + a.q2 * b.q0 - a.q1 * b.q3 + a.q3 * b.q1);
@@ -166,7 +166,7 @@ public class Rotf {
     /** Turns this rotation into a 3x3 rotation matrix. NOTE: only
      mutates the upper-left 3x3 of the passed Mat4f. Implementation
      from B. K. P. Horn's <u>Robot Vision</u> textbook. */
-    public void toMatrix(Mat4f mat) {
+    public void toMatrix(Mat4 mat) {
         float q00 = q0 * q0;
         float q11 = q1 * q1;
         float q22 = q2 * q2;
@@ -200,7 +200,7 @@ public class Rotf {
      Implementation from Watt and Watt, <u>Advanced Animation and
      Rendering Techniques</u>.
      */
-    public void fromMatrix(Mat4f mat) {
+    public void fromMatrix(Mat4 mat) {
         // FIXME: Should reimplement to follow Horn's advice of using
         // eigenvector decomposition to handle roundoff error in given
         // matrix.
@@ -236,10 +236,10 @@ public class Rotf {
     /** Rotate a vector by this quaternion. Implementation is from
      Horn's <u>Robot Vision</u>. NOTE: src and dest must be different
      vectors. */
-    public void rotateVector(Vec3f src, Vec3f dest) {
-        Vec3f qVec = new Vec3f(q1, q2, q3);
-        Vec3f qCrossX = qVec.cross(src);
-        Vec3f qCrossXCrossQ = qCrossX.cross(qVec);
+    public void rotateVector(Vec3 src, Vec3 dest) {
+        Vec3 qVec = new Vec3(q1, q2, q3);
+        Vec3 qCrossX = qVec.cross(src);
+        Vec3 qCrossXCrossQ = qCrossX.cross(qVec);
         qCrossX.scale(2.0f * q0);
         qCrossXCrossQ.scale(-2.0f);
         dest.add(src, qCrossX);
@@ -247,16 +247,16 @@ public class Rotf {
     }
 
     /** Rotate a vector by this quaternion, returning newly-allocated result. */
-    public Vec3f rotateVector(Vec3f src) {
-        Vec3f tmp = new Vec3f();
+    public Vec3 rotateVector(Vec3 src) {
+        Vec3 tmp = new Vec3();
         rotateVector(src, tmp);
         return tmp;
     }
 
-    public Segment rotateSegment(Segment seg) {
-        Vec3f rp0 = rotateVector(seg.p0());
-        Vec3f rp1 = rotateVector(seg.p1());
-        return new Segment(rp0, rp1);
+    public Seg3 rotateSegment(Seg3 seg) {
+        Vec3 rp0 = rotateVector(seg.p0());
+        Vec3 rp1 = rotateVector(seg.p1());
+        return new Seg3(rp0, rp1);
     }
 
     private void setQ(int i, float val) {

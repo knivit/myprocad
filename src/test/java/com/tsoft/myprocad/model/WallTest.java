@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNotNull;
 public class WallTest extends AbstractItemTest {
     @Test
     public void testRotate() {
-        Wall wall = plan.createWall(1, 3, 0, 1, 4, 1);
+        Wall wall = plan.addWall(1, 3, 0, 1, 4, 1);
         planController.selectItem(wall);
 
         wall.rotate(1, 1, -90);
@@ -30,7 +30,7 @@ public class WallTest extends AbstractItemTest {
     public void testShapes() {
         Wall wall;
 
-        wall = plan.createWall(0, 1000, 0, 1000, 0, 1);
+        wall = plan.addWall(0, 1000, 0, 1000, 0, 1);
         wall.setDiagonalWidth(200);
         assertEquals(Math.round(200/Math.sin(Math.toRadians(45))), wall.getDiagonalOffset("11"));
         assertEquals(Math.round(200/Math.sin(Math.toRadians(45))), wall.getDiagonalOffset("12"));
@@ -41,7 +41,7 @@ public class WallTest extends AbstractItemTest {
         assertEquals(Math.round(200/Math.sin(Math.toRadians(45))), wall.getDiagonalOffset("41"));
         assertEquals(Math.round(200/Math.sin(Math.toRadians(45))), wall.getDiagonalOffset("42"));
 
-        wall = plan.createWall(0, (float)Math.sqrt(3)*1000, 0, 1000, 0, 1);
+        wall = plan.addWall(0, (float)Math.sqrt(3)*1000, 0, 1000, 0, 1);
         wall.setDiagonalWidth(200);
         assertEquals(Math.round(200/Math.sin(Math.toRadians(60))), wall.getDiagonalOffset("32"));
         assertEquals(Math.round(200 / Math.sin(Math.toRadians(60))), wall.getDiagonalOffset("22"));
@@ -52,7 +52,7 @@ public class WallTest extends AbstractItemTest {
         assertEquals(Math.round(200 / Math.sin(Math.toRadians(60))), wall.getDiagonalOffset("42"));
         assertEquals(Math.round(200/Math.sin(Math.toRadians(60))), wall.getDiagonalOffset("12"));
 
-        wall = plan.createWall(0, 1000, 0, (float)Math.sqrt(3)*1000, 0, 1);
+        wall = plan.addWall(0, 1000, 0, (float)Math.sqrt(3)*1000, 0, 1);
         wall.setDiagonalWidth(200);
         assertEquals(Math.round(200/Math.sin(Math.toRadians(30))), wall.getDiagonalOffset("32"));
         assertEquals(Math.round(200/Math.sin(Math.toRadians(30))), wall.getDiagonalOffset("22"));
@@ -68,7 +68,7 @@ public class WallTest extends AbstractItemTest {
     public void testFormulas() {
         Wall wall;
 
-        wall = plan.createWall(0, 1000, 0, 1000, 0, 1);
+        wall = plan.addWall(0, 1000, 0, 1000, 0, 1);
         wall.setDiagonalWidth((int)(Math.sqrt(1000*1000 + 1000*1000)/2.0));
         wall.setWallShape(WallShape.DIAGONAL1U);
 
@@ -77,7 +77,7 @@ public class WallTest extends AbstractItemTest {
 
     @Test
     public void exportToObj() throws IOException {
-        plan.createWall(0, 1000, 0, 1000, 0, 1000);
+        plan.addWall(0, 1000, 0, 1000, 0, 1000);
         File out = File.createTempFile(getClass().getSimpleName(), ".obj");
         assertNotNull(out);
 

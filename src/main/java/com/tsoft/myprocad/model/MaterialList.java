@@ -5,11 +5,9 @@ import com.tsoft.myprocad.swing.dialog.TableDialogPanelSupport;
 import com.tsoft.myprocad.util.SwingTools;
 import com.tsoft.myprocad.viewcontroller.MaterialsTableModel;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
+import java.util.function.BiConsumer;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
@@ -25,6 +23,11 @@ public class MaterialList extends ArrayList<Material> implements TableDialogPane
 
     public MaterialList(Collection<Material> materials) {
         super(materials);
+    }
+
+    public MaterialList(ItemList<AbstractMaterialItem> materialItems) {
+        super();
+        for (AbstractMaterialItem mi : materialItems) add(mi.getMaterial());
     }
 
     public void setProject(Project project) { this.project = project; }
@@ -49,6 +52,12 @@ public class MaterialList extends ArrayList<Material> implements TableDialogPane
         }
 
         return new MaterialList(materials);
+    }
+
+    public List<String> getMaterialsNames() {
+        List<String> result = new ArrayList<>();
+        for (Material material : this) result.add(material.getName());
+        return result;
     }
 
     @Override

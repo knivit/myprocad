@@ -362,8 +362,8 @@ public class PlanController implements ProjectItemController {
             buf.append(String.format("plan.addBeam(%d, %d, %d, %d, %d, %d, %d, %d);\n",
                     beam.getXStart(), beam.getYStart(), beam.getZStart(),
                     beam.getXEnd(), beam.getYEnd(), beam.getZEnd(),
-                    (int)beam.getPropertyValue(Beam.WIDTH_PROPERTY),
-                    (int)beam.getPropertyValue(Beam.HEIGHT_PROPERTY)));
+                    beam.getWidth(),
+                    beam.getHeight()));
         }
 
         TextDialog dialog = new TextDialog();
@@ -543,7 +543,11 @@ public class PlanController implements ProjectItemController {
     }
 
     public List<String> getLevelMaterialsNames() {
-        return plan.getLevelWalls().getMaterialsNames();
+        ItemList<AbstractMaterialItem> materialItems = new ItemList<>();
+        materialItems.addAll(plan.getLevelWalls());
+        materialItems.addAll(plan.getLevelBeams());
+        MaterialList materials = new MaterialList(materialItems);
+        return materials.getMaterialsNames();
     }
 
     private void selectByMaterial() {

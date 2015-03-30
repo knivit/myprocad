@@ -44,9 +44,9 @@ public class BeamComponent {
         g2D.fill(shape);
 
         // Draw wall's border
-        Paint borderColor = new Color((int)beam.getPropertyValue(Beam.BORDER_COLOR_PROPERTY));
+        Paint borderColor = new Color(beam.getBorderColor());
         g2D.setPaint(borderColor);
-        g2D.setStroke(new BasicStroke((int)beam.getPropertyValue(Beam.BORDER_WIDTH_PROPERTY) / planScale));
+        g2D.setStroke(new BasicStroke(beam.getBorderWidth() / planScale));
         g2D.draw(shape);
     }
 
@@ -73,8 +73,8 @@ public class BeamComponent {
      * Returns the <code>Paint</code> object used to fill walls.
      */
     private Paint getBeamPaint(Beam beam, float planScale) {
-        int backgroundColor = (int)beam.getPropertyValue(Beam.BACKGROUND_COLOR_PROPERTY);
-        int foregroundColor = (int)beam.getPropertyValue(Beam.FOREGROUND_COLOR_PROPERTY);
+        int backgroundColor = beam.getBackgroundColor();
+        int foregroundColor = beam.getForegroundColor();
         Pattern pattern = beam.getPattern();
 
         WallPattern beamPattern = new WallPattern(pattern.getId(), backgroundColor, foregroundColor);

@@ -165,42 +165,4 @@ public class Geometry2DLib {
 
         return closestPoint.distance(p);
     }
-
-    /**
-     * Determine the intersection point of two line segments
-     * Return null if the lines don't intersect
-     */
-    public static Point2D getLinesIntersectionPoint(Line2D L1, Line2D L2) {
-        // Denominator for ua and ub are the same, so store this calculation
-        double d = (L2.getY2() - L2.getY1()) * (L1.getX2() - L1.getX1())
-                 - (L2.getX2() - L2.getX1()) * (L1.getY2() - L1.getY1());
-
-        // n_a and n_b are calculated as separate values for readability
-        double n_a = (L2.getX2() - L2.getX1()) * (L1.getY1() - L2.getY1())
-                   - (L2.getY2() - L2.getY1()) * (L1.getX1() - L2.getX1());
-
-        double n_b = (L1.getX2() - L1.getX1()) * (L1.getY1() - L2.getY1())
-                   - (L1.getY2() - L1.getY1()) * (L1.getX1() - L2.getX1());
-
-        // Make sure there is not a division by zero - this also indicates that
-        // the lines are parallel.
-        // If n_a and n_b were both equal to zero the lines would be on top of each
-        // other (coincidental).  This check is not done because it is not
-        // necessary for this implementation (the parallel check accounts for this).
-        if (d == 0) return null;
-
-        // Calculate the intermediate fractional point that the lines potentially intersect.
-        double ua = n_a / d;
-        double ub = n_b / d;
-
-        // The fractional point will be between 0 and 1 inclusive if the lines
-        // intersect.  If the fractional calculation is larger than 1 or smaller
-        // than 0 the lines would need to be longer to intersect.
-        if (ua >= 0.0 && ua <= 1.0 && ub >= 0.0 && ub <= 1.0) {
-            double x = L1.getX1() + (ua * (L1.getX2() - L1.getX1()));
-            double y = L1.getY1() + (ua * (L1.getY2() - L1.getY1()));
-            return new Point2D.Double(x, y);
-        }
-        return null;
-    }
 }
