@@ -5,6 +5,8 @@ public class Seg3 {
 
     private Vec3 p0;
     private Vec3 p1;
+
+    // calculated
     private Vec3 direction;
 
     public Seg3(Vec3 p0, Vec3 p1) {
@@ -150,5 +152,24 @@ public class Seg3 {
     @Override
     public String toString() {
         return "{p0=" + p0.toString() + ", p1=" + p1.toString() + ", direction=" + direction.toString() + "}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Seg3 seg3 = (Seg3) o;
+
+        if (!p0.equals(seg3.p0)) return false;
+        return p1.equals(seg3.p1);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = p0.hashCode();
+        result = 31 * result + p1.hashCode();
+        return result;
     }
 }

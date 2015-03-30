@@ -70,7 +70,7 @@ public class Beam extends AbstractMaterialItem implements JsonSerializable {
     }
 
     public double getArea() {
-        return width * height;
+        return width / 1000.0 * height / 1000.0;
     }
 
     public float getLength() {
@@ -79,7 +79,7 @@ public class Beam extends AbstractMaterialItem implements JsonSerializable {
 
     @Override
     public double getVolume() {
-        return getArea() * getLength();
+        return getArea() * getLength() / 1000.0;
     }
 
     public int getXozAngle() {
@@ -98,11 +98,6 @@ public class Beam extends AbstractMaterialItem implements JsonSerializable {
         float angle = getBeamCoreSegment().getAngle(Plane.YOZ);
         yozAngle = (int)Math.round(Math.toDegrees(angle));
         return yozAngle;
-    }
-
-    public Seg2 getXoYProjection() {
-        Seg3 seg = getBeamCoreSegment();
-        return seg.get2dProjectionOnPlane(Plane.XOY);
     }
 
     /** Online graph http://www.livephysics.com/tools/mathematical-tools/online-3-d-function-grapher/ */

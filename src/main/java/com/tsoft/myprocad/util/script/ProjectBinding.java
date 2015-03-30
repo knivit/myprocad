@@ -28,9 +28,8 @@ public class ProjectBinding implements JavaScriptBinding {
         return material;
     }
 
-    public PlanBinding addPlan(String name) {
-        Plan plan = (Plan)project.addItem(ProjectItemType.PLAN, name, 0);
-        return new PlanBinding(plan);
+    public Plan addPlan(String name) {
+        return (Plan)project.addItem(ProjectItemType.PLAN, name, 0);
     }
 
     public void saveToFile(String fileName) {

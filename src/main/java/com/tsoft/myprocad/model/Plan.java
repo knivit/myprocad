@@ -7,7 +7,9 @@ import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.StringUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
 import com.tsoft.myprocad.util.json.JsonWriter;
+import com.tsoft.myprocad.util.linealg.Plane;
 import com.tsoft.myprocad.util.linealg.Seg2;
+import com.tsoft.myprocad.util.linealg.Seg3;
 import com.tsoft.myprocad.util.linealg.Vec2;
 import com.tsoft.myprocad.util.linealg.Vec3;
 import com.tsoft.myprocad.util.printer.PaperSize;
@@ -176,51 +178,6 @@ public class Plan extends ProjectItem implements Cloneable {
         return originLocation;
     }
 
-    public ItemList<Wall> getWalls() {
-        return walls.getCopy();
-    }
-
-    public Wall createWall(float xStart, float yStart, float zStart, float xEnd, float yEnd, float zEnd) {
-        Wall wall = (Wall)ItemType.WALL.newInstance();
-        wall.setXStart(xStart);
-        wall.setXEnd(xEnd);
-        wall.setYStart(yStart);
-        wall.setYEnd(yEnd);
-        wall.setZStart(Math.round(zStart));
-        wall.setZEnd(Math.round(zEnd));
-        wall.setMaterial(getProject().getMaterials().getDefault());
-        return wall;
-    }
-
-    public Wall addWall(float xStart, float yStart, float zStart, float xEnd, float yEnd, float zEnd) {
-        Wall wall = createWall(xStart, yStart, zStart, xEnd, yEnd, zEnd);
-        addItem(wall);
-        return wall;
-    }
-
-    public void undoAddItems(ItemList<Item> items) {
-        deleteItemsById(items);
-    }
-
-    public void undoDeleteItems(ItemList<Item> items) {
-        items.forEach(this, this::addItem);
-    }
-
-    public WallList findWallsWithMaterial(MaterialList materials) {
-        WallList levelWalls = new WallList(getLevelWalls());
-        return levelWalls.filterByMaterials(materials);
-    }
-
-    public WallList findWallsWithPattern(Pattern pattern) {
-        WallList levelWalls = new WallList(getLevelWalls());
-        return levelWalls.filterByPattern(pattern);
-    }
-
-    public WallList findWallsWithMaterial(Material material) {
-        WallList levelWalls = new WallList(getLevelWalls());
-        return levelWalls.filterByMaterial(material);
-    }
-
     public void undoItem(Item item) {
         if (item != null) itemChanged(item);
     }
@@ -297,6 +254,51 @@ public class Plan extends ProjectItem implements Cloneable {
         planController.itemChanged(item);
     }
 
+    public void undoAddItems(ItemList<Item> items) {
+        deleteItemsById(items);
+    }
+
+    public void undoDeleteItems(ItemList<Item> items) {
+        items.forEach(this, this::addItem);
+    }
+
+    public ItemList<Wall> getWalls() {
+        return walls.getCopy();
+    }
+
+    public Wall createWall(float xStart, float yStart, float zStart, float xEnd, float yEnd, float zEnd) {
+        Wall wall = (Wall)ItemType.WALL.newInstance();
+        wall.setXStart(xStart);
+        wall.setXEnd(xEnd);
+        wall.setYStart(yStart);
+        wall.setYEnd(yEnd);
+        wall.setZStart(Math.round(zStart));
+        wall.setZEnd(Math.round(zEnd));
+        wall.setMaterial(getProject().getMaterials().getDefault());
+        return wall;
+    }
+
+    public Wall addWall(float xStart, float yStart, float zStart, float xEnd, float yEnd, float zEnd) {
+        Wall wall = createWall(xStart, yStart, zStart, xEnd, yEnd, zEnd);
+        addItem(wall);
+        return wall;
+    }
+
+    public WallList findWallsWithMaterial(MaterialList materials) {
+        WallList levelWalls = new WallList(getLevelWalls());
+        return levelWalls.filterByMaterials(materials);
+    }
+
+    public WallList findWallsWithPattern(Pattern pattern) {
+        WallList levelWalls = new WallList(getLevelWalls());
+        return levelWalls.filterByPattern(pattern);
+    }
+
+    public WallList findWallsWithMaterial(Material material) {
+        WallList levelWalls = new WallList(getLevelWalls());
+        return levelWalls.filterByMaterial(material);
+    }
+
     public ItemList<Beam> getBeams() {
         return beams.getCopy();
     }
@@ -323,13 +325,18 @@ public class Plan extends ProjectItem implements Cloneable {
 
     /** Create a vertical beam which links two beams at their intersection point */
     public Beam addLink(Beam beam1, Beam beam2, int width, int height) {
-        Seg2 seg1 = beam1.getXoYProjection();
-        Seg2 seg2 = beam2.getXoYProjection();
+        Seg3 bseg1 = beam1.getBeamCoreSegment();
+        Seg3 bseg2 = beam2.getBeamCoreSegment();
+        Seg2 seg1 = bseg1.get2dProjectionOnPlane(Plane.XOY);
+        Seg2 seg2 = bseg2.get2dProjectionOnPlane(Plane.XOY);
         Vec2 intPt = seg1.getIntersectionPoint(seg2);
-        Vec3 intPtZ0 = new Vec3(intPt.x(), intPt.y(), 0);
-        float db1 = beam1.getBeamCoreSegment().getDistanceToPoint(intPtZ0);
-        float db2 = beam2.getBeamCoreSegment().getDistanceToPoint(intPtZ0);
-        Beam link = addBeam(intPt.x(), intPt.y(), (int) db1, intPt.x(), intPt.y(), (int) db2, width, height);
+        float z1 = Math.min(bseg1.p0().z(), bseg1.p1().z());
+        float z2 = Math.min(bseg2.p0().z(), bseg2.p1().z());
+        float z = Math.min(z1, z2);
+        Vec3 intPtZ0 = new Vec3(intPt.x(), intPt.y(), z);
+        float db1 = bseg1.getDistanceToPoint(intPtZ0);
+        float db2 = bseg2.getDistanceToPoint(intPtZ0);
+        Beam link = addBeam(intPt.x(), intPt.y(), (int)(z + db1), intPt.x(), intPt.y(), (int)(z + db2), width, height);
         return link;
     }
 

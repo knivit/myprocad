@@ -54,45 +54,55 @@ public abstract class AbstractMaterialItem extends Item {
         return pattern;
     }
 
-    public void setPattern(Pattern value) {
-        if (ObjectUtil.equals(getPattern(), value)) return;
+    public AbstractMaterialItem setPattern(Pattern value) {
+        if (!ObjectUtil.equals(getPattern(), value)) {
+            patternId = value.getId();
+            pattern = value;
+            if (plan != null) plan.itemChanged(this);
+        }
+        return this;
+    }
 
-        patternId = value.getId();
-        pattern = value;
-        if (plan != null) plan.itemChanged(this);
+    public AbstractMaterialItem setPattern(String patternName) {
+        Pattern pattern = Pattern.findByName(patternName);
+        if (pattern == null) throw new IllegalArgumentException("Unknown pattern '" + patternName + "'");
+        return setPattern(pattern);
     }
 
     public int getBackgroundColor() {
         return backgroundColor;
     }
 
-    public void setBackgroundColor(int value) {
-        if (backgroundColor == value) return;
-
-        backgroundColor = value;
-        if (plan != null) plan.itemChanged(this);
+    public AbstractMaterialItem setBackgroundColor(int value) {
+        if (backgroundColor != value) {
+            backgroundColor = value;
+            if (plan != null) plan.itemChanged(this);
+        }
+        return this;
     }
 
     public int getForegroundColor() {
         return foregroundColor;
     }
 
-    public void setForegroundColor(int value) {
-        if (foregroundColor == value) return;
-
-        foregroundColor = value;
-        if (plan != null) plan.itemChanged(this);
+    public AbstractMaterialItem setForegroundColor(int value) {
+        if (foregroundColor != value) {
+            foregroundColor = value;
+            if (plan != null) plan.itemChanged(this);
+        }
+        return this;
     }
 
     public int getBorderColor() {
         return borderColor;
     }
 
-    public void setBorderColor(int value) {
-        if (borderColor == value) return;
-
-        borderColor = value;
-        if (plan != null) plan.itemChanged(this);
+    public AbstractMaterialItem setBorderColor(int value) {
+        if (borderColor != value) {
+            borderColor = value;
+            if (plan != null) plan.itemChanged(this);
+        }
+        return this;
     }
 
     public int getBorderWidth() {
@@ -105,12 +115,12 @@ public abstract class AbstractMaterialItem extends Item {
         return null;
     }
 
-    public void setBorderWidth(int value) {
-        if (borderWidth == value) return;
-
-        borderWidth = value;
-        resetCaches();
-        if (plan != null) plan.itemChanged(this);
+    public AbstractMaterialItem setBorderWidth(int value) {
+        if (borderWidth != value) {
+            borderWidth = value;
+            if (plan != null) plan.itemChanged(this);
+        }
+        return this;
     }
 
     public double getWeight() {

@@ -93,6 +93,14 @@ public enum Pattern {
         return image;
     }
 
+    public static Pattern findByName(String patternName) {
+        for (Pattern pattern : values()) {
+            if (pattern.resourceName.equalsIgnoreCase(patternName) ||
+                    pattern.name().equalsIgnoreCase(patternName)) return pattern;
+        }
+        return null;
+    }
+
     @Override
     public String toString() { return resourceName; }
 }

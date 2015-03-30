@@ -14,12 +14,6 @@ public class JavaScriptTest extends AbstractItemTest {
         }
     }
 
-    public void testBinding() throws Exception {
-        JavaScript js = new JavaScript();
-        js.addBinding(new PlanBinding(plan));
-        js.execute("plan.addWall(0, 0, 1000, 1000)", new ConsoleOutputBinding(js));
-    }
-
     public void testLib() throws Exception {
         JavaScript js = new JavaScript();
         js.loadLibrary("lib/js/СопротивлениеМатериалов.js");

@@ -4,6 +4,8 @@ package com.tsoft.myprocad.util.linealg;
 public class Seg2 {
     private Vec2 p0;
     private Vec2 p1;
+
+    // calculated
     private Vec2 direction;
 
     public Seg2(Vec2 p0, Vec2 p1) {
@@ -66,5 +68,24 @@ public class Seg2 {
     @Override
     public String toString() {
         return "{p0=" + p0.toString() + ", p1=" + p1.toString() + ", direction=" + direction.toString() + "}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Seg2 seg2 = (Seg2) o;
+
+        if (!p0.equals(seg2.p0)) return false;
+        return p1.equals(seg2.p1);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = p0.hashCode();
+        result = 31 * result + p1.hashCode();
+        return result;
     }
 }

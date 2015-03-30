@@ -80,7 +80,7 @@ $$1 = "Исходные данные\n";
 Ширина_пролета_ae$см = 1060;
 Половина_ширины_пролета_az$см = Ширина_пролета_ae$см / 2;
 Угол_подкоса_khb$градусов = 40;
-Ширина_вальмы_xa$см = 270;
+Ширина_вальмы_xa$см = 280;
 Шаг_фермы$м = 1;
 Длина_конька_cv$см = Длина_крыши_xf$см - 2*Ширина_вальмы_xa$см;
 Количество_ферм$шт = Math.ceil((Длина_конька_cv$см/100) / Шаг_фермы$м) + 1;
@@ -96,10 +96,10 @@ $$Брус100х100 = project.addMaterial("Брус 100х100", 550, 6500);
 $$Брус150х150 = project.addMaterial("Брус 150х150", 550, 6500);
 
 var Облицовка = [
-  plan.addWall(-20, -20, 6000, 10620, 100, 7000).setMaterial($$Кирпич),
-  plan.addWall(-20, 100, 6000, 100, 13500, 7000).setMaterial($$Кирпич),
-  plan.addWall(-20, 13500, 6000, 10620, 13620, 7000).setMaterial($$Кирпич),
-  plan.addWall(10500, -20, 6000, 10620, 13500, 7000).setMaterial($$Кирпич),
+  plan.addWall(-20, -20, 6000, 10620, 100, 7000).setMaterial($$Кирпич).setPattern("brick"),
+  plan.addWall(-20, 100, 6000, 100, 13500, 7000).setMaterial($$Кирпич).setPattern("brick"),
+  plan.addWall(-20, 13500, 6000, 10620, 13620, 7000).setMaterial($$Кирпич).setPattern("brick"),
+  plan.addWall(10500, -20, 6000, 10620, 13500, 7000).setMaterial($$Кирпич).setPattern("brick"),
 ];
 
 var Армопояс = [
@@ -110,20 +110,20 @@ var Армопояс = [
   plan.addWall(5700, 600, 6800, 6100, 13000, 7000).setMaterial($$Бетон)
 ];
 
-var Балки = [
-/* 0 */  plan.addBeam(300, 800, 7100, 10300, 800, 7100, 100, 200).setMaterial($$ДвутаврN20),
-/* 1 */  plan.addBeam(300, 1800, 7100, 10300, 1800, 7100, 100, 200).setMaterial($$ДвутаврN20),
-/* 2 */  plan.addBeam(300, 2800, 7100, 10300, 2800, 7100, 100, 200).setMaterial($$ДвутаврN20),
-/* 3 */  plan.addBeam(300, 3800, 7100, 10300, 3800, 7100, 100, 200).setMaterial($$ДвутаврN20),
-/* 4 */  plan.addBeam(300, 4800, 7100, 10300, 4800, 7100, 100, 200).setMaterial($$ДвутаврN20),
-/* 5 */  plan.addBeam(300, 5800, 7100, 10300, 5800, 7100, 100, 200).setMaterial($$ДвутаврN20),
-/* 6 */  plan.addBeam(300, 6800, 7100, 10300, 6800, 7100, 100, 200).setMaterial($$ДвутаврN20),
-/* 7 */  plan.addBeam(300, 7800, 7100, 10300, 7800, 7100, 100, 200).setMaterial($$ДвутаврN20),
-/* 8 */  plan.addBeam(300, 8800, 7100, 10300, 8800, 7100, 100, 200).setMaterial($$ДвутаврN20),
-/* 9 */  plan.addBeam(300, 9800, 7100, 10300, 9800, 7100, 100, 200).setMaterial($$ДвутаврN20),
-/* 10 */  plan.addBeam(300, 10800, 7100, 10300, 10800, 7100, 100, 200).setMaterial($$ДвутаврN20),
-/* 11 */  plan.addBeam(300, 11800, 7100, 10300, 11800, 7100, 100, 200).setMaterial($$ДвутаврN20),
-/* 12 */  plan.addBeam(300, 12800, 7100, 10300, 12800, 7100, 100, 200).setMaterial($$ДвутаврN20)
+var Балка = [
+/* 0 */  plan.addBeam(300, 800, 7100, 10300, 800, 7100, 100, 200).setMaterial($$ДвутаврN20).setPattern("background"),
+/* 1 */  plan.addBeam(300, 1800, 7100, 10300, 1800, 7100, 100, 200).setMaterial($$ДвутаврN20).setPattern("background"),
+/* 2 */  plan.addBeam(300, 2800, 7100, 10300, 2800, 7100, 100, 200).setMaterial($$ДвутаврN20).setPattern("background"),
+/* 3 */  plan.addBeam(300, 3800, 7100, 10300, 3800, 7100, 100, 200).setMaterial($$ДвутаврN20).setPattern("background"),
+/* 4 */  plan.addBeam(300, 4800, 7100, 10300, 4800, 7100, 100, 200).setMaterial($$ДвутаврN20).setPattern("background"),
+/* 5 */  plan.addBeam(300, 5800, 7100, 10300, 5800, 7100, 100, 200).setMaterial($$ДвутаврN20).setPattern("background"),
+/* 6 */  plan.addBeam(300, 6800, 7100, 10300, 6800, 7100, 100, 200).setMaterial($$ДвутаврN20).setPattern("background"),
+/* 7 */  plan.addBeam(300, 7800, 7100, 10300, 7800, 7100, 100, 200).setMaterial($$ДвутаврN20).setPattern("background"),
+/* 8 */  plan.addBeam(300, 8800, 7100, 10300, 8800, 7100, 100, 200).setMaterial($$ДвутаврN20).setPattern("background"),
+/* 9 */  plan.addBeam(300, 9800, 7100, 10300, 9800, 7100, 100, 200).setMaterial($$ДвутаврN20).setPattern("background"),
+/* 10 */  plan.addBeam(300, 10800, 7100, 10300, 10800, 7100, 100, 200).setMaterial($$ДвутаврN20).setPattern("background"),
+/* 11 */  plan.addBeam(300, 11800, 7100, 10300, 11800, 7100, 100, 200).setMaterial($$ДвутаврN20).setPattern("background"),
+/* 12 */  plan.addBeam(300, 12800, 7100, 10300, 12800, 7100, 100, 200).setMaterial($$ДвутаврN20).setPattern("background")
 ];
 
 $$3 = "\nВычисляем размеры фермы\n";
@@ -145,14 +145,14 @@ var bh = Высота_нижней_стойки_bh$см*10;
 var az = Половина_ширины_пролета_az$см*10;
 var cz = Высота_конька_cz$см*10;
 for (var i = 0; i < 9; i ++) {
-  var Стойка_bh1 = plan.addBeam(ah, y, 7200, ah, y, bh+7200, 50, 200).setMaterial($$Брус100х100);
-  var Стойка_bh2 = plan.addBeam(ae-ah, y, 7200, ae-ah, y, bh+7200, 50, 200).setMaterial($$Брус100х100);
-  var Стропило_ab1_1 = plan.addBeam(0, y-7.5, 7200, ah, y-7.5, bh+7200, 50, 200).setMaterial($$Доска200х50);
-  var Стропило_ab1_2 = plan.addBeam(0, y+7.5, 7200, ah, y+7.5, bh+7200, 50, 200).setMaterial($$Доска200х50);
-  var Стропило_ab2_1 = plan.addBeam(ae, y-7.5, 7200, ae-ah, y-7.5, bh+7200, 50, 200).setMaterial($$Доска200х50);
-  var Стропило_ab2_2 = plan.addBeam(ae, y+7.5, 7200, ae-ah, y+7.5, bh+7200, 50, 200).setMaterial($$Доска200х50);
-  var Стропило_bc1 = plan.addBeam(ah, y, bh+7200, az, y, cz+7200, 50, 200).setMaterial($$Доска200х50);
-  var Стропило_bc2 = plan.addBeam(az, y, cz+7200, ae-ah, y, bh+7200, 50, 200).setMaterial($$Доска200х50);
+  var Стойка_bh1 = plan.addBeam(ah, y, 7200, ah, y, bh+7200, 100, 100).setMaterial($$Брус100х100).setPattern("background").setBackgroundColor(0xFFCC00);
+  var Стойка_bh2 = plan.addBeam(ae-ah, y, 7200, ae-ah, y, bh+7200, 100, 100).setMaterial($$Брус100х100).setPattern("background").setBackgroundColor(0xFFCC00);
+  var Стропило_ab1_1 = plan.addBeam(0, y-75, 7200, ah, y-75, bh+7200, 50, 200).setMaterial($$Доска200х50).setPattern("background").setBackgroundColor(0xFFCC00);
+  var Стропило_ab1_2 = plan.addBeam(0, y+75, 7200, ah, y+75, bh+7200, 50, 200).setMaterial($$Доска200х50).setPattern("background").setBackgroundColor(0xFFCC00);
+  var Стропило_ab2_1 = plan.addBeam(ae, y-75, 7200, ae-ah, y-75, bh+7200, 50, 200).setMaterial($$Доска200х50).setPattern("background").setBackgroundColor(0xFFCC00);
+  var Стропило_ab2_2 = plan.addBeam(ae, y+75, 7200, ae-ah, y+75, bh+7200, 50, 200).setMaterial($$Доска200х50).setPattern("background").setBackgroundColor(0xFFCC00);
+  var Стропило_bc1 = plan.addBeam(ah, y, bh+7200, az, y, cz+7200, 50, 200).setMaterial($$Доска200х50).setPattern("background").setBackgroundColor(0xFFCC00);
+  var Стропило_bc2 = plan.addBeam(az, y, cz+7200, ae-ah, y, bh+7200, 50, 200).setMaterial($$Доска200х50).setPattern("background").setBackgroundColor(0xFFCC00);
 
   y = y + Шаг_фермы$м*1000;
 }
@@ -173,17 +173,16 @@ alfa_Угол_наклона_фронтона_вальмы_градусов = Ma
 
 var xa = Ширина_вальмы_xa$см * 10;
 var xf = Длина_крыши_xf$см*10;
-var Стропило_xc = plan.addBeam(0, 0, 7200, az, xa, cz+7200, 50, 200).setMaterial($$Доска200х50);
-var Стропило_yc = plan.addBeam(az, xa, cz+7200, ae, 0, 7200, 50, 200).setMaterial($$Доска200х50);
-var Стропило_fv = plan.addBeam(0, xf, 7200, az, xf-xa, cz+7200, 50, 200).setMaterial($$Доска200х50);
-var Стропило_ve = plan.addBeam(az, xf-xa, cz+7200, ae, xf, 7200, 50, 200).setMaterial($$Доска200х50);
-var seg1 = Стропило_xc.getXoYProjection();
-var seg2 = Балки[0].getXoYProjection();
-var intPt = seg1.getIntersectionPoint(seg2);
-var intPt3d = new com.tsoft.myprocad.util.linealg.Vec3(intPt.x(), intPt.y(), 7200);
-var distPt = Стропило_xc.getBeamCoreSegment().getDistanceToPoint(intPt3d);
-var Стойка_mn_xc = plan.addBeam(intPt.x(), intPt.y(), 7200, intPt.x(), intPt.y(), 7200+distPt, 50, 200).setMaterial($$Брус100х100);
-var Стойка_bh_xc = plan.addLink(Стропило_xc, Балки[1], 50, 200).setMaterial($$Брус100х100);
+var Стропило_xc = plan.addBeam(0, 0, 7200, az, xa, cz+7200, 50, 200).setMaterial($$Доска200х50).setPattern("background").setBackgroundColor(0xFFCC00);
+var Стропило_yc = plan.addBeam(az, xa, cz+7200, ae, 0, 7200, 50, 200).setMaterial($$Доска200х50).setPattern("background").setBackgroundColor(0xFFCC00);
+var Стропило_fv = plan.addBeam(0, xf, 7200, az, xf-xa, cz+7200, 50, 200).setMaterial($$Доска200х50).setPattern("background").setBackgroundColor(0xFFCC00);
+var Стропило_ve = plan.addBeam(az, xf-xa, cz+7200, ae, xf, 7200, 50, 200).setMaterial($$Доска200х50).setPattern("background").setBackgroundColor(0xFFCC00);
+var Стойка_mn_xc = plan.addLink(Стропило_xc, Балка[0], 100, 100).setMaterial($$Брус100х100).setPattern("background").setBackgroundColor(0xFFCC00);
+var Стойка_bh_xc = plan.addLink(Стропило_xc, Балка[1], 100, 100).setMaterial($$Брус100х100).setPattern("background").setBackgroundColor(0xFFCC00);
+
+var Стойка_1 = plan.addBeam(5900, xa, 7200, 5900, xa, cz+7200, 150, 150).setMaterial($$Брус150х150).setPattern("background").setBackgroundColor(0xFFCC44);
+var Стойка_2 = plan.addBeam(5900, 6800, 7200, 5900, 6800, cz+7200, 150, 150).setMaterial($$Брус150х150).setPattern("background").setBackgroundColor(0xFFCC44);
+var Стойка_3 = plan.addBeam(5900, xf-xa, 7200, 5900, xf-xa, cz+7200, 150, 150).setMaterial($$Брус150х150).setPattern("background").setBackgroundColor(0xFFCC44);
 
 $$6 = "\nКровля";
 Площадь_xac$м2 = ((Ширина_вальмы_xa$см * Длина_стропил_ac$см) / 2) / (100 * 100);
@@ -191,6 +190,8 @@ $$6 = "\nКровля";
 Площадь_половины_фронтона_вальмы_xcj$м2 = ((Длина_фронтона_вальмы_jc$см * Длина_ребра_вальмы_xc$см) / 2) / (100 * 100);
 Площадь_фронтона_вальмы_xcy$м2 = 2*Площадь_половины_фронтона_вальмы_xcj$м2;
 Площадь_кровли$м2 = Math.ceil(2*Площадь_длинного_ската_вальмы_xcvf$м2 + 2*Площадь_фронтона_вальмы_xcy$м2);
+
+var Труба = plan.addWall(6170, 10300, 6000, 6870, 10600, 11000).setPattern("brick");
 
 $$7$0 = "\n------------------------------------------"
 $$7 = "Собираем нагрузки";
