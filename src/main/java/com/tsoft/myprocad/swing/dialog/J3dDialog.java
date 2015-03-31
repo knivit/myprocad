@@ -5,6 +5,9 @@ import com.sun.j3d.loaders.objectfile.ObjectFile;
 import com.sun.j3d.utils.universe.SimpleUniverse;
 import com.sun.j3d.utils.behaviors.mouse.MouseRotate;
 import com.sun.j3d.utils.behaviors.mouse.MouseWheelZoom;
+import com.tsoft.myprocad.j3d.Scene3D;
+import com.tsoft.myprocad.model.AbstractMaterialItem;
+import com.tsoft.myprocad.model.ItemList;
 
 import javax.media.j3d.*;
 import javax.vecmath.Color3f;
@@ -60,8 +63,10 @@ public class J3dDialog extends AbstractDialogPanel {
      *
      * @throws IOException if it's impossible to find the 3D model
      */
-    public void addModelToUniverse(String objFileName) throws IOException {
-        Scene scene = getSceneFromFile(objFileName);
+    public void addModelToUniverse(ItemList<AbstractMaterialItem> items) throws IOException {
+        Scene3D scene = new Scene3D();//getSceneFromFile(objFileName);
+        scene.addItems(items);
+
         BranchGroup branchGroup = scene.getSceneGroup();
         addLightsToUniverse(branchGroup);
 
@@ -133,6 +138,6 @@ public class J3dDialog extends AbstractDialogPanel {
 
     @Override
     public Dimension getDialogPreferredSize() {
-        return new Dimension(600, 500);
+        return new Dimension(1000, 800);
     }
 }

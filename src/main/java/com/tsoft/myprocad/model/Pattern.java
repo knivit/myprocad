@@ -42,6 +42,10 @@ public enum Pattern {
 
     public int getId() { return id; }
 
+    public String getResourceName() {
+        return resourceName;
+    }
+
     public Content getImage() {
         if (image == null) {
             image = new ResourceURLContent(MyProCAD.class, resourceFileName);

@@ -53,6 +53,9 @@ public class PlanPanelMenu {
         planMenu.add(Menu.DELETE_PLAN.getMenuItem());
         planMenu.addSeparator();
         planMenu.add(Menu.SHOW_PLAN_IN_3D.getMenuItem());
+        planMenu.add(Menu.GENERATE_SCRIPT.getMenuItem());
+        planMenu.add(Menu.COMMAND_WINDOW.getMenuItem());
+        planMenu.addSeparator();
         planMenu.add(Menu.PLAN_PRINT_TO_PDF.getMenuItem());
         planMenu.add(Menu.PLAN_PRINT_PREVIEW.getMenuItem());
         planMenu.add(Menu.PLAN_PRINT.getMenuItem());
@@ -73,8 +76,6 @@ public class PlanPanelMenu {
         planMenu.add(Menu.ZOOM_OUT.getMenuItem());
         planMenu.addSeparator();
         planMenu.add(Menu.FIND_MATERIALS_USAGE.getMenuItem());
-        planMenu.addSeparator();
-        planMenu.add(Menu.COMMAND_WINDOW.getMenuItem());
 
         // Selection menu
         JMenu selectionMenu = Menu.SELECTION_MENU.addToMenuBar();
@@ -90,8 +91,6 @@ public class PlanPanelMenu {
         selectionMenu.add(Menu.SELECT_WALLS.getMenuItem());
         selectionMenu.add(Menu.SELECT_BY_MATERIAL.getMenuItem());
         selectionMenu.add(Menu.SELECT_BY_PATTERN.getMenuItem());
-        selectionMenu.addSeparator();
-        selectionMenu.add(Menu.GENERATE_SCRIPT.getMenuItem());
         selectionMenu.addSeparator();
         selectionMenu.add(Menu.REMEMBER_SELECTION.getMenuItem());
         selectionMenu.add(Menu.RESTORE_LAST_SELECTION.getMenuItem());

@@ -10,11 +10,12 @@ public class InputListElement<T> extends AbstractInputElement<T, JComboBox> {
     public List<T> selectList;
     private DefaultCellRenderer renderer;
 
-    public InputListElement(List<T> selectList) {
-        this(selectList, null);
+    public InputListElement(String caption, List<T> selectList) {
+        this(caption, selectList, null);
     }
 
-    public InputListElement(List<T> selectList, String initialValue) {
+    public InputListElement(String caption, List<T> selectList, String initialValue) {
+        super(caption);
         this.selectList = selectList;
         this.initialValue = initialValue;
     }
@@ -23,6 +24,7 @@ public class InputListElement<T> extends AbstractInputElement<T, JComboBox> {
         this.renderer = renderer;
     }
 
+    @Override
     protected JComboBox createComponent() {
         JComboBox jcb = new JComboBox(selectList.toArray());
         jcb.setEditable(false);
@@ -41,6 +43,7 @@ public class InputListElement<T> extends AbstractInputElement<T, JComboBox> {
         return jcb;
     }
 
+    @Override
     public T getValue() {
         return (T)component.getSelectedItem();
     }

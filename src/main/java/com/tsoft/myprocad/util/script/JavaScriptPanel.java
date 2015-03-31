@@ -74,6 +74,7 @@ public class JavaScriptPanel extends JPanel {
             String commands = commandArea.getSelectedText();
             if (StringUtil.isEmpty(commands)) commands = commandArea.getText();
             try {
+                outputBinding.clear();
                 js.execute(commands, outputBinding);
             } catch (ScriptException ex) {
                 outputBinding.error(ex.getMessage());

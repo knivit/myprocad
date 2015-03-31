@@ -6,7 +6,7 @@ import com.tsoft.myprocad.util.json.JsonSerializable;
 import com.tsoft.myprocad.util.json.JsonWriter;
 import com.tsoft.myprocad.util.linealg.*;
 
-import java.awt.*;
+import java.awt.Shape;
 import java.awt.geom.GeneralPath;
 import java.io.IOException;
 
@@ -18,9 +18,6 @@ public class Beam extends AbstractMaterialItem implements JsonSerializable {
     private transient int xozAngle;
     private transient int xoyAngle;
     private transient int yozAngle;
-
-    /* Inner props */
-    private Vec3[] vertexes = new Vec3[8];
 
     Beam() {
         super();
@@ -154,30 +151,6 @@ public class Beam extends AbstractMaterialItem implements JsonSerializable {
         path.lineTo(vertexes[6].x(), vertexes[6].y());
         path.closePath();
         return path;
-    }
-
-    public String toObjString(int vno) {
-        StringBuilder buf = new StringBuilder();
-
-        // vertexes
-        for (int i = 0; i < 8; i ++) {
-            buf.append("v " + vertexes[i].x() + " " + vertexes[i].y() + " " + vertexes[i].z()).append('\n');
-        }
-
-        // faces
-        buf.append("f " + (vno + 1) + " " + (vno + 7) + " " + (vno + 5)).append('\n');
-        buf.append("f " + (vno + 1) + " " + (vno + 3) + " " + (vno + 7)).append('\n');
-        buf.append("f " + (vno + 1) + " " + (vno + 4) + " " + (vno + 3)).append('\n');
-        buf.append("f " + (vno + 1) + " " + (vno + 2) + " " + (vno + 4)).append('\n');
-        buf.append("f " + (vno + 3) + " " + (vno + 8) + " " + (vno + 7)).append('\n');
-        buf.append("f " + (vno + 3) + " " + (vno + 4) + " " + (vno + 8)).append('\n');
-        buf.append("f " + (vno + 5) + " " + (vno + 7) + " " + (vno + 8)).append('\n');
-        buf.append("f " + (vno + 5) + " " + (vno + 8) + " " + (vno + 6)).append('\n');
-        buf.append("f " + (vno + 1) + " " + (vno + 5) + " " + (vno + 6)).append('\n');
-        buf.append("f " + (vno + 1) + " " + (vno + 6) + " " + (vno + 2)).append('\n');
-        buf.append("f " + (vno + 2) + " " + (vno + 6) + " " + (vno + 8)).append('\n');
-        buf.append("f " + (vno + 2) + " " + (vno + 8) + " " + (vno + 4)).append('\n');
-        return buf.toString();
     }
 
     @Override

@@ -94,6 +94,7 @@ public class L10 {
     public static String[] MENU_ROTATE_CLOCKWISE_NAME = { "Rotate Clockwise", "Повернуть по часовой стрелке" };
     public static String[] MENU_SPLIT_IN_TWO_NAME = { "Split in two", "Разбить на две" };
 
+    public static String[] MENU_SHOW_PROJECT_IN_3D_NAME = { "Show in 3D", "Показать в 3D" };
     public static String[] MENU_SHOW_PLAN_IN_3D_NAME = { "Show in 3D", "Показать в 3D" };
     public static String[] MENU_PRINT_TO_PDF_NAME = { "Print to PDF", "Распечатать в PDF" };
     public static String[] MENU_MATERIALS_NAME = { "Materials", "Материалы" };
@@ -437,6 +438,8 @@ public class L10 {
 
     public static String[] MATERIAL_UNKNOWN = { "Unknown", "Неопределен" };
     public static String[] FIND_BY_MATERIAL_NAME = { "Material's name", "Имя материала" };
+    public static String[] SELECT_PLANS = { "Select plans", "Выберите планы" };
+    public static String[] PATTERN_NAME = { "Pattern", "Шаблон" };
     public static String[] FIND_BY_PATTERN = { "Wall's pattern", "Шаблон стены" };
     public static String[] MATERIAL_NAME_CANT_BE_EMPTY = { "Row %d. Material's name can't be empty", "Строка %d. Название материала не может быть пустым" };
     public static String[] MATERIAL_ALREADY_EXISTS = { "Row %d. Material already exists", "Строка %d. Материал уже существует" };
@@ -470,6 +473,8 @@ public class L10 {
     public static String[] DIMENSION_LINE_TYPE_NAME = { "Dimension Line", "Размер" };
     public static String[] LABEL_TYPE_NAME = { "Label", "Метка" };
     public static String[] LEVEL_MARK_TYPE_NAME = { "Level mark", "Метка уровня" };
+    public static String[] PROJECT_ITEM_NAME = { "Name", "Имя" };
+    public static String[] PROJECT_ITEM_TYPE = { "Type", "Тип" };
     public static String[] PROJECT_ITEM_NOTES = { "Notes", "Записки" };
     public static String[] PROJECT_ITEM_PLAN = { "Plan", "План" };
     public static String[] PROJECT_ITEM_BEAM = { "Beam", "Балка" };

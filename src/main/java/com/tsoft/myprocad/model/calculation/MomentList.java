@@ -28,14 +28,8 @@ public class MomentList extends ArrayList<Moment> implements TableDialogPanelSup
     }
 
     @Override
-    public void setupCustomColumns(JTable table) {
-        // there are no columns with custom renderer
-    }
-
-    @Override
     public Moment addDialog() {
         Moment moment = new Moment();
-
         add(moment);
         return moment;
     }

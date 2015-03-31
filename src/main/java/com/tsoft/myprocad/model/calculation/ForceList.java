@@ -28,11 +28,6 @@ public class ForceList extends ArrayList<Force> implements TableDialogPanelSuppo
     }
 
     @Override
-    public void setupCustomColumns(JTable table) {
-        // there are no columns with custom renderer
-    }
-
-    @Override
     public Force addDialog() {
         Force force = new Force();
 

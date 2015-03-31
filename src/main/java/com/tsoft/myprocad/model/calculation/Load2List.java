@@ -28,11 +28,6 @@ public class Load2List extends ArrayList<Load2> implements TableDialogPanelSuppo
     }
 
     @Override
-    public void setupCustomColumns(JTable table) {
-        // there are no columns with custom renderer
-    }
-
-    @Override
     public Load2 addDialog() {
         Load2 load = new Load2("Новая нагрузка", 100);
 

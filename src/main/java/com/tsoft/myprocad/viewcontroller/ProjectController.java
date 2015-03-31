@@ -9,8 +9,7 @@ import com.tsoft.myprocad.model.property.ListenedField;
 import com.tsoft.myprocad.model.property.ProjectProperties;
 import com.tsoft.myprocad.swing.*;
 
-import com.tsoft.myprocad.swing.dialog.CalculationsDialogPanel;
-import com.tsoft.myprocad.swing.dialog.DialogButton;
+import com.tsoft.myprocad.swing.dialog.*;
 import com.tsoft.myprocad.swing.menu.Menu;
 import com.tsoft.myprocad.swing.menu.ProjectPanelMenu;
 import com.tsoft.myprocad.swing.properties.PropertiesManagerPanel;
@@ -24,6 +23,10 @@ import com.tsoft.myprocad.viewcontroller.property.AbstractPropertiesController;
 import com.tsoft.myprocad.viewcontroller.property.calculation.RightTrianglePropertiesController;
 import com.tsoft.myprocad.viewcontroller.property.calculation.TrianglePropertiesController;
 
+import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
@@ -212,10 +215,104 @@ public class ProjectController {
         dialog.displayView(L10.get(L10.CALCULATION_DIALOG_TITLE), DialogButton.CLOSE);
     }
 
+    private void show3D() {
+        class PlanSelection {
+            public boolean isSelected;
+            public String name;
+            public Plan plan;
+        }
+
+        class PlanSelectionTableModel extends AbstractTableModel {
+            private List<PlanSelection> elements;
+
+            public PlanSelectionTableModel(List<PlanSelection> elements) {
+                this.elements = elements;
+            }
+
+            @Override
+            public String getColumnName(int col) {
+                if (col == 0) return "";
+                return L10.get(L10.PLAN_NAME_PROPERTY);
+            }
+
+            @Override
+            public int getRowCount() {
+                return elements.size();
+            }
+
+            @Override
+            public int getColumnCount() {
+                return 2;
+            }
+
+            @Override
+            public Class<?> getColumnClass(int col) {
+                if (col == 0) return Boolean.class;
+                return String.class;
+            }
+
+            @Override
+            public Object getValueAt(int row, int col) {
+                PlanSelection element = elements.get(row);
+                if (col == 0) return element.isSelected;
+                return element.name;
+            }
+
+            @Override
+            public boolean isCellEditable(int row, int col) {
+                if (col == 0) return true;
+                return false;
+            }
+
+            @Override
+            public void setValueAt(Object value, int row, int col) {
+                PlanSelection element = elements.get(row);
+                if (col == 0) element.isSelected = (boolean)value;
+            }
+        }
+
+        class PlanSelectionSupport extends ArrayList<PlanSelection> implements TableDialogPanelSupport {
+            private PlanSelectionTableModel tableModel;
+
+            public PlanSelectionSupport(PlanSelectionTableModel tableModel) {
+                this.tableModel = tableModel;
+            }
+
+            @Override
+            public AbstractTableModel getTableModel() {
+                return tableModel;
+            }
+        }
+
+        List<PlanSelection> elements = new ArrayList<>();
+        for (Folder folder : project.getFolders()) {
+            for (ProjectItem projectItem : folder.getItems()) {
+                if (projectItem.isPlan()) {
+                    Plan plan = (Plan)projectItem;
+                    PlanSelection element = new PlanSelection();
+                    element.isSelected = (((PlanController)getActiveController()).getPlan() == plan);
+                    element.name = folder.name + "/" + plan.getName();
+                    element.plan = plan;
+
+                    elements.add(element);
+                }
+            }
+        }
+
+        PlanSelectionTableModel model = new PlanSelectionTableModel(elements);
+        PlanSelectionSupport values = new PlanSelectionSupport(model);
+        InputTableElement<PlanSelection> element = new InputTableElement<>(L10.get(L10.SELECT_PLANS), values);
+
+        InputDialogPanel inputDialogPanel = new InputDialogPanel(Arrays.asList(element));
+        DialogButton result = inputDialogPanel.displayView(L10.get(L10.MENU_SHOW_PLAN_IN_3D_NAME), DialogButton.OK, DialogButton.CANCEL);
+        if (!DialogButton.OK.equals(result)) return;
+    }
+
     public boolean doMenuAction(Menu menu) {
         /* Project */
         if (Menu.EDIT_PROJECT.equals(menu)) { editProject(); return true; }
         if (Menu.EDIT_FOLDERS.equals(menu)) { editFolders(); return true; }
+        if (Menu.SHOW_PROJECT_IN_3D.equals(menu)) { show3D(); return true; }
         if (Menu.MATERIALS.equals(menu)) { materialListController.edit(); return true; }
 
         /* Calculations */

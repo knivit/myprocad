@@ -23,6 +23,8 @@ public class ProjectPanelMenu {
         projectMenu.add(Menu.EDIT_FOLDERS.getMenuItem());
         projectMenu.addSeparator();
         projectMenu.add(Menu.MATERIALS.getMenuItem());
+        projectMenu.addSeparator();
+        projectMenu.add(Menu.SHOW_PROJECT_IN_3D.getMenuItem());
 
         JMenu calculationMenu = Menu.CALCULATION_MENU.addToMenuBar();
         calculationMenu.add(Menu.CALCULATION_RIGHT_TRIANGLE.getMenuItem());

@@ -34,6 +34,7 @@ public class Menu {
 
     public static final Menu ADD_PLAN = new Menu(L10.get(L10.MENU_ADD_PLAN_NAME));
     public static final Menu DELETE_PLAN = new Menu(L10.get(L10.MENU_DELETE_PLAN_NAME));
+    public static final Menu SHOW_PROJECT_IN_3D = new Menu(L10.get(L10.MENU_SHOW_PROJECT_IN_3D_NAME));
     public static final Menu SHOW_PLAN_IN_3D = new Menu(L10.get(L10.MENU_SHOW_PLAN_IN_3D_NAME));
     public static final Menu PLAN_PRINT_PREVIEW = new Menu(L10.get(L10.MENU_PRINT_PREVIEW_NAME), "resources/icons/document-print-preview.png");
     public static final Menu PLAN_PRINT = new Menu(L10.get(L10.MENU_PRINT_NAME), "resources/icons/document-print.png");

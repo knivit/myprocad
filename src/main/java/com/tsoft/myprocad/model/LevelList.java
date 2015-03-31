@@ -51,11 +51,6 @@ public class LevelList extends ArrayList<Level> implements TableDialogPanelSuppo
     }
 
     @Override
-    public void setupCustomColumns(JTable table) {
-        // there are no columns with custom renderer
-    }
-
-    @Override
     public Level addDialog() {
         Level level = new Level();
         level.setId(plan.getProject().generateNextId());

@@ -9,10 +9,13 @@ public class InputDialogPanel extends AbstractDialogPanel {
     public InputDialogPanel(List<AbstractInputElement> inputElements) {
         super(new BorderLayout());
 
-        JPanel panel = new JPanel(new GridLayout(0, 1));
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
         for (AbstractInputElement element : inputElements) {
-            JComponent component = element.getComponent();
-            panel.add(component);
+            panel.add(Box.createVerticalStrut(8));
+            panel.add(new JLabel(element.getCaption()));
+            panel.add(element.getComponent());
         }
 
         add(panel, BorderLayout.CENTER);

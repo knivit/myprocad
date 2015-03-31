@@ -1,15 +1,27 @@
 package com.tsoft.myprocad.model;
 
+import com.tsoft.myprocad.j3d.Triangle3D;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
 import com.tsoft.myprocad.util.json.JsonWriter;
+import com.tsoft.myprocad.util.linealg.Vec3;
 
-import java.awt.*;
+import java.awt.Color;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class AbstractMaterialItem extends Item {
     public static transient final int MAX_BORDER_WIDTH = 5;
+
+    // For 3d modelling, the item's triangles
+    protected static transient final int[][] FACES = new int[][] {
+        {1, 7, 5}, {1, 3, 7}, {1, 4, 3},
+        {1, 2, 4}, {3, 8, 7}, {3, 4, 8},
+        {5, 7, 8}, {5, 8, 6}, {1, 5, 6},
+        {1, 6, 2}, {2, 6, 8}, {2, 8, 4}
+    };
 
     private long materialId;
     private int backgroundColor = Color.WHITE.getRGB();
@@ -20,6 +32,9 @@ public abstract class AbstractMaterialItem extends Item {
 
     private transient Material material;
     private transient Pattern pattern;
+
+    /* Inner props */
+    protected transient Vec3[] vertexes = new Vec3[8];
 
     public abstract double getVolume();
 
@@ -132,6 +147,30 @@ public abstract class AbstractMaterialItem extends Item {
         if (material != null) return getVolume() * material.getPrice();
         return 0;
     }
+
+    public List<Triangle3D> get3dTriangles() {
+        List<Triangle3D> trigs = new ArrayList<>(12);
+        for (int i = 0; i < 12; i ++) {
+            trigs.add(new Triangle3D(vertexes[FACES[i][0]-1], vertexes[FACES[i][1]-1], vertexes[FACES[i][2]-1]));
+        }
+        return trigs;
+    }
+
+    public String toObjString(int vno) {
+        StringBuilder buf = new StringBuilder();
+
+        // vertexes
+        for (int i = 0; i < 8; i ++) {
+            buf.append("v " + vertexes[i].x() + " " + vertexes[i].y() + " " + vertexes[i].z()).append('\n');
+        }
+
+        // faces
+        for (int i = 0; i < 12; i ++) {
+            buf.append("f " + (vno + FACES[i][0]) + " " + (vno + FACES[i][1]) + " " + (vno + FACES[i][2])).append('\n');
+        }
+        return buf.toString();
+    }
+
     @Override
     public String getPopupItemName() {
         return getMaterial().getName();

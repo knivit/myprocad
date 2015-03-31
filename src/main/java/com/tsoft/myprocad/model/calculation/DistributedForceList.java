@@ -28,11 +28,6 @@ public class DistributedForceList  extends ArrayList<DistributedForce> implement
     }
 
     @Override
-    public void setupCustomColumns(JTable table) {
-        // there are no columns with custom renderer
-    }
-
-    @Override
     public DistributedForce addDialog() {
         DistributedForce distributedForce = new DistributedForce();
 

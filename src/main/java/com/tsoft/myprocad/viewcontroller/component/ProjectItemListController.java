@@ -43,8 +43,8 @@ public class ProjectItemListController extends AbstractListController {
 
     /** Returns added item or null */
     public ProjectItem add(int index) {
-        InputTextElement itemName = new InputTextElement(null);
-        InputListElement<ProjectItemType> itemType = new InputListElement<>(Arrays.asList(ProjectItemType.values()));
+        InputTextElement itemName = new InputTextElement(L10.get(L10.PROJECT_ITEM_NAME), null);
+        InputListElement<ProjectItemType> itemType = new InputListElement<>(L10.get(L10.PROJECT_ITEM_TYPE), Arrays.asList(ProjectItemType.values()));
 
         InputDialogPanel inputDialogPanel = new InputDialogPanel(Arrays.asList(itemType, itemName));
         DialogButton result = inputDialogPanel.displayView(L10.get(L10.ADD_ITEM), DialogButton.ADD, DialogButton.CANCEL);

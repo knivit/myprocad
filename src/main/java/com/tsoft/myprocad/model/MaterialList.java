@@ -72,15 +72,12 @@ public class MaterialList extends ArrayList<Material> implements TableDialogPane
 
     @Override
     public AbstractTableModel getTableModel() {
-        if (tableModel == null) {
-            tableModel = new MaterialsTableModel(this);
-        }
+        if (tableModel == null) tableModel = new MaterialsTableModel(this);
         return tableModel;
     }
 
     @Override
     public void setupCustomColumns(JTable table) {
-        //Set up the editor for the sport cells.
         JComboBox<MaterialUnit> comboBox = new JComboBox<>();
         for (MaterialUnit unit : MaterialUnit.values()) {
             comboBox.addItem(unit);

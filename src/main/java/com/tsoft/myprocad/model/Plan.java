@@ -340,6 +340,13 @@ public class Plan extends ProjectItem implements Cloneable {
         return link;
     }
 
+    public ItemList<AbstractMaterialItem> getMaterialItems() {
+        ItemList<AbstractMaterialItem> items = new ItemList<>();
+        items.addAll(walls);
+        items.addAll(beams);
+        return items;
+    }
+
     public ItemList<DimensionLine> getDimensionLines() {
         return dimensionLines.getCopy();
     }

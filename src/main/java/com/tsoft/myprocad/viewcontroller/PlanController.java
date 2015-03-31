@@ -343,27 +343,30 @@ public class PlanController implements ProjectItemController {
     }
 
     private void generateScript() {
-        StringBuilder buf = new StringBuilder();
-        ItemList<Item> items = selectedItems;
-        if (items.isEmpty()) {
-            items.addAll(plan.getWalls());
-            items.addAll(plan.getBeams());
+        ItemList<AbstractMaterialItem> items;
+        if (selectedItems.isEmpty()) items = plan.getMaterialItems();
+        else {
+            items = new ItemList<>();
+            items.addAll(selectedItems.getWallsSubList());
+            items.addAll(selectedItems.getBeamsSubList());
         }
 
+        StringBuilder buf = new StringBuilder();
         buf.append("// Walls\n");
         for (Wall wall : items.getWallsSubList()) {
-            buf.append(String.format("plan.addWall(%d, %d, %d, %d, %d, %d);\n",
-                    wall.getXStart(), wall.getYStart(), wall.getXEnd(), wall.getYEnd(),
-                    wall.getZStart(), wall.getZEnd()));
+            buf.append(String.format("plan.addWall(%d, %d, %d, %d, %d, %d).setPattern(\"%s\");\n",
+                    wall.getXStart(), wall.getYStart(), wall.getZStart(),
+                    wall.getXEnd(), wall.getYEnd(), wall.getZEnd(),
+                    wall.getPattern().getResourceName()));
         }
 
         buf.append("// Beams\n");
         for (Beam beam : items.getBeamsSubList()) {
-            buf.append(String.format("plan.addBeam(%d, %d, %d, %d, %d, %d, %d, %d);\n",
+            buf.append(String.format("plan.addBeam(%d, %d, %d, %d, %d, %d, %d, %d).setPattern(\"%s\");\n",
                     beam.getXStart(), beam.getYStart(), beam.getZStart(),
                     beam.getXEnd(), beam.getYEnd(), beam.getZEnd(),
-                    beam.getWidth(),
-                    beam.getHeight()));
+                    beam.getWidth(), beam.getHeight(),
+                    beam.getPattern().getResourceName()));
         }
 
         TextDialog dialog = new TextDialog();
@@ -554,7 +557,7 @@ public class PlanController implements ProjectItemController {
         List<String> levelMaterials = getLevelMaterialsNames();
         if (levelMaterials.isEmpty()) return;
 
-        InputListElement<String> listElement = new InputListElement<>(levelMaterials);
+        InputListElement<String> listElement = new InputListElement<>(L10.get(L10.MATERIAL_COLUMN_NAME), levelMaterials);
         InputDialogPanel inputDialogPanel = new InputDialogPanel(Arrays.asList(listElement));
         DialogButton result = inputDialogPanel.displayView(L10.get(L10.FIND_BY_MATERIAL_NAME), DialogButton.OK, DialogButton.CANCEL);
         if (!DialogButton.OK.equals(result)) return;
@@ -577,7 +580,7 @@ public class PlanController implements ProjectItemController {
         List<Pattern> patterns = plan.getLevelWalls().getPatterns();
         if (patterns.isEmpty()) return;
 
-        InputListElement<Pattern> listElement = new InputListElement<>(patterns);
+        InputListElement<Pattern> listElement = new InputListElement<>(L10.get(L10.PATTERN_NAME), patterns);
         listElement.setRenderer(new PatternComboBoxRenderer());
         InputDialogPanel inputDialogPanel = new InputDialogPanel(Arrays.asList(listElement));
         DialogButton result = inputDialogPanel.displayView(L10.get(L10.FIND_BY_PATTERN), DialogButton.OK, DialogButton.CANCEL);
@@ -722,7 +725,7 @@ public class PlanController implements ProjectItemController {
             String objFileName = objFile.getAbsolutePath();
             exportToObjFile(objFileName);
             J3dDialog j3d = new J3dDialog();
-            j3d.addModelToUniverse(objFileName);
+            j3d.addModelToUniverse(plan.getMaterialItems());
             j3d.displayView("3D View");
         } catch (IOException ex) {
             ex.printStackTrace();

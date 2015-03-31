@@ -6,17 +6,17 @@ import javax.swing.table.AbstractTableModel;
 public interface TableDialogPanelSupport<E> {
     public AbstractTableModel getTableModel();
 
-    public void setupCustomColumns(JTable table);
+    public default void setupCustomColumns(JTable table) { }
 
     public E get(int index);
 
-    public TableDialogPanelSupport<E> getDeepClone();
+    public default TableDialogPanelSupport<E> getDeepClone() { return null; }
 
     public int indexOf(Object obj);
 
     public int size();
 
-    public E addDialog();
+    public default E addDialog() { return null; };
 
-    public boolean deleteDialog(E obj);
+    public default boolean deleteDialog(E obj) { return false; }
 }

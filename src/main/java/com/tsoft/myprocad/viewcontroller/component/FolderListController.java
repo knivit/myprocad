@@ -3,7 +3,6 @@ package com.tsoft.myprocad.viewcontroller.component;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.model.Folder;
 import com.tsoft.myprocad.model.Project;
-import com.tsoft.myprocad.model.ProjectItem;
 import com.tsoft.myprocad.model.ProjectItemList;
 import com.tsoft.myprocad.model.property.ProjectProperties;
 import com.tsoft.myprocad.swing.dialog.DialogButton;
@@ -82,7 +81,7 @@ public class FolderListController extends AbstractListController {
     }
 
     public boolean renameFolder(Folder folder) {
-        InputTextElement nameElement = new InputTextElement(folder.name);
+        InputTextElement nameElement = new InputTextElement(L10.get(L10.FOLDER_LABEL), folder.name);
         InputDialogPanel inputDialogPanel = new InputDialogPanel(Arrays.asList(nameElement));
         DialogButton result = inputDialogPanel.displayView(L10.get(L10.RENAME_FOLDER), DialogButton.OK, DialogButton.CANCEL);
         if (!DialogButton.OK.equals(result)) return false;
