@@ -151,7 +151,10 @@ public abstract class AbstractMaterialItem extends Item {
     public List<Triangle3D> get3dTriangles() {
         List<Triangle3D> trigs = new ArrayList<>(12);
         for (int i = 0; i < 12; i ++) {
-            trigs.add(new Triangle3D(vertexes[FACES[i][0]-1], vertexes[FACES[i][1]-1], vertexes[FACES[i][2]-1]));
+            int a = FACES[i][0]-1;
+            int b = FACES[i][1]-1;
+            int c = FACES[i][2]-1;
+            trigs.add(new Triangle3D(vertexes[a], vertexes[b], vertexes[c]));
         }
         return trigs;
     }

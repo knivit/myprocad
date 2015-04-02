@@ -6,129 +6,29 @@ import java.util.HashMap;
 public class DefaultMaterials {
     private static HashMap<String, Material3D> data = new HashMap<>(50);
 
+    static {
+        data.put("amber", new Material3D().setKa(0.0531f, 0.0531f, 0.0531f).setKd(0.5755f, 0.2678f, 0.0000f).setKs(0.3000f, 0.3000f, 0.3000f).setIllum(2).setNs(60.0000f));
+        data.put("amber_trans", new Material3D().setKa(0.0531f, 0.0531f, 0.0531f).setKd(0.5755f, 0.2678f, 0.0000f).setKs(0.3000f, 0.3000f, 0.3000f).setIllum(2).setTransparency(0.8400f).setNs(60.0000f));
+        data.put("charcoal", new Material3D().setKa(0.0082f, 0.0082f, 0.0082f).setKd(0.0041f, 0.0041f, 0.0041f).setKs(0.3000f, 0.3000f, 0.3000f).setIllum(2).setNs(60.0000f));
+        data.put("lavendar", new Material3D().setKa(0.1281f, 0.0857f, 0.2122f).setKd(0.2187f, 0.0906f, 0.3469f).setKs(0.3000f, 0.3000f, 0.3000f).setIllum(2).setNs(60.0000f));
+        data.put("navy_blue", new Material3D().setKa(0.0000f, 0.0000f, 0.0490f).setKd(0.0000f, 0.0000f, 0.0531f).setKs(0.1878f, 0.1878f, 0.1878f).setIllum(2).setNs(91.4700f));
+        data.put("pale_green", new Material3D().setKa(0.0444f, 0.0898f, 0.0447f).setKd(0.0712f, 0.3796f, 0.0490f).setKs(0.1878f, 0.1878f, 0.1878f).setIllum(2).setNs(91.4700f));
+        data.put("pale_pink", new Material3D().setKa(0.0898f, 0.0444f, 0.0444f).setKd(0.6531f, 0.2053f, 0.4160f).setKs(0.1878f, 0.1878f, 0.1878f).setIllum(2).setNs(91.4700f));
+        data.put("pale_yellow", new Material3D().setKa(0.3606f, 0.3755f, 0.0935f).setKd(0.6898f, 0.6211f, 0.1999f).setKs(0.1878f, 0.1878f, 0.1878f).setIllum(2).setNs(91.4700f));
+        data.put("peach", new Material3D().setKa(0.3143f, 0.1187f, 0.0167f).setKd(0.6367f, 0.1829f, 0.0156f).setKs(0.1878f, 0.1878f, 0.1878f).setIllum(2).setNs(91.4700f));
+        data.put("periwinkle", new Material3D().setKa(0.0000f, 0.0000f, 0.1184f).setKd(0.0000f, 0.0396f, 0.8286f).setKs(0.1878f, 0.1878f, 0.1878f).setIllum(2).setNs(91.4700f));
+        data.put("redwood", new Material3D().setKa(0.0204f, 0.0027f, 0.0000f).setKd(0.2571f, 0.0330f, 0.0000f).setKs(0.1878f, 0.1878f, 0.1878f).setIllum(2).setNs(91.4700f));
+        data.put("smoked_glass", new Material3D().setKa(0.0000f, 0.0000f, 0.0000f).setKd(0.0041f, 0.0041f, 0.0041f).setKs(0.1878f, 0.1878f, 0.1878f).setIllum(2).setTransparency(0.9800f).setNs(91.4700f));
+        data.put("aqua_filter", new Material3D().setKa(0.0000f, 0.0000f, 0.0000f).setKd(0.3743f, 0.6694f, 0.5791f).setKs(0.1878f, 0.1878f, 0.1878f).setIllum(2).setTransparency(0.9800f).setNs(91.4700f));
+        data.put("yellow_green", new Material3D().setKa(0.0000f, 0.0000f, 0.0000f).setKd(0.1875f, 0.4082f, 0.0017f).setKs(0.1878f, 0.1878f, 0.1878f).setIllum(2).setNs(91.4700f));
+        data.put("bluetint", new Material3D().setKa(0.1100f, 0.4238f, 0.5388f).setKd(0.0468f, 0.7115f, 0.9551f).setKs(0.3184f, 0.3184f, 0.3184f).setIllum(9).setTransparency(0.5700f).setNs(60.0000f).setSharpness(60.0000f));
+        data.put("plasma", new Material3D().setKa(0.4082f, 0.0816f, 0.2129f).setKd(1.0000f, 0.0776f, 0.4478f).setKs(0.3000f, 0.3000f, 0.3000f).setIllum(9).setTransparency(0.7500f).setNs(60.0000f).setSharpness(60.0000f));
+    }
+
     /**
      * String that describes the default materials.
      */
     private static final String materials =
-        "newmtl amber\n" +
-        "Ka 0.0531 0.0531 0.0531\n" +
-        "Kd 0.5755 0.2678 0.0000\n" +
-        "Ks 0.3000 0.3000 0.3000\n" +
-        "illum 2\n" +
-        "Ns 60.0000\n" +
-        "\n" +
-        "newmtl amber_trans\n" +
-        "Ka 0.0531 0.0531 0.0531\n" +
-        "Kd 0.5755 0.2678 0.0000\n" +
-        "Ks 0.3000 0.3000 0.3000\n" +
-        "illum 2\n" +
-        "d 0.8400\n" +
-        "Ns 60.0000\n" +
-        "\n" +
-        "newmtl charcoal\n" +
-        "Ka 0.0082 0.0082 0.0082\n" +
-        "Kd 0.0041 0.0041 0.0041\n" +
-        "Ks 0.3000 0.3000 0.3000\n" +
-        "illum 2\n" +
-        "Ns 60.0000\n" +
-        "\n" +
-        "newmtl lavendar\n" +
-        "Ka 0.1281 0.0857 0.2122\n" +
-        "Kd 0.2187 0.0906 0.3469\n" +
-        "Ks 0.3000 0.3000 0.3000\n" +
-        "illum 2\n" +
-        "Ns 60.0000\n" +
-        "\n" +
-        "newmtl navy_blue\n" +
-        "Ka 0.0000 0.0000 0.0490\n" +
-        "Kd 0.0000 0.0000 0.0531\n" +
-        "Ks 0.1878 0.1878 0.1878\n" +
-        "illum 2\n" +
-        "Ns 91.4700\n" +
-        "\n" +
-        "newmtl pale_green\n" +
-        "Ka 0.0444 0.0898 0.0447\n" +
-        "Kd 0.0712 0.3796 0.0490\n" +
-        "Ks 0.1878 0.1878 0.1878\n" +
-        "illum 2\n" +
-        "Ns 91.4700\n" +
-        "\n" +
-        "newmtl pale_pink\n" +
-        "Ka 0.0898 0.0444 0.0444\n" +
-        "Kd 0.6531 0.2053 0.4160\n" +
-        "Ks 0.1878 0.1878 0.1878\n" +
-        "illum 2\n" +
-        "Ns 91.4700\n" +
-        "\n" +
-        "newmtl pale_yellow\n" +
-        "Ka 0.3606 0.3755 0.0935\n" +
-        "Kd 0.6898 0.6211 0.1999\n" +
-        "Ks 0.1878 0.1878 0.1878\n" +
-        "illum 2\n" +
-        "Ns 91.4700\n" +
-        "\n" +
-        "newmtl peach\n" +
-        "Ka 0.3143 0.1187 0.0167\n" +
-        "Kd 0.6367 0.1829 0.0156\n" +
-        "Ks 0.1878 0.1878 0.1878\n" +
-        "illum 2\n" +
-        "Ns 91.4700\n" +
-        "\n" +
-        "newmtl periwinkle\n" +
-        "Ka 0.0000 0.0000 0.1184\n" +
-        "Kd 0.0000 0.0396 0.8286\n" +
-        "Ks 0.1878 0.1878 0.1878\n" +
-        "illum 2\n" +
-        "Ns 91.4700\n" +
-        "\n" +
-        "newmtl redwood\n" +
-        "Ka 0.0204 0.0027 0.0000\n" +
-        "Kd 0.2571 0.0330 0.0000\n" +
-        "Ks 0.1878 0.1878 0.1878\n" +
-        "illum 2\n" +
-        "Ns 91.4700\n" +
-        "\n" +
-        "newmtl smoked_glass\n" +
-        "Ka 0.0000 0.0000 0.0000\n" +
-        "Kd 0.0041 0.0041 0.0041\n" +
-        "Ks 0.1878 0.1878 0.1878\n" +
-        "illum 2\n" +
-        "d 0.9800\n" +
-        "Ns 91.4700\n" +
-        "\n" +
-        "newmtl aqua_filter\n" +
-        "Ka 0.0000 0.0000 0.0000\n" +
-        "Kd 0.3743 0.6694 0.5791\n" +
-        "Ks 0.1878 0.1878 0.1878\n" +
-        "illum 2\n" +
-        "d 0.9800\n" +
-        "Ns 91.4700\n" +
-        "\n" +
-        "newmtl yellow_green\n" +
-        "Ka 0.0000 0.0000 0.0000\n" +
-        "Kd 0.1875 0.4082 0.0017\n" +
-        "Ks 0.1878 0.1878 0.1878\n" +
-        "illum 2\n" +
-        "Ns 91.4700\n" +
-        "\n" +
-        "newmtl bluetint\n" +
-        "Ka 0.1100 0.4238 0.5388\n" +
-        "Kd 0.0468 0.7115 0.9551\n" +
-        "Ks 0.3184 0.3184 0.3184\n" +
-        "illum 9\n" +
-        "d 0.5700\n" +
-        "Ns 60.0000\n" +
-        "sharpness 60.0000\n" +
-        "\n" +
-        "newmtl plasma\n" +
-        "Ka 0.4082 0.0816 0.2129\n" +
-        "Kd 1.0000 0.0776 0.4478\n" +
-        "Ks 0.3000 0.3000 0.3000\n" +
-        "illum 9\n" +
-        "d 0.7500\n" +
-        "Ns 60.0000\n" +
-        "sharpness 60.0000\n" +
-        "\n" +
         "newmtl emerald\n" +
         "Ka 0.0470 1.0000 0.0000\n" +
         "Kd 0.0470 1.0000 0.0000\n" +
@@ -909,8 +809,8 @@ public class DefaultMaterials {
         "sharpness 60.0000\n";
 
     static {
-        ObjectFileMaterials ofm = new ObjectFileMaterials();
-        ofm.readMaterials(materials, data);
+      //  ObjectFileMaterials ofm = new ObjectFileMaterials();
+      //  ofm.readMaterials(materials, data);
     }
 
     public static Material3D get(String name) {
