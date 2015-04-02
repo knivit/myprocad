@@ -1,12 +1,16 @@
 package com.tsoft.myprocad.j3d;
 
 import com.sun.j3d.utils.image.TextureLoader;
-import com.tsoft.myprocad.MyProCAD;
 import com.tsoft.myprocad.model.Pattern;
 
-import javax.media.j3d.*;
+import javax.media.j3d.Appearance;
+import javax.media.j3d.Material;
+import javax.media.j3d.TexCoordGeneration;
+import javax.media.j3d.Texture;
+import javax.media.j3d.Texture2D;
+import javax.media.j3d.TransparencyAttributes;
 import javax.vecmath.Color3f;
-import java.awt.*;
+import java.awt.Color;
 
 public class Material3D {
     public Color3f Ka;
@@ -53,12 +57,45 @@ public class Material3D {
         return this;
     }
 
+    /**
+     * Materials have five properties that enable you to specify how the object appears.
+     * There are four colors: Ambient, Emissive, Diffuse, and Specular.
+     * The fifth property is shininess, that you specify with a number.
+     *
+     * Each color specifies what light is given off in a certain situation.
+     *
+     * Ambient color reflects light that been scattered so much by the environment that the direction
+     * is impossible to determine. This is created by an AmbientLight in Java 3D.
+     * Emissive color is given off even in darkness. You could use this for a neon sign or a glow-in-the-dark object
+     * Diffuse color reflects light that comes from one direction, so it's brighter if it comes squarely down
+     * on a surface that if it barely glances off the surface. This is used with a DirectionalLight.
+     * Specular light comes from a particular direction, and it tends to bounce off the surface in a preferred direction.
+     * Shiny metal or plastic have a high specular component.
+     * The amount of specular light that reaches the viewer depends on the location of the viewer and the angle
+     * of the light bouncing off the object.
+     *
+     * Changing the shininess factor affects not just how shiny the object is, but whether it shines
+     * with a small glint in one area, or a larger area with less of a gleaming look.
+     * For most objects you can use one color for both Ambient and Diffuse components, and black
+     * for Emissive (most things don't glow in the dark). If it's a shiny object, you would use a
+     * lighter color for Specular reflections. For example, the material for a red billiard ball might be:
+     * Material mat = new Material(red, black, red, white, 70f);
+     *
+     * For a rubber ball, you could use a black or red specular light instead of white which would make
+     * the ball appear less shiny. Reducing the shininess factor from 70 to 0 would not work the way you might expect,
+     * it would spread the white reflection across the whole object instead of it being concentrated in one spot.
+     */
     public Appearance getAppearence(Pattern pattern) {
         Appearance a = new Appearance();
-        Material m = new Material();
+
+        Color3f black = new Color3f(0.0f, 0.0f, 0.0f);
+        Color3f white = new Color3f(1.0f, 1.0f, 1.0f);
+        Color3f red = new Color3f(0.7f, .15f, .15f);
+
+        Material m = new Material(red, black, red, white, 70f);
 
         // Set ambient & diffuse color
-        if (Ka != null) m.setAmbientColor(Ka);
+ /*       if (Ka != null) m.setAmbientColor(Ka);
         if (Kd != null) m.setDiffuseColor(Kd);
 
         // Set specular color
@@ -86,7 +123,8 @@ public class Material3D {
             TransparencyAttributes ta = new TransparencyAttributes(TransparencyAttributes.NICEST, transparencyLevel);
             a.setTransparencyAttributes(ta);
         }
-
+*/
+        a.setMaterial(m);
         return a;
     }
 }

@@ -1,5 +1,7 @@
 package com.tsoft.myprocad.model;
 
+import com.sun.j3d.utils.geometry.GeometryInfo;
+import com.tsoft.myprocad.j3d.DefaultMaterials;
 import com.tsoft.myprocad.j3d.Triangle3D;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.util.ObjectUtil;
@@ -7,6 +9,10 @@ import com.tsoft.myprocad.util.json.JsonReader;
 import com.tsoft.myprocad.util.json.JsonWriter;
 import com.tsoft.myprocad.util.linealg.Vec3;
 
+import javax.media.j3d.Appearance;
+import javax.media.j3d.GeometryUpdater;
+import javax.media.j3d.QuadArray;
+import javax.media.j3d.Shape3D;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -148,15 +154,108 @@ public abstract class AbstractMaterialItem extends Item {
         return 0;
     }
 
-    public List<Triangle3D> get3dTriangles() {
-        List<Triangle3D> trigs = new ArrayList<>(12);
-        for (int i = 0; i < 12; i ++) {
-            int a = FACES[i][0]-1;
-            int b = FACES[i][1]-1;
-            int c = FACES[i][2]-1;
-            trigs.add(new Triangle3D(vertexes[a], vertexes[b], vertexes[c]));
+    private static final float[] verts = {
+            /**
+             *      5-----------6
+             *     / |         / |
+             *  Y /  |        /  |
+             *    2----------1   |
+             *    |  4-------|--7
+             *    |/         | /
+             *    3----------0/    --> X
+             *   /
+             * Z
+             *
+             */
+            // front face (0,1,2,3)
+            1.0f, -1.0f,  1.0f,
+            1.0f,  1.0f,  1.0f,
+            -1.0f,  1.0f,  1.0f,
+            -1.0f, -1.0f,  1.0f,
+            // back face (4,5,6,7)
+            -1.0f, -1.0f, -1.0f,
+            -1.0f,  1.0f, -1.0f,
+            1.0f,  1.0f, -1.0f,
+            1.0f, -1.0f, -1.0f,
+            // right face (7,6,1,0)
+            1.0f, -1.0f, -1.0f,
+            1.0f,  1.0f, -1.0f,
+            1.0f,  1.0f,  1.0f,
+            1.0f, -1.0f,  1.0f,
+            // left face (3,2,5,4)
+            -1.0f, -1.0f,  1.0f,
+            -1.0f,  1.0f,  1.0f,
+            -1.0f,  1.0f, -1.0f,
+            -1.0f, -1.0f, -1.0f,
+            // top face (1,6,5,2)
+            1.0f,  1.0f,  1.0f,
+            1.0f,  1.0f, -1.0f,
+            -1.0f,  1.0f, -1.0f,
+            -1.0f,  1.0f,  1.0f,
+            // bottom face (3,4,7,0)
+            -1.0f, -1.0f,  1.0f,
+            -1.0f, -1.0f, -1.0f,
+            1.0f, -1.0f, -1.0f,
+            1.0f, -1.0f,  1.0f,
+    };
+
+    private static final float[] colors = {
+            // front face (red)
+            1.0f, 0.0f, 0.0f,
+            1.0f, 0.0f, 0.0f,
+            1.0f, 0.0f, 0.0f,
+            1.0f, 0.0f, 0.0f,
+            // back face (green)
+            0.0f, 1.0f, 0.0f,
+            0.0f, 1.0f, 0.0f,
+            0.0f, 1.0f, 0.0f,
+            0.0f, 1.0f, 0.0f,
+            // right face (blue)
+            0.0f, 0.0f, 1.0f,
+            0.0f, 0.0f, 1.0f,
+            0.0f, 0.0f, 1.0f,
+            0.0f, 0.0f, 1.0f,
+            // left face (yellow)
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 0.0f,
+            1.0f, 1.0f, 0.0f,
+            // top face (magenta)
+            1.0f, 0.0f, 1.0f,
+            1.0f, 0.0f, 1.0f,
+            1.0f, 0.0f, 1.0f,
+            1.0f, 0.0f, 1.0f,
+            // bottom face (cyan)
+            0.0f, 1.0f, 1.0f,
+            0.0f, 1.0f, 1.0f,
+            0.0f, 1.0f, 1.0f,
+            0.0f, 1.0f, 1.0f,
+    };
+
+    public Shape3D getShape3D(float scale) {
+        QuadArray cube = new QuadArray(24, QuadArray.COORDINATES | QuadArray.COLOR_3);
+        int[] n = {
+                0,1,2,3,
+                4,5,6,7,
+                7,6,1,0,
+                3,2,5,4,
+                1,6,5,2,
+                3,4,7,0
+        };
+
+        float[] v = new float[72];
+        for (int i = 0; i < 24; i ++ ) {
+            v[i*3] = vertexes[n[i]].x() / scale;
+            v[i*3 + 1] = vertexes[n[i]].y() / scale;
+            v[i*3 + 2] = vertexes[n[i]].z() / scale;
         }
-        return trigs;
+
+        cube.setCoordinates(0, v);
+        cube.setColors(0, colors);
+        Appearance appearance = DefaultMaterials.get("plasma").getAppearence(Pattern.CROSS_HATCH);
+
+        //  cube.setColors(0, colors);
+        return new Shape3D(cube, appearance);
     }
 
     public String toObjString(int vno) {

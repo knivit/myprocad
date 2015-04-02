@@ -105,14 +105,22 @@ public class Beam extends AbstractMaterialItem implements JsonSerializable {
         Rot rot = new Rot(core.direction(), Seg3.OX.direction());
         Seg3 rcore = rot.rotateSegment(core);
 
-        // calculate vertexes, counter-clockwise
-        // top side
+        /**
+         *      1-----------2
+         *     / |         / |
+         *  Z /  |        /  |
+         *    0----------3   |
+         *    |  5-------|--6    --> X
+         *    |/         | /
+         *    4----------7/
+         *   /
+         * Y
+         *
+         */
         vertexes[0] = rcore.p0().plus(new Vec3(0, width/2, height/2));
         vertexes[1] = rcore.p0().plus(new Vec3(0, -width/2, height/2));
         vertexes[2] = rcore.p1().plus(new Vec3(0, -width/2, height/2));
         vertexes[3] = rcore.p1().plus(new Vec3(0, width/2, height/2));
-
-        // bottom side
         vertexes[4] = rcore.p0().plus(new Vec3(0, width/2, -height/2));
         vertexes[5] = rcore.p0().plus(new Vec3(0, -width/2, -height/2));
         vertexes[6] = rcore.p1().plus(new Vec3(0, -width/2, -height/2));

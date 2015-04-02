@@ -24,7 +24,7 @@ public class Scene3D extends SceneBase {
     }
 
     private void addItem(AbstractMaterialItem item) {
-        List<Triangle3D> trigs = item.get3dTriangles();
+    /*    List<Triangle3D> trigs = item.get3dTriangles();
         for (Triangle3D trig : trigs) {
             Point3f[] coordArray = trig.points;
             TexCoord2f texArray[] = new TexCoord2f[] {
@@ -52,5 +52,5 @@ public class Scene3D extends SceneBase {
             branchGroup.addChild(shape);
             //addNamedObject(curname, shape);
         }
-    }
+*/    }
 }
