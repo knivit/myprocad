@@ -3,33 +3,22 @@ package com.tsoft.myprocad.swing.dialog;
 import com.sun.j3d.loaders.Scene;
 import com.sun.j3d.loaders.objectfile.ObjectFile;
 import com.sun.j3d.utils.geometry.Box;
-import com.sun.j3d.utils.geometry.GeometryInfo;
-import com.sun.j3d.utils.geometry.NormalGenerator;
-import com.sun.j3d.utils.image.TextureLoader;
 import com.sun.j3d.utils.universe.SimpleUniverse;
 import com.sun.j3d.utils.behaviors.mouse.MouseRotate;
 import com.sun.j3d.utils.behaviors.mouse.MouseWheelZoom;
-import com.tsoft.myprocad.MyProCAD;
-import com.tsoft.myprocad.j3d.DefaultMaterials;
-import com.tsoft.myprocad.j3d.Material3D;
-import com.tsoft.myprocad.j3d.Scene3D;
-import com.tsoft.myprocad.j3d.Triangle3D;
+import com.sun.j3d.utils.behaviors.keyboard.KeyNavigatorBehavior;
 import com.tsoft.myprocad.model.AbstractMaterialItem;
 import com.tsoft.myprocad.model.ItemList;
-import com.tsoft.myprocad.model.Pattern;
 
 import javax.media.j3d.*;
 import javax.vecmath.Color3f;
-import javax.vecmath.Point3f;
-import javax.vecmath.TexCoord2f;
-import javax.vecmath.Vector3f;
 import javax.vecmath.Point3d;
-import java.awt.*;
+import javax.vecmath.Vector3d;
+import javax.vecmath.Vector3f;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URL;
-import java.util.*;
-import java.util.List;
 
 /**
  * From http://www.daltonfilho.com/articles/java3d/SimpleModelView.html
@@ -38,7 +27,7 @@ import java.util.List;
  */
 public class J3dDialog extends AbstractDialogPanel {
     private Canvas3D canvas;
-    private SimpleUniverse universe;
+    private VirtualUniverse universe;
 
     public J3dDialog() {
         super(new BorderLayout());
@@ -53,143 +42,132 @@ public class J3dDialog extends AbstractDialogPanel {
         transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
         transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
 
-        //Appearance appearance = new Appearance();
-        //appearance.setMaterial();
-       // URL url = MyProCAD.class.getResource("resources/patterns/crossHatch.png");
-       // Texture texture = new TextureLoader(url, TextureLoader.BY_REFERENCE | TextureLoader.Y_UP, this).getTexture();
-        //appearance.setTexture(texture);
-        //TextureAttributes texAttr = new TextureAttributes();
-        //texAttr.setTextureMode(TextureAttributes.MODULATE);
-       // appearance.setTextureAttributes(texAttr);
-
-    //    Appearance appearance = DefaultMaterials.get("plasma").getAppearence(Pattern.CROSS_HATCH);
-    //    Box textureCube = new Box(0.4f, 0.4f, 0.4f, Box.GENERATE_TEXTURE_COORDS | Box.GENERATE_TEXTURE_COORDS_Y_UP, appearance);
-    //    transformGroup.addChild(textureCube);
-
         int dx = Math.abs(items.getXMax()) + Math.abs(items.getXMin());
         int dy = Math.abs(items.getYMax()) + Math.abs(items.getYMin());
         int dz = Math.abs(items.getZMax()) + Math.abs(items.getZMin());
         float scale = Math.max(dx, Math.max(dy, dz)) / 2;
-        for (AbstractMaterialItem item : items) addItem(item, transformGroup, scale);
-
+        for (AbstractMaterialItem item : items) {
+            Shape3D shape = item.getShape3D(scale);
+            transformGroup.addChild(shape);
+        }
+/*
         MouseRotate mouseRotate = new MouseRotate(transformGroup);
         BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 100.0);
         mouseRotate.setSchedulingBounds(bounds);
         transformGroup.addChild(mouseRotate);
 
-        BranchGroup branchGroup = new BranchGroup();
-        branchGroup.addChild(transformGroup);
-        addLightsToUniverse(branchGroup);
-        branchGroup.compile();
-
-        universe = new SimpleUniverse(canvas);
-        universe.getViewingPlatform().setNominalViewingTransform();
-        universe.addBranchGraph(branchGroup);
-
-/*        Scene3D scene = new Scene3D(branchGroup);
-        scene.addItems(items);
-
-        addLightsToUniverse(branchGroup);
-
-        MouseRotate mouseRotate = new MouseRotate(transformGroup);
-        BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 10000.0);
-        mouseRotate.setSchedulingBounds(bounds);
-
         MouseWheelZoom mouseWheelZoom = new MouseWheelZoom(transformGroup);
+        mouseWheelZoom.setSchedulingBounds(bounds);
+        transformGroup.addChild(mouseWheelZoom);
 
-        BranchGroup objRoot = new BranchGroup();
-        objRoot.addChild(mouseRotate);
-        objRoot.addChild(mouseWheelZoom);
-
-        objRoot.compile();
-
-        universe.getViewingPlatform().setNominalViewingTransform();
-        universe.addBranchGraph(objRoot);
-
-        root.compile();
-        universe.addBranchGraph(root);
-*/    }
-
-    private void addLightsToUniverse(BranchGroup branchGroup) {
-  /*      Color3f ambientColor = new Color3f(0.2f, 0.2f, 0.2f);
-        AmbientLight ambientLight = new AmbientLight(ambientColor);
-        BoundingSphere bounds = new BoundingSphere(new Point3d(0, 0, 0), 100000);
-        branchGroup.addChild(ambientLight);
+        KeyNavigatorBehavior navigatorBehavior = new KeyNavigatorBehavior(transformGroup);
+        navigatorBehavior.setSchedulingBounds(bounds);
+        transformGroup.addChild(navigatorBehavior);
 */
-        BoundingSphere bounds = new BoundingSphere(new Point3d(0.0,0.0,0.0), 100.0);
-
-        Color3f light1Color = new Color3f(1f, 1f, 1f);
-        Vector3f light1Direction = new Vector3f(4.0f, -7.0f, -12.0f);
-        DirectionalLight light1 = new DirectionalLight(light1Color, light1Direction);
-        light1.setInfluencingBounds(bounds);
-        branchGroup.addChild(light1);
-
-        AmbientLight ambientLight = new AmbientLight(new Color3f(.5f,.5f,.5f));
+        BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 100.0);
+        BranchGroup branchGroup = new BranchGroup();
+        Color3f ambientColor = new Color3f(0.2f, 0.2f, 0.2f);
+        AmbientLight ambientLight = new AmbientLight(ambientColor);
         ambientLight.setInfluencingBounds(bounds);
         branchGroup.addChild(ambientLight);
 
-  /*      Bounds influenceRegion = new BoundingSphere();
-        DirectionalLight light1 = new DirectionalLight(new Color3f(Color.YELLOW), new Vector3f(-1, -1, -1));
-        light1.setInfluencingBounds(influenceRegion);
-        branchGroup.addChild(light1);
+        branchGroup.addChild(transformGroup);
+        branchGroup.compile();
 
-        DirectionalLight light2 = new DirectionalLight(new Color3f(Color.WHITE), new Vector3f(1, 1, 1));
-        light2.setInfluencingBounds(influenceRegion);
-        branchGroup.addChild(light2);
+        universe = new VirtualUniverse();
+        //universe.getViewingPlatform().setNominalViewingTransform();
+        //universe.addBranchGraph(branchGroup);
+        Locale locale = new Locale(universe);
+        locale.addBranchGraph(buildViewBranch(canvas));
+        locale.addBranchGraph(buildContentBranch());
+    }
 
-        DirectionalLight light3 = new DirectionalLight(new Color3f(Color.GREEN), new Vector3f(1, 1, -1));
-        light3.setInfluencingBounds(influenceRegion);
-        branchGroup.addChild(light3);
+    protected BranchGroup buildViewBranch(Canvas3D c) {
+        BranchGroup viewBranch = new BranchGroup();
+        Transform3D viewXfm = new Transform3D();
+        viewXfm.set(new Vector3f(0.0f, 0.0f, 10.0f));
+        TransformGroup viewXfmGroup = new TransformGroup(viewXfm);
+        viewXfmGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
+        viewXfmGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+        BoundingSphere movingBounds = new BoundingSphere(new Point3d(0.0, 0.0,  0.0), 100.0);
+        BoundingLeaf boundLeaf = new BoundingLeaf(movingBounds);
+        ViewPlatform myViewPlatform = new ViewPlatform();
+        viewXfmGroup.addChild(boundLeaf);
+        PhysicalBody myBody = new PhysicalBody();
+        PhysicalEnvironment myEnvironment = new PhysicalEnvironment();
+        viewXfmGroup.addChild(myViewPlatform);
+        viewBranch.addChild(viewXfmGroup);
+        View myView = new View();
+        myView.addCanvas3D(c);
+        myView.attachViewPlatform(myViewPlatform);
+        myView.setPhysicalBody(myBody);
+        myView.setPhysicalEnvironment(myEnvironment);
 
-        DirectionalLight light4 = new DirectionalLight(new Color3f(Color.BLUE), new Vector3f(1, -1, -1));
-        light4.setInfluencingBounds(influenceRegion);
-        branchGroup.addChild(light4);
- */   }
+        KeyNavigatorBehavior keyNav = new KeyNavigatorBehavior(viewXfmGroup);
+        keyNav.setSchedulingBounds(movingBounds);
+        viewBranch.addChild(keyNav);
+
+        return viewBranch;
+    }
+
+    protected void addLights(BranchGroup b) {
+        BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0,
+                0.0), 100.0);
+
+        // Create a bounds for the background and lights
+        // Set up the global lights
+        Color3f ambLightColour = new Color3f(0.5f, 0.5f, 0.5f);
+        AmbientLight ambLight = new AmbientLight(ambLightColour);
+        ambLight.setInfluencingBounds(bounds);
+        Color3f dirLightColour = new Color3f(1.0f, 1.0f, 1.0f);
+        Vector3f dirLightDir = new Vector3f(-1.0f, -1.0f, -1.0f);
+        DirectionalLight dirLight = new DirectionalLight(dirLightColour,
+                dirLightDir);
+        dirLight.setInfluencingBounds(bounds);
+        b.addChild(ambLight);
+        b.addChild(dirLight);
+    }
+
+    protected BranchGroup buildContentBranch() {
+        //Create the appearance an appearance for the two cubes
+        Appearance app1 = new Appearance();
+        Appearance app2 = new Appearance();
+        Color3f ambientColour1 = new Color3f(1.0f, 0.0f, 0.0f);
+        Color3f ambientColour2 = new Color3f(1.0f, 1.0f, 0.0f);
+        Color3f emissiveColour = new Color3f(0.0f, 0.0f, 0.0f);
+        Color3f specularColour = new Color3f(1.0f, 1.0f, 1.0f);
+        Color3f diffuseColour1 = new Color3f(1.0f, 0.0f, 0.0f);
+        Color3f diffuseColour2 = new Color3f(1.0f, 1.0f, 0.0f);
+        float shininess = 20.0f;
+        app1.setMaterial(new Material(ambientColour1, emissiveColour,
+                diffuseColour1, specularColour, shininess));
+        app2.setMaterial(new Material(ambientColour2, emissiveColour,
+                diffuseColour2, specularColour, shininess));
+        //Make two cubes
+        Box leftCube = new Box(1.0f, 1.0f, 1.0f, app1);
+        Box rightCube = new Box(1.0f, 1.0f, 1.0f, app2);
+
+        BranchGroup contentBranch = new BranchGroup();
+        addLights(contentBranch);
+        //Put it all together
+        Transform3D leftGroupXfm = new Transform3D();
+        leftGroupXfm.set(new Vector3d(-1.5, 0.0, 0.0));
+        TransformGroup leftGroup = new TransformGroup(leftGroupXfm);
+        Transform3D rightGroupXfm = new Transform3D();
+        rightGroupXfm.set(new Vector3d(1.5, 0.0, 0.0));
+        TransformGroup rightGroup = new TransformGroup(rightGroupXfm);
+
+        leftGroup.addChild(leftCube);
+        rightGroup.addChild(rightCube);
+        contentBranch.addChild(leftGroup);
+        contentBranch.addChild(rightGroup);
+        return contentBranch;
+    }
 
     public static Scene getSceneFromFile(String location) throws IOException {
         ObjectFile file = new ObjectFile(ObjectFile.RESIZE);
         return file.load(new FileReader(location));
     }
-
-    private void addItem(AbstractMaterialItem item, Group group, float scale) {
-        Shape3D shape = item.getShape3D(scale);
-   //     shape.setCapability(Shape3D.ALLOW_APPEARANCE_READ);
-//        shape.setCapability(Shape3D.ALLOW_APPEARANCE_WRITE);
-//        shape.setCapability(Shape3D.ALLOW_GEOMETRY_READ);
-        group.addChild(shape);
-    }
-
- /*   private void addItem(AbstractMaterialItem item, Group branchGroup) {
-        List<Triangle3D> trigs = item.getShape3D();
-        for (Triangle3D trig : trigs) {
-            Point3f[] coordArray = trig.points;
-            TexCoord2f texArray[] = new TexCoord2f[] {
-                    new TexCoord2f(1f, 0f), new TexCoord2f(0f, 0f), new TexCoord2f(0f, 1f),
-            };
-
-            GeometryInfo gi = new GeometryInfo(GeometryInfo.TRIANGLE_ARRAY);
-            //gi.setCoordinateIndices(groupIndices(coordIdxList, triList));
-            gi.setCoordinates(coordArray);
-            gi.setTextureCoordinateParams(1, 2);
-            gi.setTextureCoordinates(0, texArray);
-            gi.recomputeIndices();
-            //gi.setTextureCoordinateIndices(0, groupIndices(texIdxList, triList));
-
-            NormalGenerator ng = new NormalGenerator();
-            ng.generateNormals(gi);
-
-            //TextureLoader loader = new TextureLoader(item.getPattern().getPatternImage(Color.WHITE.getRGB(), Color.BLACK.getRGB()));
-            //ImageComponent2D image = loader.getImage();
-
-            Shape3D shape = new Shape3D();
-            shape.setGeometry(gi.getGeometryArray(false, false, false));
-            shape.setAppearance(DefaultMaterials.get("plasma").getAppearence(Pattern.CROSS_HATCH));
-            //assignMaterial("plasma", shape);
-
-            branchGroup.addChild(shape);
-            //addNamedObject(curname, shape);
-        }
-    } */
 
     @Override
     public Dimension getDialogPreferredSize() {

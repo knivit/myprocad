@@ -59,7 +59,7 @@ public class Plan extends ProjectItem implements Cloneable {
     /** Invoked on Project loading or Project creation */
     public void afterOpen() {
         if (levels.isEmpty()) {
-            Level customLevel = new Level(L10.get(L10.PLAN_CUSTOM_LEVEL_PROPERTY), Item.MIN_COORDINATE, Item.MAX_COORDINATE);
+            Level customLevel = new Level(L10.get(L10.PLAN_CUSTOM_LEVEL_PROPERTY), Item.MIN_COORDINATE / 10, Item.MAX_COORDINATE / 10);
             customLevel.setId(getProject().generateNextId());
             levelId = customLevel.getId();
             levels.add(customLevel);

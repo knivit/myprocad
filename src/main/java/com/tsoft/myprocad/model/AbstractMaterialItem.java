@@ -13,6 +13,7 @@ import javax.media.j3d.Appearance;
 import javax.media.j3d.GeometryUpdater;
 import javax.media.j3d.QuadArray;
 import javax.media.j3d.Shape3D;
+import javax.vecmath.Color3f;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -154,51 +155,24 @@ public abstract class AbstractMaterialItem extends Item {
         return 0;
     }
 
-    private static final float[] verts = {
-            /**
-             *      5-----------6
-             *     / |         / |
-             *  Y /  |        /  |
-             *    2----------1   |
-             *    |  4-------|--7
-             *    |/         | /
-             *    3----------0/    --> X
-             *   /
-             * Z
-             *
-             */
-            // front face (0,1,2,3)
-            1.0f, -1.0f,  1.0f,
-            1.0f,  1.0f,  1.0f,
-            -1.0f,  1.0f,  1.0f,
-            -1.0f, -1.0f,  1.0f,
-            // back face (4,5,6,7)
-            -1.0f, -1.0f, -1.0f,
-            -1.0f,  1.0f, -1.0f,
-            1.0f,  1.0f, -1.0f,
-            1.0f, -1.0f, -1.0f,
-            // right face (7,6,1,0)
-            1.0f, -1.0f, -1.0f,
-            1.0f,  1.0f, -1.0f,
-            1.0f,  1.0f,  1.0f,
-            1.0f, -1.0f,  1.0f,
-            // left face (3,2,5,4)
-            -1.0f, -1.0f,  1.0f,
-            -1.0f,  1.0f,  1.0f,
-            -1.0f,  1.0f, -1.0f,
-            -1.0f, -1.0f, -1.0f,
-            // top face (1,6,5,2)
-            1.0f,  1.0f,  1.0f,
-            1.0f,  1.0f, -1.0f,
-            -1.0f,  1.0f, -1.0f,
-            -1.0f,  1.0f,  1.0f,
-            // bottom face (3,4,7,0)
-            -1.0f, -1.0f,  1.0f,
-            -1.0f, -1.0f, -1.0f,
-            1.0f, -1.0f, -1.0f,
-            1.0f, -1.0f,  1.0f,
-    };
-
+    /**
+     *      5-----------6
+     *     / |         / |
+     *  Y /  |        /  |
+     *    2----------1   |
+     *    |  4-------|--7
+     *    |/         | /
+     *    3----------0/    --> X
+     *   /
+     * Z
+     *
+     * front face (0,1,2,3)
+     * back face (4,5,6,7)
+     * right face (7,6,1,0)
+     * left face (3,2,5,4)
+     * top face (1,6,5,2)
+     * bottom face (3,4,7,0)
+     */
     private static final float[] colors = {
             // front face (red)
             1.0f, 0.0f, 0.0f,
@@ -229,33 +203,47 @@ public abstract class AbstractMaterialItem extends Item {
             0.0f, 1.0f, 1.0f,
             0.0f, 1.0f, 1.0f,
             0.0f, 1.0f, 1.0f,
-            0.0f, 1.0f, 1.0f,
+            0.0f, 1.0f, 1.0f
     };
 
     public Shape3D getShape3D(float scale) {
-        QuadArray cube = new QuadArray(24, QuadArray.COORDINATES | QuadArray.COLOR_3);
+        QuadArray cube = new QuadArray(4*6, QuadArray.COORDINATES);// | QuadArray.COLOR_3);
         int[] n = {
-                0,1,2,3,
-                4,5,6,7,
-                7,6,1,0,
-                3,2,5,4,
-                1,6,5,2,
-                3,4,7,0
+                7,3,0,4,
+                5,1,2,6,
+                6,2,3,7,
+                4,0,1,5,
+                3,2,1,0,
+                4,5,6,7
         };
 
-        float[] v = new float[72];
-        for (int i = 0; i < 24; i ++ ) {
+        float[] v = new float[3*(4*6)];
+        for (int i = 0; i < 4*6; i ++ ) {
             v[i*3] = vertexes[n[i]].x() / scale;
             v[i*3 + 1] = vertexes[n[i]].y() / scale;
             v[i*3 + 2] = vertexes[n[i]].z() / scale;
         }
 
         cube.setCoordinates(0, v);
-        cube.setColors(0, colors);
-        Appearance appearance = DefaultMaterials.get("plasma").getAppearence(Pattern.CROSS_HATCH);
+        //cube.setColors(0, colors);
+        //Appearance appearance = DefaultMaterials.get("plasma").getAppearence(Pattern.CROSS_HATCH);
+        Appearance app = new Appearance();
+        Color3f ambientColour1 = new Color3f(1.0f, 0.0f, 0.0f);
+        Color3f ambientColour2 = new Color3f(1.0f, 1.0f, 0.0f);
+        Color3f emissiveColour = new Color3f(0.0f, 0.0f, 0.0f);
+        Color3f specularColour = new Color3f(1.0f, 1.0f, 1.0f);
+        Color3f diffuseColour1 = new Color3f(1.0f, 0.0f, 0.0f);
+        Color3f diffuseColour2 = new Color3f(1.0f, 1.0f, 0.0f);
+        float shininess = 20.0f;
+        app.setMaterial(new javax.media.j3d.Material(ambientColour1, emissiveColour, diffuseColour1, specularColour, shininess));
 
-        //  cube.setColors(0, colors);
-        return new Shape3D(cube, appearance);
+        Shape3D shape = new Shape3D(cube);
+        shape.setAppearanceOverrideEnable(true);
+        shape.setCapability(Shape3D.ALLOW_APPEARANCE_READ);
+        shape.setCapability(Shape3D.ALLOW_APPEARANCE_WRITE);
+        shape.setCapability(Shape3D.ALLOW_GEOMETRY_READ);
+        shape.setAppearance(app);
+        return shape;
     }
 
     public String toObjString(int vno) {
