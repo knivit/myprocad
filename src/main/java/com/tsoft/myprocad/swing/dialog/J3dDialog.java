@@ -15,8 +15,9 @@ import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3d;
 import javax.vecmath.Vector3f;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -24,35 +25,57 @@ import java.io.IOException;
  * From http://www.daltonfilho.com/articles/java3d/SimpleModelView.html
  * http://www.java3d.org/selection.html
  * https://java3d.java.net/
+ *
+ * Should be AWT, as Java3D can't render on Swing components
  */
-public class J3dDialog extends AbstractDialogPanel {
+public class J3dDialog extends Frame {
     private Canvas3D canvas;
-    private VirtualUniverse universe;
+    private SimpleUniverse universe;
 
     public J3dDialog() {
-        super(new BorderLayout());
+        super("3D View");
 
         canvas = new Canvas3D(SimpleUniverse.getPreferredConfiguration());
         canvas.setDoubleBufferEnable(true);
         add(canvas, BorderLayout.CENTER);
+
+        addWindowListener(new WindowAdapter() {
+            public void windowOpened(WindowEvent we) {
+                setMinimumSize(new Dimension(800, 800));
+                setLocationRelativeTo(null);
+            }
+
+            public void windowClosing(WindowEvent we) {
+                dispose();
+            }
+        });
     }
 
     public void addModelToUniverse(ItemList<AbstractMaterialItem> items) throws IOException {
+        BoundingSphere bounds = new BoundingSphere();
+
+        BranchGroup contentGroup = new BranchGroup();
         TransformGroup transformGroup = new TransformGroup();
         transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
         transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
+        Color3f ambientColor = new Color3f(0.2f, 0.2f, 0.2f);
+        AmbientLight ambientLight = new AmbientLight(ambientColor);
+        ambientLight.setInfluencingBounds(bounds);
+        contentGroup.addChild(ambientLight);
 
-        int dx = Math.abs(items.getXMax()) + Math.abs(items.getXMin());
-        int dy = Math.abs(items.getYMax()) + Math.abs(items.getYMin());
-        int dz = Math.abs(items.getZMax()) + Math.abs(items.getZMin());
+        int xMin = items.getXMin();
+        int yMin = items.getYMin();
+        int zMin = items.getZMin();
+        int dx = Math.abs(items.getXMax()) + Math.abs(xMin);
+        int dy = Math.abs(items.getYMax()) + Math.abs(yMin);
+        int dz = Math.abs(items.getZMax()) + Math.abs(zMin);
         float scale = Math.max(dx, Math.max(dy, dz)) / 2;
         for (AbstractMaterialItem item : items) {
             Shape3D shape = item.getShape3D(scale);
             transformGroup.addChild(shape);
         }
-/*
+
         MouseRotate mouseRotate = new MouseRotate(transformGroup);
-        BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 100.0);
         mouseRotate.setSchedulingBounds(bounds);
         transformGroup.addChild(mouseRotate);
 
@@ -63,23 +86,18 @@ public class J3dDialog extends AbstractDialogPanel {
         KeyNavigatorBehavior navigatorBehavior = new KeyNavigatorBehavior(transformGroup);
         navigatorBehavior.setSchedulingBounds(bounds);
         transformGroup.addChild(navigatorBehavior);
-*/
-        BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 100.0);
-        BranchGroup branchGroup = new BranchGroup();
-        Color3f ambientColor = new Color3f(0.2f, 0.2f, 0.2f);
-        AmbientLight ambientLight = new AmbientLight(ambientColor);
-        ambientLight.setInfluencingBounds(bounds);
-        branchGroup.addChild(ambientLight);
 
-        branchGroup.addChild(transformGroup);
-        branchGroup.compile();
+        contentGroup.addChild(transformGroup);
+        contentGroup.compile();
 
-        universe = new VirtualUniverse();
-        //universe.getViewingPlatform().setNominalViewingTransform();
-        //universe.addBranchGraph(branchGroup);
-        Locale locale = new Locale(universe);
-        locale.addBranchGraph(buildViewBranch(canvas));
-        locale.addBranchGraph(buildContentBranch());
+        universe = new SimpleUniverse(canvas);
+        universe.getViewingPlatform().setNominalViewingTransform();
+//        universe.addBranchGraph(viewGroup);
+        universe.addBranchGraph(contentGroup);
+
+        //Locale locale = new Locale(universe);
+        //locale.addBranchGraph(buildViewBranch(canvas));
+        //locale.addBranchGraph(buildContentBranch());
     }
 
     protected BranchGroup buildViewBranch(Canvas3D c) {
@@ -139,16 +157,16 @@ public class J3dDialog extends AbstractDialogPanel {
         Color3f diffuseColour1 = new Color3f(1.0f, 0.0f, 0.0f);
         Color3f diffuseColour2 = new Color3f(1.0f, 1.0f, 0.0f);
         float shininess = 20.0f;
-        app1.setMaterial(new Material(ambientColour1, emissiveColour,
-                diffuseColour1, specularColour, shininess));
-        app2.setMaterial(new Material(ambientColour2, emissiveColour,
-                diffuseColour2, specularColour, shininess));
+        app1.setMaterial(new Material(ambientColour1, emissiveColour, diffuseColour1, specularColour, shininess));
+        app2.setMaterial(new Material(ambientColour2, emissiveColour, diffuseColour2, specularColour, shininess));
+
         //Make two cubes
         Box leftCube = new Box(1.0f, 1.0f, 1.0f, app1);
         Box rightCube = new Box(1.0f, 1.0f, 1.0f, app2);
 
         BranchGroup contentBranch = new BranchGroup();
         addLights(contentBranch);
+
         //Put it all together
         Transform3D leftGroupXfm = new Transform3D();
         leftGroupXfm.set(new Vector3d(-1.5, 0.0, 0.0));
@@ -167,10 +185,5 @@ public class J3dDialog extends AbstractDialogPanel {
     public static Scene getSceneFromFile(String location) throws IOException {
         ObjectFile file = new ObjectFile(ObjectFile.RESIZE);
         return file.load(new FileReader(location));
-    }
-
-    @Override
-    public Dimension getDialogPreferredSize() {
-        return new Dimension(1000, 800);
     }
 }

@@ -1,34 +1,18 @@
 package com.tsoft.myprocad.model;
 
-import com.sun.j3d.utils.geometry.GeometryInfo;
-import com.tsoft.myprocad.j3d.DefaultMaterials;
-import com.tsoft.myprocad.j3d.Triangle3D;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
 import com.tsoft.myprocad.util.json.JsonWriter;
 import com.tsoft.myprocad.util.linealg.Vec3;
 
-import javax.media.j3d.Appearance;
-import javax.media.j3d.GeometryUpdater;
-import javax.media.j3d.QuadArray;
-import javax.media.j3d.Shape3D;
+import javax.media.j3d.*;
 import javax.vecmath.Color3f;
 import java.awt.Color;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class AbstractMaterialItem extends Item {
     public static transient final int MAX_BORDER_WIDTH = 5;
-
-    // For 3d modelling, the item's triangles
-    protected static transient final int[][] FACES = new int[][] {
-        {1, 7, 5}, {1, 3, 7}, {1, 4, 3},
-        {1, 2, 4}, {3, 8, 7}, {3, 4, 8},
-        {5, 7, 8}, {5, 8, 6}, {1, 5, 6},
-        {1, 6, 2}, {2, 6, 8}, {2, 8, 4}
-    };
 
     private long materialId;
     private int backgroundColor = Color.WHITE.getRGB();
@@ -156,6 +140,9 @@ public abstract class AbstractMaterialItem extends Item {
     }
 
     /**
+     * The coordinate system of the Java 3D virtual universe is right-handed. The x-axis is positive to the right,
+     * y-axis is positive up, and z-axis is positive toward the viewer, with all units in meters
+     *
      *      5-----------6
      *     / |         / |
      *  Y /  |        /  |
@@ -206,6 +193,7 @@ public abstract class AbstractMaterialItem extends Item {
             0.0f, 1.0f, 1.0f
     };
 
+    // http://www.cs.stir.ac.uk/courses/ITNP3B/Java3D/Tutorial/j3d_tutorial_ch6.pdf
     public Shape3D getShape3D(float scale) {
         QuadArray cube = new QuadArray(4*6, QuadArray.COORDINATES);// | QuadArray.COLOR_3);
         int[] n = {
@@ -227,7 +215,7 @@ public abstract class AbstractMaterialItem extends Item {
         cube.setCoordinates(0, v);
         //cube.setColors(0, colors);
         //Appearance appearance = DefaultMaterials.get("plasma").getAppearence(Pattern.CROSS_HATCH);
-        Appearance app = new Appearance();
+      /*  Appearance app = new Appearance();
         Color3f ambientColour1 = new Color3f(1.0f, 0.0f, 0.0f);
         Color3f ambientColour2 = new Color3f(1.0f, 1.0f, 0.0f);
         Color3f emissiveColour = new Color3f(0.0f, 0.0f, 0.0f);
@@ -235,21 +223,34 @@ public abstract class AbstractMaterialItem extends Item {
         Color3f diffuseColour1 = new Color3f(1.0f, 0.0f, 0.0f);
         Color3f diffuseColour2 = new Color3f(1.0f, 1.0f, 0.0f);
         float shininess = 20.0f;
+        app.setLineAttributes(new LineAttributes(1, LineAttributes.PATTERN_SOLID, true));
         app.setMaterial(new javax.media.j3d.Material(ambientColour1, emissiveColour, diffuseColour1, specularColour, shininess));
-
-        Shape3D shape = new Shape3D(cube);
-        shape.setAppearanceOverrideEnable(true);
-        shape.setCapability(Shape3D.ALLOW_APPEARANCE_READ);
-        shape.setCapability(Shape3D.ALLOW_APPEARANCE_WRITE);
-        shape.setCapability(Shape3D.ALLOW_GEOMETRY_READ);
+*/
+        Shape3D shape = new Shape3D();
+        ColoringAttributes ca = new ColoringAttributes();
+        ca.setColor (1.0f, 1.0f, 0.0f);
+        Appearance app = new Appearance();
+        app.setColoringAttributes(ca);
+        PolygonAttributes pa = new PolygonAttributes();
+        pa.setPolygonMode(PolygonAttributes.POLYGON_LINE);
+        app.setLineAttributes(new LineAttributes(1, LineAttributes.PATTERN_SOLID, true));
+        app.setPolygonAttributes(pa);
         shape.setAppearance(app);
+        shape.setGeometry(cube);
         return shape;
     }
 
     public String toObjString(int vno) {
-        StringBuilder buf = new StringBuilder();
+        // For 3d modelling, the item's triangles
+        int[][] FACES = new int[][] {
+                {1, 7, 5}, {1, 3, 7}, {1, 4, 3},
+                {1, 2, 4}, {3, 8, 7}, {3, 4, 8},
+                {5, 7, 8}, {5, 8, 6}, {1, 5, 6},
+                {1, 6, 2}, {2, 6, 8}, {2, 8, 4}
+        };
 
         // vertexes
+        StringBuilder buf = new StringBuilder();
         for (int i = 0; i < 8; i ++) {
             buf.append("v " + vertexes[i].x() + " " + vertexes[i].y() + " " + vertexes[i].z()).append('\n');
         }

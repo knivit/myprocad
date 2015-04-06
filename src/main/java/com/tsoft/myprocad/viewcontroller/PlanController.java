@@ -726,7 +726,7 @@ public class PlanController implements ProjectItemController {
             exportToObjFile(objFileName);
             J3dDialog j3d = new J3dDialog();
             j3d.addModelToUniverse(plan.getMaterialItems());
-            j3d.displayView("3D View");
+            j3d.setVisible(true);
         } catch (IOException ex) {
             ex.printStackTrace();
             SwingTools.showError(ex.getMessage());
