@@ -197,7 +197,7 @@ public class Plan extends ProjectItem implements Cloneable {
         else if (item instanceof LevelMark) levelMarks.add((LevelMark) item);
         else throw new IllegalArgumentException("Unknown item " + item.getClass().getName());
 
-        planController.itemListChanged(CollectionEvent.Type.ADD, new ItemList<Item>(item));
+        planController.itemListChanged();
     }
 
     public void deleteItem(Item item) {
@@ -214,7 +214,7 @@ public class Plan extends ProjectItem implements Cloneable {
         else throw new IllegalArgumentException("Unknown item " + item.getClass().getName());
 
         item.plan = null;
-        planController.itemListChanged(CollectionEvent.Type.DELETE, new ItemList<Item>(item));
+        planController.itemListChanged();
     }
 
     public void deleteItems(ItemList<Item> items) {

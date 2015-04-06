@@ -1,5 +1,9 @@
 package com.tsoft.myprocad.model;
 
+import com.sun.j3d.utils.geometry.GeometryInfo;
+import com.sun.j3d.utils.geometry.NormalGenerator;
+import com.sun.j3d.utils.geometry.Triangulator;
+import com.tsoft.myprocad.j3d.DefaultMaterials;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
@@ -160,42 +164,7 @@ public abstract class AbstractMaterialItem extends Item {
      * top face (1,6,5,2)
      * bottom face (3,4,7,0)
      */
-    private static final float[] colors = {
-            // front face (red)
-            1.0f, 0.0f, 0.0f,
-            1.0f, 0.0f, 0.0f,
-            1.0f, 0.0f, 0.0f,
-            1.0f, 0.0f, 0.0f,
-            // back face (green)
-            0.0f, 1.0f, 0.0f,
-            0.0f, 1.0f, 0.0f,
-            0.0f, 1.0f, 0.0f,
-            0.0f, 1.0f, 0.0f,
-            // right face (blue)
-            0.0f, 0.0f, 1.0f,
-            0.0f, 0.0f, 1.0f,
-            0.0f, 0.0f, 1.0f,
-            0.0f, 0.0f, 1.0f,
-            // left face (yellow)
-            1.0f, 1.0f, 0.0f,
-            1.0f, 1.0f, 0.0f,
-            1.0f, 1.0f, 0.0f,
-            1.0f, 1.0f, 0.0f,
-            // top face (magenta)
-            1.0f, 0.0f, 1.0f,
-            1.0f, 0.0f, 1.0f,
-            1.0f, 0.0f, 1.0f,
-            1.0f, 0.0f, 1.0f,
-            // bottom face (cyan)
-            0.0f, 1.0f, 1.0f,
-            0.0f, 1.0f, 1.0f,
-            0.0f, 1.0f, 1.0f,
-            0.0f, 1.0f, 1.0f
-    };
-
-    // http://www.cs.stir.ac.uk/courses/ITNP3B/Java3D/Tutorial/j3d_tutorial_ch6.pdf
-    public Shape3D getShape3D(float scale) {
-        QuadArray cube = new QuadArray(4*6, QuadArray.COORDINATES);// | QuadArray.COLOR_3);
+    public Shape3D getShape3D(float scale, int ox, int oy, int oz, boolean showWired) {
         int[] n = {
                 7,3,0,4,
                 5,1,2,6,
@@ -205,38 +174,59 @@ public abstract class AbstractMaterialItem extends Item {
                 4,5,6,7
         };
 
-        float[] v = new float[3*(4*6)];
+        float[] verts = new float[3*(4*6)];
         for (int i = 0; i < 4*6; i ++ ) {
-            v[i*3] = vertexes[n[i]].x() / scale;
-            v[i*3 + 1] = vertexes[n[i]].y() / scale;
-            v[i*3 + 2] = vertexes[n[i]].z() / scale;
+            verts[i*3] = (vertexes[n[i]].x()  - ox) / scale;
+            verts[i*3 + 1] = (vertexes[n[i]].y() - oy) / scale;
+            verts[i*3 + 2] = (vertexes[n[i]].z() - oz) / scale;
         }
 
-        cube.setCoordinates(0, v);
-        //cube.setColors(0, colors);
-        //Appearance appearance = DefaultMaterials.get("plasma").getAppearence(Pattern.CROSS_HATCH);
-      /*  Appearance app = new Appearance();
-        Color3f ambientColour1 = new Color3f(1.0f, 0.0f, 0.0f);
-        Color3f ambientColour2 = new Color3f(1.0f, 1.0f, 0.0f);
-        Color3f emissiveColour = new Color3f(0.0f, 0.0f, 0.0f);
-        Color3f specularColour = new Color3f(1.0f, 1.0f, 1.0f);
-        Color3f diffuseColour1 = new Color3f(1.0f, 0.0f, 0.0f);
-        Color3f diffuseColour2 = new Color3f(1.0f, 1.0f, 0.0f);
-        float shininess = 20.0f;
-        app.setLineAttributes(new LineAttributes(1, LineAttributes.PATTERN_SOLID, true));
-        app.setMaterial(new javax.media.j3d.Material(ambientColour1, emissiveColour, diffuseColour1, specularColour, shininess));
-*/
-        Shape3D shape = new Shape3D();
-        ColoringAttributes ca = new ColoringAttributes();
-        ca.setColor (1.0f, 1.0f, 0.0f);
+        // http://www.cs.stir.ac.uk/courses/ITNP3B/Java3D/Tutorial/j3d_tutorial_ch6.pdf
+        Geometry geom;
         Appearance app = new Appearance();
-        app.setColoringAttributes(ca);
-        PolygonAttributes pa = new PolygonAttributes();
-        pa.setPolygonMode(PolygonAttributes.POLYGON_LINE);
-        app.setLineAttributes(new LineAttributes(1, LineAttributes.PATTERN_SOLID, true));
-        app.setPolygonAttributes(pa);
+        if (showWired) {
+            /**
+             * Default values
+             *
+             * ColoringAttributes: color = white (1, 1, 1), shade model = SHADE_GOURAUD
+             * LineAttributes: line width = 1.0, line pattern = PATTERN_SOLID, line antialiasing enable = false
+             * PointAttributes: point size = 1.0, point antialiasing enable = false
+             * PolygonAttributes: cull face = CULL_BACK, backFaceNormalFlip = false
+             *                    polygon mode = POLYGON_FILL, polygonOffset = 0.0, polygonOffsetFactor = 0.0
+             * RenderingAttributes: depthBufferEnable true, depthBufferWriteEnable true, alphaTestFunction ALWAYS
+             *                      alphaTestValue 0.0, visible true, ignoreVertexColors false, rasterOpEnable false
+             *                      rasterOp ROP_COPY
+             * TextureAttributes: textureMode REPLACE, textureBlendColor black (0, 0, 0, 0), transform identity
+             *                    perspectiveCorrectionMode NICEST, textureColorTable null
+             * TransparencyAttributes: transparencyMode NONE, transparencyValue 0.0, srcBlendFunction SRC_BLEND_ALPHA
+             *                    dstBlendFunction BLEND_ONE_MINUS_ALPHA
+             */
+            ColoringAttributes ca = new ColoringAttributes(new Color3f(1f, 1f, 1f), ColoringAttributes.SHADE_GOURAUD);
+            app.setColoringAttributes(ca);
+
+            PolygonAttributes pa = new PolygonAttributes();
+            pa.setPolygonMode(PolygonAttributes.POLYGON_LINE);
+            app.setPolygonAttributes(pa);
+
+            LineAttributes la = new LineAttributes(1, LineAttributes.PATTERN_SOLID, true);
+            app.setLineAttributes(la);
+
+            QuadArray cube = new QuadArray(4*6, QuadArray.COORDINATES);
+            cube.setCoordinates(0, verts);
+            geom = cube;
+        } else {
+            app = DefaultMaterials.get("aqua_filter").getAppearence(Pattern.CROSS_HATCH);
+
+            GeometryInfo gi = new GeometryInfo(GeometryInfo.QUAD_ARRAY);
+            gi.setCoordinates(verts);
+            NormalGenerator ng = new NormalGenerator();
+            ng.generateNormals(gi);
+            geom = gi.getGeometryArray();
+        }
+
+        Shape3D shape = new Shape3D();
         shape.setAppearance(app);
-        shape.setGeometry(cube);
+        shape.setGeometry(geom);
         return shape;
     }
 

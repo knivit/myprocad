@@ -91,11 +91,6 @@ public class PlanPanelMenu {
         selectionMenu.add(Menu.SELECT_WALLS.getMenuItem());
         selectionMenu.add(Menu.SELECT_BY_MATERIAL.getMenuItem());
         selectionMenu.add(Menu.SELECT_BY_PATTERN.getMenuItem());
-        selectionMenu.addSeparator();
-        selectionMenu.add(Menu.REMEMBER_SELECTION.getMenuItem());
-        selectionMenu.add(Menu.RESTORE_LAST_SELECTION.getMenuItem());
-        selectionMenu.add(Menu.ADD_TO_LAST_SELECTION.getMenuItem());
-        selectionMenu.add(Menu.CLEAR_REMEMBERED_SELECTIONS.getMenuItem());
 
         // Report menu
         JMenu reportMenu = Menu.REPORT_MENU.addToMenuBar();

@@ -67,10 +67,6 @@ public class Menu {
     public static final Menu SELECT_BY_PATTERN = new Menu(L10.get(L10.MENU_SELECT_BY_PATTERN_NAME));
     public static final Menu SELECT_ALL = new Menu(L10.get(L10.MENU_SELECT_ALL_NAME), "resources/icons/edit-select-all.png");
     public static final Menu SELECT_WALLS = new Menu(L10.get(L10.MENU_SELECT_WALLS_NAME));
-    public static final Menu REMEMBER_SELECTION = new Menu(L10.get(L10.MENU_REMEMBER_SELECTION_NAME));
-    public static final Menu RESTORE_LAST_SELECTION = new Menu(L10.get(L10.MENU_RESTORE_LAST_SELECTION_NAME));
-    public static final Menu ADD_TO_LAST_SELECTION = new Menu(L10.get(L10.MENU_ADD_TO_LAST_SELECTION_NAME));
-    public static final Menu CLEAR_REMEMBERED_SELECTIONS = new Menu(L10.get(L10.MENU_CLEAR_REMEMBERED_SELECTIONS_NAME));
     public static final Menu ESCAPE = new Menu(L10.get(L10.MENU_ESCAPE_NAME));
     public static final Menu MOVE_SELECTION_LEFT = new Menu(L10.get(L10.MENU_MOVE_SELECTION_LEFT_NAME));
     public static final Menu MOVE_SELECTION_UP = new Menu(L10.get(L10.MENU_MOVE_SELECTION_UP_NAME));

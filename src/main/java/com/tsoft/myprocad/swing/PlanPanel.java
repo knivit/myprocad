@@ -184,7 +184,7 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
         }
     }
 
-    public void itemChanged(Item item) { revalidate(); }
+    public void itemChanged() { revalidate(); }
 
     public void itemListChanged() { revalidate(); }
 

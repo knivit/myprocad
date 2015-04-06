@@ -2,7 +2,6 @@ package com.tsoft.myprocad.swing.dialog;
 
 import com.sun.j3d.loaders.Scene;
 import com.sun.j3d.loaders.objectfile.ObjectFile;
-import com.sun.j3d.utils.geometry.Box;
 import com.sun.j3d.utils.universe.SimpleUniverse;
 import com.sun.j3d.utils.behaviors.mouse.MouseRotate;
 import com.sun.j3d.utils.behaviors.mouse.MouseWheelZoom;
@@ -13,7 +12,6 @@ import com.tsoft.myprocad.model.ItemList;
 import javax.media.j3d.*;
 import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
-import javax.vecmath.Vector3d;
 import javax.vecmath.Vector3f;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -37,6 +35,7 @@ public class J3dDialog extends Frame {
 
         canvas = new Canvas3D(SimpleUniverse.getPreferredConfiguration());
         canvas.setDoubleBufferEnable(true);
+
         add(canvas, BorderLayout.CENTER);
 
         addWindowListener(new WindowAdapter() {
@@ -51,27 +50,28 @@ public class J3dDialog extends Frame {
         });
     }
 
-    public void addModelToUniverse(ItemList<AbstractMaterialItem> items) throws IOException {
+    public void addModelToUniverse(ItemList<AbstractMaterialItem> items) {
         BoundingSphere bounds = new BoundingSphere();
 
         BranchGroup contentGroup = new BranchGroup();
         TransformGroup transformGroup = new TransformGroup();
         transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
         transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
-        Color3f ambientColor = new Color3f(0.2f, 0.2f, 0.2f);
-        AmbientLight ambientLight = new AmbientLight(ambientColor);
-        ambientLight.setInfluencingBounds(bounds);
-        contentGroup.addChild(ambientLight);
 
-        int xMin = items.getXMin();
-        int yMin = items.getYMin();
-        int zMin = items.getZMin();
-        int dx = Math.abs(items.getXMax()) + Math.abs(xMin);
-        int dy = Math.abs(items.getYMax()) + Math.abs(yMin);
-        int dz = Math.abs(items.getZMax()) + Math.abs(zMin);
+        addLights(contentGroup);
+
+        int xMin = items.getXMin(); int xMax = items.getXMax();
+        int yMin = items.getYMin(); int yMax = items.getYMax();
+        int zMin = items.getZMin(); int zMax = items.getZMax();
+        int ox = (xMax - xMin) / 2;
+        int oy = (yMax - yMin) / 2;
+        int oz = (zMax - zMin) / 2;
+        int dx = Math.abs(xMax) + Math.abs(xMin);
+        int dy = Math.abs(yMax) + Math.abs(yMin);
+        int dz = Math.abs(zMax) + Math.abs(zMin);
         float scale = Math.max(dx, Math.max(dy, dz)) / 2;
         for (AbstractMaterialItem item : items) {
-            Shape3D shape = item.getShape3D(scale);
+            Shape3D shape = item.getShape3D(scale, ox, oy, oz, false);
             transformGroup.addChild(shape);
         }
 
@@ -92,94 +92,27 @@ public class J3dDialog extends Frame {
 
         universe = new SimpleUniverse(canvas);
         universe.getViewingPlatform().setNominalViewingTransform();
-//        universe.addBranchGraph(viewGroup);
         universe.addBranchGraph(contentGroup);
-
-        //Locale locale = new Locale(universe);
-        //locale.addBranchGraph(buildViewBranch(canvas));
-        //locale.addBranchGraph(buildContentBranch());
-    }
-
-    protected BranchGroup buildViewBranch(Canvas3D c) {
-        BranchGroup viewBranch = new BranchGroup();
-        Transform3D viewXfm = new Transform3D();
-        viewXfm.set(new Vector3f(0.0f, 0.0f, 10.0f));
-        TransformGroup viewXfmGroup = new TransformGroup(viewXfm);
-        viewXfmGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
-        viewXfmGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-        BoundingSphere movingBounds = new BoundingSphere(new Point3d(0.0, 0.0,  0.0), 100.0);
-        BoundingLeaf boundLeaf = new BoundingLeaf(movingBounds);
-        ViewPlatform myViewPlatform = new ViewPlatform();
-        viewXfmGroup.addChild(boundLeaf);
-        PhysicalBody myBody = new PhysicalBody();
-        PhysicalEnvironment myEnvironment = new PhysicalEnvironment();
-        viewXfmGroup.addChild(myViewPlatform);
-        viewBranch.addChild(viewXfmGroup);
-        View myView = new View();
-        myView.addCanvas3D(c);
-        myView.attachViewPlatform(myViewPlatform);
-        myView.setPhysicalBody(myBody);
-        myView.setPhysicalEnvironment(myEnvironment);
-
-        KeyNavigatorBehavior keyNav = new KeyNavigatorBehavior(viewXfmGroup);
-        keyNav.setSchedulingBounds(movingBounds);
-        viewBranch.addChild(keyNav);
-
-        return viewBranch;
     }
 
     protected void addLights(BranchGroup b) {
-        BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0,
-                0.0), 100.0);
+        BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 100.0);
 
         // Create a bounds for the background and lights
         // Set up the global lights
         Color3f ambLightColour = new Color3f(0.5f, 0.5f, 0.5f);
         AmbientLight ambLight = new AmbientLight(ambLightColour);
         ambLight.setInfluencingBounds(bounds);
-        Color3f dirLightColour = new Color3f(1.0f, 1.0f, 1.0f);
-        Vector3f dirLightDir = new Vector3f(-1.0f, -1.0f, -1.0f);
-        DirectionalLight dirLight = new DirectionalLight(dirLightColour,
-                dirLightDir);
-        dirLight.setInfluencingBounds(bounds);
         b.addChild(ambLight);
-        b.addChild(dirLight);
-    }
 
-    protected BranchGroup buildContentBranch() {
-        //Create the appearance an appearance for the two cubes
-        Appearance app1 = new Appearance();
-        Appearance app2 = new Appearance();
-        Color3f ambientColour1 = new Color3f(1.0f, 0.0f, 0.0f);
-        Color3f ambientColour2 = new Color3f(1.0f, 1.0f, 0.0f);
-        Color3f emissiveColour = new Color3f(0.0f, 0.0f, 0.0f);
-        Color3f specularColour = new Color3f(1.0f, 1.0f, 1.0f);
-        Color3f diffuseColour1 = new Color3f(1.0f, 0.0f, 0.0f);
-        Color3f diffuseColour2 = new Color3f(1.0f, 1.0f, 0.0f);
-        float shininess = 20.0f;
-        app1.setMaterial(new Material(ambientColour1, emissiveColour, diffuseColour1, specularColour, shininess));
-        app2.setMaterial(new Material(ambientColour2, emissiveColour, diffuseColour2, specularColour, shininess));
+        Color3f dirLightColour = new Color3f(1.0f, 1.0f, 1.0f);
+        DirectionalLight dirLight1 = new DirectionalLight(dirLightColour, new Vector3f(-1.0f, -1.0f, -1.0f));
+        dirLight1.setInfluencingBounds(bounds);
+        b.addChild(dirLight1);
 
-        //Make two cubes
-        Box leftCube = new Box(1.0f, 1.0f, 1.0f, app1);
-        Box rightCube = new Box(1.0f, 1.0f, 1.0f, app2);
-
-        BranchGroup contentBranch = new BranchGroup();
-        addLights(contentBranch);
-
-        //Put it all together
-        Transform3D leftGroupXfm = new Transform3D();
-        leftGroupXfm.set(new Vector3d(-1.5, 0.0, 0.0));
-        TransformGroup leftGroup = new TransformGroup(leftGroupXfm);
-        Transform3D rightGroupXfm = new Transform3D();
-        rightGroupXfm.set(new Vector3d(1.5, 0.0, 0.0));
-        TransformGroup rightGroup = new TransformGroup(rightGroupXfm);
-
-        leftGroup.addChild(leftCube);
-        rightGroup.addChild(rightCube);
-        contentBranch.addChild(leftGroup);
-        contentBranch.addChild(rightGroup);
-        return contentBranch;
+        DirectionalLight dirLight2 = new DirectionalLight(dirLightColour, new Vector3f(1.0f, 1.0f, 1.0f));
+        dirLight2.setInfluencingBounds(bounds);
+        b.addChild(dirLight2);
     }
 
     public static Scene getSceneFromFile(String location) throws IOException {

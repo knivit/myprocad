@@ -306,6 +306,16 @@ public class ProjectController {
         InputDialogPanel inputDialogPanel = new InputDialogPanel(Arrays.asList(element));
         DialogButton result = inputDialogPanel.displayView(L10.get(L10.MENU_SHOW_PLAN_IN_3D_NAME), DialogButton.OK, DialogButton.CANCEL);
         if (!DialogButton.OK.equals(result)) return;
+
+        ItemList<AbstractMaterialItem> items = new ItemList<>();
+        for (PlanSelection planSelection : elements) {
+            if (planSelection.isSelected) items.addAll(planSelection.plan.getMaterialItems());
+        }
+        if (items.isEmpty()) return;
+
+        J3dDialog j3d = new J3dDialog();
+        j3d.addModelToUniverse(items);
+        j3d.setVisible(true);
     }
 
     public boolean doMenuAction(Menu menu) {

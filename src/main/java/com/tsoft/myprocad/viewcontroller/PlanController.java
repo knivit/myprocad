@@ -74,8 +74,6 @@ public class PlanController implements ProjectItemController {
     public PlanPropertiesManager planPropertiesManager;
 
     private ItemList<Item> selectedItems = new ItemList<>();
-    private List<Selection> rememberedSelections = new ArrayList<>();
-
     public History history = new History(128);
 
     // Possibles states
@@ -230,14 +228,10 @@ public class PlanController implements ProjectItemController {
 
     public void itemChanged(Item item) {
         planPropertiesManager.itemChanged(item);
-        planPanel.itemChanged(item);
+        planPanel.itemChanged();
     }
 
-    public void itemListChanged(CollectionEvent.Type event, ItemList<Item> changes) {
-        if (CollectionEvent.Type.DELETE.equals(event)) {
-            rememberedSelections.stream().forEach(e -> e.removeItems(changes));
-        }
-
+    public void itemListChanged() {
         planPanel.itemListChanged();
     }
 
@@ -262,41 +256,6 @@ public class PlanController implements ProjectItemController {
     public void zoomIn() {
         float newScale = getScale() * 1.2f;
         plan.setScale(newScale);
-    }
-
-    private void rememberSelection() {
-        ItemList<Wall> selectedWalls = selectedItems.getWallsSubList();
-        if (selectedWalls.isEmpty()) return;
-
-        Selection selection = new Selection(new ItemList(selectedWalls));
-        rememberedSelections.add(selection);
-    }
-
-    private void restoreLastSelection() {
-        if (rememberedSelections.isEmpty()) {
-            SwingTools.showMessage(L10.get(L10.NO_SELECTION_TO_RESTORE));
-            return;
-        }
-
-        int index = rememberedSelections.size() - 1;
-        Selection selection = rememberedSelections.get(index);
-        selectAndShowItems(selection.getItems());
-    }
-
-    private void addToLastSelection() {
-        ItemList<Wall> selectedWalls = selectedItems.getWallsSubList();
-        if (selectedWalls.isEmpty()) return;
-
-        if (rememberedSelections.isEmpty()) rememberSelection();
-        else {
-            int index = rememberedSelections.size() - 1;
-            Selection selection = rememberedSelections.get(index);
-            selection.addItems(selectedWalls);
-        }
-    }
-
-    private void clearRememberedSelections() {
-        rememberedSelections.clear();
     }
 
     private void delete() {
@@ -719,18 +678,21 @@ public class PlanController implements ProjectItemController {
         }
     }
 
-    private void show3D() {
+    private void exportToObjFile() {
         try {
             File objFile = File.createTempFile("3dScene", "obj");
             String objFileName = objFile.getAbsolutePath();
             exportToObjFile(objFileName);
-            J3dDialog j3d = new J3dDialog();
-            j3d.addModelToUniverse(plan.getMaterialItems());
-            j3d.setVisible(true);
         } catch (IOException ex) {
             ex.printStackTrace();
             SwingTools.showError(ex.getMessage());
         }
+    }
+
+    private void show3D() {
+        J3dDialog j3d = new J3dDialog();
+        j3d.addModelToUniverse(plan.getMaterialItems());
+            j3d.setVisible(true);
     }
 
     private void addPlan() { projectController.addProjectItem(); }
@@ -793,11 +755,6 @@ public class PlanController implements ProjectItemController {
         if (Menu.SPLIT_IN_TWO.equals(menu)) { splitInTwo(); return true; }
 
         if (Menu.GENERATE_SCRIPT.equals(menu)) { generateScript(); return true; }
-
-        if (Menu.REMEMBER_SELECTION.equals(menu)) { rememberSelection(); return true; }
-        if (Menu.RESTORE_LAST_SELECTION.equals(menu)) { restoreLastSelection(); return true; }
-        if (Menu.ADD_TO_LAST_SELECTION.equals(menu)) { addToLastSelection(); return true; }
-        if (Menu.CLEAR_REMEMBERED_SELECTIONS.equals(menu)) { clearRememberedSelections(); return true; }
 
         if (Menu.MOVE_SELECTION_LEFT.equals(menu)) { moveSelection(-1, 0); return true; }
         if (Menu.MOVE_SELECTION_UP.equals(menu)) { moveSelection(0, -1); return true; }

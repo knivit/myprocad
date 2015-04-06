@@ -76,6 +76,7 @@ public class JavaScriptPanel extends JPanel {
             try {
                 outputBinding.clear();
                 js.execute(commands, outputBinding);
+                plan.getController().itemListChanged();
             } catch (ScriptException ex) {
                 outputBinding.error(ex.getMessage());
             }

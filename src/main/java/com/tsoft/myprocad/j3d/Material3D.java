@@ -87,15 +87,10 @@ public class Material3D {
      */
     public Appearance getAppearence(Pattern pattern) {
         Appearance a = new Appearance();
-
-        Color3f black = new Color3f(0.0f, 0.0f, 0.0f);
-        Color3f white = new Color3f(1.0f, 1.0f, 1.0f);
-        Color3f red = new Color3f(0.7f, .15f, .15f);
-
-        Material m = new Material(red, black, red, white, 70f);
+        Material m = new Material();
 
         // Set ambient & diffuse color
- /*       if (Ka != null) m.setAmbientColor(Ka);
+        if (Ka != null) m.setAmbientColor(Ka);
         if (Kd != null) m.setDiffuseColor(Kd);
 
         // Set specular color
@@ -123,7 +118,7 @@ public class Material3D {
             TransparencyAttributes ta = new TransparencyAttributes(TransparencyAttributes.NICEST, transparencyLevel);
             a.setTransparencyAttributes(ta);
         }
-*/
+
         a.setMaterial(m);
         return a;
     }
