@@ -30,7 +30,7 @@ public class PatternComboBoxRenderer extends DefaultCellRenderer {
         private BufferedImage patternImage;
 
         PatternIcon(Pattern pattern) {
-            patternImage = pattern.getPatternImage(Color.WHITE.getRGB(), Color.BLACK.getRGB());;
+            patternImage = pattern.getPatternImage(Color.WHITE, Color.BLACK);;
         }
 
         @Override

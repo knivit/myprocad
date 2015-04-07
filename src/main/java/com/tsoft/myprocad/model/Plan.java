@@ -59,7 +59,7 @@ public class Plan extends ProjectItem implements Cloneable {
     /** Invoked on Project loading or Project creation */
     public void afterOpen() {
         if (levels.isEmpty()) {
-            Level customLevel = new Level(L10.get(L10.PLAN_CUSTOM_LEVEL_PROPERTY), Item.MIN_COORDINATE / 10, Item.MAX_COORDINATE / 10);
+            Level customLevel = new Level(L10.get(L10.PLAN_CUSTOM_LEVEL_PROPERTY), Item.MIN_COORDINATE, Item.MAX_COORDINATE);
             customLevel.setId(getProject().generateNextId());
             levelId = customLevel.getId();
             levels.add(customLevel);
@@ -164,13 +164,19 @@ public class Plan extends ProjectItem implements Cloneable {
         return scale;
     }
 
-    public void setScale(float value) {
-        value = Math.max(MINIMUM_SCALE, Math.min(value, MAXIMUM_SCALE));
-        if (value == scale) return;
-        scale = value;
+    public String validateScale(Float value) {
+        if (value == null) return L10.get(L10.PROPERTY_CANT_BE_EMPTY);
+        if (value < MINIMUM_SCALE || value > MAXIMUM_SCALE) return L10.get(L10.ITEM_INVALID_FLOAT_PROPERTY, MINIMUM_SCALE, MAXIMUM_SCALE);
+        return null;
+    }
 
-        planController.planChanged(PlanProperties.SCALE, value);
-        getProject().planChanged();
+    public void setScale(float value) {
+        if (value != scale) {
+            scale = value;
+
+            planController.planChanged(PlanProperties.SCALE, value);
+            getProject().planChanged();
+        }
     }
 
     public CoordinatesOriginLocation getOriginLocation() {

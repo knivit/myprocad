@@ -57,8 +57,7 @@ public class WallComponent {
         g2D.fill(shape);
 
         // Draw wall's border
-        Paint borderColor = new Color(wall.getBorderColor());
-        g2D.setPaint(borderColor);
+        g2D.setPaint(wall.getBorderColor());
         g2D.setStroke(new BasicStroke(wall.getBorderWidth() / planScale));
         g2D.draw(shape);
     }
@@ -101,8 +100,8 @@ public class WallComponent {
      * Returns the <code>Paint</code> object used to fill walls.
      */
     private Paint getWallPaint(Wall wall, float planScale) {
-        int backgroundColor = wall.getBackgroundColor();
-        int foregroundColor = wall.getForegroundColor();
+        Color backgroundColor = wall.getBackgroundColor();
+        Color foregroundColor = wall.getForegroundColor();
         Pattern pattern = wall.getPattern();
 
         WallPattern wallPattern = new WallPattern(pattern.getId(), backgroundColor, foregroundColor);

@@ -71,7 +71,7 @@ public class J3dDialog extends Frame {
         int dz = Math.abs(zMax) + Math.abs(zMin);
         float scale = Math.max(dx, Math.max(dy, dz)) / 2;
         for (AbstractMaterialItem item : items) {
-            Shape3D shape = item.getShape3D(scale, ox, oy, oz, false);
+            Shape3D shape = item.getShape3D(scale, ox, oy, oz);
             transformGroup.addChild(shape);
         }
 

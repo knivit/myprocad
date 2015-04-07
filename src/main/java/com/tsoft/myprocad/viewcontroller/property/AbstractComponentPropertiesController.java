@@ -211,22 +211,22 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
                 .setCategoryName(L10.get(L10.VIEW_CATEGORY))
                 .setLabelName(L10.get(L10.BACKGROUND_COLOR_PROPERTY))
                 .setType(ColorPropertyEditor.class)
-                .setValueGetter(item -> new Color(((AbstractMaterialItem) item).getBackgroundColor()))
-                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setBackgroundColor(((Color) value).getRGB()));
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getBackgroundColor())
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setBackgroundColor((Color) value));
 
         new ObjectProperty(this)
                 .setCategoryName(L10.get(L10.VIEW_CATEGORY))
                 .setLabelName(L10.get(L10.FOREGROUND_COLOR_PROPERTY))
                 .setType(ColorPropertyEditor.class)
-                .setValueGetter(item -> new Color(((AbstractMaterialItem) item).getForegroundColor()))
-                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setForegroundColor(((Color) value).getRGB()));
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getForegroundColor())
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setForegroundColor((Color) value));
 
         new ObjectProperty(this)
                 .setCategoryName(L10.get(L10.VIEW_CATEGORY))
                 .setLabelName(L10.get(L10.BORDER_COLOR_PROPERTY))
                 .setType(ColorPropertyEditor.class)
-                .setValueGetter(item -> new Color(((AbstractMaterialItem) item).getBorderColor()))
-                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setBorderColor(((Color) value).getRGB()));
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getBorderColor())
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setBorderColor((Color) value));
 
         new ObjectProperty(this)
                 .setCategoryName(L10.get(L10.VIEW_CATEGORY))
@@ -273,6 +273,66 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
                 .setLabelName(L10.get(L10.PRICE_PROPERTY))
                 .setType(Double.class)
                 .setValueGetter(item -> plan.getSelection().getMaterialItemsPrice());
+    }
+
+    protected void add3dItemProperties() {
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.J3D_CATEGORY))
+                .setLabelName(L10.get(L10.SHOW_WIRED_PROPERTY))
+                .setType(Boolean.class)
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getShowWired())
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setShowWired((boolean) value));
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.J3D_CATEGORY))
+                .setLabelName(L10.get(L10.KA_COLOR_PROPERTY))
+                .setType(ColorPropertyEditor.class)
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getKaColor())
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setKaColor(((Color) value)));
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.J3D_CATEGORY))
+                .setLabelName(L10.get(L10.KD_COLOR_PROPERTY))
+                .setType(ColorPropertyEditor.class)
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getKdColor())
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setKdColor(((Color) value)));
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.J3D_CATEGORY))
+                .setLabelName(L10.get(L10.KS_COLOR_PROPERTY))
+                .setType(ColorPropertyEditor.class)
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getKsColor())
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setKsColor(((Color) value)));
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.J3D_CATEGORY))
+                .setLabelName(L10.get(L10.KE_COLOR_PROPERTY))
+                .setType(ColorPropertyEditor.class)
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getKeColor())
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setKeColor(((Color) value)));
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.J3D_CATEGORY))
+                .setLabelName(L10.get(L10.LIGHTING_ENABLE_PROPERTY))
+                .setType(Boolean.class)
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getLightingEnable())
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setLightingEnable((boolean) value));
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.J3D_CATEGORY))
+                .setLabelName(L10.get(L10.SHININESS_PROPERTY))
+                .setType(Float.class)
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getShininess())
+                .setValueValidator((item, value) -> { return ((AbstractMaterialItem)item).validateShininess((Float)value); })
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setShininess((float) value));
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.J3D_CATEGORY))
+                .setLabelName(L10.get(L10.TRANSPARENCY_PROPERTY))
+                .setType(Float.class)
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getTransparency())
+                .setValueValidator((item, value) -> { return ((AbstractMaterialItem)item).validateTransparency((Float)value); })
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setTransparency((float) value));
     }
 
     protected void refreshMaterialList() {

@@ -1,11 +1,13 @@
 package com.tsoft.myprocad.model;
 
+import java.awt.*;
+
 public class WallPattern {
     private int patternId;
-    private int backgroundColor;
-    private int foregroundColor;
+    private Color backgroundColor;
+    private Color foregroundColor;
 
-    public WallPattern(int patternId, int backgroundColor, int foregroundColor) {
+    public WallPattern(int patternId, Color backgroundColor, Color foregroundColor) {
         this.patternId = patternId;
         this.backgroundColor = backgroundColor;
         this.foregroundColor = foregroundColor;
@@ -19,8 +21,8 @@ public class WallPattern {
         WallPattern that = (WallPattern) o;
 
         if (patternId != that.patternId) return false;
-        if (backgroundColor != that.backgroundColor) return false;
-        if (foregroundColor != that.foregroundColor) return false;
+        if (!backgroundColor.equals(that.backgroundColor)) return false;
+        if (!foregroundColor.equals(that.foregroundColor)) return false;
 
         return true;
     }
@@ -28,8 +30,8 @@ public class WallPattern {
     @Override
     public int hashCode() {
         int result = patternId;
-        result = 31 * result + backgroundColor;
-        result = 31 * result + foregroundColor;
+        result = 31 * result + backgroundColor.hashCode();
+        result = 31 * result + foregroundColor.hashCode();
         return result;
     }
 }

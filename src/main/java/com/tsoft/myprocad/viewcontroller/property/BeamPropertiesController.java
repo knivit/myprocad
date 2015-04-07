@@ -60,6 +60,7 @@ public class BeamPropertiesController extends AbstractComponentPropertiesControl
                 .setValueGetter(item -> ((Beam) item).getYozAngle());
 
         addMaterialItemProperties();
+        add3dItemProperties();
     }
 
     @Override

@@ -2,8 +2,6 @@ package com.tsoft.myprocad.model;
 
 import com.sun.j3d.utils.geometry.GeometryInfo;
 import com.sun.j3d.utils.geometry.NormalGenerator;
-import com.sun.j3d.utils.geometry.Triangulator;
-import com.tsoft.myprocad.j3d.DefaultMaterials;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
@@ -19,11 +17,21 @@ public abstract class AbstractMaterialItem extends Item {
     public static transient final int MAX_BORDER_WIDTH = 5;
 
     private long materialId;
-    private int backgroundColor = Color.WHITE.getRGB();
-    private int foregroundColor = Color.BLACK.getRGB();
-    private int borderColor = Color.BLACK.getRGB();
+    private Color backgroundColor = Color.WHITE;
+    private Color foregroundColor = Color.BLACK;
+    private Color borderColor = Color.BLACK;
     private int borderWidth = 1;
     private int patternId = Pattern.HATCH_UP.getId();
+
+    // 3D properties
+    private boolean showWired;
+    private Color Ka = Color.DARK_GRAY; // The ambient color reflected off the surface of the material
+    private Color Kd = Color.WHITE; // The diffuse color of the material when illuminated
+    private Color Ks = Color.WHITE; // specular color
+    private Color Ke = Color.BLACK; // color of the light the material emits, if any
+    private boolean lightingEnable = false;
+    private float shininess = 64.0f; // range [1.0, 128.0] with 1.0 being not shiny and 128.0 being very shiny
+    private float transparency = 0.0f; //  range [0, 1] with 0.0 being fully opaque and 1.0 being fully transparent
 
     private transient Material material;
     private transient Pattern pattern;
@@ -79,36 +87,36 @@ public abstract class AbstractMaterialItem extends Item {
         return setPattern(pattern);
     }
 
-    public int getBackgroundColor() {
+    public Color getBackgroundColor() {
         return backgroundColor;
     }
 
-    public AbstractMaterialItem setBackgroundColor(int value) {
-        if (backgroundColor != value) {
+    public AbstractMaterialItem setBackgroundColor(Color value) {
+        if (!backgroundColor.equals(value)) {
             backgroundColor = value;
             if (plan != null) plan.itemChanged(this);
         }
         return this;
     }
 
-    public int getForegroundColor() {
+    public Color getForegroundColor() {
         return foregroundColor;
     }
 
-    public AbstractMaterialItem setForegroundColor(int value) {
-        if (foregroundColor != value) {
+    public AbstractMaterialItem setForegroundColor(Color value) {
+        if (!foregroundColor .equals(value)) {
             foregroundColor = value;
             if (plan != null) plan.itemChanged(this);
         }
         return this;
     }
 
-    public int getBorderColor() {
+    public Color getBorderColor() {
         return borderColor;
     }
 
-    public AbstractMaterialItem setBorderColor(int value) {
-        if (borderColor != value) {
+    public AbstractMaterialItem setBorderColor(Color value) {
+        if (!borderColor.equals(value)) {
             borderColor = value;
             if (plan != null) plan.itemChanged(this);
         }
@@ -128,6 +136,113 @@ public abstract class AbstractMaterialItem extends Item {
     public AbstractMaterialItem setBorderWidth(int value) {
         if (borderWidth != value) {
             borderWidth = value;
+            if (plan != null) plan.itemChanged(this);
+        }
+        return this;
+    }
+
+    public boolean getShowWired() {
+        return showWired;
+    }
+
+    public AbstractMaterialItem setShowWired(boolean value) {
+        if (showWired != value) {
+            showWired = value;
+            if (plan != null) plan.itemChanged(this);
+        }
+        return this;
+    }
+    public Color getKaColor() {
+        return Ka;
+    }
+
+    public AbstractMaterialItem setKaColor(Color value) {
+        if (!Ka.equals(value)) {
+            Ka = value;
+            if (plan != null) plan.itemChanged(this);
+        }
+        return this;
+    }
+
+    public Color getKdColor() {
+        return Kd;
+    }
+
+    public AbstractMaterialItem setKdColor(Color value) {
+        if (!Kd.equals(value)) {
+            Kd = value;
+            if (plan != null) plan.itemChanged(this);
+        }
+        return this;
+    }
+
+    public Color getKsColor() {
+        return Ks;
+    }
+
+    public AbstractMaterialItem setKsColor(Color value) {
+        if (!Ks.equals(value)) {
+            Ks = value;
+            if (plan != null) plan.itemChanged(this);
+        }
+        return this;
+    }
+
+    public Color getKeColor() {
+        return Ke;
+    }
+
+    public AbstractMaterialItem setKeColor(Color value) {
+        if (!Ke.equals(value)) {
+            Ke = value;
+            if (plan != null) plan.itemChanged(this);
+        }
+        return this;
+    }
+
+    public boolean getLightingEnable() {
+        return lightingEnable;
+    }
+
+    public AbstractMaterialItem setLightingEnable(boolean value) {
+        if (lightingEnable != value) {
+            lightingEnable = value;
+            if (plan != null) plan.itemChanged(this);
+        }
+        return this;
+    }
+
+    public float getShininess() {
+        return shininess;
+    }
+
+    public String validateShininess(Float value) {
+        if (value == null) return L10.get(L10.PROPERTY_CANT_BE_EMPTY);
+        if (value < 1.0f || value > 128.0f) return L10.get(L10.ITEM_INVALID_FLOAT_PROPERTY, 1.0f, 128.0f);
+        return null;
+    }
+
+    public AbstractMaterialItem setShininess(float value) {
+        if (shininess != value) {
+            shininess = value;
+            if (plan != null) plan.itemChanged(this);
+        }
+        return this;
+    }
+
+    public float getTransparency() {
+        return transparency;
+    }
+
+    public String validateTransparency(Float value) {
+        if (value == null) return L10.get(L10.PROPERTY_CANT_BE_EMPTY);
+        if (value < 0f || value > 1f) return L10.get(L10.ITEM_INVALID_FLOAT_PROPERTY, 0f, 1f);
+        return null;
+    }
+
+    public AbstractMaterialItem setTransparency(float value) {
+        if (transparency != value) {
+            transparency = value;
             if (plan != null) plan.itemChanged(this);
         }
         return this;
@@ -163,8 +278,12 @@ public abstract class AbstractMaterialItem extends Item {
      * left face (3,2,5,4)
      * top face (1,6,5,2)
      * bottom face (3,4,7,0)
+     *
+     * scale - scale to [-1, 1]
+     * oix, oy, oz - offsets to center (0, 0, 0)
+     * showWıred - do not use materıal, show the figure as wıred lınes
      */
-    public Shape3D getShape3D(float scale, int ox, int oy, int oz, boolean showWired) {
+    public Shape3D getShape3D(float scale, int ox, int oy, int oz) {
         int[] n = {
                 7,3,0,4,
                 5,1,2,6,
@@ -176,8 +295,8 @@ public abstract class AbstractMaterialItem extends Item {
 
         float[] verts = new float[3*(4*6)];
         for (int i = 0; i < 4*6; i ++ ) {
-            verts[i*3] = (vertexes[n[i]].x()  - ox) / scale;
-            verts[i*3 + 1] = (vertexes[n[i]].y() - oy) / scale;
+            verts[i*3] = (vertexes[n[i]].x() - ox) / scale;
+            verts[i*3 + 1] = (vertexes[n[i]].y() - oy) / scale; // MyProCAD and Java3D Y and Z axes differ, so switch them
             verts[i*3 + 2] = (vertexes[n[i]].z() - oz) / scale;
         }
 
@@ -215,7 +334,16 @@ public abstract class AbstractMaterialItem extends Item {
             cube.setCoordinates(0, verts);
             geom = cube;
         } else {
-            app = DefaultMaterials.get("aqua_filter").getAppearence(Pattern.CROSS_HATCH);
+            javax.media.j3d.Material m3d = new javax.media.j3d.Material();
+            m3d.setAmbientColor(new Color3f(Ka));
+            m3d.setDiffuseColor(new Color3f(Kd));
+            m3d.setEmissiveColor(new Color3f(Ke));
+            m3d.setSpecularColor(new Color3f(Ks));
+            m3d.setShininess(shininess);
+            m3d.setLightingEnable(lightingEnable);
+            TransparencyAttributes ta = new TransparencyAttributes(TransparencyAttributes.NICEST, transparency);
+            app.setTransparencyAttributes(ta);
+            app.setMaterial(m3d);
 
             GeometryInfo gi = new GeometryInfo(GeometryInfo.QUAD_ARRAY);
             gi.setCoordinates(verts);
@@ -263,10 +391,18 @@ public abstract class AbstractMaterialItem extends Item {
         writer
                 .write("materialId", materialId)
                 .write("patternId", patternId)
-                .write("backgroundColor", backgroundColor)
-                .write("foregroundColor", foregroundColor)
-                .write("borderColor", borderColor)
-                .write("borderWidth", borderWidth);
+                .write("backgroundColor", backgroundColor.getRGB())
+                .write("foregroundColor", foregroundColor.getRGB())
+                .write("borderColor", borderColor.getRGB())
+                .write("borderWidth", borderWidth)
+                .write("showWired", showWired)
+                .write("Ka", Ka.getRGB())
+                .write("Kd", Kd.getRGB())
+                .write("Ks", Ks.getRGB())
+                .write("Ke", Ke.getRGB())
+                .write("lightingEnable", lightingEnable)
+                .write("shininess", shininess)
+                .write("transparency", transparency);
     }
 
     @Override
@@ -275,9 +411,17 @@ public abstract class AbstractMaterialItem extends Item {
         reader
                 .defLong("materialId", ((value) -> materialId = value))
                 .defInteger("patternId", ((value) -> patternId = value))
-                .defInteger("backgroundColor", ((value) -> backgroundColor = value))
-                .defInteger("foregroundColor", ((value) -> foregroundColor = value))
-                .defInteger("borderColor", ((value) -> borderColor = value))
-                .defInteger("borderWidth", ((value) -> borderWidth = value));
+                .defInteger("backgroundColor", ((value) -> backgroundColor = new Color(value)))
+                .defInteger("foregroundColor", ((value) -> foregroundColor = new Color(value)))
+                .defInteger("borderColor", ((value) -> borderColor = new Color(value)))
+                .defInteger("borderWidth", ((value) -> borderWidth = value))
+                .defBoolean("showWired", ((value) -> showWired = value))
+                .defInteger("Ka", ((value) -> Ka = new Color(value)))
+                .defInteger("Kd", ((value) -> Kd = new Color(value)))
+                .defInteger("Ks", ((value) -> Ks = new Color(value)))
+                .defInteger("Ke", ((value) -> Ke = new Color(value)))
+                .defBoolean("lightingEnable", ((value) -> lightingEnable = value))
+                .defFloat("shininess", ((value) -> shininess = value))
+                .defFloat("transparency", ((value) -> transparency = value));
     }
 }

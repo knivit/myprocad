@@ -220,7 +220,7 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
         super.revalidate();
         repaint();
 
-        if (invalidatePlanBoundsCache && getParent() instanceof JViewport) {
+        if (invalidatePlanBoundsCache) {
             float planBoundsNewMinX = (float)getPlanBounds().getMinX();
             float planBoundsNewMinY = (float)getPlanBounds().getMinY();
 
@@ -374,15 +374,13 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
         }
 
         // Always enlarge plan bounds only when plan component is a child of a scroll pane
-        if (planBoundsCache == null || !(getParent() instanceof JViewport)) {
+        if (planBoundsCache == null) {
             // Ensure plan bounds are 10 x 10 meters wide at minimum
-            planBoundsCache = new Rectangle2D.Float(0, 0, 1000, 1000);
+            planBoundsCache = new Rectangle2D.Float(0, 0, 10000, 10000);
         }
 
-        Rectangle2D itemsBounds = getItemsBounds(getGraphics(), getPaintedItems());
-        if (itemsBounds != null) {
-            planBoundsCache.add(itemsBounds);
-        }
+        Rectangle2D itemsBounds = getItemsBounds(getPaintedItems());
+        if (itemsBounds != null) planBoundsCache.add(itemsBounds);
 
         planBoundsCacheValid = true;
         return planBoundsCache;
@@ -399,13 +397,13 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
     /**
      * Returns the bounds of the given collection of <code>items</code>.
      */
-    public Rectangle2D getItemsBounds(Graphics g, ItemList<Item> items) {
+    public Rectangle2D getItemsBounds(ItemList<Item> items) {
         Rectangle2D itemsBounds = null;
         for (Item item : items) {
             if (itemsBounds == null) {
-                itemsBounds = getItemBounds(g, item);
+                itemsBounds = getItemBounds(item);
             } else {
-                Rectangle2D nextBounds = getItemBounds(g, item);
+                Rectangle2D nextBounds = getItemBounds(item);
                 if (nextBounds != null) {
                     itemsBounds.add(nextBounds);
                 }
@@ -417,8 +415,9 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
     /**
      * Returns the bounds of the given <code>item</code>.
      */
-    protected Rectangle2D getItemBounds(Graphics g, Item item) {
-        return item.getShape().getBounds2D();
+    protected Rectangle2D getItemBounds(Item item) {
+        Shape shape = item.getShape();
+        return shape.getBounds2D();
     }
 
     @Override
@@ -462,7 +461,7 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
     @Override
     public int print(Graphics g, PageFormat pageFormat, int pageIndex) {
         ItemList<Item> printedItems = getPaintedItems();
-        Rectangle2D bounds = getItemsBounds(g, printedItems);
+        Rectangle2D bounds = getItemsBounds(printedItems);
         if (bounds == null) return NO_SUCH_PAGE;
 
         // add margins to print rulers
@@ -663,7 +662,7 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
      * Returns the bounds of the selected items.
      */
     public Rectangle2D getSelectionBounds() {
-        return getItemsBounds(getGraphics(), planController.getSelectedItems());
+        return getItemsBounds(planController.getSelectedItems());
     }
 
     /**
@@ -698,14 +697,12 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
      * Moves the view from (dx, dy) unit in the scrolling zone it belongs to.
      */
     public void moveView(float dx, float dy) {
-        if (getParent() instanceof JViewport) {
-            JViewport viewport = (JViewport)getParent();
-            Rectangle viewRectangle = viewport.getViewRect();
-            viewRectangle.translate(Math.round(dx * plan.getScale()), Math.round(dy * plan.getScale()));
-            viewRectangle.x = Math.min(Math.max(0, viewRectangle.x), getWidth() - viewRectangle.width);
-            viewRectangle.y = Math.min(Math.max(0, viewRectangle.y), getHeight() - viewRectangle.height);
-            viewport.setViewPosition(viewRectangle.getLocation());
-        }
+        JViewport viewport = (JViewport)getParent();
+        Rectangle viewRectangle = viewport.getViewRect();
+        viewRectangle.translate(Math.round(dx * plan.getScale()), Math.round(dy * plan.getScale()));
+        viewRectangle.x = Math.min(Math.max(0, viewRectangle.x), getWidth() - viewRectangle.width);
+        viewRectangle.y = Math.min(Math.max(0, viewRectangle.y), getHeight() - viewRectangle.height);
+        viewport.setViewPosition(viewRectangle.getLocation());
     }
 
     /**
@@ -716,28 +713,20 @@ public class PlanPanel extends JComponent implements Scrollable, Printable {
     public void setScale(float scale) {
         if (this.scale == scale) return;
 
-        JViewport parent = null;
-        Rectangle viewRectangle = null;
-        float xViewCenterPosition = 0;
-        float yViewCenterPosition = 0;
-        if (getParent() instanceof JViewport) {
-            parent = (JViewport)getParent();
-            viewRectangle = parent.getViewRect();
-            xViewCenterPosition = convertXPixelToModel(viewRectangle.x + viewRectangle.width / 2);
-            yViewCenterPosition = convertYPixelToModel(viewRectangle.y + viewRectangle.height / 2);
-        }
+        JViewport parent = (JViewport)getParent();
+        Rectangle viewRectangle = parent.getViewRect();
+        float xViewCenterPosition = convertXPixelToModel(viewRectangle.x + viewRectangle.width / 2);
+        float yViewCenterPosition = convertYPixelToModel(viewRectangle.y + viewRectangle.height / 2);
 
         this.scale = scale;
         revalidate(false);
 
-        if (parent instanceof JViewport) {
-            Dimension viewSize = parent.getViewSize();
-            float viewWidth = convertXPixelToModel(viewRectangle.x + viewRectangle.width) - convertXPixelToModel(viewRectangle.x);
-            int xViewLocation = Math.max(0, Math.min(convertXModelToPixel(xViewCenterPosition - viewWidth / 2), viewSize.width - viewRectangle.x));
-            float viewHeight = convertYPixelToModel(viewRectangle.y + viewRectangle.height) - convertYPixelToModel(viewRectangle.y);
-            int yViewLocation = Math.max(0, Math.min(convertYModelToPixel(yViewCenterPosition - viewHeight / 2), viewSize.height - viewRectangle.y));
-            parent.setViewPosition(new Point(xViewLocation, yViewLocation));
-        }
+        Dimension viewSize = parent.getViewSize();
+        float viewWidth = convertXPixelToModel(viewRectangle.x + viewRectangle.width) - convertXPixelToModel(viewRectangle.x);
+        int xViewLocation = Math.max(0, Math.min(convertXModelToPixel(xViewCenterPosition - viewWidth / 2), viewSize.width - viewRectangle.x));
+        float viewHeight = convertYPixelToModel(viewRectangle.y + viewRectangle.height) - convertYPixelToModel(viewRectangle.y);
+        int yViewLocation = Math.max(0, Math.min(convertYModelToPixel(yViewCenterPosition - viewHeight / 2), viewSize.height - viewRectangle.y));
+        parent.setViewPosition(new Point(xViewLocation, yViewLocation));
     }
 
     /**

@@ -198,12 +198,12 @@ public class L10 {
 
     public static String[] CALCULATOR_LABEL = { "Calculator: ", "Калькулятор: " };
     public static String[] CALCULATOR_ERROR = { "Error", "Ошибка" };
-    public static String[] NO_SELECTION_TO_RESTORE = { "There is no selection to restore", "Нет выделения для восстановления" };
 
     /** Common */
     public static String[] CANCEL = { "Cancel", "Отмена" };
     public static String[] SELECT_ITEM = { "Select an item", "Выберите элемент" };
     public static String[] VIEW_CATEGORY = { "View", "Представление" };
+    public static String[] J3D_CATEGORY = { "3D View", "3D Вид" };
     public static String[] PROPERTIES_CATEGORY = { "Properties", "Свойства" };
     public static String[] INFO_CATEGORY = { "Info", "Информация" };
     public static String[] X_CATEGORY = { "X Coordinate", "Координата X" };
@@ -225,6 +225,14 @@ public class L10 {
     public static String[] FOREGROUND_COLOR_PROPERTY = { "Foreground Color", "Цвет линий" };
     public static String[] BORDER_COLOR_PROPERTY = { "Border Color", "Цвет границы" };
     public static String[] BORDER_WIDTH_PROPERTY = { "Border Width", "Толщина границы" };
+    public static String[] SHOW_WIRED_PROPERTY = { "Show wired", "Показать каркас" };
+    public static String[] KA_COLOR_PROPERTY = { "Ambient Color", "Рассеянный свет" };
+    public static String[] KD_COLOR_PROPERTY = { "Diffuse Color", "Рассеянный свет" };
+    public static String[] KS_COLOR_PROPERTY = { "Specular Color", "Зеркальный свет" };
+    public static String[] KE_COLOR_PROPERTY = { "Emissive Color", "Излучаемый свет" };
+    public static String[] LIGHTING_ENABLE_PROPERTY = { "Lighting Enable", "Свет" };
+    public static String[] SHININESS_PROPERTY = { "Shininess", "Яркость" };
+    public static String[] TRANSPARENCY_PROPERTY = { "Transparency", "Прозрачность" };
 
     /** Status Panel */
     public static String[] STATUS_PANEL_X_LABEL = { "Mouse coordinates, X: ", "Координаты мыши, X: " };
@@ -363,10 +371,6 @@ public class L10 {
     public static String[] CALCULATION_AREA_M2_PROPERTY = { "Area (m2)", "Площадь (м2)" };
     public static String[] CALCULATION_PERIMETER_PROPERTY = { "Perimeter (mm)", "Периметр (мм)" };
 
-    public static String[] BEAM_MENU = { "Beam", "Балка" };
-    public static String[] MENU_ADD_BEAM_NAME = { "Add Beam", "Добавить балку" };
-    public static String[] MENU_DELETE_BEAM_NAME = { "Delete Beam", "Удалить балку" };
-
     public static String[] WOOD_BEAM_MENU = { "Wood Beam", "Деревянная балка" };
     public static String[] MENU_ADD_WOOD_BEAM_NAME = { "Add Wood Beam", "Добавить деревянную балку" };
     public static String[] MENU_DELETE_WOOD_BEAM_NAME = { "Delete Wood Beam", "Удалить деревянную балку" };
@@ -468,8 +472,6 @@ public class L10 {
     public static String[] MATERIAL_COLUMN_UNIT = { "Unit", "Ед. изм." };
 
     /** Items */
-    public static String[] WALL_TYPE_NAME = { "Wall", "Стена" };
-    public static String[] BEAM_TYPE_NAME = { "Beam", "Балка" };
     public static String[] DIMENSION_LINE_TYPE_NAME = { "Dimension Line", "Размер" };
     public static String[] LABEL_TYPE_NAME = { "Label", "Метка" };
     public static String[] LEVEL_MARK_TYPE_NAME = { "Level mark", "Метка уровня" };
@@ -492,7 +494,8 @@ public class L10 {
 
     public static String[] ITEM_INVALID_COORDINATE = { "Item's coordinate must be in [%d, %d]", "Координата элемента должна быть в интервале [%d, %d]" };
     public static String[] ITEM_INVALID_DIAGONAL_WIDTH = { "Diagonal width must be positive and within the rectangle", "Ширина по диагонали д.б. положительна и вписываться в прямоугольник" };
-    public static String[] ITEM_INVALID_INTEGER_PROPERTY = { "Property '%s' must be in [%d, %d]", "Свойство '%s' должно быть в диапазоне [%d, %d]" };
+    public static String[] ITEM_INVALID_INTEGER_PROPERTY = { "The value must be in [%d, %d]", "Значение должно быть в диапазоне [%d, %d]" };
+    public static String[] ITEM_INVALID_FLOAT_PROPERTY = { "The value must be in [%f, %f]", "Значение должно быть в диапазоне [%f, %f]" };
 
     /** Plan Panel hint */
     public static String[] MOUSE_LOCATION_HINT1 = { "%dcm", "%dсм" };
@@ -501,7 +504,7 @@ public class L10 {
     /** Folders */
     public static String[] CREATE_FOLDER = { "Folder name:", "Имя папки:" };
     public static String[] RENAME_FOLDER = { "Rename", "Переименовать" };
-    public static String[] FOLDER_ALREADY_EXISTS = { "Folder '%s' already exists", "Папка %s уже существует" };
+    public static String[] FOLDER_ALREADY_EXISTS = { "Folder '%s' already exists", "Папка '%s' уже существует" };
     public static String[] CANT_REMOVE_NON_EMPTY_FOLDER = { "Can't remove non-empty folder. Remove it's items first", "Нельзя удалить не пустую папку. Сначала удалите все ее элементы" };
     public static String[] CANT_REMOVE_THE_ONLY_FOLDER = { "Can't remove the only folder", "Нельзя удалить последнюю папку" };
 

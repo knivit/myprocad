@@ -63,10 +63,10 @@ public enum Pattern {
     /**
      * Returns the image matching a given pattern.
      */
-    public BufferedImage getPatternImage(int backgroundColor, int foregroundColor) {
+    public BufferedImage getPatternImage(Color backgroundColor, Color foregroundColor) {
         BufferedImage image = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);
         Graphics2D imageGraphics = (Graphics2D)image.getGraphics();
-        imageGraphics.setColor(new Color(backgroundColor));
+        imageGraphics.setColor(backgroundColor);
         imageGraphics.fillRect(0, 0, image.getWidth(), image.getHeight());
 
         // Get pattern image from cache
@@ -79,7 +79,7 @@ public enum Pattern {
         }
 
         // Draw the pattern image with foreground color
-        final int foregroundColorRgb = foregroundColor & 0xFFFFFF;
+        final int foregroundColorRgb = foregroundColor.getRGB() & 0xFFFFFF;
         imageGraphics.drawImage(Toolkit.getDefaultToolkit().createImage(
                 new FilteredImageSource(bufferedImage.getSource(),
                         new RGBImageFilter() {

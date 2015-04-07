@@ -139,7 +139,11 @@ public class ItemList<T extends Item> extends ArrayList<T> {
     }
 
     public ItemList<T> atLevel(Level level) {
-        return stream().filter(item -> item.isAtZLevel(level)).collect(Collectors.toCollection(ItemList<T>::new));
+        ItemList<T> items = new ItemList<>();
+        for (T item : this) {
+            if (item.isAtZLevel(level)) items.add(item);
+        }
+        return items;
     }
 
     /**

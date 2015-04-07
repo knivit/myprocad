@@ -16,6 +16,7 @@ public class WallPropertiesController extends AbstractComponentPropertiesControl
         addCommonProperties();
         addMaterialItemProperties();
         addViewProperties();
+        add3dItemProperties();
         addInfoProperties();
     }
 

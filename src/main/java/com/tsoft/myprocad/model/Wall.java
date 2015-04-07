@@ -265,7 +265,7 @@ public class Wall extends AbstractMaterialItem implements JsonSerializable {
                 return new Ellipse2D.Float(x1, y1, dx, dy);
             }
         }
-        throw new IllegalStateException("Unknown Wall Shape = " + getWallShape());
+        throw new IllegalStateException("Unknown wall shape = " + getWallShape());
     }
 
     @Override
