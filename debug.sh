@@ -5,6 +5,7 @@ if [ "$?" != "0" ] ; then
 else
   java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=9009 \
      -Djava.util.logging.config.file=./logging.properties \
+     -Djava.library.path=./lib \
      -jar ./target/myprocad-1.0.jar \
      2>./stderr.log &
 

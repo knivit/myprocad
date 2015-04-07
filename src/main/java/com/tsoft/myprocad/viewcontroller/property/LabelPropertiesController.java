@@ -32,8 +32,8 @@ public class LabelPropertiesController extends AbstractComponentPropertiesContro
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.BORDER_COLOR_PROPERTY))
             .setType(ColorPropertyEditor.class)
-            .setValueGetter(object -> new Color(((Label) object).getBorderColor()))
-            .setValueSetter((object, value) -> ((Label) object).setBorderColor(((Color) value).getRGB()));
+            .setValueGetter(object -> ((Label) object).getBorderColor())
+            .setValueSetter((object, value) -> ((Label) object).setBorderColor((Color) value));
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))

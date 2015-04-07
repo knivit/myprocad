@@ -313,13 +313,6 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
 
         new ObjectProperty(this)
                 .setCategoryName(L10.get(L10.J3D_CATEGORY))
-                .setLabelName(L10.get(L10.LIGHTING_ENABLE_PROPERTY))
-                .setType(Boolean.class)
-                .setValueGetter(item -> ((AbstractMaterialItem) item).getLightingEnable())
-                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setLightingEnable((boolean) value));
-
-        new ObjectProperty(this)
-                .setCategoryName(L10.get(L10.J3D_CATEGORY))
                 .setLabelName(L10.get(L10.SHININESS_PROPERTY))
                 .setType(Float.class)
                 .setValueGetter(item -> ((AbstractMaterialItem) item).getShininess())

@@ -25,13 +25,12 @@ public abstract class AbstractMaterialItem extends Item {
 
     // 3D properties
     private boolean showWired;
-    private Color Ka = Color.DARK_GRAY; // The ambient color reflected off the surface of the material
+    private Color Ka = new Color(50, 50, 50); // The ambient color reflected off the surface of the material
     private Color Kd = Color.WHITE; // The diffuse color of the material when illuminated
     private Color Ks = Color.WHITE; // specular color
     private Color Ke = Color.BLACK; // color of the light the material emits, if any
-    private boolean lightingEnable = false;
     private float shininess = 64.0f; // range [1.0, 128.0] with 1.0 being not shiny and 128.0 being very shiny
-    private float transparency = 0.0f; //  range [0, 1] with 0.0 being fully opaque and 1.0 being fully transparent
+    private float transparency = 0.0f; // range [0.0, 1.0] with 0.0 being fully opaque and 1.0 being
 
     private transient Material material;
     private transient Pattern pattern;
@@ -200,18 +199,6 @@ public abstract class AbstractMaterialItem extends Item {
         return this;
     }
 
-    public boolean getLightingEnable() {
-        return lightingEnable;
-    }
-
-    public AbstractMaterialItem setLightingEnable(boolean value) {
-        if (lightingEnable != value) {
-            lightingEnable = value;
-            if (plan != null) plan.itemChanged(this);
-        }
-        return this;
-    }
-
     public float getShininess() {
         return shininess;
     }
@@ -262,15 +249,15 @@ public abstract class AbstractMaterialItem extends Item {
      * The coordinate system of the Java 3D virtual universe is right-handed. The x-axis is positive to the right,
      * y-axis is positive up, and z-axis is positive toward the viewer, with all units in meters
      *
-     *      5-----------6
-     *     / |         / |
-     *  Y /  |        /  |
-     *    2----------1   |
-     *    |  4-------|--7
-     *    |/         | /
-     *    3----------0/    --> X
-     *   /
-     * Z
+     *         5-----------6
+     *        / |         /|
+     *    Y  /  |        / |
+     *      2----------1   |
+     *      |  4-------|--7
+     *      |/         | /
+     *      3----------0/    --> X
+     *     /
+     *   Z
      *
      * front face (0,1,2,3)
      * back face (4,5,6,7)
@@ -284,6 +271,7 @@ public abstract class AbstractMaterialItem extends Item {
      * showWıred - do not use materıal, show the figure as wıred lınes
      */
     public Shape3D getShape3D(float scale, int ox, int oy, int oz) {
+        // MyProCAD and Java3D Y and Z axes differ
         int[] n = {
                 7,3,0,4,
                 5,1,2,6,
@@ -296,7 +284,7 @@ public abstract class AbstractMaterialItem extends Item {
         float[] verts = new float[3*(4*6)];
         for (int i = 0; i < 4*6; i ++ ) {
             verts[i*3] = (vertexes[n[i]].x() - ox) / scale;
-            verts[i*3 + 1] = (vertexes[n[i]].y() - oy) / scale; // MyProCAD and Java3D Y and Z axes differ, so switch them
+            verts[i*3 + 1] = (vertexes[n[i]].y() - oy) / scale;
             verts[i*3 + 2] = (vertexes[n[i]].z() - oz) / scale;
         }
 
@@ -320,14 +308,14 @@ public abstract class AbstractMaterialItem extends Item {
              * TransparencyAttributes: transparencyMode NONE, transparencyValue 0.0, srcBlendFunction SRC_BLEND_ALPHA
              *                    dstBlendFunction BLEND_ONE_MINUS_ALPHA
              */
-            ColoringAttributes ca = new ColoringAttributes(new Color3f(1f, 1f, 1f), ColoringAttributes.SHADE_GOURAUD);
+            ColoringAttributes ca = new ColoringAttributes(new Color3f(borderColor), ColoringAttributes.SHADE_GOURAUD);
             app.setColoringAttributes(ca);
 
             PolygonAttributes pa = new PolygonAttributes();
             pa.setPolygonMode(PolygonAttributes.POLYGON_LINE);
             app.setPolygonAttributes(pa);
 
-            LineAttributes la = new LineAttributes(1, LineAttributes.PATTERN_SOLID, true);
+            LineAttributes la = new LineAttributes(borderWidth, LineAttributes.PATTERN_SOLID, true);
             app.setLineAttributes(la);
 
             QuadArray cube = new QuadArray(4*6, QuadArray.COORDINATES);
@@ -340,7 +328,6 @@ public abstract class AbstractMaterialItem extends Item {
             m3d.setEmissiveColor(new Color3f(Ke));
             m3d.setSpecularColor(new Color3f(Ks));
             m3d.setShininess(shininess);
-            m3d.setLightingEnable(lightingEnable);
             TransparencyAttributes ta = new TransparencyAttributes(TransparencyAttributes.NICEST, transparency);
             app.setTransparencyAttributes(ta);
             app.setMaterial(m3d);
@@ -360,7 +347,7 @@ public abstract class AbstractMaterialItem extends Item {
 
     public String toObjString(int vno) {
         // For 3d modelling, the item's triangles
-        int[][] FACES = new int[][] {
+        int[][] faces = new int[][] {
                 {1, 7, 5}, {1, 3, 7}, {1, 4, 3},
                 {1, 2, 4}, {3, 8, 7}, {3, 4, 8},
                 {5, 7, 8}, {5, 8, 6}, {1, 5, 6},
@@ -375,7 +362,7 @@ public abstract class AbstractMaterialItem extends Item {
 
         // faces
         for (int i = 0; i < 12; i ++) {
-            buf.append("f " + (vno + FACES[i][0]) + " " + (vno + FACES[i][1]) + " " + (vno + FACES[i][2])).append('\n');
+            buf.append("f " + (vno + faces[i][0]) + " " + (vno + faces[i][1]) + " " + (vno + faces[i][2])).append('\n');
         }
         return buf.toString();
     }
@@ -400,7 +387,6 @@ public abstract class AbstractMaterialItem extends Item {
                 .write("Kd", Kd.getRGB())
                 .write("Ks", Ks.getRGB())
                 .write("Ke", Ke.getRGB())
-                .write("lightingEnable", lightingEnable)
                 .write("shininess", shininess)
                 .write("transparency", transparency);
     }
@@ -420,7 +406,6 @@ public abstract class AbstractMaterialItem extends Item {
                 .defInteger("Kd", ((value) -> Kd = new Color(value)))
                 .defInteger("Ks", ((value) -> Ks = new Color(value)))
                 .defInteger("Ke", ((value) -> Ke = new Color(value)))
-                .defBoolean("lightingEnable", ((value) -> lightingEnable = value))
                 .defFloat("shininess", ((value) -> shininess = value))
                 .defFloat("transparency", ((value) -> transparency = value));
     }

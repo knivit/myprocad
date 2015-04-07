@@ -94,7 +94,7 @@ public class DimensionLineComponent {
             g2D.setStroke(dimensionLineStroke);
 
             // Draw dimension line
-            g2D.setPaint(new Color(dimensionLine.getColor()));
+            g2D.setPaint(dimensionLine.getColor());
             g2D.draw(new Line2D.Float(0, 0, dimensionLineLength, 0));
 
             // Draw dimension line ends

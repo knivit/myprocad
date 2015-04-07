@@ -16,6 +16,7 @@ import com.tsoft.myprocad.util.printer.PaperSize;
 import com.tsoft.myprocad.viewcontroller.PasteOperation;
 import com.tsoft.myprocad.viewcontroller.PlanController;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.function.Consumer;
@@ -51,6 +52,11 @@ public class Plan extends ProjectItem implements Cloneable {
     private transient CoordinatesOriginLocation originLocation;
     private transient Level level;
     private transient PasteOperation pasteOperation;
+
+    /* Default settings for JavaScript commands */
+    private transient String defaultPatternName;
+    private transient Color defaultBackgroundColor;
+    private transient Material defaultMaterial;
 
     Plan() {
         levels = new LevelList(this);
@@ -272,15 +278,23 @@ public class Plan extends ProjectItem implements Cloneable {
         return walls.getCopy();
     }
 
+    private void populateItem(AbstractMaterialItem item, float xStart, float yStart, float zStart, float xEnd, float yEnd, float zEnd) {
+        item.setXStart(xStart);
+        item.setXEnd(xEnd);
+        item.setYStart(yStart);
+        item.setYEnd(yEnd);
+        item.setZStart(Math.round(zStart));
+        item.setZEnd(Math.round(zEnd));
+
+        if (defaultBackgroundColor != null) item.setBackgroundColor(defaultBackgroundColor);
+        if (defaultPatternName != null) item.setPattern(defaultPatternName);
+        if (defaultMaterial != null) item.setMaterial(defaultMaterial);
+        else item.setMaterial(getProject().getMaterials().getDefault());
+    }
+
     public Wall createWall(float xStart, float yStart, float zStart, float xEnd, float yEnd, float zEnd) {
         Wall wall = (Wall)ItemType.WALL.newInstance();
-        wall.setXStart(xStart);
-        wall.setXEnd(xEnd);
-        wall.setYStart(yStart);
-        wall.setYEnd(yEnd);
-        wall.setZStart(Math.round(zStart));
-        wall.setZEnd(Math.round(zEnd));
-        wall.setMaterial(getProject().getMaterials().getDefault());
+        populateItem(wall, xStart, yStart, zStart, xEnd, yEnd, zEnd);
         return wall;
     }
 
@@ -311,15 +325,9 @@ public class Plan extends ProjectItem implements Cloneable {
 
     public Beam createBeam(float xStart, float yStart, int zStart, float xEnd, float yEnd, int zEnd, int width, int height) {
         Beam beam = (Beam)ItemType.BEAM.newInstance();
-        beam.setXStart(xStart);
-        beam.setYStart(yStart);
-        beam.setZStart(zStart);
-        beam.setXEnd(xEnd);
-        beam.setYEnd(yEnd);
-        beam.setZEnd(zEnd);
+        populateItem(beam, xStart, yStart, zStart, xEnd, yEnd, zEnd);
         beam.setWidth(width);
         beam.setHeight(height);
-        beam.setMaterial(getProject().getMaterials().getDefault());
         return beam;
     }
 
@@ -590,6 +598,22 @@ public class Plan extends ProjectItem implements Cloneable {
         if (ObjectUtil.equals(script, value)) return;
         this.script = value;
         getProject().setModified(true);
+    }
+
+    /* Methods invoked from JavaScript. Do not delete them. */
+    public Plan setDefaultPattern(String patternName) {
+        defaultPatternName = patternName;
+        return this;
+    }
+
+    public Plan setDefaultBackgroundColor(int r, int g, int b) {
+        defaultBackgroundColor = new Color(r, g, b);
+        return this;
+    }
+
+    public Plan setDefaultMaterial(Material material) {
+        defaultMaterial = material;
+        return this;
     }
 
     public void exportToObjFile(String fileName) {

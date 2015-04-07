@@ -181,14 +181,25 @@ public class Wall extends AbstractMaterialItem implements JsonSerializable {
         int z1 = getZStart();
         int z2 = getZEnd();
 
-        vertexes[0] = new Vec3(x1,    y1,    z1);
-        vertexes[1] = new Vec3(x1,    y1,    z2);
-        vertexes[2] = new Vec3(x1+dx, y1,    z2);
-        vertexes[3] = new Vec3(x1+dx, y1,    z1);
-        vertexes[4] = new Vec3(x1,    y1+dy, z1);
-        vertexes[5] = new Vec3(x1,    y1+dy, z2);
-        vertexes[6] = new Vec3(x1+dx, y1+dy, z2);
-        vertexes[7] = new Vec3(x1+dx, y1+dy, z1);
+        /**
+         *      1-----------2
+         *     / |         / |
+         *  Z /  |        /  |
+         *    0----------3   |
+         *    |  5-------|--6    --> X
+         *    |/         | /
+         *    4----------7/
+         *   /
+         * Y
+         */
+        vertexes[0] = new Vec3(x1, y2, z2);
+        vertexes[1] = new Vec3(x1, y1, z2);
+        vertexes[2] = new Vec3(x2, y1, z2);
+        vertexes[3] = new Vec3(x2, y2, z2);
+        vertexes[4] = new Vec3(x1, y2, z1);
+        vertexes[5] = new Vec3(x1, y1, z1);
+        vertexes[6] = new Vec3(x2, y1, z1);
+        vertexes[7] = new Vec3(x2, y2, z1);
 
         switch (getWallShape()) {
             case RECTANGLE: {

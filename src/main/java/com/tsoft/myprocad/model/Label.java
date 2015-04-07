@@ -18,7 +18,7 @@ public class Label extends Item implements JsonSerializable {
     private String fontFamily = Font.SANS_SERIF;
     private int fontSize = 200;
     private int rotationId = Rotation.ANGLE_0.getId();
-    private int borderColor = Color.BLACK.getRGB();
+    private Color borderColor = Color.BLACK;
     private int borderWidth = 0;
 
     private transient Font font;
@@ -42,15 +42,15 @@ public class Label extends Item implements JsonSerializable {
         if (plan != null) plan.itemChanged(this);
     }
 
-    public int getBorderColor() {
+    public Color getBorderColor() {
         return borderColor;
     }
 
-    public void setBorderColor(int value) {
-        if (borderColor == value) return;
+    public void setBorderColor(Color value) {
+        if (borderColor.equals(value)) return;
 
         borderColor = value;
-        if (plan != null) plan.itemChanged(this);;
+        if (plan != null) plan.itemChanged(this);
     }
 
     public int getBorderWidth() {
@@ -155,7 +155,7 @@ public class Label extends Item implements JsonSerializable {
                 .write("fontFamily", fontFamily)
                 .write("fontSize", fontSize)
                 .write("rotationId", rotationId)
-                .write("borderColor", borderColor)
+                .write("borderColor", borderColor.getRGB())
                 .write("borderWidth", borderWidth);
     }
 
@@ -167,7 +167,7 @@ public class Label extends Item implements JsonSerializable {
                 .defString("fontFamily", ((value) -> fontFamily = value))
                 .defInteger("fontSize", ((value) -> fontSize = value))
                 .defInteger("rotationId", ((value) -> rotationId = value))
-                .defInteger("borderColor", ((value) -> borderColor =value))
+                .defInteger("borderColor", ((value) -> borderColor = new Color(value)))
                 .defInteger("borderWidth", ((value) -> borderWidth = value))
                 .read();
     }

@@ -14,6 +14,8 @@ import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3f;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileReader;
@@ -29,6 +31,7 @@ import java.io.IOException;
 public class J3dDialog extends Frame {
     private Canvas3D canvas;
     private SimpleUniverse universe;
+    private TransformGroup transformGroup;
 
     public J3dDialog() {
         super("3D View");
@@ -37,6 +40,16 @@ public class J3dDialog extends Frame {
         canvas.setDoubleBufferEnable(true);
 
         add(canvas, BorderLayout.CENTER);
+
+        canvas.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_UP) { transformGroup.setTransform(new Transform3D(new float[] { 0f, 0f, 0.1f })); }
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) { transformGroup.setTransform(new Transform3D(new float[] { 0f, 0f, -0.1f })); }
+                if (e.getKeyCode() == KeyEvent.VK_LEFT) { transformGroup.setTransform(new Transform3D(new float[] { -0.1f, 0f, 0f })); }
+                if (e.getKeyCode() == KeyEvent.VK_RIGHT) { transformGroup.setTransform(new Transform3D(new float[] { 0.1f, 0f, 0f })); }
+            }
+        });
 
         addWindowListener(new WindowAdapter() {
             public void windowOpened(WindowEvent we) {
@@ -54,7 +67,7 @@ public class J3dDialog extends Frame {
         BoundingSphere bounds = new BoundingSphere();
 
         BranchGroup contentGroup = new BranchGroup();
-        TransformGroup transformGroup = new TransformGroup();
+        transformGroup = new TransformGroup();
         transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
         transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
 
@@ -83,9 +96,9 @@ public class J3dDialog extends Frame {
         mouseWheelZoom.setSchedulingBounds(bounds);
         transformGroup.addChild(mouseWheelZoom);
 
-        KeyNavigatorBehavior navigatorBehavior = new KeyNavigatorBehavior(transformGroup);
-        navigatorBehavior.setSchedulingBounds(bounds);
-        transformGroup.addChild(navigatorBehavior);
+        //KeyNavigatorBehavior navigatorBehavior = new KeyNavigatorBehavior(transformGroup);
+        //navigatorBehavior.setSchedulingBounds(bounds);
+        //transformGroup.addChild(navigatorBehavior);
 
         contentGroup.addChild(transformGroup);
         contentGroup.compile();
@@ -113,10 +126,5 @@ public class J3dDialog extends Frame {
         DirectionalLight dirLight2 = new DirectionalLight(dirLightColour, new Vector3f(1.0f, 1.0f, 1.0f));
         dirLight2.setInfluencingBounds(bounds);
         b.addChild(dirLight2);
-    }
-
-    public static Scene getSceneFromFile(String location) throws IOException {
-        ObjectFile file = new ObjectFile(ObjectFile.RESIZE);
-        return file.load(new FileReader(location));
     }
 }

@@ -26,7 +26,7 @@ public class DimensionLine extends Item implements JsonSerializable {
     private int fontSize = 100;
     private int startPointShapeTypeId = PointShapeType.DIMENSION.getId();
     private int endPointShapeTypeId = PointShapeType.DIMENSION.getId();
-    private int color = Color.BLACK.getRGB();
+    private Color color = Color.BLACK;
     private int lineWidth = 1;
 
     private transient Font font;
@@ -57,12 +57,12 @@ public class DimensionLine extends Item implements JsonSerializable {
         if (plan != null) plan.itemChanged(this);
     }
 
-    public int getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(int value) {
-        if (color == value) return;
+    public void setColor(Color value) {
+        if (color.equals(value)) return;
 
         color = value;
         if (plan != null) plan.itemChanged(this);
@@ -272,7 +272,7 @@ public class DimensionLine extends Item implements JsonSerializable {
                 .write("fontSize", fontSize)
                 .write("startPointShapeTypeId", startPointShapeTypeId)
                 .write("endPointShapeTypeId", endPointShapeTypeId)
-                .write("color", color)
+                .write("color", color.getRGB())
                 .write("lineWidth", lineWidth);
     }
 
@@ -286,7 +286,7 @@ public class DimensionLine extends Item implements JsonSerializable {
                 .defInteger("fontSize", ((value) -> fontSize = value))
                 .defInteger("startPointShapeTypeId", ((value) -> startPointShapeTypeId = value))
                 .defInteger("endPointShapeTypeId", ((value) -> endPointShapeTypeId = value))
-                .defInteger("color", ((value) -> color = value))
+                .defInteger("color", ((value) -> color = new Color(value)))
                 .defInteger("lineWidth", ((value) -> lineWidth = value))
                 .read();
     }

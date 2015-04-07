@@ -107,20 +107,20 @@ public class PlanPropertiesController extends AbstractComponentPropertiesControl
             .setValueGetter(plan -> ((Plan) plan).getPageSetup().getPaperOrientation())
             .setValueSetter((plan, value) -> ((Plan) plan).setPageSetupPaperOrientation((PaperOrientation) value));
 
-        ObjectProperty printPaperSize = new ObjectProperty(this);
-        printPaperSize.setCategoryName(L10.get(L10.PLAN_PRINT_CATEGORY));
-        printPaperSize.setLabelName(L10.get(L10.PLAN_PRINT_PAPER_SIZE_PROPERTY));
-        printPaperSize.setType(ComboBoxPropertyEditor.class);
-        printPaperSize.setAvailableValues(PaperSize.values());
-        printPaperSize.setValueGetter(plan -> ((Plan) plan).getPageSetup().getPaperSize());
-        printPaperSize.setValueSetter((obj, value) -> {
-            Plan plan = (Plan)obj;
-            plan.setPageSetupPaperSize((PaperSize)value);
-            if (!PaperSize.Custom.equals(value)) {
-                plan.setPageSetupPaperWidth(((PaperSize)value).getWidth());
-                plan.setPageSetupPaperHeight(((PaperSize)value).getHeight());
-            }
-        });
+        new ObjectProperty(this)
+            .setCategoryName(L10.get(L10.PLAN_PRINT_CATEGORY))
+            .setLabelName(L10.get(L10.PLAN_PRINT_PAPER_SIZE_PROPERTY))
+            .setType(ComboBoxPropertyEditor.class)
+            .setAvailableValues(PaperSize.values())
+            .setValueGetter(plan -> ((Plan) plan).getPageSetup().getPaperSize())
+            .setValueSetter((obj, value) -> {
+                Plan plan = (Plan)obj;
+                plan.setPageSetupPaperSize((PaperSize)value);
+                if (!PaperSize.Custom.equals(value)) {
+                    plan.setPageSetupPaperWidth(((PaperSize)value).getWidth());
+                    plan.setPageSetupPaperHeight(((PaperSize)value).getHeight());
+                }
+            });
 
         ObjectProperty printPaperWidth = new ObjectProperty(this);
         printPaperWidth.setCategoryName(L10.get(L10.PLAN_PRINT_CATEGORY));

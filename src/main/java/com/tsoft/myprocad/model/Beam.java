@@ -115,7 +115,6 @@ public class Beam extends AbstractMaterialItem implements JsonSerializable {
          *    4----------7/
          *   /
          * Y
-         *
          */
         vertexes[0] = rcore.p0().plus(new Vec3(0, width/2, height/2));
         vertexes[1] = rcore.p0().plus(new Vec3(0, -width/2, height/2));

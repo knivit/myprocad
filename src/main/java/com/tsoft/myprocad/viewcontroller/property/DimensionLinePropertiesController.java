@@ -33,8 +33,8 @@ public class DimensionLinePropertiesController extends AbstractComponentProperti
             .setCategoryName(L10.get(L10.VIEW_CATEGORY))
             .setLabelName(L10.get(L10.DIMENSION_LINE_COLOR_PROPERTY))
             .setType(ColorPropertyEditor.class)
-            .setValueGetter(object -> new Color(((DimensionLine) object).getColor()))
-            .setValueSetter((object, value) -> ((DimensionLine) object).setColor(((Color) value).getRGB()));
+            .setValueGetter(object -> ((DimensionLine) object).getColor())
+            .setValueSetter((object, value) -> ((DimensionLine) object).setColor((Color) value));
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.VIEW_CATEGORY))

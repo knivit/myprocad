@@ -77,7 +77,7 @@ public class LabelComponent {
      */
     private void paintLabel(Graphics2D g2D, Label label, SelectionPaintInfo selectionPaintInfo) {
         if (label.getBorderWidth() > 0) {
-            g2D.setColor(new Color(label.getBorderColor()));
+            g2D.setColor(label.getBorderColor());
             BasicStroke labelStroke = new BasicStroke(label.getBorderWidth() / selectionPaintInfo.scale);
             g2D.setStroke(labelStroke);
             g2D.draw(label.getShape());
