@@ -143,21 +143,19 @@ public class PlanPanelMenu {
 
     public static void createPopupMenu(JComponent component) {
         JPopupMenu planViewPopup = new JPopupMenu();
-        planViewPopup.add(Menu.UNDO.getPopupMenuItem());
-        planViewPopup.add(Menu.REDO.getPopupMenuItem());
-        planViewPopup.addSeparator();
 
+        planViewPopup.add(Menu.SELECT_ALL.getPopupMenuItem());
         planViewPopup.add(Menu.CUT.getPopupMenuItem());
         planViewPopup.add(Menu.COPY.getPopupMenuItem());
         planViewPopup.add(Menu.PASTE.getPopupMenuItem());
+        planViewPopup.add(Menu.DELETE.getPopupMenuItem());
         planViewPopup.addSeparator();
 
         planViewPopup.add(Menu.ROTATE_CLOCKWISE.getPopupMenuItem());
         planViewPopup.add(Menu.SPLIT_IN_TWO.getPopupMenuItem());
         planViewPopup.addSeparator();
 
-        planViewPopup.add(Menu.DELETE.getPopupMenuItem());
-        planViewPopup.add(Menu.SELECT_ALL.getPopupMenuItem());
+        planViewPopup.add(Menu.SHOW_PLAN_IN_3D.getPopupMenuItem());
         planViewPopup.add(Menu.GENERATE_SCRIPT.getPopupMenuItem());
 
         component.setComponentPopupMenu(planViewPopup);

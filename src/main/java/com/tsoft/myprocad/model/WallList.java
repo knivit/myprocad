@@ -1,8 +1,6 @@
 package com.tsoft.myprocad.model;
 
 import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class WallList extends ItemList<Wall> {
@@ -29,9 +27,5 @@ public class WallList extends ItemList<Wall> {
     public WallList filterByMaterial(Material material) {
         List<Wall> list = stream().filter(e -> e.getMaterial().equals(material)).collect(Collectors.toList());
         return new WallList(list);
-    }
-
-    public List<Pattern> getPatterns() {
-        return stream().map(Wall::getPattern).distinct().collect(Collectors.toList());
     }
 }

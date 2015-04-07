@@ -505,11 +505,7 @@ public class PlanController implements ProjectItemController {
     }
 
     public List<String> getLevelMaterialsNames() {
-        ItemList<AbstractMaterialItem> materialItems = new ItemList<>();
-        materialItems.addAll(plan.getLevelWalls());
-        materialItems.addAll(plan.getLevelBeams());
-        MaterialList materials = new MaterialList(materialItems);
-        return materials.getMaterialsNames();
+        return ItemList.getMaterialsNames(plan.getLevelMaterialItems());
     }
 
     private void selectByMaterial() {
@@ -536,7 +532,7 @@ public class PlanController implements ProjectItemController {
     }
 
     private void selectByPattern() {
-        List<Pattern> patterns = plan.getLevelWalls().getPatterns();
+        List<Pattern> patterns = ItemList.getPatterns(plan.getLevelMaterialItems());
         if (patterns.isEmpty()) return;
 
         InputListElement<Pattern> listElement = new InputListElement<>(L10.get(L10.PATTERN_NAME), patterns);
@@ -690,9 +686,17 @@ public class PlanController implements ProjectItemController {
     }
 
     private void show3D() {
+        ItemList<AbstractMaterialItem> items;
+        if (selectedItems.isEmpty()) items = plan.getMaterialItems();
+        else {
+            items = new ItemList<>();
+            items.addAll(selectedItems.getWallsSubList());
+            items.addAll(selectedItems.getBeamsSubList());
+        }
+
         J3dDialog j3d = new J3dDialog();
-        j3d.addModelToUniverse(plan.getMaterialItems());
-            j3d.setVisible(true);
+        j3d.addModelToUniverse(items);
+        j3d.setVisible(true);
     }
 
     private void addPlan() { projectController.addProjectItem(); }

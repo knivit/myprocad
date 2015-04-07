@@ -27,7 +27,7 @@ public abstract class AbstractMaterialItem extends Item {
     private boolean showWired;
     private Color Ka = new Color(50, 50, 50); // The ambient color reflected off the surface of the material
     private Color Kd = Color.WHITE; // The diffuse color of the material when illuminated
-    private Color Ks = Color.WHITE; // specular color
+    private Color Ks = Color.GRAY; // specular color
     private Color Ke = Color.BLACK; // color of the light the material emits, if any
     private float shininess = 64.0f; // range [1.0, 128.0] with 1.0 being not shiny and 128.0 being very shiny
     private float transparency = 0.0f; // range [0.0, 1.0] with 0.0 being fully opaque and 1.0 being

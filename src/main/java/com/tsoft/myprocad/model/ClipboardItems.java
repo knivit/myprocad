@@ -47,10 +47,7 @@ public class ClipboardItems implements JsonSerializable {
 
     // Create list of materials for the selected items
     private void enlistMaterials() {
-        ItemList<AbstractMaterialItem> materialItems = new ItemList<>();
-        materialItems.addAll(items.getWallsSubList());
-        materialItems.addAll(items.getBeamsSubList());
-        materials = new MaterialList(materialItems);
+        materials = new MaterialList(items.getMaterialItemsSubList());
     }
 
     public static ClipboardItems readFromClipboard() {

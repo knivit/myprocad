@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -81,6 +83,29 @@ public class ItemList<T extends Item> extends ArrayList<T> {
 
     public ItemList<Beam> getBeamsSubList() {
         return getSubList(Beam.class);
+    }
+
+    public ItemList<AbstractMaterialItem> getMaterialItemsSubList() {
+        ItemList<AbstractMaterialItem> items = new ItemList<>();
+        items.addAll(getWallsSubList());
+        items.addAll(getBeamsSubList());
+        return items;
+    }
+
+    public static List<Pattern> getPatterns(ItemList<AbstractMaterialItem> items) {
+        return items.stream().map(AbstractMaterialItem::getPattern).distinct().collect(Collectors.toList());
+    }
+
+    public static Set<Material> getMaterials(ItemList<AbstractMaterialItem> items) {
+        HashSet<Material> materials = new HashSet<>();
+        for (AbstractMaterialItem item : items) materials.add(item.getMaterial());
+        return materials;
+    }
+
+    public static List<String> getMaterialsNames(ItemList<AbstractMaterialItem> items) {
+        List<String> names = new ArrayList<>();
+        for (Material material : getMaterials(items)) names.add(material.getName());
+        return names;
     }
 
     public ItemList<DimensionLine> getDimensionLinesSubList() {

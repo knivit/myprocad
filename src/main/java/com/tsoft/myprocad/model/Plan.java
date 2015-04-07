@@ -350,7 +350,7 @@ public class Plan extends ProjectItem implements Cloneable {
         Vec3 intPtZ0 = new Vec3(intPt.x(), intPt.y(), z);
         float db1 = bseg1.getDistanceToPoint(intPtZ0);
         float db2 = bseg2.getDistanceToPoint(intPtZ0);
-        Beam link = addBeam(intPt.x(), intPt.y(), (int)(z + db1), intPt.x(), intPt.y(), (int)(z + db2), width, height);
+        Beam link = addBeam(intPt.x(), intPt.y(), (int) (z + db1), intPt.x(), intPt.y(), (int) (z + db2), width, height);
         return link;
     }
 
@@ -358,6 +358,13 @@ public class Plan extends ProjectItem implements Cloneable {
         ItemList<AbstractMaterialItem> items = new ItemList<>();
         items.addAll(walls);
         items.addAll(beams);
+        return items;
+    }
+
+    public ItemList<AbstractMaterialItem> getLevelMaterialItems() {
+        ItemList<AbstractMaterialItem> items = new ItemList<>();
+        items.addAll(walls.atLevel(this));
+        items.addAll(beams.atLevel(this));
         return items;
     }
 

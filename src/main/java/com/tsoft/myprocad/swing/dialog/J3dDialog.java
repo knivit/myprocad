@@ -20,6 +20,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Enumeration;
 
 /**
  * From http://www.daltonfilho.com/articles/java3d/SimpleModelView.html
@@ -32,6 +33,26 @@ public class J3dDialog extends Frame {
     private Canvas3D canvas;
     private SimpleUniverse universe;
     private TransformGroup transformGroup;
+    private Transform3D transform = new Transform3D();
+
+    class MoveBehavior extends Behavior {
+        private TransformGroup tg;
+
+        MoveBehavior(TransformGroup tg) { this.tg = tg; }
+
+        @Override
+        public void initialize() {
+            wakeupOn(new WakeupOnAWTEvent(KeyEvent.KEY_PRESSED));
+        }
+
+        @Override
+        public void processStimulus(Enumeration enumeration) {
+            Transform3D move = new Transform3D();
+            move.setTranslation(new Vector3f(0f, 0f, 0f));
+            tg.setTransform(move);
+            wakeupOn(new WakeupOnAWTEvent(KeyEvent.KEY_PRESSED));
+        }
+    }
 
     public J3dDialog() {
         super("3D View");
@@ -44,7 +65,17 @@ public class J3dDialog extends Frame {
         canvas.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_UP) { transformGroup.setTransform(new Transform3D(new float[] { 0f, 0f, 0.1f })); }
+                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    transform.setTranslation(new Vector3f(0f, 0f, 0f));
+                    transformGroup.setTransform(transform);
+                }
+
+                if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    Transform3D up = new Transform3D();
+                    up.set(new Vector3f(0.9f, 1f, 1f));
+                    transformGroup.setTransform(up);
+                }
+
                 if (e.getKeyCode() == KeyEvent.VK_DOWN) { transformGroup.setTransform(new Transform3D(new float[] { 0f, 0f, -0.1f })); }
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) { transformGroup.setTransform(new Transform3D(new float[] { -0.1f, 0f, 0f })); }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) { transformGroup.setTransform(new Transform3D(new float[] { 0.1f, 0f, 0f })); }
@@ -53,7 +84,7 @@ public class J3dDialog extends Frame {
 
         addWindowListener(new WindowAdapter() {
             public void windowOpened(WindowEvent we) {
-                setMinimumSize(new Dimension(800, 800));
+                setMinimumSize(new Dimension(1024, 1024));
                 setLocationRelativeTo(null);
             }
 
@@ -96,6 +127,9 @@ public class J3dDialog extends Frame {
         mouseWheelZoom.setSchedulingBounds(bounds);
         transformGroup.addChild(mouseWheelZoom);
 
+        MoveBehavior moveBehavior = new MoveBehavior(transformGroup);
+        moveBehavior.setSchedulingBounds(bounds);
+        transformGroup.addChild(moveBehavior);
         //KeyNavigatorBehavior navigatorBehavior = new KeyNavigatorBehavior(transformGroup);
         //navigatorBehavior.setSchedulingBounds(bounds);
         //transformGroup.addChild(navigatorBehavior);

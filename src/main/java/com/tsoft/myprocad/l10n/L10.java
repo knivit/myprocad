@@ -226,11 +226,10 @@ public class L10 {
     public static String[] BORDER_COLOR_PROPERTY = { "Border Color", "Цвет границы" };
     public static String[] BORDER_WIDTH_PROPERTY = { "Border Width", "Толщина границы" };
     public static String[] SHOW_WIRED_PROPERTY = { "Show wired", "Показать каркас" };
-    public static String[] KA_COLOR_PROPERTY = { "Ambient Color", "Рассеянный свет" };
+    public static String[] KA_COLOR_PROPERTY = { "Ambient Color", "Фоновый свет" };
     public static String[] KD_COLOR_PROPERTY = { "Diffuse Color", "Рассеянный свет" };
     public static String[] KS_COLOR_PROPERTY = { "Specular Color", "Зеркальный свет" };
     public static String[] KE_COLOR_PROPERTY = { "Emissive Color", "Излучаемый свет" };
-    public static String[] LIGHTING_ENABLE_PROPERTY = { "Lighting Enable", "Свет" };
     public static String[] SHININESS_PROPERTY = { "Shininess", "Яркость" };
     public static String[] TRANSPARENCY_PROPERTY = { "Transparency", "Прозрачность" };
 

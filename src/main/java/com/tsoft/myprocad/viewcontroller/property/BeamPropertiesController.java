@@ -18,7 +18,7 @@ public class BeamPropertiesController extends AbstractComponentPropertiesControl
                 .setLabelName(L10.get(L10.BEAM_WIDTH_PROPERTY))
                 .setType(Integer.class)
                 .setValueGetter(item -> ((Beam) item).getWidth())
-                .setValueValidator((item, value) -> { return ((Beam)item).validateWidth((Integer)value); })
+                .setValueValidator((item, value) -> { return ((Beam)item).validateWidth((Integer) value); })
                 .setValueSetter((item, value) -> {
                     addToHistory((Beam) item);
                     ((Beam) item).setWidth((int) value);
@@ -29,11 +29,15 @@ public class BeamPropertiesController extends AbstractComponentPropertiesControl
                 .setLabelName(L10.get(L10.BEAM_HEIGHT_PROPERTY))
                 .setType(Integer.class)
                 .setValueGetter(item -> ((Beam) item).getHeight())
-                .setValueValidator((item, value) -> { return ((Beam)item).validateHeight((Integer)value); })
+                .setValueValidator((item, value) -> {
+                    return ((Beam) item).validateHeight((Integer) value);
+                })
                 .setValueSetter((item, value) -> {
                     addToHistory((Beam) item);
                     ((Beam) item).setHeight((int) value);
                 });
+
+        addMaterialItemProperties();
 
         new ObjectProperty(this)
                 .setCategoryName(L10.get(L10.INFO_CATEGORY))
@@ -59,7 +63,6 @@ public class BeamPropertiesController extends AbstractComponentPropertiesControl
                 .setType(Integer.class)
                 .setValueGetter(item -> ((Beam) item).getYozAngle());
 
-        addMaterialItemProperties();
         add3dItemProperties();
     }
 
