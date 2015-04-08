@@ -37,6 +37,36 @@ public class Plane {
         recalc();
     }
 
+    /** A plane is defined by 3 vertexes */
+    public Plane(Vec3 a, Vec3 b, Vec3 c) {
+        Vec3 ab = b.minus(a);
+        Vec3 ac = c.minus(a);
+        Mat3 mat = new Mat3();
+        mat.set(0, 0, a.x());
+        mat.set(0, 1, ab.x());
+        mat.set(0, 2, ac.x());
+        mat.set(1, 0, a.y());
+        mat.set(1, 1, ab.y());
+        mat.set(1, 2, ac.y());
+        mat.set(2, 0, a.z());
+        mat.set(2, 1, ab.z());
+        mat.set(2, 2, ac.z());
+
+        float kx = mat.get(1, 1) * mat.get(2, 2) - mat.get(2, 1) * mat.get(1, 2);
+        float ky = mat.get(2, 1) * mat.get(0, 2) - mat.get(2, 2) * mat.get(0, 1);
+        float kz = mat.get(1, 2) * mat.get(0, 1) - mat.get(1, 1) * mat.get(0, 2);
+
+        // (x - a.x) * kx + (y - a.y) * ky + (z - a.z) * kz - d = 0
+        A = kx;
+        B = ky;
+        C = kz;
+        D = -a.x()*kx - a.y()*ky - a.z()*kz;
+
+        point = new Vec3(a);
+        normal = new Vec3(A, B, C);
+        normal.normalize();
+    }
+
     public float A() { return A; }
     public float B() { return B; }
     public float C() { return C; }
@@ -130,7 +160,7 @@ public class Plane {
      *        2 =  intersection in the unique line *L
      * http://geomalgorithms.com/a05-_intersect-1.html
     */
-    int intersectPlane(Plane plane, Seg3 line) {
+    public int intersectPlane(Plane plane, Seg3 line) {
         Vec3 u = normal.cross(plane.normal);          // cross product
         float ax = (u.x() >= 0 ? u.x() : -u.x());
         float ay = (u.y() >= 0 ? u.y() : -u.y());
@@ -320,5 +350,25 @@ public class Plane {
     @Override
     public String toString() {
         return "{normal=" + normal.toString() + ", point=" + point.toString() + ", equation=" + A + "x + " + B + "y + " + C + "z + " + D + " = 0}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Plane plane = (Plane) o;
+
+        if (!normal.equals(plane.normal)) return false;
+        if (!point.equals(plane.point)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = normal.hashCode();
+        result = 31 * result + point.hashCode();
+        return result;
     }
 }

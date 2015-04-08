@@ -94,7 +94,7 @@ public class WoodBeamController implements ProjectItemController {
     public Callable<Void> showPrintDialog() { throw new IllegalStateException("Not implemented"); }
 
     @Override
-    public boolean doMenuAction(Menu menu) {
+    public boolean doMenuAction(Menu menu, Menu.Source source) {
         if (Menu.ADD_WOOD_BEAM.equals(menu)) { addWoodBeam(); return true; }
         if (Menu.DELETE_WOOD_BEAM.equals(menu)) { deleteWoodBeam(); return true; }
 

@@ -104,7 +104,7 @@ public class NotesController implements ProjectItemController {
     }
 
     @Override
-    public boolean doMenuAction(Menu menu) {
+    public boolean doMenuAction(Menu menu, Menu.Source source) {
         if (Menu.ADD_NOTES.equals(menu)) { addNotes(); return true; }
         if (Menu.DELETE_NOTES.equals(menu)) { deleteNotes(); return true; }
 

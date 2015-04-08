@@ -57,6 +57,7 @@ public class Plan extends ProjectItem implements Cloneable {
     private transient String defaultPatternName;
     private transient Color defaultBackgroundColor;
     private transient Material defaultMaterial;
+    private transient Color defaultKeColor;
 
     Plan() {
         levels = new LevelList(this);
@@ -289,6 +290,7 @@ public class Plan extends ProjectItem implements Cloneable {
         if (defaultBackgroundColor != null) item.setBackgroundColor(defaultBackgroundColor);
         if (defaultPatternName != null) item.setPattern(defaultPatternName);
         if (defaultMaterial != null) item.setMaterial(defaultMaterial);
+        if (defaultKeColor != null) item.setKeColor(defaultKeColor);
         else item.setMaterial(getProject().getMaterials().getDefault());
     }
 
@@ -338,7 +340,7 @@ public class Plan extends ProjectItem implements Cloneable {
     }
 
     /** Create a vertical beam which links two beams at their intersection point */
-    public Beam addLink(Beam beam1, Beam beam2, int width, int height) {
+    public Beam addCrossBeam(Beam beam1, Beam beam2, int width, int height) {
         Seg3 bseg1 = beam1.getBeamCoreSegment();
         Seg3 bseg2 = beam2.getBeamCoreSegment();
         Seg2 seg1 = bseg1.get2dProjectionOnPlane(Plane.XOY);
@@ -350,8 +352,26 @@ public class Plan extends ProjectItem implements Cloneable {
         Vec3 intPtZ0 = new Vec3(intPt.x(), intPt.y(), z);
         float db1 = bseg1.getDistanceToPoint(intPtZ0);
         float db2 = bseg2.getDistanceToPoint(intPtZ0);
-        Beam link = addBeam(intPt.x(), intPt.y(), (int) (z + db1), intPt.x(), intPt.y(), (int) (z + db2), width, height);
-        return link;
+
+        Beam result = addBeam(intPt.x(), intPt.y(), (int) (z + db1), intPt.x(), intPt.y(), (int) (z + db2), width, height);
+        return result;
+    }
+
+    /** Create a vertical beam which connects two beams
+     * at the given distance from the beam1 start point
+     *
+     * Return null if the distance is behind Beam's #1 end
+     */
+    public Beam addConnectBeam(Beam beam1, float distance, Beam beam2, int width, int height) {
+        Seg3 bseg1 = beam1.getBeamCoreSegment();
+        Vec3 p0 = bseg1.getPointOnSeg(distance);
+        if (p0 == null) return null;
+
+        Seg3 bseg2 = beam2.getBeamCoreSegment();
+        float dist = bseg2.getDistanceToPoint(p0);
+
+        Beam result = addBeam(p0.x(), p0.y(), (int) (p0.z()), p0.x(), p0.y(), (int) (p0.z() + dist), width, height);
+        return result;
     }
 
     public ItemList<AbstractMaterialItem> getMaterialItems() {
@@ -620,6 +640,11 @@ public class Plan extends ProjectItem implements Cloneable {
 
     public Plan setDefaultMaterial(Material material) {
         defaultMaterial = material;
+        return this;
+    }
+
+    public Plan setDefaultKeColor(int r, int g, int b) {
+        defaultKeColor = new Color(r, g, b);
         return this;
     }
 

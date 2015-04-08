@@ -318,7 +318,7 @@ public class ProjectController {
         j3d.setVisible(true);
     }
 
-    public boolean doMenuAction(Menu menu) {
+    public boolean doMenuAction(Menu menu, Menu.Source source) {
         /* Project */
         if (Menu.EDIT_PROJECT.equals(menu)) { editProject(); return true; }
         if (Menu.EDIT_FOLDERS.equals(menu)) { editFolders(); return true; }
@@ -337,7 +337,7 @@ public class ProjectController {
 
         /* Delegate it to item controller */
         ProjectItemController itemController = getActiveController();
-        if (itemController != null && itemController.doMenuAction(menu)) return true;
+        if (itemController != null && itemController.doMenuAction(menu, source)) return true;
 
         return false;
     }

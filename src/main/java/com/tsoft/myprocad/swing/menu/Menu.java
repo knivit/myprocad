@@ -15,6 +15,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JToolBar;
 
 public class Menu {
+    public enum Source { TOOL_BUTTON, MENU_ITEM, POPUP_MENU_ITEM }
+
     public static JMenuBar menuBar;
     public static JToolBar toolBar;
 
@@ -155,7 +157,7 @@ public class Menu {
         return icon;
     }
 
-    public void doAction() { ApplicationController.getInstance().doMenuAction(this); }
+    public void doAction() { ApplicationController.getInstance().doMenuAction(this, Source.MENU_ITEM); }
 
     public JMenu addToMenuBar() {
         menuItem = new JMenu(name);
@@ -167,23 +169,26 @@ public class Menu {
         toolBarButton = new JButton();
         toolBarButton.setToolTipText(hint);
         if (icon != null) toolBarButton.setIcon(getIcon());
-        toolBarButton.addActionListener((e) -> ApplicationController.getInstance().doMenuAction(this));
+        toolBarButton.addActionListener((e) -> ApplicationController.getInstance().doMenuAction(this, Source.TOOL_BUTTON));
         toolBar.add(toolBarButton);
     }
 
     private JMenuItem createMenuItem() {
-        JMenuItem menuItem = (icon == null) ? new JMenuItem(name) : new JMenuItem(name, getIcon());
-        menuItem.addActionListener((e) -> ApplicationController.getInstance().doMenuAction(this));
-        return menuItem;
+        return (icon == null) ? new JMenuItem(name) : new JMenuItem(name, getIcon());
     }
 
     public JMenuItem getMenuItem() {
-        if (menuItem == null) menuItem = createMenuItem();
+        if (menuItem == null) {
+            menuItem = createMenuItem();
+            menuItem.addActionListener((e) -> ApplicationController.getInstance().doMenuAction(this, Source.MENU_ITEM));
+        }
         return menuItem;
     }
 
     public JMenuItem getPopupMenuItem() {
-        return createMenuItem();
+        JMenuItem menuItem = createMenuItem();
+        menuItem.addActionListener((e) -> ApplicationController.getInstance().doMenuAction(this, Source.POPUP_MENU_ITEM));
+        return menuItem;
     }
 
     public void setVisible(boolean visible) {

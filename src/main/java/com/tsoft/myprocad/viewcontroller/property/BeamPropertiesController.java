@@ -45,20 +45,22 @@ public class BeamPropertiesController extends AbstractComponentPropertiesControl
                 .setType(Float.class)
                 .setValueGetter(item -> ((Beam) item).getLength());
 
+        addCalculatedProperties();
+
         new ObjectProperty(this)
-                .setCategoryName(L10.get(L10.VIEW_CATEGORY))
+                .setCategoryName(L10.get(L10.INFO_CATEGORY))
                 .setLabelName(L10.get(L10.BEAM_XOZ_ANGLE_PROPERTY))
                 .setType(Integer.class)
                 .setValueGetter(item -> ((Beam) item).getXozAngle());
 
         new ObjectProperty(this)
-                .setCategoryName(L10.get(L10.VIEW_CATEGORY))
+                .setCategoryName(L10.get(L10.INFO_CATEGORY))
                 .setLabelName(L10.get(L10.BEAM_XOY_ANGLE_PROPERTY))
                 .setType(Integer.class)
                 .setValueGetter(item -> ((Beam) item).getXoyAngle());
 
         new ObjectProperty(this)
-                .setCategoryName(L10.get(L10.VIEW_CATEGORY))
+                .setCategoryName(L10.get(L10.INFO_CATEGORY))
                 .setLabelName(L10.get(L10.BEAM_YOZ_ANGLE_PROPERTY))
                 .setType(Integer.class)
                 .setValueGetter(item -> ((Beam) item).getYozAngle());

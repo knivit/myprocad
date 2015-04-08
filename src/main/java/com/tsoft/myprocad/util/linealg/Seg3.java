@@ -48,6 +48,19 @@ public class Seg3 {
         return midp;
     }
 
+    /** Returns a point on the segment
+     * lying on it at a distance from p0
+     * Or null if it is behind it's end
+     */
+    public Vec3 getPointOnSeg(float distanceFromP0) {
+        float length = getLength();
+        if (distanceFromP0 > length) return null;
+        if (Math.abs(distanceFromP0 - length) < 0.0001) return new Vec3(p1);
+
+        Vec3 off = direction.times(distanceFromP0);
+        return p0.plus(off);
+    }
+
     /** The angle between a line and a plane is equal to the complementary
      * acute angle that forms between the direction vector of the line and
      * the normal vector of the plane.

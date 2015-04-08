@@ -14,10 +14,11 @@ public class WallPropertiesController extends AbstractComponentPropertiesControl
     @Override
     protected void initObjectProperties() {
         addCommonProperties();
-        addMaterialItemProperties();
         addViewProperties();
-        add3dItemProperties();
+        addMaterialItemProperties();
+        addCalculatedProperties();
         addInfoProperties();
+        add3dItemProperties();
     }
 
     private void addViewProperties() {

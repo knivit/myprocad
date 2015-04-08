@@ -17,7 +17,7 @@ public interface ProjectItemController {
 
     public abstract JComponent getParentComponent();
 
-    public boolean doMenuAction(Menu menu);
+    public boolean doMenuAction(Menu menu, Menu.Source source);
 
     public abstract void materialListChanged();
 }

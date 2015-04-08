@@ -685,9 +685,9 @@ public class PlanController implements ProjectItemController {
         }
     }
 
-    private void show3D() {
+    private void show3D(boolean useSelection) {
         ItemList<AbstractMaterialItem> items;
-        if (selectedItems.isEmpty()) items = plan.getMaterialItems();
+        if (!useSelection || selectedItems.isEmpty()) items = plan.getMaterialItems();
         else {
             items = new ItemList<>();
             items.addAll(selectedItems.getWallsSubList());
@@ -722,12 +722,12 @@ public class PlanController implements ProjectItemController {
     }
 
     @Override
-    public boolean doMenuAction(Menu menu) {
+    public boolean doMenuAction(Menu menu, Menu.Source source) {
         /* Plan */
         if (Menu.ADD_PLAN.equals(menu)) { addPlan(); return true; }
         if (Menu.DELETE_PLAN.equals(menu)) { deletePlan(); return true; }
 
-        if (Menu.SHOW_PLAN_IN_3D.equals(menu)) { show3D(); return true; }
+        if (Menu.SHOW_PLAN_IN_3D.equals(menu)) { show3D(source == Menu.Source.POPUP_MENU_ITEM); return true; }
         if (Menu.PLAN_PRINT_TO_PDF.equals(menu)) { printPlanToPDF(); return true; }
         if (Menu.PLAN_PRINT_PREVIEW.equals(menu)) { printPreview(); return true; }
         if (Menu.PLAN_PRINT.equals(menu)) { print(); return true; }

@@ -253,7 +253,7 @@ public class ApplicationController {
         JOptionPane.showMessageDialog(null, L10.get(L10.CALCULATOR_HELP_TEXT));
     }
 
-    public boolean doMenuAction(Menu menu) {
+    public boolean doMenuAction(Menu menu, Menu.Source source) {
         /* Application */
         if (Menu.NEW_PROJECT.equals(menu)) { create(); return true; }
         if (Menu.OPEN_PROJECT.equals(menu)) { open(); return true; }
@@ -270,7 +270,7 @@ public class ApplicationController {
         /* Project */
         ProjectController projectController = getActiveProjectController();
         if (projectController == null) return false;
-        if (projectController.doMenuAction(menu)) return true;
+        if (projectController.doMenuAction(menu, source)) return true;
         throw new IllegalArgumentException("Unknown menu " + menu.getName());
     }
 }

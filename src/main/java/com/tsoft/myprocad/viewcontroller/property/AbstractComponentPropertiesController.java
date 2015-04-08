@@ -205,7 +205,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
                 .setType(PatternComboBoxPropertyEditor.class)
                 .setAvailableValues(Pattern.values())
                 .setValueGetter(item -> ((AbstractMaterialItem) item).getPattern())
-                .setValueSetter((item, value) -> ((AbstractMaterialItem)item).setPattern(((Pattern) value)));
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setPattern(((Pattern) value)));
 
         new ObjectProperty(this)
                 .setCategoryName(L10.get(L10.VIEW_CATEGORY))
@@ -241,15 +241,17 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
                 .setLabelName(L10.get(L10.WALL_MATERIAL_PROPERTY))
                 .setType(ComboBoxPropertyEditor.class)
                 .setAvailableValues(getAvailableMaterials())
-                .setValueGetter(item -> ((AbstractMaterialItem)item).getMaterial())
-                .setValueSetter((item, value) -> ((AbstractMaterialItem)item).setMaterial((Material) value));
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getMaterial())
+                .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setMaterial((Material) value));
 
         new ObjectProperty(this)
                 .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
                 .setLabelName(L10.get(L10.MATERIAL_DENSITY_PROPERTY))
                 .setType(Float.class)
-                .setValueGetter(item -> ((AbstractMaterialItem)item).getDensity());
+                .setValueGetter(item -> ((AbstractMaterialItem) item).getDensity());
+    }
 
+    protected void addCalculatedProperties() {
         new ObjectProperty(this)
                 .setCategoryName(L10.get(L10.INFO_CATEGORY))
                 .setLabelName(L10.get(L10.AREA_PROPERTY))

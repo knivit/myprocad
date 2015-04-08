@@ -63,6 +63,6 @@ public class JavaScriptTest extends AbstractItemTest {
         js.loadLibrary("lib/js/БиблиотекаФункций.js");
         js.loadLibrary("lib/js/СопротивлениеМатериалов.js");
         js.loadLibrary("lib/js/Дерево.js");
-        js.executeScript("lib/js/Деденево/РасчетКрыши.js", new ConsoleOutputBinding(js));
+        js.executeScript("lib/js/Деденево/Крыша3D.js", new ConsoleOutputBinding(js));
     }
 }

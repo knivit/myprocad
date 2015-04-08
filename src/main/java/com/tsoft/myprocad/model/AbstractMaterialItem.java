@@ -163,6 +163,10 @@ public abstract class AbstractMaterialItem extends Item {
         return this;
     }
 
+    public AbstractMaterialItem setKaColor(int r, int g, int b) {
+        return setKaColor(new Color(r, g, b));
+    }
+
     public Color getKdColor() {
         return Kd;
     }
@@ -173,6 +177,10 @@ public abstract class AbstractMaterialItem extends Item {
             if (plan != null) plan.itemChanged(this);
         }
         return this;
+    }
+
+    public AbstractMaterialItem setKdColor(int r, int g, int b) {
+        return setKdColor(new Color(r, g, b));
     }
 
     public Color getKsColor() {
@@ -187,6 +195,10 @@ public abstract class AbstractMaterialItem extends Item {
         return this;
     }
 
+    public AbstractMaterialItem setKsColor(int r, int g, int b) {
+        return setKsColor(new Color(r, g, b));
+    }
+
     public Color getKeColor() {
         return Ke;
     }
@@ -197,6 +209,10 @@ public abstract class AbstractMaterialItem extends Item {
             if (plan != null) plan.itemChanged(this);
         }
         return this;
+    }
+
+    public AbstractMaterialItem setKeColor(int r, int g, int b) {
+        return setKeColor(new Color(r, g, b));
     }
 
     public float getShininess() {
