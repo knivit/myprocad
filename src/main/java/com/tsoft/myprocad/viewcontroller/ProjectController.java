@@ -308,13 +308,17 @@ public class ProjectController {
         if (!DialogButton.OK.equals(result)) return;
 
         ItemList<AbstractMaterialItem> items = new ItemList<>();
+        List<Light> lights = new ArrayList<>();
         for (PlanSelection planSelection : elements) {
-            if (planSelection.isSelected) items.addAll(planSelection.plan.getMaterialItems());
+            if (planSelection.isSelected) {
+                items.addAll(planSelection.plan.getMaterialItems());
+                lights.addAll(planSelection.plan.getLights());
+            }
         }
         if (items.isEmpty()) return;
 
         J3dDialog j3d = new J3dDialog();
-        j3d.addModelToUniverse(items);
+        j3d.addModelToUniverse(items, lights);
         j3d.setVisible(true);
     }
 

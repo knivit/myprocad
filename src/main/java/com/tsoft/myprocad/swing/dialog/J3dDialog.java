@@ -1,25 +1,37 @@
 package com.tsoft.myprocad.swing.dialog;
 
-import com.sun.j3d.loaders.Scene;
-import com.sun.j3d.loaders.objectfile.ObjectFile;
 import com.sun.j3d.utils.universe.SimpleUniverse;
 import com.sun.j3d.utils.behaviors.mouse.MouseRotate;
 import com.sun.j3d.utils.behaviors.mouse.MouseWheelZoom;
-import com.sun.j3d.utils.behaviors.keyboard.KeyNavigatorBehavior;
 import com.tsoft.myprocad.model.AbstractMaterialItem;
 import com.tsoft.myprocad.model.ItemList;
+import com.tsoft.myprocad.model.Light;
+import com.tsoft.myprocad.model.LightType;
+import com.tsoft.myprocad.util.linealg.Vec3;
 
-import javax.media.j3d.*;
+import javax.media.j3d.AmbientLight;
+import javax.media.j3d.Behavior;
+import javax.media.j3d.BoundingSphere;
+import javax.media.j3d.BranchGroup;
+import javax.media.j3d.Canvas3D;
+import javax.media.j3d.DirectionalLight;
+import javax.media.j3d.Shape3D;
+import javax.media.j3d.Transform3D;
+import javax.media.j3d.TransformGroup;
+import javax.media.j3d.WakeupOnAWTEvent;
 import javax.vecmath.Color3f;
 import javax.vecmath.Point3d;
 import javax.vecmath.Vector3f;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Enumeration;
 
 /**
@@ -94,7 +106,7 @@ public class J3dDialog extends Frame {
         });
     }
 
-    public void addModelToUniverse(ItemList<AbstractMaterialItem> items) {
+    public void addModelToUniverse(ItemList<AbstractMaterialItem> items, List<Light> planLights) {
         BoundingSphere bounds = new BoundingSphere();
 
         BranchGroup contentGroup = new BranchGroup();
@@ -102,7 +114,22 @@ public class J3dDialog extends Frame {
         transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
         transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
 
-        addLights(contentGroup);
+        List<Light> lights = new ArrayList<>(planLights);
+        if (lights.isEmpty()) {
+            Light ambientLight = new Light();
+            ambientLight.setLightType(LightType.AMBIENT);
+            ambientLight.setCenter(new Vec3(0, 0, 0));
+            ambientLight.setColor(new Color(120, 120, 120));
+            lights.add(ambientLight);
+
+            Light dirLight = new Light();
+            dirLight.setLightType(LightType.DIRECTIONAL);
+            dirLight.setColor(Color.WHITE);
+            dirLight.setCenter(0, 0, 0);
+            dirLight.setDirection(1, 1, 1);
+            lights.add(dirLight);
+        }
+        addLights(contentGroup, lights);
 
         int xMin = items.getXMin(); int xMax = items.getXMax();
         int yMin = items.getYMin(); int yMax = items.getYMax();
@@ -142,23 +169,29 @@ public class J3dDialog extends Frame {
         universe.addBranchGraph(contentGroup);
     }
 
-    protected void addLights(BranchGroup b) {
-        BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 100.0);
+    protected void addLights(BranchGroup group, List<Light> lights) {
+        for (Light light : lights) {
+            Point3d center = new Point3d(light.getCx(), light.getCy(), light.getCz());
+            BoundingSphere bounds = new BoundingSphere(center, 100.0);
+            Color3f color = new Color3f(light.getColor());
 
-        // Create a bounds for the background and lights
-        // Set up the global lights
-        Color3f ambLightColour = new Color3f(0.5f, 0.5f, 0.5f);
-        AmbientLight ambLight = new AmbientLight(ambLightColour);
-        ambLight.setInfluencingBounds(bounds);
-        b.addChild(ambLight);
+            javax.media.j3d.Light li;
+            switch (light.getLightType()) {
+                case AMBIENT: {
+                    li = new AmbientLight(color);
+                    break;
+                }
+                case DIRECTIONAL: {
+                    Vector3f dir = new Vector3f(light.getDx(), light.getDy(), light.getDz());
+                    li = new DirectionalLight(color, dir);
+                    break;
+                }
+                default:
+                    throw new IllegalArgumentException("Unknown light " + light.getLightType().toString());
+            }
 
-        Color3f dirLightColour = new Color3f(1.0f, 1.0f, 1.0f);
-        DirectionalLight dirLight1 = new DirectionalLight(dirLightColour, new Vector3f(-1.0f, -1.0f, -1.0f));
-        dirLight1.setInfluencingBounds(bounds);
-        b.addChild(dirLight1);
-
-        DirectionalLight dirLight2 = new DirectionalLight(dirLightColour, new Vector3f(1.0f, 1.0f, 1.0f));
-        dirLight2.setInfluencingBounds(bounds);
-        b.addChild(dirLight2);
+            li.setInfluencingBounds(bounds);
+            group.addChild(li);
+        }
     }
 }

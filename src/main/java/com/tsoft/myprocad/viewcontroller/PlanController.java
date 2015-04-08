@@ -695,7 +695,7 @@ public class PlanController implements ProjectItemController {
         }
 
         J3dDialog j3d = new J3dDialog();
-        j3d.addModelToUniverse(items);
+        j3d.addModelToUniverse(items, plan.getLights());
         j3d.setVisible(true);
     }
 

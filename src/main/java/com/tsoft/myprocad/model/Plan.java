@@ -16,9 +16,11 @@ import com.tsoft.myprocad.util.printer.PaperSize;
 import com.tsoft.myprocad.viewcontroller.PasteOperation;
 import com.tsoft.myprocad.viewcontroller.PlanController;
 
-import java.awt.*;
+import java.awt.Color;
+import java.util.List;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.function.Consumer;
 
 public class Plan extends ProjectItem implements Cloneable {
@@ -35,6 +37,7 @@ public class Plan extends ProjectItem implements Cloneable {
     private ItemList<DimensionLine> dimensionLines = new ItemList<>();
     private ItemList<Label> labels = new ItemList<>();
     private ItemList<LevelMark> levelMarks = new ItemList<>();
+    private List<Light> lights = new ArrayList<>();
 
     private LevelList levels;
     private long levelId;
@@ -189,6 +192,19 @@ public class Plan extends ProjectItem implements Cloneable {
     public CoordinatesOriginLocation getOriginLocation() {
         if (originLocation == null) originLocation = CoordinatesOriginLocation.findById(originLocationId);
         return originLocation;
+    }
+
+    public List<Light> getLights() {
+        List<Light> ls = new ArrayList<>();
+        for (Light li : lights) ls.add(li.getDeepClone());
+        return ls;
+    }
+
+    public Light addLight(String lightTypeName) {
+        Light light = new Light();
+        light.setLightType(lightTypeName);
+        lights.add(light);
+        return light;
     }
 
     public void undoItem(Item item) {
@@ -671,6 +687,7 @@ public class Plan extends ProjectItem implements Cloneable {
                 .write("dimensionLines", dimensionLines)
                 .write("labels", labels)
                 .write("levelMarks", levelMarks)
+                .write("lights", lights)
                 .write("levels", levels)
                 .write("levelId", levelId)
                 .write("pasteOffsetX", pasteOffsetX)
@@ -688,6 +705,7 @@ public class Plan extends ProjectItem implements Cloneable {
         dimensionLines = new ItemList<>();
         labels = new ItemList<>();
         levelMarks = new ItemList<>();
+        lights = new ArrayList<>();
         levels = new LevelList(this);
         pageSetup = new PageSetup();
 
@@ -703,6 +721,7 @@ public class Plan extends ProjectItem implements Cloneable {
                     .defCollection("dimensionLines", DimensionLine::new, ((value) -> dimensionLines.add((DimensionLine) value)))
                     .defCollection("labels", Label::new, ((value) -> labels.add((Label) value)))
                     .defCollection("levelMarks", LevelMark::new, ((value) -> levelMarks.add((LevelMark) value)))
+                    .defCollection("lights", Light::new, ((value) -> lights.add((Light) value)))
                     .defCollection("levels", Level::new, ((value) -> levels.add((Level) value)))
                     .defLong("levelId", ((value) -> levelId = value))
                     .defInteger("pasteOffsetX", ((value) -> pasteOffsetX = value))
