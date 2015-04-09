@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Material implements Comparable<Material>, Cloneable, JsonSerializable {
     private long id;
     private String name;
-    private float density = 1.0f;
+    private float density = 1.0f; // tn/m3
     private float price = 1.0f;
     private int unitId = MaterialUnit.M3.getId();
     private boolean isDefault;
@@ -73,7 +73,7 @@ public class Material implements Comparable<Material>, Cloneable, JsonSerializab
             case 2: return Float.class;
             case 3: return MaterialUnit.class;
         }
-        throw new IllegalArgumentException("Wrong columnIndex=" + columnIndex);
+        throw new IllegalArgumentException("Wrong columnIndex = " + columnIndex);
     }
 
     public Object getTableModelColumnValueAt(int columnIndex) {
@@ -83,7 +83,7 @@ public class Material implements Comparable<Material>, Cloneable, JsonSerializab
             case 2: return price;
             case 3: return getUnit();
         }
-        throw new IllegalArgumentException("Wrong columnIndex=" + columnIndex);
+        throw new IllegalArgumentException("Wrong columnIndex = " + columnIndex);
     }
 
     public void setTableModelColumnValueAt(int columnIndex, Object value) {
@@ -93,7 +93,7 @@ public class Material implements Comparable<Material>, Cloneable, JsonSerializab
             case 2: price = new Float(value.toString()); return;
             case 3: setUnit((MaterialUnit)value); return;
         }
-        throw new IllegalArgumentException("Wrong columnIndex=" + columnIndex);
+        throw new IllegalArgumentException("Wrong columnIndex = " + columnIndex);
     }
 
     public boolean equalByName(String otherName) {

@@ -106,6 +106,10 @@ public class Vec3 {
         return tmp;
     }
 
+    public Vec3 plus(float x, float y, float z) {
+        return plus(new Vec3(x, y, z));
+    }
+
     /** this = this + b */
     public void add(Vec3 b) {
         add(this, b);

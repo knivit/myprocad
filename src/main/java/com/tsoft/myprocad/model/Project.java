@@ -173,6 +173,9 @@ public class Project implements JsonSerializable, Cloneable {
         materials.add(material);
     }
 
+    /** Used from JavaScript
+     *
+     */
     public void addMaterial(String name, float density, float price) {
         Material material = new Material();
         material.setName(name);

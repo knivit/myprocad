@@ -306,8 +306,8 @@ public class Plan extends ProjectItem implements Cloneable {
         if (defaultBackgroundColor != null) item.setBackgroundColor(defaultBackgroundColor);
         if (defaultPatternName != null) item.setPattern(defaultPatternName);
         if (defaultMaterial != null) item.setMaterial(defaultMaterial);
-        if (defaultKeColor != null) item.setKeColor(defaultKeColor);
         else item.setMaterial(getProject().getMaterials().getDefault());
+        if (defaultKeColor != null) item.setKeColor(defaultKeColor);
     }
 
     public Wall createWall(float xStart, float yStart, float zStart, float xEnd, float yEnd, float zEnd) {
@@ -355,10 +355,14 @@ public class Plan extends ProjectItem implements Cloneable {
         return beam;
     }
 
+    public Beam addBeam(Vec3 p0, Vec3 p1, int w, int h) {
+        return addBeam(p0.x(), p0.y(), (int)p0.z(), p1.x(), p1.y(), (int)p1.z(), w, h);
+    }
+
     /** Create a vertical beam which links two beams at their intersection point */
     public Beam addCrossBeam(Beam beam1, Beam beam2, int width, int height) {
-        Seg3 bseg1 = beam1.getBeamCoreSegment();
-        Seg3 bseg2 = beam2.getBeamCoreSegment();
+        Seg3 bseg1 = beam1.getSegment();
+        Seg3 bseg2 = beam2.getSegment();
         Seg2 seg1 = bseg1.get2dProjectionOnPlane(Plane.XOY);
         Seg2 seg2 = bseg2.get2dProjectionOnPlane(Plane.XOY);
         Vec2 intPt = seg1.getIntersectionPoint(seg2);
@@ -379,15 +383,32 @@ public class Plan extends ProjectItem implements Cloneable {
      * Return null if the distance is behind Beam's #1 end
      */
     public Beam addConnectBeam(Beam beam1, float distance, Beam beam2, int width, int height) {
-        Seg3 bseg1 = beam1.getBeamCoreSegment();
+        Seg3 bseg1 = beam1.getSegment();
         Vec3 p0 = bseg1.getPointOnSeg(distance);
         if (p0 == null) return null;
 
-        Seg3 bseg2 = beam2.getBeamCoreSegment();
+        Seg3 bseg2 = beam2.getSegment();
         float dist = bseg2.getDistanceToPoint(p0);
 
         Beam result = addBeam(p0.x(), p0.y(), (int) (p0.z()), p0.x(), p0.y(), (int) (p0.z() + dist), width, height);
         return result;
+    }
+
+    /** Create a beam from the given start point to the given beam keeping the same X */
+    public Beam addConnectXBeam(float xs, float ys, float zs, Beam beam, int w, int h) {
+        Vec3 p0 = new Vec3(xs, ys, zs);
+        Plane xyz = new Plane(p0, new Vec3(xs, ys + 1, zs), new Vec3(xs, ys, zs + 1));
+        Vec3 p1 = new Vec3();
+        Seg3 bseg = beam.getSegment();
+        int res = xyz.intersectSegment(bseg, p1);
+        if (res == 0) return null;
+        if (res == 1) return addBeam(p0, p1, w, h);
+
+        // the beam lies in the same plane, find out it's nearest vertex and connect to it
+        Seg3 s0 = new Seg3(p0, bseg.p0());
+        Seg3 s1 = new Seg3(p0, bseg.p1());
+        if (s0.getLength() < s1.getLength()) return addBeam(p0, bseg.p0(), w, h);
+        return addBeam(p0, bseg.p1(), w, h);
     }
 
     public ItemList<AbstractMaterialItem> getMaterialItems() {

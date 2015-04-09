@@ -60,7 +60,7 @@ public class Beam extends AbstractMaterialItem implements JsonSerializable {
         if (plan != null) plan.itemChanged(this);
     }
 
-    public Seg3 getBeamCoreSegment() {
+    public Seg3 getSegment() {
         Vec3 startPoint = new Vec3(getXStart(), getYStart(), getZStart());
         Vec3 endPoint = new Vec3(getXEnd(), getYEnd(), getZEnd());
         return new Seg3(startPoint, endPoint);
@@ -71,7 +71,7 @@ public class Beam extends AbstractMaterialItem implements JsonSerializable {
     }
 
     public float getLength() {
-        return getBeamCoreSegment().getLength();
+        return getSegment().getLength();
     }
 
     @Override
@@ -80,54 +80,64 @@ public class Beam extends AbstractMaterialItem implements JsonSerializable {
     }
 
     public int getXozAngle() {
-        float angle = getBeamCoreSegment().getAngle(Plane.XOZ);
+        float angle = getSegment().getAngle(Plane.XOZ);
         xozAngle = (int)Math.round(Math.toDegrees(angle));
         return xozAngle;
     }
 
     public int getXoyAngle() {
-        float angle = getBeamCoreSegment().getAngle(Plane.XOY);
+        float angle = getSegment().getAngle(Plane.XOY);
         xoyAngle = (int)Math.round(Math.toDegrees(angle));
         return xoyAngle;
     }
 
     public int getYozAngle() {
-        float angle = getBeamCoreSegment().getAngle(Plane.YOZ);
+        float angle = getSegment().getAngle(Plane.YOZ);
         yozAngle = (int)Math.round(Math.toDegrees(angle));
         return yozAngle;
     }
 
     /** Online graph http://www.livephysics.com/tools/mathematical-tools/online-3-d-function-grapher/ */
+    /**
+     *      1-----------2
+     *     / |         / |
+     *  Z /  |        /  |
+     *    0----------3   |
+     *    |  5-------|--6    --> X
+     *    |/         | /
+     *    4----------7/
+     *   /
+     * Y
+     */
     @Override
     protected Shape getItemShape() {
-        // rotate along the OX
-        Seg3 core = getBeamCoreSegment();
-        Rot rot = new Rot(core.direction(), Seg3.OX.direction());
-        Seg3 rcore = rot.rotateSegment(core);
+        // http://stackoverflow.com/questions/22769430/find-corners-of-rectangle-given-plane-equation-height-and-width
+        Seg3 core = getSegment();
+        if (core.isVertical()) {
+            vertexes[0] = core.p1().plus(-width/2, height/2, 0);
+            vertexes[1] = core.p1().plus(-width/2, -height/2, 0);
+            vertexes[2] = core.p1().plus(width/2, -height/2, 0);
+            vertexes[3] = core.p1().plus(width/2, height/2, 0);
+            vertexes[4] = core.p0().plus(-width/2, height/2, 0);
+            vertexes[5] = core.p0().plus(-width/2, -height/2, 0);
+            vertexes[6] = core.p0().plus(width/2, -height/2, 0);
+            vertexes[7] = core.p0().plus(width/2, height/2, 0);
+        } else {
+            Vec3 u = Vec3.Z_AXIS.cross(core.direction());
+            u.normalize();
+            Vec3 w = core.direction().cross(u);
+            w.normalize();
 
-        /**
-         *      1-----------2
-         *     / |         / |
-         *  Z /  |        /  |
-         *    0----------3   |
-         *    |  5-------|--6    --> X
-         *    |/         | /
-         *    4----------7/
-         *   /
-         * Y
-         */
-        vertexes[0] = rcore.p0().plus(new Vec3(0, width/2, height/2));
-        vertexes[1] = rcore.p0().plus(new Vec3(0, -width/2, height/2));
-        vertexes[2] = rcore.p1().plus(new Vec3(0, -width/2, height/2));
-        vertexes[3] = rcore.p1().plus(new Vec3(0, width/2, height/2));
-        vertexes[4] = rcore.p0().plus(new Vec3(0, width/2, -height/2));
-        vertexes[5] = rcore.p0().plus(new Vec3(0, -width/2, -height/2));
-        vertexes[6] = rcore.p1().plus(new Vec3(0, -width/2, -height/2));
-        vertexes[7] = rcore.p1().plus(new Vec3(0, width/2, -height/2));
+            vertexes[0] = core.p0().plus(u.times(width / 2)).plus(w.times(height / 2));
+            vertexes[4] = core.p0().plus(u.times(width / 2)).minus(w.times(height / 2));
+            vertexes[1] = core.p0().minus(u.times(width / 2)).plus(w.times(height / 2));
+            vertexes[5] = core.p0().minus(u.times(width / 2)).minus(w.times(height / 2));
 
-        // rotate the vertexes back
-        rot.invert();
-        for (int i = 0; i < 8; i ++) vertexes[i] = rot.rotateVector(vertexes[i]);
+            vertexes[3] = core.p1().plus(u.times(width / 2)).plus(w.times(height / 2));
+            vertexes[7] = core.p1().plus(u.times(width / 2)).minus(w.times(height / 2));
+            vertexes[2] = core.p1().minus(u.times(width / 2)).plus(w.times(height / 2));
+            vertexes[6] = core.p1().minus(u.times(width / 2)).minus(w.times(height / 2));
+        }
 
         // draw a top
         GeneralPath path = new GeneralPath();

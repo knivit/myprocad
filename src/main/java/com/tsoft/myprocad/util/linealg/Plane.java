@@ -19,17 +19,10 @@ public class Plane {
     /** Constant for faster projection and intersection */
     private float c;
 
-    /** Default constructor initializes normal to (0, 1, 0) and point to
-     (0, 0, 0) */
-    public Plane() {
-        normal = new Vec3(0, 1, 0);
-        point = new Vec3(0, 0, 0);
-        recalc();
-    }
-
     /** Sets all parameters of plane. Plane has normal <b>normal</b> and
-     goes through the point <b>point</b>. Normal does not need to be
-     unit length but must not be the zero vector. */
+     * goes through the point <b>point</b>. Normal does not need to be
+     * unit length but must not be the zero vector.
+    */
     public Plane(Vec3 normal, Vec3 point) {
         this.normal = new Vec3(normal);
         this.normal.normalize();
@@ -57,14 +50,20 @@ public class Plane {
         float kz = mat.get(1, 2) * mat.get(0, 1) - mat.get(1, 1) * mat.get(0, 2);
 
         // (x - a.x) * kx + (y - a.y) * ky + (z - a.z) * kz - d = 0
-        A = kx;
-        B = ky;
-        C = kz;
-        D = -a.x()*kx - a.y()*ky - a.z()*kz;
+        float A = kx;
+        float B = ky;
+        float C = kz;
+        float D = -a.x()*kx - a.y()*ky - a.z()*kz;
 
-        point = new Vec3(a);
         normal = new Vec3(A, B, C);
         normal.normalize();
+        point = new Vec3(0, 0, -D/C);
+        recalc();
+    }
+
+    /** A plane defined by its equation */
+    public Plane(float A, float B, float C, float D) {
+        this(new Vec3(A, B, C), new Vec3(0, 0, -D/C));
     }
 
     public float A() { return A; }
@@ -123,30 +122,29 @@ public class Plane {
      *
      *  Input:  S = a segment, and Pn = a plane = {Point V0;  Vector n;}
      *  Output: *I0 = the intersect point (when it exists)
-     *  Return: 0 = disjoint (no intersection)
+     *  Return:
+     *   0 = disjoint (no intersection)
      *   1 = intersection in the unique point *I0
      *   2 = the segment lies in the plane
      */
-    public int intersectSegment(Seg3 S, Plane Pn, Vec3 intPt) {
+    public int intersectSegment(Seg3 S, Vec3 intPt) {
         Vec3 u = new Vec3(S.p1()).minus(S.p0());
-        Vec3 w = new Vec3(S.p0()).minus(Pn.point);
+        Vec3 w = new Vec3(S.p0()).minus(point);
 
-        float D = Pn.normal.dot(u);
-        float N = -Pn.normal.dot(w);
+        float D = normal.dot(u);
+        float N = -normal.dot(w);
 
         // segment is parallel to plane
         if (Math.abs(D) < 0.00000001) {
-            if (N == 0)                      // segment lies in plane
-                return 2;
-            else
-                return 0;                    // no intersection
+            if (N == 0) return 2;        // segment lies in plane
+            return 0;                    // no intersection
+
         }
 
         // they are not parallel
         // compute intersect param
         float sI = N / D;
-        if (sI < 0 || sI > 1)
-            return 0;                        // no intersection
+        if (sI < 0 || sI > 1) return 0;   // no intersection
 
         intPt.set(S.p0().plus(u.times(sI)));  // compute segment intersect point
         return 1;
@@ -219,8 +217,8 @@ public class Plane {
     }
 
     /**
-      Determine the equation of the plane as
-      Ax + By + Cz + D = 0
+      * Determine the equation of the plane as
+      * Ax + By + Cz + D = 0
     */
     private void calcEquation() {
         float l = (float)Math.sqrt(normal.x() * normal.x() + normal.y() * normal.y() + normal.z() * normal.z());
@@ -345,6 +343,14 @@ public class Plane {
 
         /* Shouldn't get here */
         throw new IllegalStateException();
+    }
+
+    /** The angle between two planes
+     * http://math.kennesaw.edu/~plaval/math2203/linesplanes.pdf
+     */
+    public float getAngle(Plane plane) {
+        float val = normal.dot(plane.getNormal()) / (plane.getNormal().length() * normal.length());
+        return (float)Math.acos(val);
     }
 
     @Override

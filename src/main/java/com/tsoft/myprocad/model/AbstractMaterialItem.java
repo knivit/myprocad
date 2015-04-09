@@ -36,7 +36,7 @@ public abstract class AbstractMaterialItem extends Item {
     private transient Pattern pattern;
 
     /* Inner props */
-    protected transient Vec3[] vertexes = new Vec3[8];
+    public transient Vec3[] vertexes = new Vec3[8];
 
     public abstract double getVolume();
 

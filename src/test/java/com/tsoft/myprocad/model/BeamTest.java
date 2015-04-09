@@ -1,15 +1,18 @@
 package com.tsoft.myprocad.model;
 
 import com.tsoft.myprocad.AbstractItemTest;
+import com.tsoft.myprocad.util.linealg.Vec3;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class BeamTest extends AbstractItemTest {
     @Test
     public void shape() {
-        Beam beam = plan.createBeam(0, 0, 0, 100, 0, 0, 50, 100);
+        Beam beam = plan.addBeam(0, 0, 0, 0, 0, 1000, 50, 100);
 
-        System.out.println("Rotation");
-        beam.setXEnd(0);
-        beam.setYEnd(1000);
+        for (int i = 0; i < beam.vertexes.length; i ++) {
+            System.out.println(i + ") " + beam.vertexes[i].toString());
+        }
     }
 }

@@ -1,5 +1,9 @@
 package com.tsoft.myprocad.util.linealg;
 
+/**
+ * Altitudes of 3d triangle = http://www.algebra.com/algebra/homework/Graphs.faq.question.127639.html
+ * http://math.kennesaw.edu/~plaval/math2203/linesplanes.pdf
+ */
 public class Seg3 {
     public static final Seg3 OX = new Seg3(new Vec3(0, 0, 0), new Vec3(1, 0, 0));
 
@@ -68,7 +72,7 @@ public class Seg3 {
     public float getAngle(Plane plane) {
         Vec3 d = new Vec3(direction);
         float val = d.dot(plane.getNormal()) / (plane.getNormal().length() * direction.length());
-        return (float)Math.asin(val);
+        return (float)Math.acos(val);
     }
 
     /** The Distance between the point (x0,y0,z0) and the line through (x1,y1,z1) in direction (a,b,c)
@@ -160,6 +164,10 @@ public class Seg3 {
         Vec3 pp0 = plane.projectPoint(p0);
         Vec3 pp1 = plane.projectPoint(p1);
         return new Seg2(new Vec2(pp0.x(), pp0.y()), new Vec2(pp1.x(), pp1.y()));
+    }
+
+    public boolean isVertical() {
+        return (Math.abs(direction.x()) < 0.00001) && (Math.abs(direction.y()) < 0.00001);
     }
 
     @Override

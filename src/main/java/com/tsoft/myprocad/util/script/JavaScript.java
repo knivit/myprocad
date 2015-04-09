@@ -60,9 +60,9 @@ public class JavaScript {
                 continue;
             }
 
-      //      boolean isNumber = (value instanceof Double) || (value instanceof Integer);
-       //     boolean isString = value instanceof String;
-      //      if (isNumber || isString) {
+            boolean isNumber = (value instanceof Double) || (value instanceof Integer);
+            boolean isString = value instanceof String;
+            if (isNumber || isString) {
                 if (name.startsWith("$$CALC")) ;
                 else if (name.startsWith("$$")) output.print(value.toString());
                 else {
@@ -81,7 +81,7 @@ public class JavaScript {
                     name = name.replace('_', ' ');
                     output.print(name + " = " + value.toString() + " " + ei);
                 }
-         //   }
+            }
         }
     }
 }
