@@ -55,14 +55,22 @@ public class JavaScriptTest extends AbstractItemTest {
         js.executeScript("lib/js/Деденево/РасчетСтен.js", new ConsoleOutputBinding(js));
     }
 
-    @Test
+    //@Test
     public void calcRoof() throws Exception {
         JavaScript js = new JavaScript();
         js.addBinding(new ProjectBinding(plan.getProject(), plan));
         js.addBinding(new ObjBinding());
         js.loadLibrary("lib/js/БиблиотекаФункций.js");
-        js.loadLibrary("lib/js/СопротивлениеМатериалов.js");
         js.loadLibrary("lib/js/Дерево.js");
         js.executeScript("lib/js/Деденево/Крыша3D.js", new ConsoleOutputBinding(js));
+    }
+
+    @Test
+    public void calcFirstFloor() throws Exception {
+        JavaScript js = new JavaScript();
+        js.addBinding(new ProjectBinding(plan.getProject(), plan));
+        js.addBinding(new ObjBinding());
+        js.loadLibrary("lib/js/БиблиотекаФункций.js");
+        js.executeScript("lib/js/Деденево/ПервыйЭтаж3D.js", new ConsoleOutputBinding(js));
     }
 }

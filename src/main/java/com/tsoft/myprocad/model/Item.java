@@ -233,7 +233,7 @@ public abstract class Item implements Cloneable, JsonSerializable {
 
     public int getZDistance() { return Math.abs(zEnd - zStart); }
 
-    public void move(float dx, float dy, float dz) {
+    public Item move(float dx, float dy, float dz) {
         int idx = Math.round(dx);
         int idy = Math.round(dy);
         int idz = Math.round(dz);
@@ -244,6 +244,7 @@ public abstract class Item implements Cloneable, JsonSerializable {
         setYEnd(yEnd + idy);
         setZStart(zStart + idz);
         setZEnd(zEnd + idz);
+        return this;
     }
 
     public void rotate(int ox, int oy, int degree) {

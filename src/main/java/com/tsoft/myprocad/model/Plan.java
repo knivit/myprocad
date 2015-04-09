@@ -356,7 +356,7 @@ public class Plan extends ProjectItem implements Cloneable {
     }
 
     public Beam addBeam(Vec3 p0, Vec3 p1, int w, int h) {
-        return addBeam(p0.x(), p0.y(), (int)p0.z(), p1.x(), p1.y(), (int)p1.z(), w, h);
+        return addBeam(p0.x(), p0.y(), (int) p0.z(), p1.x(), p1.y(), (int) p1.z(), w, h);
     }
 
     /** Create a vertical beam which links two beams at their intersection point */
@@ -409,6 +409,38 @@ public class Plan extends ProjectItem implements Cloneable {
         Seg3 s1 = new Seg3(p0, bseg.p1());
         if (s0.getLength() < s1.getLength()) return addBeam(p0, bseg.p0(), w, h);
         return addBeam(p0, bseg.p1(), w, h);
+    }
+
+    /** apertures are given as (xs, ys, xe, ye), i.e. zs and ze must not be defined
+     * Can't return a wall, as it will be one of many
+     * So, use setDefault... to operate their props
+     */
+    public void addWallWithApertures(float xs, float ys, float zs, float xe, float ye, float ze, float ... apertures) {
+        List<Wall> walls = new ArrayList<>();
+        Wall baseWall = createWall(xs, ys, zs, xe, ye, ze);
+        walls.add(baseWall);
+        if (apertures != null) {
+            for (int i = 0; i < apertures.length; i += 4) {
+                float axs = apertures[i];
+                float ays = apertures[i + 1];
+                float axe = apertures[i + 2];
+                float aye = apertures[i + 3];
+                addAperture(walls, axs, ays, axe, aye);
+            }
+        }
+
+        for (Wall wall : walls) addItem(wall);
+    }
+
+    private void addAperture(List<Wall> walls, float xs, float ys, float xe, float ye) {
+        List<Wall> inters = new ArrayList<>();
+        for (Wall wall : walls) {
+            boolean isxs = (wall.getXStart() < xs && wall.getXEnd() > xs);
+            boolean isxe = (wall.getXStart() < xe && wall.getXEnd() > xe);
+            boolean isys = (wall.getYStart() < ys && wall.getYEnd() > ys);
+            boolean isye = (wall.getYStart() < ye && wall.getYEnd() > ye);
+            if (isxs)
+        }
     }
 
     public ItemList<AbstractMaterialItem> getMaterialItems() {

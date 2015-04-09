@@ -54,16 +54,21 @@ public class Plane {
         float B = ky;
         float C = kz;
         float D = -a.x()*kx - a.y()*ky - a.z()*kz;
-
-        normal = new Vec3(A, B, C);
-        normal.normalize();
-        point = new Vec3(0, 0, -D/C);
-        recalc();
+        fromEquation(A, B, C, D);
     }
 
     /** A plane defined by its equation */
     public Plane(float A, float B, float C, float D) {
-        this(new Vec3(A, B, C), new Vec3(0, 0, -D/C));
+        fromEquation(A, B, C, D);
+    }
+
+    private void fromEquation(float A, float B, float C, float D) {
+        normal = new Vec3(A, B, C);
+        normal.normalize();
+        if (Float.compare(A, 0) != 0) point = new Vec3(-D/A, 0, 0);
+        else if (Float.compare(B, 0) != 0) point = new Vec3(0, -D/B, 0);
+        else point = new Vec3(0, 0, -D/C);
+        recalc();
     }
 
     public float A() { return A; }

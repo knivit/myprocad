@@ -98,6 +98,10 @@ public abstract class AbstractMaterialItem extends Item {
         return this;
     }
 
+    public AbstractMaterialItem setBackgroundColor(int r, int g, int b) {
+        return setBackgroundColor(new Color(r, g, b));
+    }
+
     public Color getForegroundColor() {
         return foregroundColor;
     }
