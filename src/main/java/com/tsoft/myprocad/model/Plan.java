@@ -415,7 +415,19 @@ public class Plan extends ProjectItem implements Cloneable {
      * Can't return a wall, as it will be one of many
      * So, use setDefault... to operate their props
      */
-    public void addWallWithApertures(float xs, float ys, float zs, float xe, float ye, float ze, float ... apertures) {
+    public void addWallWithAperturesXY(float xs, float ys, float zs, float xe, float ye, float ze, float ... apertures) {
+        addWallWithApertures(0, xs, ys, zs, xe, ye, ze, apertures);
+    }
+
+    public void addWallWithAperturesXZ(float xs, float ys, float zs, float xe, float ye, float ze, float ... apertures) {
+        addWallWithApertures(1, xs, ys, zs, xe, ye, ze, apertures);
+    }
+
+    public void addWallWithAperturesYZ(float xs, float ys, float zs, float xe, float ye, float ze, float ... apertures) {
+        addWallWithApertures(2, xs, ys, zs, xe, ye, ze, apertures);
+    }
+
+    private void addWallWithApertures(int mode, float xs, float ys, float zs, float xe, float ye, float ze, float ... apertures) {
         List<Wall> walls = new ArrayList<>();
         Wall baseWall = createWall(xs, ys, zs, xe, ye, ze);
         walls.add(baseWall);
@@ -425,22 +437,289 @@ public class Plan extends ProjectItem implements Cloneable {
                 float ays = apertures[i + 1];
                 float axe = apertures[i + 2];
                 float aye = apertures[i + 3];
-                addAperture(walls, axs, ays, axe, aye);
+                if (mode == 0) walls = addApertureXY(walls, axs, ays, axe, aye); else
+                if (mode == 1) walls = addApertureXZ(walls, axs, ays, axe, aye);
+                else walls = addApertureYZ(walls, axs, ays, axe, aye);
             }
         }
 
         for (Wall wall : walls) addItem(wall);
     }
 
-    private void addAperture(List<Wall> walls, float xs, float ys, float xe, float ye) {
+    private List<Wall> addApertureXY(List<Wall> walls, float xs, float ys, float xe, float ye) {
         List<Wall> inters = new ArrayList<>();
         for (Wall wall : walls) {
             boolean isxs = (wall.getXStart() < xs && wall.getXEnd() > xs);
             boolean isxe = (wall.getXStart() < xe && wall.getXEnd() > xe);
             boolean isys = (wall.getYStart() < ys && wall.getYEnd() > ys);
             boolean isye = (wall.getYStart() < ye && wall.getYEnd() > ye);
-            if (isxs)
+
+            // [ * ] *
+            //   *   *
+            if (isxs && !isxe && isys && !isye) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), xs, wall.getYEnd(), wall.getZEnd()));
+                inters.add(createWall(xs, wall.getYStart(), wall.getZStart(), wall.getXEnd(), ys, wall.getZEnd()));
+                continue;
+            }
+
+            //   * [ * ]
+            //   *   *
+            if (!isxs && isxe && isys && !isye) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), xe, ye, wall.getZEnd()));
+                inters.add(createWall(xe, wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            //   *   *
+            // [ * ] *
+            if (isxs && !isxe && !isys && isye) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), xs, wall.getYEnd(), wall.getZEnd()));
+                inters.add(createWall(xs, ye, wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            //   *   *
+            //   * [ * ]
+            if (!isxs && isxe && !isys && isye) {
+                inters.add(createWall(xe, wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                inters.add(createWall(wall.getXStart(), ye, wall.getZStart(), xe, wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            // [ *   * ]
+            //   *   *
+            if (isxs && isxe && isys && !isye) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), xs, wall.getYEnd(), wall.getZEnd()));
+                inters.add(createWall(xs, wall.getYStart(), wall.getZStart(), xe, ys, wall.getZEnd()));
+                inters.add(createWall(xe, wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            //   *   *
+            // [ *   * ]
+            if (isxs && isxe && !isys && isye) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), xs, wall.getYEnd(), wall.getZEnd()));
+                inters.add(createWall(xs, ye, wall.getZStart(), xe, wall.getYEnd(), wall.getZEnd()));
+                inters.add(createWall(xe, wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            // [ * ] *
+            // [ * ] *
+            if (isxs && !isxe && isys && isye) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), ys, wall.getZEnd()));
+                inters.add(createWall(xe, ys, wall.getZStart(), wall.getXEnd(), ye, wall.getZEnd()));
+                inters.add(createWall(wall.getXStart(), ye, wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            //   * [ * ]
+            //   * [ * ]
+            if (!isxs && isxe && isys && isye) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), ys, wall.getZEnd()));
+                inters.add(createWall(wall.getXStart(), ys, wall.getZStart(), xe, ye, wall.getZEnd()));
+                inters.add(createWall(wall.getXStart(), ye, wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            // [ *   * ]
+            // [ *   * ]
+            if (isxs && isxe && isys && isye) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), ys, wall.getZEnd()));
+                inters.add(createWall(wall.getXStart(), ys, wall.getZStart(), xs, ye, wall.getZEnd()));
+                inters.add(createWall(xe, ys, wall.getZStart(), wall.getXEnd(), ye, wall.getZEnd()));
+                inters.add(createWall(wall.getXStart(), ye, wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            // the aperture misses the wall, add the wall
+            inters.add(wall);
         }
+        return inters;
+    }
+
+    private List<Wall> addApertureXZ(List<Wall> walls, float xs, float zs, float xe, float ze) {
+        List<Wall> inters = new ArrayList<>();
+        for (Wall wall : walls) {
+            boolean isxs = (wall.getXStart() < xs && wall.getXEnd() > xs);
+            boolean isxe = (wall.getXStart() < xe && wall.getXEnd() > xe);
+            boolean iszs = (wall.getZStart() < zs && wall.getZEnd() > zs);
+            boolean isze = (wall.getZStart() < ze && wall.getZEnd() > ze);
+
+            // [ * ] *
+            //   *   *
+            if (isxs && !isxe && iszs && !isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), xs, wall.getYEnd(), wall.getZEnd()));
+                inters.add(createWall(xs, wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), zs));
+                continue;
+            }
+
+            //   * [ * ]
+            //   *   *
+            if (!isxs && isxe && iszs && !isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), xe, wall.getYEnd(), ze));
+                inters.add(createWall(xe, wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            //   *   *
+            // [ * ] *
+            if (isxs && !isxe && !iszs && isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), xs, wall.getYEnd(), wall.getZEnd()));
+                inters.add(createWall(xs, wall.getYStart(), ze, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            //   *   *
+            //   * [ * ]
+            if (!isxs && isxe && !iszs && isze) {
+                inters.add(createWall(xe, wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), ze, xe, wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            // [ *   * ]
+            //   *   *
+            if (isxs && isxe && iszs && !isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), xs, wall.getYEnd(), wall.getZEnd()));
+                inters.add(createWall(xs, wall.getYStart(), wall.getZStart(), xe, wall.getYEnd(), zs));
+                inters.add(createWall(xe, wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            //   *   *
+            // [ *   * ]
+            if (isxs && isxe && !iszs && isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), xs, wall.getYEnd(), wall.getZEnd()));
+                inters.add(createWall(xs, wall.getYStart(), ze, xe, wall.getYEnd(), wall.getZEnd()));
+                inters.add(createWall(xe, wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            // [ * ] *
+            // [ * ] *
+            if (isxs && !isxe && iszs && isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), zs));
+                inters.add(createWall(xe, wall.getYStart(), zs, wall.getXEnd(), wall.getYEnd(), ze));
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), ze, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            //   * [ * ]
+            //   * [ * ]
+            if (!isxs && isxe && iszs && isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), zs));
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), zs, xe, wall.getYEnd(), ze));
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), ze, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            // [ *   * ]
+            // [ *   * ]
+            if (isxs && isxe && iszs && isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), zs));
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), zs, xs, wall.getYEnd(), ze));
+                inters.add(createWall(xe, wall.getYStart(), zs, wall.getXEnd(), wall.getYEnd(), ze));
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), ze, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            // the aperture misses the wall, add the wall
+            inters.add(wall);
+        }
+        return inters;
+    }
+
+    private List<Wall> addApertureYZ(List<Wall> walls, float ys, float zs, float ye, float ze) {
+        List<Wall> inters = new ArrayList<>();
+        for (Wall wall : walls) {
+            boolean isys = (wall.getYStart() < ys && wall.getYEnd() > ys);
+            boolean isye = (wall.getYStart() < ye && wall.getYEnd() > ye);
+            boolean iszs = (wall.getZStart() < zs && wall.getZEnd() > zs);
+            boolean isze = (wall.getZStart() < ze && wall.getZEnd() > ze);
+
+            // [ * ] *
+            //   *   *
+            if (isys && !isye && iszs && !isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), ys, wall.getZEnd()));
+                inters.add(createWall(wall.getXStart(), ys, zs, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            //   * [ * ]
+            //   *   *
+            if (!isys && isye && iszs && !isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), ye, wall.getZEnd()));
+                inters.add(createWall(wall.getXStart(), ye, wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            //   *   *
+            // [ * ] *
+            if (isys && !isye && !iszs && isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), ys, wall.getZEnd()));
+                inters.add(createWall(wall.getXStart(), ys, ze, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            //   *   *
+            //   * [ * ]
+            if (!isys && isye && !iszs && isze) {
+                inters.add(createWall(wall.getXStart(), ye, wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), ze, wall.getXEnd(), ye, wall.getZEnd()));
+                continue;
+            }
+
+            // [ *   * ]
+            //   *   *
+            if (isys && isye && iszs && !isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), ys, wall.getZEnd()));
+                inters.add(createWall(wall.getXStart(), ys, wall.getZStart(), wall.getXEnd(), ye, zs));
+                inters.add(createWall(wall.getXStart(), ye, wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            //   *   *
+            // [ *   * ]
+            if (isys && isye && !iszs && isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), ys, wall.getZEnd()));
+                inters.add(createWall(wall.getXStart(), ys, ze, wall.getXEnd(), ye, wall.getZEnd()));
+                inters.add(createWall(wall.getXStart(), ye, wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            // [ * ] *
+            // [ * ] *
+            if (isys && !isye && iszs && isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), zs));
+                inters.add(createWall(wall.getXStart(), ye, zs, wall.getXEnd(), wall.getYEnd(), ze));
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), ze, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            //   * [ * ]
+            //   * [ * ]
+            if (!isys && isye && iszs && isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), zs));
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), zs, wall.getXEnd(), ye, ze));
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), ze, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            // [ *   * ]
+            // [ *   * ]
+            if (isys && isye && iszs && isze) {
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), zs));
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), zs, wall.getXEnd(), ys, ze));
+                inters.add(createWall(wall.getXStart(), ye, zs, wall.getXEnd(), wall.getYEnd(), ze));
+                inters.add(createWall(wall.getXStart(), wall.getYStart(), ze, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
+                continue;
+            }
+
+            // the aperture misses the wall, add the wall
+            inters.add(wall);
+        }
+        return inters;
     }
 
     public ItemList<AbstractMaterialItem> getMaterialItems() {
