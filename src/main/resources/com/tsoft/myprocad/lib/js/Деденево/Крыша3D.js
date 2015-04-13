@@ -13,14 +13,14 @@ $$Брус100х100 = project.addMaterial("Брус 100х100", 0.550, 6500);
 $$Брус150х150 = project.addMaterial("Брус 150х150", 0.550, 6500);
 
 /* Кирпичная облицовка */
-plan.setDefaultMaterial($$Кирпич).setDefaultPattern("brick");
-plan.addWall(-20, -20, 6000, 10620, 100, 7000);
-plan.addWall(-20, 100, 6000, 100, 13500, 7000);
-plan.addWall(-20, 13500, 6000, 10620, 13620, 7000);
-plan.addWall(10500, -20, 6000, 10620, 13500, 7000);
+plan.setDefaultMaterial($$Кирпич).setDefaultPattern("brick").setDefaultBackgroundColor(255, 40, 0).setDefaultKeColor(255, 40, 0);
+plan.addWall(-20, -20, 6800, 10620, 100, 7000);
+plan.addWall(-20, 100, 6800, 100, 13500, 7000);
+plan.addWall(-20, 13500, 6800, 10620, 13620, 7000);
+plan.addWall(10500, -20, 6800, 10620, 13500, 7000);
 
 /* Армопояс */
-plan.setDefaultMaterial($$Бетон).setDefaultPattern("hatchUp");
+plan.setDefaultMaterial($$Бетон).setDefaultPattern("hatchUp").setDefaultBackgroundColor(50, 50, 50).setDefaultKeColor(50, 50, 50);
 plan.addWall(200, 200, 6800, 10400, 600, 7000);
 plan.addWall(200, 600, 6800, 600, 13000, 7000);
 plan.addWall(200, 13000, 6800, 10400, 13400, 7000);
@@ -28,7 +28,7 @@ plan.addWall(10000, 600, 6800, 10400, 13000, 7000);
 plan.addWall(5700, 600, 6800, 6100, 13000, 7000);
 
 /* Балки перекрытия, шаг 1 м */
-plan.setDefaultMaterial($$ДвутаврN20).setDefaultPattern("background");
+plan.setDefaultMaterial($$ДвутаврN20).setDefaultPattern("background").setDefaultBackgroundColor(50, 50, 0).setDefaultKeColor(50, 50, 0);
 var Балки_перекрытия = [
   plan.addBeam(300, 800, 7100, 10300, 800, 7100, 100, 200),
   plan.addBeam(300, 1800, 7100, 10300, 1800, 7100, 100, 200),
@@ -198,10 +198,10 @@ var Стропила_вальм = [
   plan.addConnectXBeam(9800+75, 13600, 7200, Ребро_вальмы_юв, 50, 200),
 
   /* Стойки стропил северной и южной вальм */
-  plan.addCrossBeam(Стропила_вальм_со_стойками[0], Балки_перекрытия[1], 100, 100).setMaterial($$Брус100х100).move(-100, 0 0),
-  plan.addCrossBeam(Стропила_вальм_со_стойками[1], Балки_перекрытия[1], 100, 100).setMaterial($$Брус100х100).move(100, 0 0),
-  plan.addCrossBeam(Стропила_вальм_со_стойками[2], Балки_перекрытия[11], 100, 100).setMaterial($$Брус100х100).move(-100, 0 0),
-  plan.addCrossBeam(Стропила_вальм_со_стойками[3], Балки_перекрытия[11], 100, 100).setMaterial($$Брус100х100).move(100, 0 0)
+  plan.addCrossBeam(Стропила_вальм_со_стойками[0], Балки_перекрытия[1], 100, 100).setMaterial($$Брус100х100).move(-100, 0, 0),
+  plan.addCrossBeam(Стропила_вальм_со_стойками[1], Балки_перекрытия[1], 100, 100).setMaterial($$Брус100х100).move(100, 0, 0),
+  plan.addCrossBeam(Стропила_вальм_со_стойками[2], Балки_перекрытия[11], 100, 100).setMaterial($$Брус100х100).move(-100, 0, 0),
+  plan.addCrossBeam(Стропила_вальм_со_стойками[3], Балки_перекрытия[11], 100, 100).setMaterial($$Брус100х100).move(100, 0, 0)
 ];
 
 Вес_вальм$тн = Ребро_вальмы_сз.getWeight() + Ребро_вальмы_св.getWeight() + Ребро_вальмы_юз.getWeight() + Ребро_вальмы_юв.getWeight();

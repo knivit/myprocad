@@ -8,7 +8,6 @@ import com.tsoft.myprocad.viewcontroller.LevelsTableModel;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Optional;
-import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 
 public class LevelList extends ArrayList<Level> implements TableDialogPanelSupport<Level> {

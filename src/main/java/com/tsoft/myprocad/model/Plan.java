@@ -541,10 +541,10 @@ public class Plan extends ProjectItem implements Cloneable {
     private List<Wall> addApertureXZ(List<Wall> walls, float xs, float zs, float xe, float ze) {
         List<Wall> inters = new ArrayList<>();
         for (Wall wall : walls) {
-            boolean isxs = (wall.getXStart() < xs && wall.getXEnd() > xs);
-            boolean isxe = (wall.getXStart() < xe && wall.getXEnd() > xe);
-            boolean iszs = (wall.getZStart() < zs && wall.getZEnd() > zs);
-            boolean isze = (wall.getZStart() < ze && wall.getZEnd() > ze);
+            boolean isxs = (wall.getXStart() <= xs && wall.getXEnd() >= xs);
+            boolean isxe = (wall.getXStart() <= xe && wall.getXEnd() >= xe);
+            boolean iszs = (wall.getZStart() <= zs && wall.getZEnd() >= zs);
+            boolean isze = (wall.getZStart() <= ze && wall.getZEnd() >= ze);
 
             // [ * ] *
             //   *   *
@@ -582,7 +582,7 @@ public class Plan extends ProjectItem implements Cloneable {
             //   *   *
             if (isxs && isxe && iszs && !isze) {
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), xs, wall.getYEnd(), wall.getZEnd()));
-                inters.add(createWall(xs, wall.getYStart(), wall.getZStart(), xe, wall.getYEnd(), zs));
+                if (!eqRounded(xs, xe)) inters.add(createWall(xs, wall.getYStart(), wall.getZStart(), xe, wall.getYEnd(), zs));
                 inters.add(createWall(xe, wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
                 continue;
             }
@@ -591,7 +591,7 @@ public class Plan extends ProjectItem implements Cloneable {
             // [ *   * ]
             if (isxs && isxe && !iszs && isze) {
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), xs, wall.getYEnd(), wall.getZEnd()));
-                inters.add(createWall(xs, wall.getYStart(), ze, xe, wall.getYEnd(), wall.getZEnd()));
+                if (!eqRounded(xs, xe)) inters.add(createWall(xs, wall.getYStart(), ze, xe, wall.getYEnd(), wall.getZEnd()));
                 inters.add(createWall(xe, wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
                 continue;
             }
@@ -600,7 +600,7 @@ public class Plan extends ProjectItem implements Cloneable {
             // [ * ] *
             if (isxs && !isxe && iszs && isze) {
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), zs));
-                inters.add(createWall(xe, wall.getYStart(), zs, wall.getXEnd(), wall.getYEnd(), ze));
+                if (!eqRounded(zs, ze)) inters.add(createWall(xe, wall.getYStart(), zs, wall.getXEnd(), wall.getYEnd(), ze));
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), ze, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
                 continue;
             }
@@ -609,7 +609,7 @@ public class Plan extends ProjectItem implements Cloneable {
             //   * [ * ]
             if (!isxs && isxe && iszs && isze) {
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), zs));
-                inters.add(createWall(wall.getXStart(), wall.getYStart(), zs, xe, wall.getYEnd(), ze));
+                if (!eqRounded(zs, ze)) inters.add(createWall(wall.getXStart(), wall.getYStart(), zs, xe, wall.getYEnd(), ze));
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), ze, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
                 continue;
             }
@@ -618,8 +618,8 @@ public class Plan extends ProjectItem implements Cloneable {
             // [ *   * ]
             if (isxs && isxe && iszs && isze) {
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), zs));
-                inters.add(createWall(wall.getXStart(), wall.getYStart(), zs, xs, wall.getYEnd(), ze));
-                inters.add(createWall(xe, wall.getYStart(), zs, wall.getXEnd(), wall.getYEnd(), ze));
+                if (!eqRounded(zs, ze)) inters.add(createWall(wall.getXStart(), wall.getYStart(), zs, xs, wall.getYEnd(), ze));
+                if (!eqRounded(zs, ze)) inters.add(createWall(xe, wall.getYStart(), zs, wall.getXEnd(), wall.getYEnd(), ze));
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), ze, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
                 continue;
             }
@@ -633,10 +633,10 @@ public class Plan extends ProjectItem implements Cloneable {
     private List<Wall> addApertureYZ(List<Wall> walls, float ys, float zs, float ye, float ze) {
         List<Wall> inters = new ArrayList<>();
         for (Wall wall : walls) {
-            boolean isys = (wall.getYStart() < ys && wall.getYEnd() > ys);
-            boolean isye = (wall.getYStart() < ye && wall.getYEnd() > ye);
-            boolean iszs = (wall.getZStart() < zs && wall.getZEnd() > zs);
-            boolean isze = (wall.getZStart() < ze && wall.getZEnd() > ze);
+            boolean isys = (wall.getYStart() <= ys && wall.getYEnd() >= ys);
+            boolean isye = (wall.getYStart() <= ye && wall.getYEnd() >= ye);
+            boolean iszs = (wall.getZStart() <= zs && wall.getZEnd() >= zs);
+            boolean isze = (wall.getZStart() <= ze && wall.getZEnd() >= ze);
 
             // [ * ] *
             //   *   *
@@ -674,7 +674,7 @@ public class Plan extends ProjectItem implements Cloneable {
             //   *   *
             if (isys && isye && iszs && !isze) {
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), ys, wall.getZEnd()));
-                inters.add(createWall(wall.getXStart(), ys, wall.getZStart(), wall.getXEnd(), ye, zs));
+                if (!eqRounded(ys, ye)) inters.add(createWall(wall.getXStart(), ys, wall.getZStart(), wall.getXEnd(), ye, zs));
                 inters.add(createWall(wall.getXStart(), ye, wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
                 continue;
             }
@@ -683,7 +683,7 @@ public class Plan extends ProjectItem implements Cloneable {
             // [ *   * ]
             if (isys && isye && !iszs && isze) {
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), ys, wall.getZEnd()));
-                inters.add(createWall(wall.getXStart(), ys, ze, wall.getXEnd(), ye, wall.getZEnd()));
+                if (!eqRounded(ys, ye)) inters.add(createWall(wall.getXStart(), ys, ze, wall.getXEnd(), ye, wall.getZEnd()));
                 inters.add(createWall(wall.getXStart(), ye, wall.getZStart(), wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
                 continue;
             }
@@ -692,7 +692,7 @@ public class Plan extends ProjectItem implements Cloneable {
             // [ * ] *
             if (isys && !isye && iszs && isze) {
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), zs));
-                inters.add(createWall(wall.getXStart(), ye, zs, wall.getXEnd(), wall.getYEnd(), ze));
+                if (!eqRounded(zs, ze)) inters.add(createWall(wall.getXStart(), ye, zs, wall.getXEnd(), wall.getYEnd(), ze));
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), ze, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
                 continue;
             }
@@ -701,7 +701,7 @@ public class Plan extends ProjectItem implements Cloneable {
             //   * [ * ]
             if (!isys && isye && iszs && isze) {
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), zs));
-                inters.add(createWall(wall.getXStart(), wall.getYStart(), zs, wall.getXEnd(), ye, ze));
+                if (!eqRounded(zs, ze)) inters.add(createWall(wall.getXStart(), wall.getYStart(), zs, wall.getXEnd(), ye, ze));
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), ze, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
                 continue;
             }
@@ -710,8 +710,8 @@ public class Plan extends ProjectItem implements Cloneable {
             // [ *   * ]
             if (isys && isye && iszs && isze) {
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), wall.getZStart(), wall.getXEnd(), wall.getYEnd(), zs));
-                inters.add(createWall(wall.getXStart(), wall.getYStart(), zs, wall.getXEnd(), ys, ze));
-                inters.add(createWall(wall.getXStart(), ye, zs, wall.getXEnd(), wall.getYEnd(), ze));
+                if (!eqRounded(zs, ze)) inters.add(createWall(wall.getXStart(), wall.getYStart(), zs, wall.getXEnd(), ys, ze));
+                if (!eqRounded(zs, ze)) inters.add(createWall(wall.getXStart(), ye, zs, wall.getXEnd(), wall.getYEnd(), ze));
                 inters.add(createWall(wall.getXStart(), wall.getYStart(), ze, wall.getXEnd(), wall.getYEnd(), wall.getZEnd()));
                 continue;
             }
@@ -720,6 +720,10 @@ public class Plan extends ProjectItem implements Cloneable {
             inters.add(wall);
         }
         return inters;
+    }
+
+    private boolean eqRounded(float a, float b) {
+        return Math.round(a) == Math.round(b);
     }
 
     public ItemList<AbstractMaterialItem> getMaterialItems() {

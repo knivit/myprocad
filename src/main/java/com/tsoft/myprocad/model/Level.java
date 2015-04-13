@@ -53,15 +53,6 @@ public class Level implements Comparable<Level>, Cloneable, JsonSerializable {
         this.end = end;
     }
 
-    public static Class<?> getColumnClass(int columnIndex) {
-        switch (columnIndex) {
-            case 0: return String.class;
-            case 1: return Integer.class;
-            case 2: return Integer.class;
-        }
-        throw new IllegalArgumentException("Wrong columnIndex=" + columnIndex);
-    }
-
     public Object getTableModelColumnValueAt(int columnIndex) {
         switch (columnIndex) {
             case 0: return name;

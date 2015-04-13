@@ -3,15 +3,19 @@ package com.tsoft.myprocad.viewcontroller;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.model.Material;
 import com.tsoft.myprocad.model.MaterialList;
+import com.tsoft.myprocad.model.MaterialUnit;
+
 import javax.swing.table.AbstractTableModel;
 
 public class MaterialsTableModel extends AbstractTableModel {
-    public static final transient String[] COLUMN_NAMES = new String[] {
+    private static final transient String[] COLUMN_NAMES = new String[] {
             L10.get(L10.MATERIAL_COLUMN_NAME),
             L10.get(L10.MATERIAL_COLUMN_SG),
             L10.get(L10.MATERIAL_COLUMN_PRICE),
             L10.get(L10.MATERIAL_COLUMN_UNIT)
     };
+
+    private static final transient Class[] COLUMN_CLASSES = { String.class, Float.class, Float.class, MaterialUnit.class };
 
     private MaterialList materialList;
 
@@ -35,7 +39,7 @@ public class MaterialsTableModel extends AbstractTableModel {
     }
 
     @Override
-    public Class<?> getColumnClass(int columnIndex) { return Material.getColumnClass(columnIndex); }
+    public Class<?> getColumnClass(int col) { return COLUMN_CLASSES[col]; }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {

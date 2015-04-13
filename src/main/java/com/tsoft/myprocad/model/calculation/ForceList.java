@@ -2,7 +2,6 @@ package com.tsoft.myprocad.model.calculation;
 
 import com.tsoft.myprocad.swing.dialog.TableDialogPanelSupport;
 
-import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 

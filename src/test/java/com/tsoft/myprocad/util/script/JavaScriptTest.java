@@ -71,6 +71,7 @@ public class JavaScriptTest extends AbstractItemTest {
         js.addBinding(new ProjectBinding(plan.getProject(), plan));
         js.addBinding(new ObjBinding());
         js.loadLibrary("lib/js/БиблиотекаФункций.js");
+        js.executeScript("lib/js/Деденево/Крыша3D.js", new ConsoleOutputBinding(js));
         js.executeScript("lib/js/Деденево/ПервыйЭтаж3D.js", new ConsoleOutputBinding(js));
     }
 }

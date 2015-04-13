@@ -66,16 +66,6 @@ public class Material implements Comparable<Material>, Cloneable, JsonSerializab
         this.isDefault = isDefault;
     }
 
-    public static Class<?> getColumnClass(int columnIndex) {
-        switch (columnIndex) {
-            case 0: return String.class;
-            case 1: return Float.class;
-            case 2: return Float.class;
-            case 3: return MaterialUnit.class;
-        }
-        throw new IllegalArgumentException("Wrong columnIndex = " + columnIndex);
-    }
-
     public Object getTableModelColumnValueAt(int columnIndex) {
         switch (columnIndex) {
             case 0: return name;

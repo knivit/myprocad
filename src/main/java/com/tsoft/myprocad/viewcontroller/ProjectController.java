@@ -223,16 +223,22 @@ public class ProjectController {
         }
 
         class PlanSelectionTableModel extends AbstractTableModel {
-            private List<PlanSelection> elements;
+            class Element {
+                public Object[] values;
+            }
 
-            public PlanSelectionTableModel(List<PlanSelection> elements) {
+            private List<Element> elements;
+            private final String[] columnNames = { "", L10.get(L10.PLAN_NAME_PROPERTY) };
+            private final Class[] columnClasses = { Boolean.class, String.class };
+            private boolean[] editable = { true, false };
+
+            public PlanSelectionTableModel(List<Element> elements) {
                 this.elements = elements;
             }
 
             @Override
             public String getColumnName(int col) {
-                if (col == 0) return "";
-                return L10.get(L10.PLAN_NAME_PROPERTY);
+                return columnNames[col];
             }
 
             @Override
@@ -242,32 +248,29 @@ public class ProjectController {
 
             @Override
             public int getColumnCount() {
-                return 2;
+                return columnNames.length;
             }
 
             @Override
             public Class<?> getColumnClass(int col) {
-                if (col == 0) return Boolean.class;
-                return String.class;
+                return columnClasses[col];
             }
 
             @Override
             public Object getValueAt(int row, int col) {
-                PlanSelection element = elements.get(row);
-                if (col == 0) return element.isSelected;
-                return element.name;
+                Element element = elements.get(row);
+                return element.values[col];
             }
 
             @Override
             public boolean isCellEditable(int row, int col) {
-                if (col == 0) return true;
-                return false;
+                return editable[col];
             }
 
             @Override
             public void setValueAt(Object value, int row, int col) {
-                PlanSelection element = elements.get(row);
-                if (col == 0) element.isSelected = (boolean)value;
+                Element element = elements.get(row);
+                element.values[col] = value;
             }
         }
 

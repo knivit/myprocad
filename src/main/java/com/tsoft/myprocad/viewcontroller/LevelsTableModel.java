@@ -12,6 +12,9 @@ public class LevelsTableModel extends AbstractTableModel {
             L10.get(L10.LEVEL_COLUMN_END)
     };
 
+    private static final transient Class[] COLUMN_CLASSES = { String.class, Integer.class, Integer.class };
+    private static final transient boolean[] COLUMN_EDITABLE = { false, true, true };
+
     private LevelList levelList;
 
     public LevelsTableModel(LevelList levelList) {
@@ -24,7 +27,7 @@ public class LevelsTableModel extends AbstractTableModel {
     }
 
     @Override
-    public Class<?> getColumnClass(int columnIndex) { return Level.getColumnClass(columnIndex); }
+    public Class<?> getColumnClass(int col) { return COLUMN_CLASSES[col]; }
 
     @Override
     public int getRowCount() {
@@ -43,8 +46,7 @@ public class LevelsTableModel extends AbstractTableModel {
     }
 
     public boolean isCellEditable(int row, int col) {
-        // col=0 is editable through "Rename" menu
-        return col > 0;
+        return COLUMN_EDITABLE[col];
     }
 
     public void setValueAt(Object value, int row, int col) {
