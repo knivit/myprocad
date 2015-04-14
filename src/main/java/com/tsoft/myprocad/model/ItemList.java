@@ -200,4 +200,28 @@ public class ItemList<T extends Item> extends ArrayList<T> {
         ClipboardItems clipboardItems = new ClipboardItems();
         clipboardItems.copyToClipboard(this);
     }
+
+    public ItemList<AbstractMaterialItem> filterByMaterials(MaterialList materials) {
+        Set<AbstractMaterialItem> set = new HashSet<>();
+        for (Material material : materials) {
+            set.addAll(filterByMaterial(material));
+        }
+        return new ItemList<>(set);
+    }
+
+    public ItemList<AbstractMaterialItem> filterByMaterial(Material material) {
+        ItemList<AbstractMaterialItem> list = new ItemList<>();
+        for (AbstractMaterialItem item : (ItemList<AbstractMaterialItem>)this) {
+            if (item.getMaterial().equals(material)) list.add(item);
+        }
+        return list;
+    }
+
+    public ItemList<AbstractMaterialItem> filterByPattern(Pattern pattern) {
+        ItemList<AbstractMaterialItem> list = new ItemList<>();
+        for (AbstractMaterialItem item : (ItemList<AbstractMaterialItem>)this) {
+            if (item.getPattern().equals(pattern)) list.add(item);
+        }
+        return list;
+    }
 }

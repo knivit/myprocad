@@ -17,13 +17,6 @@ public class CollectionEvent<T> extends EventObject {
     private final Type type;
 
     /**
-     * Creates an event for an item that has no index.
-     */
-    public CollectionEvent(Object source, T item, Type type) {
-        this(source, item, -1, type);
-    }
-
-    /**
      * Creates an event for an item with its index.
      */
     public CollectionEvent(Object source, T item, int index, Type type) {

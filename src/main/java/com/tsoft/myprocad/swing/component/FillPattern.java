@@ -1,13 +1,13 @@
-package com.tsoft.myprocad.model;
+package com.tsoft.myprocad.swing.component;
 
 import java.awt.*;
 
-public class WallPattern {
+public class FillPattern {
     private int patternId;
     private Color backgroundColor;
     private Color foregroundColor;
 
-    public WallPattern(int patternId, Color backgroundColor, Color foregroundColor) {
+    public FillPattern(int patternId, Color backgroundColor, Color foregroundColor) {
         this.patternId = patternId;
         this.backgroundColor = backgroundColor;
         this.foregroundColor = foregroundColor;
@@ -18,7 +18,7 @@ public class WallPattern {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        WallPattern that = (WallPattern) o;
+        FillPattern that = (FillPattern) o;
 
         if (patternId != that.patternId) return false;
         if (!backgroundColor.equals(that.backgroundColor)) return false;

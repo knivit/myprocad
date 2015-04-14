@@ -6,11 +6,7 @@ import com.tsoft.myprocad.util.SwingTools;
 import com.tsoft.myprocad.viewcontroller.MaterialsTableModel;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -25,10 +21,6 @@ public class MaterialList extends ArrayList<Material> implements TableDialogPane
         super();
     }
 
-    public MaterialList(Collection<Material> materials) {
-        super(materials);
-    }
-
     public MaterialList(ItemList<AbstractMaterialItem> materialItems) {
         super();
         for (AbstractMaterialItem mi : materialItems) add(mi.getMaterial());
@@ -39,23 +31,6 @@ public class MaterialList extends ArrayList<Material> implements TableDialogPane
     public Material findByName(String name) {
         Optional<Material> optional = stream().filter(e -> e.equalByName(name)).findFirst();
         return optional.isPresent() ? optional.get() : null;
-    }
-
-    public MaterialList filterByNameOrPartOfIt(String name) {
-        Set<Material> materials = new HashSet<>();
-
-        // first, strict comparison
-        materials.addAll(stream().filter(material -> material.equalByName(name)).collect(Collectors.toList()));
-
-        // try to find a part of it
-        String part = name.toLowerCase();
-        for (Material material : this) {
-            String materialName = material.getName().toLowerCase();
-            if (materialName.contains(part))
-                materials.add(material);
-        }
-
-        return new MaterialList(materials);
     }
 
     @Override
@@ -103,8 +78,8 @@ public class MaterialList extends ArrayList<Material> implements TableDialogPane
             // don't remove used materials
             StringBuilder buf = new StringBuilder();
             for (Plan plan : project.getAllPlans()) {
-                WallList usedWalls = plan.findWallsWithMaterial(material);
-                if (!usedWalls.isEmpty()) {
+                ItemList<AbstractMaterialItem> materialItems = plan.getMaterialItems().filterByMaterial(material);
+                if (!materialItems.isEmpty()) {
                     if (buf.length() > 0) buf.append(", ");
                     buf.append(plan.getName());
                 }

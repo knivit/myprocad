@@ -20,6 +20,7 @@ plan.setDefaultMaterial($$Кирпич).setDefaultPattern("brick").setDefaultBac
   7300, 1225, 8500, 2825,
   10500, 1225, 11700, 2825);
 Стена_слева = plan.addWall(100, 100, 160, 500, 13500, 3200);
+plan.addLight()
 Облицовка_верх = plan.addWallWithAperturesXZ(100, -20, 0, 10500, 100, 3200,
   3800, 1225, 5000, 2825); // окно
 Стена_верх = plan.addWall(500, 100, 160, 10100, 500, 3200);

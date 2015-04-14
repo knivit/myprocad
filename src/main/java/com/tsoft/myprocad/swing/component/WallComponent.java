@@ -4,8 +4,6 @@ import com.tsoft.myprocad.model.ItemList;
 import com.tsoft.myprocad.model.Pattern;
 import com.tsoft.myprocad.model.Plan;
 import com.tsoft.myprocad.model.Wall;
-import com.tsoft.myprocad.model.WallList;
-import com.tsoft.myprocad.model.WallPattern;
 import com.tsoft.myprocad.swing.PlanPanel;
 import com.tsoft.myprocad.swing.SelectionPaintInfo;
 
@@ -25,7 +23,7 @@ public class WallComponent {
 
     private Plan plan;
 
-    private Map<WallPattern, BufferedImage>  patternImagesCache = new HashMap<>();
+    private Map<FillPattern, BufferedImage>  patternImagesCache = new HashMap<>();
 
     public WallComponent(Plan plan) {
         this.plan = plan;
@@ -64,7 +62,7 @@ public class WallComponent {
 
     // Draw borders for walls with 'Always show borders' on
     private void paintForceBorderWalls(Graphics2D g2D, SelectionPaintInfo selectionPaintInfo) {
-        WallList showBordersWalls = new WallList();
+        ItemList<Wall> showBordersWalls = new ItemList<>();
         for (Wall wall : getDrawableWallsInSelectedLevel()) {
             if (wall.isAlwaysShowBorders()) showBordersWalls.add(wall);
         }
@@ -78,7 +76,7 @@ public class WallComponent {
     }
 
     private void paintSelectedWallsOutline(Graphics2D g2D, SelectionPaintInfo selectionPaintInfo) {
-        WallList selectedWalls = new WallList(plan.getController().getSelectedItems().getWallsSubList().atLevel(plan));
+        ItemList<Wall> selectedWalls = plan.getController().getSelectedItems().getWallsSubList().atLevel(plan);
         paintWallsOutline(g2D, selectedWalls, selectionPaintInfo);
     }
 
@@ -87,7 +85,7 @@ public class WallComponent {
      * <code>items</code> contains only one wall and indicator paint isn't <code>null</code>.
      * Paint selectionOutlinePaint, Stroke selectionOutlineStroke, Paint indicatorPaint, float planScale, Color foregroundColor
      */
-    private void paintWallsOutline(Graphics2D g2D, WallList walls, SelectionPaintInfo selectionPaintInfo) {
+    private void paintWallsOutline(Graphics2D g2D, ItemList<Wall> walls, SelectionPaintInfo selectionPaintInfo) {
         // Draw selection border
         for (Wall wall : walls) {
             g2D.setPaint(selectionPaintInfo.selectionOutlinePaint);
@@ -104,7 +102,7 @@ public class WallComponent {
         Color foregroundColor = wall.getForegroundColor();
         Pattern pattern = wall.getPattern();
 
-        WallPattern wallPattern = new WallPattern(pattern.getId(), backgroundColor, foregroundColor);
+        FillPattern wallPattern = new FillPattern(pattern.getId(), backgroundColor, foregroundColor);
         BufferedImage patternImage = patternImagesCache.get(wallPattern);
         if (patternImage == null) {
             patternImage = pattern.getPatternImage(backgroundColor, foregroundColor);
@@ -115,9 +113,8 @@ public class WallComponent {
     }
 
     /** Returns the walls that belong to the selected plan's level */
-    private WallList getDrawableWallsInSelectedLevel() {
-        WallList walls = plan.getLevelWalls();
-        return walls;
+    private ItemList<Wall> getDrawableWallsInSelectedLevel() {
+        return plan.getLevelWalls();
     }
 
     public float getStrokeWidth(PlanPanel.PaintMode paintMode) {

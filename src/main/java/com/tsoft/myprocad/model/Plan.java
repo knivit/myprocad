@@ -32,7 +32,7 @@ public class Plan extends ProjectItem implements Cloneable {
     private float scale = 0.12f;
     private int originLocationId = CoordinatesOriginLocation.TOP_LEFT.getId();
 
-    private WallList walls = new WallList();
+    private ItemList<Wall> walls = new ItemList<>();
     private ItemList<Beam> beams = new ItemList<>();
     private ItemList<DimensionLine> dimensionLines = new ItemList<>();
     private ItemList<Label> labels = new ItemList<>();
@@ -320,21 +320,6 @@ public class Plan extends ProjectItem implements Cloneable {
         Wall wall = createWall(xStart, yStart, zStart, xEnd, yEnd, zEnd);
         addItem(wall);
         return wall;
-    }
-
-    public WallList findWallsWithMaterial(MaterialList materials) {
-        WallList levelWalls = new WallList(getLevelWalls());
-        return levelWalls.filterByMaterials(materials);
-    }
-
-    public WallList findWallsWithPattern(Pattern pattern) {
-        WallList levelWalls = new WallList(getLevelWalls());
-        return levelWalls.filterByPattern(pattern);
-    }
-
-    public WallList findWallsWithMaterial(Material material) {
-        WallList levelWalls = new WallList(getLevelWalls());
-        return levelWalls.filterByMaterial(material);
     }
 
     public ItemList<Beam> getBeams() {
@@ -793,8 +778,8 @@ public class Plan extends ProjectItem implements Cloneable {
         return levelMark;
     }
 
-    public WallList getLevelWalls() {
-        return new WallList(getWalls().atLevel(this));
+    public ItemList<Wall> getLevelWalls() {
+        return getWalls().atLevel(this);
     }
 
     public ItemList<Beam> getLevelBeams() {
@@ -1036,7 +1021,7 @@ public class Plan extends ProjectItem implements Cloneable {
 
     @Override
     public void fromJson(JsonReader reader) throws IOException {
-        walls = new WallList();
+        walls = new ItemList();
         beams = new ItemList<>();
         dimensionLines = new ItemList<>();
         labels = new ItemList<>();

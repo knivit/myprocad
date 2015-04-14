@@ -1,10 +1,18 @@
 package com.tsoft.myprocad.swing.component;
 
-import com.tsoft.myprocad.model.*;
+import com.tsoft.myprocad.model.Beam;
+import com.tsoft.myprocad.model.ItemList;
+import com.tsoft.myprocad.model.Pattern;
+import com.tsoft.myprocad.model.Plan;
 import com.tsoft.myprocad.swing.PlanPanel;
 import com.tsoft.myprocad.swing.SelectionPaintInfo;
 
-import java.awt.*;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.Shape;
+import java.awt.TexturePaint;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
@@ -13,7 +21,7 @@ import java.util.Map;
 public class BeamComponent {
     private Plan plan;
 
-    private Map<WallPattern, BufferedImage> patternImagesCache = new HashMap<>();
+    private Map<FillPattern, BufferedImage> patternImagesCache = new HashMap<>();
 
     public BeamComponent(Plan plan) {
         this.plan = plan;
@@ -76,7 +84,7 @@ public class BeamComponent {
         Color foregroundColor = beam.getForegroundColor();
         Pattern pattern = beam.getPattern();
 
-        WallPattern beamPattern = new WallPattern(pattern.getId(), backgroundColor, foregroundColor);
+        FillPattern beamPattern = new FillPattern(pattern.getId(), backgroundColor, foregroundColor);
         BufferedImage patternImage = patternImagesCache.get(beamPattern);
         if (patternImage == null) {
             patternImage = pattern.getPatternImage(backgroundColor, foregroundColor);

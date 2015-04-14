@@ -23,7 +23,6 @@ import com.tsoft.myprocad.viewcontroller.property.AbstractPropertiesController;
 import com.tsoft.myprocad.viewcontroller.property.calculation.RightTrianglePropertiesController;
 import com.tsoft.myprocad.viewcontroller.property.calculation.TrianglePropertiesController;
 
-import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -198,8 +197,8 @@ public class ProjectController {
         folderListController.edit();
     }
 
-    public MaterialList findMaterialByName(String materialName) {
-        return project.getMaterials().filterByNameOrPartOfIt(materialName);
+    public Material findMaterialByName(String materialName) {
+        return project.getMaterials().findByName(materialName);
     }
 
     public void modeChanged(String text) {
@@ -216,106 +215,35 @@ public class ProjectController {
     }
 
     private void show3D() {
-        class PlanSelection {
-            public boolean isSelected;
-            public String name;
-            public Plan plan;
-        }
+        String[] names = { "", L10.get(L10.PLAN_NAME_PROPERTY) };
+        Class[] classes = { Boolean.class, String.class };
+        boolean[] editable = { true, false };
 
-        class PlanSelectionTableModel extends AbstractTableModel {
-            class Element {
-                public Object[] values;
-            }
-
-            private List<Element> elements;
-            private final String[] columnNames = { "", L10.get(L10.PLAN_NAME_PROPERTY) };
-            private final Class[] columnClasses = { Boolean.class, String.class };
-            private boolean[] editable = { true, false };
-
-            public PlanSelectionTableModel(List<Element> elements) {
-                this.elements = elements;
-            }
-
-            @Override
-            public String getColumnName(int col) {
-                return columnNames[col];
-            }
-
-            @Override
-            public int getRowCount() {
-                return elements.size();
-            }
-
-            @Override
-            public int getColumnCount() {
-                return columnNames.length;
-            }
-
-            @Override
-            public Class<?> getColumnClass(int col) {
-                return columnClasses[col];
-            }
-
-            @Override
-            public Object getValueAt(int row, int col) {
-                Element element = elements.get(row);
-                return element.values[col];
-            }
-
-            @Override
-            public boolean isCellEditable(int row, int col) {
-                return editable[col];
-            }
-
-            @Override
-            public void setValueAt(Object value, int row, int col) {
-                Element element = elements.get(row);
-                element.values[col] = value;
-            }
-        }
-
-        class PlanSelectionSupport extends ArrayList<PlanSelection> implements TableDialogPanelSupport {
-            private PlanSelectionTableModel tableModel;
-
-            public PlanSelectionSupport(PlanSelectionTableModel tableModel) {
-                this.tableModel = tableModel;
-            }
-
-            @Override
-            public AbstractTableModel getTableModel() {
-                return tableModel;
-            }
-        }
-
-        List<PlanSelection> elements = new ArrayList<>();
+        TableDialogSupport tableDialog = new TableDialogSupport(names, classes, editable);
         for (Folder folder : project.getFolders()) {
             for (ProjectItem projectItem : folder.getItems()) {
                 if (projectItem.isPlan()) {
                     Plan plan = (Plan)projectItem;
-                    PlanSelection element = new PlanSelection();
-                    element.isSelected = (((PlanController)getActiveController()).getPlan() == plan);
-                    element.name = folder.name + "/" + plan.getName();
-                    element.plan = plan;
-
-                    elements.add(element);
+                    boolean isSelected = (((PlanController)getActiveController()).getPlan() == plan);
+                    String name = folder.name + "/" + plan.getName();
+                    tableDialog.addElement(isSelected, name, plan);
                 }
             }
         }
 
-        PlanSelectionTableModel model = new PlanSelectionTableModel(elements);
-        PlanSelectionSupport values = new PlanSelectionSupport(model);
-        InputTableElement<PlanSelection> element = new InputTableElement<>(L10.get(L10.SELECT_PLANS), values);
-
+        InputTableElement element = new InputTableElement(L10.get(L10.SELECT_PLANS), tableDialog);
         InputDialogPanel inputDialogPanel = new InputDialogPanel(Arrays.asList(element));
         DialogButton result = inputDialogPanel.displayView(L10.get(L10.MENU_SHOW_PLAN_IN_3D_NAME), DialogButton.OK, DialogButton.CANCEL);
         if (!DialogButton.OK.equals(result)) return;
 
         ItemList<AbstractMaterialItem> items = new ItemList<>();
         List<Light> lights = new ArrayList<>();
-        for (PlanSelection planSelection : elements) {
-            if (planSelection.isSelected) {
-                items.addAll(planSelection.plan.getMaterialItems());
-                lights.addAll(planSelection.plan.getLights());
+        for (int i = 0; i < tableDialog.size(); i ++) {
+            Object[] data = tableDialog.get(i);
+            if ((boolean)data[0]) {
+                Plan plan = (Plan)data[2];
+                items.addAll(plan.getMaterialItems());
+                lights.addAll(plan.getLights());
             }
         }
         if (items.isEmpty()) return;

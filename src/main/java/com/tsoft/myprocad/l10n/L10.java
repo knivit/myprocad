@@ -446,7 +446,7 @@ public class L10 {
     public static String[] FIND_BY_PATTERN = { "Wall's pattern", "Шаблон стены" };
     public static String[] MATERIAL_NAME_CANT_BE_EMPTY = { "Row %d. Material's name can't be empty", "Строка %d. Название материала не может быть пустым" };
     public static String[] MATERIAL_ALREADY_EXISTS = { "Row %d. Material already exists", "Строка %d. Материал уже существует" };
-    public static String[] WALLS_NOT_FOUND = { "Walls not found", "Стены не найдены" };
+    public static String[] ITEMS_NOT_FOUND = { "Items not found", "Элементы не найдены" };
     public static String[] CANT_REMOVE_MATERIAL = { "Can not remove material \"%s\" as it is used in plan(s): %s\n. Replace it first with another material.", "Нельзя удалить материал \"%s\", так как он используется на планах: %s\n. Сначала замените его другим материалом." };
     public static String[] CANT_REMOVE_DEFAULT_MATERIAL = { "Can not remove material \"%s\" as it is the default one. You can rename it.", "Нельзя удалить материал \"%s\", т.к. это материал по умолчанию. Однако, его можно переименовать" };
 

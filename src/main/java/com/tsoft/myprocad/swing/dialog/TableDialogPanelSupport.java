@@ -12,8 +12,6 @@ public interface TableDialogPanelSupport<E> {
 
     public default TableDialogPanelSupport<E> getDeepClone() { return null; }
 
-    public int indexOf(Object obj);
-
     public int size();
 
     public default E addDialog() { return null; };

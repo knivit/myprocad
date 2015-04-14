@@ -433,7 +433,7 @@ public class PlanController implements ProjectItemController {
         if (clipboard == null || clipboard.getItems().isEmpty()) return;
 
         // check is pasted items have known materials
-        WallList walls = new WallList(clipboard.getItems().getWallsSubList());
+        ItemList<Wall> walls = clipboard.getItems().getWallsSubList();
         MaterialList materials = clipboard.getMaterials();
         for (Wall wall : walls) {
             long materialId = wall.getMaterialId();
@@ -512,19 +512,25 @@ public class PlanController implements ProjectItemController {
         List<String> levelMaterials = getLevelMaterialsNames();
         if (levelMaterials.isEmpty()) return;
 
-        InputListElement<String> listElement = new InputListElement<>(L10.get(L10.MATERIAL_COLUMN_NAME), levelMaterials);
-        InputDialogPanel inputDialogPanel = new InputDialogPanel(Arrays.asList(listElement));
+        String[] names = { "", L10.get(L10.MATERIAL_COLUMN_NAME) };
+        Class[] classes = { Boolean.class, String.class };
+        boolean[] editable = { true, false };
+        TableDialogSupport tableDialog = new TableDialogSupport(names, classes, editable);
+        for (String materialName : levelMaterials) tableDialog.addElement(false, materialName);
+
+        InputTableElement element = new InputTableElement(L10.get(L10.MATERIAL_COLUMN_NAME), tableDialog);
+        InputDialogPanel inputDialogPanel = new InputDialogPanel(Arrays.asList(element));
         DialogButton result = inputDialogPanel.displayView(L10.get(L10.FIND_BY_MATERIAL_NAME), DialogButton.OK, DialogButton.CANCEL);
         if (!DialogButton.OK.equals(result)) return;
 
-        MaterialList materials = projectController.findMaterialByName(listElement.getValue());
-        WallList walls = plan.findWallsWithMaterial(materials);
-        if (walls.isEmpty()) {
-            SwingTools.showMessage(L10.get(L10.WALLS_NOT_FOUND));
-            return;
+        MaterialList materials = new MaterialList();
+        for (int i = 0; i < tableDialog.size(); i ++) {
+            Object[] data = tableDialog.get(i);
+            if ((boolean)data[0]) materials.add(projectController.findMaterialByName((String)data[1]));
         }
 
-        selectAndShowItems(new ItemList(walls));
+        ItemList materialItems = plan.getLevelMaterialItems().filterByMaterials(materials);
+        selectAndShowItems(materialItems);
     }
 
     private void commandWindow() {
@@ -541,13 +547,8 @@ public class PlanController implements ProjectItemController {
         DialogButton result = inputDialogPanel.displayView(L10.get(L10.FIND_BY_PATTERN), DialogButton.OK, DialogButton.CANCEL);
         if (!DialogButton.OK.equals(result)) return;
 
-        WallList walls = plan.findWallsWithPattern(listElement.getValue());
-        if (walls.isEmpty()) {
-            SwingTools.showMessage(L10.get(L10.WALLS_NOT_FOUND));
-            return;
-        }
-
-        selectAndShowItems(new ItemList(walls));
+        ItemList patternItems = plan.getLevelMaterialItems().filterByPattern(listElement.getValue());
+        selectAndShowItems(patternItems);
     }
 
     public void rotateSelectedItems(int ox, int oy) {
