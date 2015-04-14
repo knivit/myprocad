@@ -30,8 +30,6 @@ public abstract class NumberPropertyEditor extends AbstractPropertyEditor {
         this(NumberConverters.getDefaultFormat(64, 6));
     }
 
-    public void addButton(ActionListener listener) { }
-
     @Override
     public Component getCustomEditor() {
         return editorComponent;

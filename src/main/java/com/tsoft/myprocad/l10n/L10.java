@@ -267,6 +267,7 @@ public class L10 {
     public static String[] PLAN_VIEW_CATEGORY = { "View", "Представление" };
     public static String[] PLAN_PASTE_CATEGORY = { "Paste", "Вставка из буфера" };
     public static String[] PLAN_PRINT_CATEGORY = { "Print", "Печать" };
+    public static String[] PLAN_LIGHTS_PROPERTY = { "Lights", "Свет" };
     public static String[] PLAN_RULERS_PROPERTY = { "Rulers", "Рулетка" };
     public static String[] PLAN_GRID_PROPERTY = { "Grid", "Сетка" };
     public static String[] PLAN_SCALE_PROPERTY = { "Scale", "Масштаб" };
@@ -355,6 +356,15 @@ public class L10 {
     public static String[] SELECTION_MOVE_Z_PROPERTY = { "Move Z (mm)", "Установить Z (мм)" };
     public static String[] SELECTION_MOVE_DZ_PROPERTY = { "Move DZ (+/-mm)", "Сдвинуть Z (+/-мм)" };
     public static String[] SELECTION_AMOUNT_PROPERTY = { "Selected (items)", "Выбрано (объектов)" };
+
+    public static String[] LIGHT_TYPE = { "Light Type", "Тип света" };
+    public static String[] LIGHT_COLOR = { "Color", "Цвет" };
+    public static String[] LIGHT_CX = { "Center X", "Центр X" };
+    public static String[] LIGHT_CY = { "Center Y", "Центр Y" };
+    public static String[] LIGHT_CZ = { "Center Z", "Центр Z" };
+    public static String[] LIGHT_DX = { "Direction X", "Направление X" };
+    public static String[] LIGHT_DY = { "Direction Y", "Направление Y" };
+    public static String[] LIGHT_DZ = { "Direction Z", "Направление Z" };
 
     /** Calculation */
     public static String[] CALCULATION_DIALOG_TITLE = { "Calculations", "Расчеты" };

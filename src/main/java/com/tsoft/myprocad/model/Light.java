@@ -92,6 +92,12 @@ public class Light implements JsonSerializable, Cloneable {
         return clone();
     }
 
+    /** Used in PlanPropertiesController to display table of lights */
+    @Override
+    public String toString() {
+        return color.toString();
+    }
+
     @Override
     public Light clone() {
         try {

@@ -13,7 +13,6 @@ public class LevelsTableModel extends AbstractTableModel {
     };
 
     private static final transient Class[] COLUMN_CLASSES = { String.class, Integer.class, Integer.class };
-    private static final transient boolean[] COLUMN_EDITABLE = { false, true, true };
 
     private LevelList levelList;
 
@@ -46,7 +45,7 @@ public class LevelsTableModel extends AbstractTableModel {
     }
 
     public boolean isCellEditable(int row, int col) {
-        return COLUMN_EDITABLE[col];
+        return true;
     }
 
     public void setValueAt(Object value, int row, int col) {

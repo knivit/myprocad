@@ -60,14 +60,20 @@ public class MaterialList extends ArrayList<Material> implements TableDialogPane
     }
 
     @Override
-    public Material addDialog() {
+    public Object addDialog() {
         Material material = new Material();
         project.addMaterial(material);
         return material;
     }
 
     @Override
-    public boolean deleteDialog(Material material) {
+    public boolean deleteDialog(int row) {
+        Material material = get(row);
+        if (material.getName() == null) {
+            remove(row);
+            return true;
+        }
+
         if (SwingTools.showConfirmDialog(L10.get(L10.CONFIRM_MATERIAL_REMOVAL, material.getName()))) {
             // don't remove the default material
             if (material.isDefault()) {

@@ -8,8 +8,8 @@ import java.awt.*;
 import javax.swing.*;
 
 /** A panel with a table and controls to add/delete items */
-public class TableDialogPanel<E> extends AbstractDialogPanel {
-    public TableDialogPanel(Object entity, TableDialogPanelSupport<E> values, ObjectProperty.Validator validator) {
+public class TableDialogPanel extends AbstractDialogPanel {
+    public TableDialogPanel(Object entity, TableDialogPanelSupport values, ObjectProperty.Validator validator) {
         super(new BorderLayout());
 
         JTable table = new JTable();
@@ -26,7 +26,7 @@ public class TableDialogPanel<E> extends AbstractDialogPanel {
 
         JButton add = new JButton(L10.get(L10.ADD_BUTTON));
         add.addActionListener(e -> {
-            E obj = values.addDialog();
+            Object obj = values.addDialog();
             if (obj != null) {
                 values.getTableModel().fireTableDataChanged();
                 // do not use values.indexOf() as all of the added element's fields can be null/empty
@@ -46,8 +46,7 @@ public class TableDialogPanel<E> extends AbstractDialogPanel {
             int selectedRow = table.getSelectedRow();
             if (selectedRow == -1) return;
 
-            E obj = values.get(selectedRow);
-            if (values.deleteDialog(obj)) values.getTableModel().fireTableDataChanged();
+            if (values.deleteDialog(selectedRow)) values.getTableModel().fireTableDataChanged();
         });
         toolbar.add(delete);
         toolbar.add(Box.createVerticalGlue());

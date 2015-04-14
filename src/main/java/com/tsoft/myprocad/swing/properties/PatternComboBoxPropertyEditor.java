@@ -9,7 +9,4 @@ public class PatternComboBoxPropertyEditor extends ComboBoxPropertyEditor {
         super();
         combobox.setRenderer(new PatternComboBoxRenderer());
     }
-
-    @Override
-    public void addButton(ActionListener listener) { }
 }

@@ -27,10 +27,15 @@ public class TableDialogModel extends AbstractTableModel {
         return elements.get(index).values;
     }
 
-    public void addElement(Object ... values) {
+    public Element addElement(Object ... values) {
         Element element = new Element();
         element.values = values;
         elements.add(element);
+        return element;
+    }
+
+    public Element removeElement(int row) {
+        return elements.remove(row);
     }
 
     @Override

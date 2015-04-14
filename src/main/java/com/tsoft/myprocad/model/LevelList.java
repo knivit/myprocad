@@ -50,7 +50,7 @@ public class LevelList extends ArrayList<Level> implements TableDialogPanelSuppo
     }
 
     @Override
-    public Level addDialog() {
+    public Object addDialog() {
         Level level = new Level();
         level.setId(plan.getProject().generateNextId());
         add(level);
@@ -58,9 +58,11 @@ public class LevelList extends ArrayList<Level> implements TableDialogPanelSuppo
     }
 
     @Override
-    public boolean deleteDialog(Level level) {
-        if (SwingTools.showConfirmDialog(L10.get(L10.CONFIRM_LEVEL_REMOVAL, level.getName()))) {
-            return remove(level);
+    public boolean deleteDialog(int row) {
+        Level level = get(row);
+        if (level.getName() == null || SwingTools.showConfirmDialog(L10.get(L10.CONFIRM_LEVEL_REMOVAL, level.getName()))) {
+            remove(row);
+            return true;
         }
         return false;
     }

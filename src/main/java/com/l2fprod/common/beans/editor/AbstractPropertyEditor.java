@@ -17,9 +17,7 @@ public abstract class AbstractPropertyEditor implements PropertyEditor {
     // Adapter made by JTable during an editing
     protected CellEditorAdapter cellEditorAdapter;
 
-    public void addButton(ActionListener listener) {
-        throw new IllegalStateException("Implement this method");
-    }
+    public void addButton(ActionListener listener) { }
 
     @Override
     public boolean isPaintable() {

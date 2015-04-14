@@ -6,10 +6,11 @@ public class TableDialogSupport implements TableDialogPanelSupport {
     private TableDialogModel tableModel;
 
     public TableDialogSupport(String[] columnNames, Class[] columnClasses, boolean[] editable) {
+        assert(columnNames.length == columnClasses.length && columnClasses.length == editable.length);
         tableModel = new TableDialogModel(columnNames, columnClasses, editable);
     }
 
-    public void addElement(Object ... values) { tableModel.addElement(values); }
+    public Object addElement(Object ... values) { return tableModel.addElement(values); }
 
     @Override
     public AbstractTableModel getTableModel() {
@@ -24,5 +25,17 @@ public class TableDialogSupport implements TableDialogPanelSupport {
     @Override
     public int size() {
         return tableModel.getRowCount();
+    }
+
+    @Override
+    public Object addDialog() {
+        Object[] element = new Object[tableModel.getColumnCount()];
+        return addElement(element);
+    }
+
+    @Override
+    public boolean deleteDialog(int row) {
+        tableModel.removeElement(row);
+        return true;
     }
 }

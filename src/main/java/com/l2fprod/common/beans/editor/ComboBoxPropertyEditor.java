@@ -75,7 +75,7 @@ public class ComboBoxPropertyEditor extends AbstractPropertyEditor {
         editorComponent.add(button, BorderLayout.EAST);
         button.addActionListener(listener);
 
-        // stop editing so after the dialog done, the editor wiil be recreated with new available values
+        // stop editing so after the dialog done, the editor will be recreated with new available values
         button.addActionListener(l -> cellEditorAdapter.stopCellEditing());
     }
 

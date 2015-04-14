@@ -12,12 +12,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class ObjectListPropertyEditor<E> extends AbstractPropertyEditor {
+public class ObjectListPropertyEditor extends AbstractPropertyEditor {
     private JPanel editorComponent;
     private ObjectListCellRenderer label;
     private JButton button;
 
-    private TableDialogPanelSupport<E> values;
+    private TableDialogPanelSupport values;
 
     public ObjectListPropertyEditor() {
         editorComponent = new JPanel(new PercentLayout(PercentLayout.HORIZONTAL, 0));
@@ -42,23 +42,25 @@ public class ObjectListPropertyEditor<E> extends AbstractPropertyEditor {
 
     @Override
     public void setValue(Object value) {
-        values = (TableDialogPanelSupport<E>)value;
+        values = (TableDialogPanelSupport)value;
         label.setValue(values);
     }
 
     protected void showDialog() {
-        TableDialogPanelSupport<E> value = values.getDeepClone();
+        TableDialogPanelSupport clonedValues = values.getDeepClone();
+        if (clonedValues == null) clonedValues = values;
+
         ObjectProperty.Validator validator = (getObjectProperty() == null) ? null : getObjectProperty().getValueValidator();
         List selectedItems = (getObjectProperty() == null) ? null : getObjectProperty().getPropertiesController().getSelectedItems();
         Object entity = (selectedItems == null || selectedItems.isEmpty()) ? null : selectedItems.get(0);
 
         String title = getObjectProperty().getLabelName();
-        TableDialogPanel<E> tableDialogPanel = new TableDialogPanel<>(entity, value, validator);
+        TableDialogPanel tableDialogPanel = new TableDialogPanel(entity, clonedValues, validator);
         DialogButton result = tableDialogPanel.displayView(title, DialogButton.SAVE, DialogButton.CANCEL);
         if (DialogButton.SAVE.equals(result)) {
-            TableDialogPanelSupport<E> oldValues = values;
-            setValue(value);
-            firePropertyChange(oldValues, value);
+            TableDialogPanelSupport oldValues = values;
+            setValue(clonedValues);
+            firePropertyChange(oldValues, clonedValues);
         }
     }
 }

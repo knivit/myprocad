@@ -2,11 +2,10 @@ package com.tsoft.myprocad.model.calculation;
 
 import com.tsoft.myprocad.swing.dialog.TableDialogPanelSupport;
 
-import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
-public class DistributedForceList  extends ArrayList<DistributedForce> implements TableDialogPanelSupport<DistributedForce> {
+public class DistributedForceList extends ArrayList<DistributedForce> implements TableDialogPanelSupport<DistributedForce> {
     private transient DistributedForcesTableModel tableModel;
 
     public DistributedForceList() { super(); }
@@ -28,7 +27,7 @@ public class DistributedForceList  extends ArrayList<DistributedForce> implement
     }
 
     @Override
-    public DistributedForce addDialog() {
+    public Object addDialog() {
         DistributedForce distributedForce = new DistributedForce();
 
         add(distributedForce);
@@ -36,7 +35,8 @@ public class DistributedForceList  extends ArrayList<DistributedForce> implement
     }
 
     @Override
-    public boolean deleteDialog(DistributedForce distributedForce) {
-        return remove(distributedForce);
+    public boolean deleteDialog(int row) {
+        remove(row);
+        return true;
     }
 }

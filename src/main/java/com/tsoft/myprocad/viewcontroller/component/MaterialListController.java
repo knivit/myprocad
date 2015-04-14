@@ -17,7 +17,7 @@ public class MaterialListController {
         MaterialList materials = (MaterialList)project.getMaterials().getDeepClone();
         materials.setProject(project);
 
-        TableDialogPanel<Material> tableDialogPanel = new TableDialogPanel<>(project, materials,
+        TableDialogPanel tableDialogPanel = new TableDialogPanel(project, materials,
                 (entity, value) -> { return ((Project)entity).validateMaterials((TableDialogPanelSupport<Material>)value); });
 
         DialogButton result = tableDialogPanel.displayView(L10.get(L10.EDIT_MATERIALS_TITLE), DialogButton.SAVE, DialogButton.CANCEL);

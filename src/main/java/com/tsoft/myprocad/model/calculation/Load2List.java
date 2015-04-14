@@ -28,7 +28,7 @@ public class Load2List extends ArrayList<Load2> implements TableDialogPanelSuppo
     }
 
     @Override
-    public Load2 addDialog() {
+    public Object addDialog() {
         Load2 load = new Load2("Новая нагрузка", 100);
 
         add(load);
@@ -36,7 +36,8 @@ public class Load2List extends ArrayList<Load2> implements TableDialogPanelSuppo
     }
 
     @Override
-    public boolean deleteDialog(Load2 load) {
-        return remove(load);
+    public boolean deleteDialog(int row) {
+        remove(row);
+        return true;
     }
 }

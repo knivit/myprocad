@@ -27,7 +27,7 @@ public class ForceList extends ArrayList<Force> implements TableDialogPanelSuppo
     }
 
     @Override
-    public Force addDialog() {
+    public Object addDialog() {
         Force force = new Force();
 
         add(force);
@@ -35,7 +35,8 @@ public class ForceList extends ArrayList<Force> implements TableDialogPanelSuppo
     }
 
     @Override
-    public boolean deleteDialog(Force force) {
-        return remove(force);
+    public boolean deleteDialog(int row) {
+        remove(row);
+        return true;
     }
 }
