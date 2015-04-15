@@ -1,19 +1,13 @@
 package com.tsoft.myprocad.swing.dialog;
 
 import javax.swing.table.AbstractTableModel;
-import java.util.ArrayList;
 import java.util.List;
 
 public class TableDialogModel extends AbstractTableModel {
-    class Element {
-        public Object[] values;
-    }
-
-    private List<Element> elements = new ArrayList<>();
-
-    private String[] columnNames;
-    private Class[] columnClasses;
-    private boolean[] editable;
+    public String[] columnNames;
+    public Class[] columnClasses;
+    public boolean[] editable;
+    public List<Object[]> elements;
 
     public TableDialogModel(String[] columnNames, Class[] columnClasses, boolean[] editable) {
         super();
@@ -23,19 +17,8 @@ public class TableDialogModel extends AbstractTableModel {
         this.editable = editable;
     }
 
-    public Object[] getElement(int index) {
-        return elements.get(index).values;
-    }
-
-    public Element addElement(Object ... values) {
-        Element element = new Element();
-        element.values = values;
-        elements.add(element);
-        return element;
-    }
-
-    public Element removeElement(int row) {
-        return elements.remove(row);
+    public void setElements(List<Object[]> elements) {
+        this.elements = elements;
     }
 
     @Override
@@ -60,8 +43,8 @@ public class TableDialogModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int row, int col) {
-        Element element = elements.get(row);
-        return element.values[col];
+        Object[] values = elements.get(row);
+        return values[col];
     }
 
     @Override
@@ -71,7 +54,7 @@ public class TableDialogModel extends AbstractTableModel {
 
     @Override
     public void setValueAt(Object value, int row, int col) {
-        Element element = elements.get(row);
-        element.values[col] = value;
+        Object[] values = elements.get(row);
+        values[col] = value;
     }
 }

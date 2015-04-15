@@ -1,4 +1,4 @@
-package com.tsoft.myprocad.model.calculation;
+package com.tsoft.myprocad.model;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

@@ -70,7 +70,8 @@ public class Beam extends AbstractMaterialItem implements JsonSerializable {
         return width / 1000.0 * height / 1000.0;
     }
 
-    public float getLength() {
+    @Override
+    public double getLength() {
         return getSegment().getLength();
     }
 

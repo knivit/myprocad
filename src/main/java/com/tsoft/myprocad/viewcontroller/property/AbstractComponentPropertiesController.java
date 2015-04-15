@@ -2,6 +2,7 @@ package com.tsoft.myprocad.viewcontroller.property;
 
 import com.l2fprod.common.beans.editor.ColorPropertyEditor;
 import com.l2fprod.common.beans.editor.ComboBoxPropertyEditor;
+import com.l2fprod.common.beans.editor.ObjectListPropertyEditor;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.model.*;
 import com.tsoft.myprocad.model.property.ObjectProperty;
@@ -254,6 +255,12 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
     protected void addCalculatedProperties() {
         new ObjectProperty(this)
                 .setCategoryName(L10.get(L10.INFO_CATEGORY))
+                .setLabelName(L10.get(L10.LENGTH_PROPERTY))
+                .setType(Float.class)
+                .setValueGetter(item -> ((Beam) item).getLength());
+
+        new ObjectProperty(this)
+                .setCategoryName(L10.get(L10.INFO_CATEGORY))
                 .setLabelName(L10.get(L10.AREA_PROPERTY))
                 .setType(Double.class)
                 .setValueGetter(item -> plan.getSelection().getMaterialItemsArea());
@@ -275,6 +282,92 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
                 .setLabelName(L10.get(L10.PRICE_PROPERTY))
                 .setType(Double.class)
                 .setValueGetter(item -> plan.getSelection().getMaterialItemsPrice());
+    }
+
+    protected void addMechanicsProperties() {
+        new ObjectProperty(this)
+            .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
+            .setLabelName(L10.get(L10.CALCULATION_BEAM_LEFT_SUPPORT_PROPERTY))
+            .setType(Double.class)
+            .setValueGetter(entity -> ((AbstractMaterialItem) entity).getLeftSupport())
+            .setValueValidator((entity, value) -> ((AbstractMaterialItem) entity).validateLeftSupport(((Double) value)))
+            .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setLeftSupport((Double) value));
+
+        new ObjectProperty(this)
+            .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
+            .setLabelName(L10.get(L10.CALCULATION_BEAM_RIGHT_SUPPORT_PROPERTY))
+            .setType(Double.class)
+            .setValueGetter(entity -> ((AbstractMaterialItem) entity).getRightSupport())
+            .setValueValidator((entity, value) -> ((AbstractMaterialItem) entity).validateRightSupport(((Double) value)))
+            .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setRightSupport((Double) value));
+
+        new ObjectProperty(this)
+            .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
+            .setLabelName(L10.get(L10.CALCULATION_BEAM_ELASTIC_STRENGTH_PROPERTY))
+            .setType(Double.class)
+            .setValueGetter(entity -> ((AbstractMaterialItem) entity).getElasticStrength())
+            .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setElasticStrength((Double) value));
+
+        new ObjectProperty(this)
+            .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
+            .setLabelName(L10.get(L10.CALCULATION_BEAM_ALLOWABLE_STRESS_PROPERTY))
+            .setType(Double.class)
+            .setValueGetter(entity -> ((AbstractMaterialItem) entity).getAllowableStress())
+            .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setAllowableStress((Double) value));
+
+        new ObjectProperty(this)
+            .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
+            .setLabelName(L10.get(L10.CALCULATION_BEAM_BENDING_MOMENTS_PROPERTY))
+            .setType(ObjectListPropertyEditor.class)
+            .setValueGetter(entity -> {
+                MomentTableDialogSupport support = new MomentTableDialogSupport();
+                support.setElements(((AbstractMaterialItem) entity).getMoments());
+                return support;
+            })
+            .setValueValidator((entity, value) -> {
+                MomentTableDialogSupport support = (MomentTableDialogSupport)value;
+                return ((AbstractMaterialItem) entity).validateMoments(support.getElements());
+            })
+            .setValueSetter((entity, value) -> {
+                MomentTableDialogSupport support = (MomentTableDialogSupport)value;
+                ((AbstractMaterialItem) entity).setMoments(support.getElements());
+            });
+
+        new ObjectProperty(this)
+            .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
+            .setLabelName(L10.get(L10.CALCULATION_BEAM_FORCES_PROPERTY))
+            .setType(ObjectListPropertyEditor.class)
+            .setValueGetter(entity -> {
+                ForceTableDialogSupport support = new ForceTableDialogSupport();
+                support.setElements(((AbstractMaterialItem) entity).getForces());
+                return support;
+            })
+            .setValueValidator((entity, value) -> {
+                ForceTableDialogSupport support = (ForceTableDialogSupport)value;
+                return ((AbstractMaterialItem) entity).validateForces(support.getElements());
+            })
+            .setValueSetter((entity, value) -> {
+                ForceTableDialogSupport support = (ForceTableDialogSupport)value;
+                ((AbstractMaterialItem) entity).setForces(support.getElements());
+            });
+
+        new ObjectProperty(this)
+            .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
+            .setLabelName(L10.get(L10.CALCULATION_BEAM_DISTRIBUTED_FORCES_PROPERTY))
+            .setType(ObjectListPropertyEditor.class)
+            .setValueGetter(entity -> {
+                DistributedForceTableDialogSupport support = new DistributedForceTableDialogSupport();
+                support.setElements(((AbstractMaterialItem) entity).getDistributedForces());
+                return support;
+            })
+            .setValueValidator((entity, value) -> {
+                DistributedForceTableDialogSupport support = (DistributedForceTableDialogSupport)value;
+                return ((AbstractMaterialItem) entity).validateDistributedForces(support.getElements());
+            })
+            .setValueSetter((entity, value) -> {
+                DistributedForceTableDialogSupport support = (DistributedForceTableDialogSupport)value;
+                ((AbstractMaterialItem) entity).setDistributedForces(support.getElements());
+            });
     }
 
     protected void add3dItemProperties() {

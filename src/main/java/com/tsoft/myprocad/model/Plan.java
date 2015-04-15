@@ -212,16 +212,8 @@ public class Plan extends ProjectItem implements Cloneable {
         return null;
     }
 
-    public void setLights(TableDialogSupport values) {
-        for (int i = 0; i < values.size(); i ++) {
-            Object[] data = values.get(i);
-            Light light = new Light();
-            light.setLightType((LightType)data[0]);
-            light.setColor((Color)data[1]);
-            light.setCenter(new Vec3((int)data[2], (int)data[3], (int)data[4]));
-            light.setDirection(new Vec3((int)data[5], (int)data[6], (int)data[7]));
-            lights.add(light);
-        }
+    public void setLights(List<Light> lights) {
+        this.lights = lights;
     }
 
     public void undoItem(Item item) {

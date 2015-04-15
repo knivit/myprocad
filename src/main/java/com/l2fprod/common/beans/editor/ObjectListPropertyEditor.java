@@ -48,7 +48,6 @@ public class ObjectListPropertyEditor extends AbstractPropertyEditor {
 
     protected void showDialog() {
         TableDialogPanelSupport clonedValues = values.getDeepClone();
-        if (clonedValues == null) clonedValues = values;
 
         ObjectProperty.Validator validator = (getObjectProperty() == null) ? null : getObjectProperty().getValueValidator();
         List selectedItems = (getObjectProperty() == null) ? null : getObjectProperty().getPropertiesController().getSelectedItems();

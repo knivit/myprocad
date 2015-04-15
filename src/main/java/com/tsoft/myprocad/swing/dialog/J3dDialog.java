@@ -129,7 +129,7 @@ public class J3dDialog extends Frame {
             dirLight.setDirection(1, 1, 1);
             lights.add(dirLight);
         }
-       // addLights(contentGroup, lights);
+        addLights(contentGroup, lights);
 
         int xMin = items.getXMin(); int xMax = items.getXMax();
         int yMin = items.getYMin(); int yMax = items.getYMax();

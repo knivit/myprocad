@@ -85,6 +85,13 @@ public class Wall extends AbstractMaterialItem implements JsonSerializable {
     }
 
     @Override
+    public double getLength() {
+        double dx = Math.abs(xEnd - xStart);
+        double dy = Math.abs(yEnd - yStart);
+        return Math.max(dx, dy);
+    }
+
+    @Override
     public double getVolume() {
        return getArea() * Math.abs(zEnd - zStart) / 1000.0;
     }

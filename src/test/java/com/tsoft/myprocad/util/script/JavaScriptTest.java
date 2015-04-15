@@ -47,7 +47,7 @@ public class JavaScriptTest extends AbstractItemTest {
         js.executeScript("lib/js/Деденево/РасчетКрыльца.js", new ConsoleOutputBinding(js));
     }
 
-    //@Test
+    @Test
     public void calcWalls() throws Exception {
         JavaScript js = new JavaScript();
         js.loadLibrary("lib/js/БиблиотекаФункций.js");
@@ -65,7 +65,7 @@ public class JavaScriptTest extends AbstractItemTest {
         js.executeScript("lib/js/Деденево/Крыша3D.js", new ConsoleOutputBinding(js));
     }
 
-    @Test
+    //@Test
     public void calcFirstFloor() throws Exception {
         JavaScript js = new JavaScript();
         js.addBinding(new ProjectBinding(plan.getProject(), plan));

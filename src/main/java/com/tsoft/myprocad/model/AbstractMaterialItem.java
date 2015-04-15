@@ -3,6 +3,7 @@ package com.tsoft.myprocad.model;
 import com.sun.j3d.utils.geometry.GeometryInfo;
 import com.sun.j3d.utils.geometry.NormalGenerator;
 import com.tsoft.myprocad.l10n.L10;
+import com.tsoft.myprocad.swing.dialog.TableDialogPanelSupport;
 import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
 import com.tsoft.myprocad.util.json.JsonWriter;
@@ -12,6 +13,8 @@ import javax.media.j3d.*;
 import javax.vecmath.Color3f;
 import java.awt.Color;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class AbstractMaterialItem extends Item {
     public static transient final int MAX_BORDER_WIDTH = 5;
@@ -22,6 +25,15 @@ public abstract class AbstractMaterialItem extends Item {
     private Color borderColor = Color.BLACK;
     private int borderWidth = 1;
     private int patternId = Pattern.HATCH_UP.getId();
+
+    // Mechanics of Materials
+    private double leftSupport = 0;       // Offset to the left support, m (0 .. length)
+    private double rightSupport = 10;     // Offset to the right support, m (0 .. length)
+    private double elasticStrength = 2e5; // Elastic Strength E, MPa (модуль упругости Юнга E (МПа))
+    private double allowableStress = 160; // Allowable Stress, [σ] MPa (допускаемое напряжение [σ] (МПа))
+    private List<Moment> moments = new ArrayList<>(); // Bending moments, kNm
+    private List<Force> forces = new ArrayList<>();    // Normal Force, kN
+    private List<DistributedForce> distributedForces = new ArrayList<>(); // Distributed Normal Forces, kN/m
 
     // 3D properties
     private boolean showWired;
@@ -35,9 +47,13 @@ public abstract class AbstractMaterialItem extends Item {
     private transient Material material;
     private transient Pattern pattern;
 
+    /* Static calculation results */
+    public transient BeamSolution[] solutions = new BeamSolution[6];
+
     /* Inner props */
     public transient Vec3[] vertexes = new Vec3[8];
 
+    public abstract double getLength();
     public abstract double getVolume();
 
     public AbstractMaterialItem() {
@@ -265,6 +281,160 @@ public abstract class AbstractMaterialItem extends Item {
         return 0;
     }
 
+    public String validateLength(Double length) {
+        if (length == null || length <= 0.001) return "Длина балки не может быть меньше 0.001 м";
+
+        if ((leftSupport < 0) || (leftSupport > length)) return "Левая опора должна быть на балке";
+
+        if ((rightSupport < 0) || (rightSupport > length)) return "Правая опора должна быть на балке";
+
+        for (Moment moment : moments) {
+            if (moment.zm >= length) return "Изгибающий момент не может быть вне балки";
+        }
+
+        for (Force force : forces) {
+            if (force.zs >= length) return "Сосредоточеггая сила не может быть вне балки";
+        }
+
+        for (DistributedForce distributedForce : distributedForces) {
+            if (distributedForce.z2 >= length) return "Распределенная нагрузка не может быть вне балки";
+        }
+
+        return null;
+    }
+
+    public double getLeftSupport() {
+        return leftSupport;
+    }
+
+    public String validateLeftSupport(double leftSupport) {
+        if ((leftSupport < 0) || (leftSupport > getLength())) return "Левая опора должна быть на балке";
+        return null;
+    }
+
+    public void setLeftSupport(double value) {
+        if (rightSupport < value) {
+            double tmp = value;
+            value = rightSupport;
+            rightSupport = tmp;
+        }
+        leftSupport = value;
+    }
+
+    public double getRightSupport() {
+        return rightSupport;
+    }
+
+    public String validateRightSupport(double rightSupport) {
+        if ((rightSupport < 0) || (rightSupport > getLength())) return "Правая опора должна быть на балке";
+        return null;
+    }
+
+    public void setRightSupport(double value) {
+        if (value < leftSupport) {
+            double tmp = leftSupport;
+            leftSupport = value;
+            value = tmp;
+        }
+        rightSupport = value;
+    }
+
+    public double getElasticStrength() {
+        return elasticStrength;
+    }
+
+    public void setElasticStrength(double value) {
+        if (value <= 0.001) value = 0.001;
+        elasticStrength = value;
+    }
+
+    public double getAllowableStress() {
+        return allowableStress;
+    }
+
+    public void setAllowableStress(double value) {
+        if (value <= 0.001) value = 0.001;
+        allowableStress = value;
+    }
+
+    public List<Moment> getMoments() {
+        return moments;
+    }
+
+    public void setMoments(List<Moment> value) {
+        moments = value;
+    }
+
+    public String validateMoments(List<Moment> moments) {
+        int row = 1;
+        for (Moment moment : moments) {
+            if (moment.vm == 0) return String.format("Строка %d. Момент равен нулю - не задаём его", row);
+            if ((moment.zm < 0) || (moment.zm > getLength())) return String.format("Строка %d. Момент должен быть на балке", row);
+            row ++;
+        }
+        return null;
+    }
+
+    public List<Force> getForces() {
+        return forces;
+    }
+
+    public void setForces(List<Force> value) {
+        forces = value;
+    }
+
+    public String validateForces(List<Force> forces) {
+        int row = 1;
+        for (Force force : forces) {
+            if (force.vs == 0) return L10.get(L10.CALCULATION_BEAM_ERROR_FORCE_IS_ZERO, row);
+            if ((force.zs < 0) || (force.zs > getLength())) return L10.get(L10.CALCULATION_BEAM_ERROR_FORCE_IS_OUT, row);
+            row ++;
+        }
+        return null;
+    }
+
+    public List<DistributedForce> getDistributedForces() {
+        return distributedForces;
+    }
+
+    public void setDistributedForces(List<DistributedForce> value) {
+        distributedForces = value;
+    }
+
+    public String validateDistributedForces(List<DistributedForce> distributedForces) {
+        int row = 1;
+        for (DistributedForce df : distributedForces) {
+            df.normalize();
+
+            if ((df.z1 < 0) || (df.z1 > getLength())) return String.format("Строка %d. Распределённая нагрузка должна быть на балке", row);
+            if ((df.z2 < 0) || (df.z2 > getLength())) return String.format("Строка %d. Распределённая нагрузка должна быть на балке", row);
+            if (df.z1 == df.z2) return String.format("Строка %d. Интервал нулевой - не задаём нагрузку", row);
+            if ((df.q1 == 0) && (df.q2 == 0)) return String.format("Строка %d. Распределённая нагрузка равна нулю - не задаём её", row);
+
+            row ++;
+        }
+        return null;
+    }
+
+    /** For MMLib */
+    public double getVsc() {
+        double vsc = 0;
+
+        for (Moment moment : moments) {
+            vsc = Math.max(vsc, Math.abs(moment.vm));
+        }
+
+        for (Force force : forces) {
+            vsc = Math.max(vsc, Math.abs(force.vs));
+        }
+
+        for (DistributedForce distributedForce : distributedForces) {
+            vsc = Math.max(vsc, Math.abs(distributedForce.q1));
+            vsc = Math.max(vsc, Math.abs(distributedForce.q2));
+        }
+        return vsc;
+    }
+
     /**
      * The coordinate system of the Java 3D virtual universe is right-handed. The x-axis is positive to the right,
      * y-axis is positive up, and z-axis is positive toward the viewer, with all units in meters
@@ -402,6 +572,15 @@ public abstract class AbstractMaterialItem extends Item {
                 .write("foregroundColor", foregroundColor.getRGB())
                 .write("borderColor", borderColor.getRGB())
                 .write("borderWidth", borderWidth)
+
+                .write("leftSupport", leftSupport)
+                .write("rightSupport", rightSupport)
+                .write("elasticStrength", elasticStrength)
+                .write("allowableStress", allowableStress)
+                .write("moments", moments)
+                .write("forces", forces)
+                .write("distributedForces", distributedForces)
+
                 .write("showWired", showWired)
                 .write("Ka", Ka.getRGB())
                 .write("Kd", Kd.getRGB())
@@ -413,6 +592,10 @@ public abstract class AbstractMaterialItem extends Item {
 
     @Override
     public void fromJson(JsonReader reader) throws IOException {
+        moments = new ArrayList();
+        forces = new ArrayList<>();
+        distributedForces = new ArrayList();
+
         super.fromJson(reader);
         reader
                 .defLong("materialId", ((value) -> materialId = value))
@@ -421,6 +604,15 @@ public abstract class AbstractMaterialItem extends Item {
                 .defInteger("foregroundColor", ((value) -> foregroundColor = new Color(value)))
                 .defInteger("borderColor", ((value) -> borderColor = new Color(value)))
                 .defInteger("borderWidth", ((value) -> borderWidth = value))
+
+                .defDouble("leftSupport", ((value) -> leftSupport = value))
+                .defDouble("rightSupport", ((value) -> rightSupport = value))
+                .defDouble("elasticStrength", ((value) -> elasticStrength = value))
+                .defDouble("allowableStress", ((value) -> allowableStress = value))
+                .defCollection("moments", Moment::new, ((value) -> moments.add((Moment) value)))
+                .defCollection("forces", Force::new, ((value) -> forces.add((Force) value)))
+                .defCollection("distributedForces", DistributedForce::new, ((value) -> distributedForces.add((DistributedForce) value)))
+
                 .defBoolean("showWired", ((value) -> showWired = value))
                 .defInteger("Ka", ((value) -> Ka = new Color(value)))
                 .defInteger("Kd", ((value) -> Kd = new Color(value)))

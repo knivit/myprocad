@@ -39,12 +39,6 @@ public class BeamPropertiesController extends AbstractComponentPropertiesControl
 
         addMaterialItemProperties();
 
-        new ObjectProperty(this)
-                .setCategoryName(L10.get(L10.INFO_CATEGORY))
-                .setLabelName(L10.get(L10.LENGTH_PROPERTY))
-                .setType(Float.class)
-                .setValueGetter(item -> ((Beam) item).getLength());
-
         addCalculatedProperties();
 
         new ObjectProperty(this)
@@ -64,6 +58,8 @@ public class BeamPropertiesController extends AbstractComponentPropertiesControl
                 .setLabelName(L10.get(L10.BEAM_YOZ_ANGLE_PROPERTY))
                 .setType(Integer.class)
                 .setValueGetter(item -> ((Beam) item).getYozAngle());
+
+        addMechanicsProperties();
 
         add3dItemProperties();
     }

@@ -66,10 +66,6 @@ public class L10 {
     public static String[] MENU_SELECT_BY_PATTERN_NAME = { "Select by pattern", "Выделить по шаблону" };
     public static String[] MENU_ESCAPE_NAME = { "Escape", "Сброс" };
     public static String[] MENU_GENERATE_SCRIPT_NAME = { "Generate a script", "Сгенерировать скрипт" };
-    public static String[] MENU_REMEMBER_SELECTION_NAME = { "Remember selection", "Запомнить выделение" };
-    public static String[] MENU_RESTORE_LAST_SELECTION_NAME = { "Restore last selection", "Восстановить последнее выделение" };
-    public static String[] MENU_ADD_TO_LAST_SELECTION_NAME = { "Add current to last selection", "Добавить объект в последнее выделение" };
-    public static String[] MENU_CLEAR_REMEMBERED_SELECTIONS_NAME = { "Clear remembered selections", "Очистить все запомненные выделения" };
     public static String[] MENU_MOVE_SELECTION_LEFT_NAME = { "Move selection left", "Сдвинуть выделение влево" };
     public static String[] MENU_MOVE_SELECTION_UP_NAME = { "Move selection up", "Сдвинуть выделение вверх" };
     public static String[] MENU_MOVE_SELECTION_DOWN_NAME = { "Move selection down", "Сдвинуть выделение вниз" };
@@ -232,7 +228,7 @@ public class L10 {
     public static String[] KE_COLOR_PROPERTY = { "Emissive Color", "Излучаемый свет" };
     public static String[] SHININESS_PROPERTY = { "Shininess", "Яркость" };
     public static String[] TRANSPARENCY_PROPERTY = { "Transparency", "Прозрачность" };
-
+    public static String[] NUMBER_OF_ITEMS = { "%d item(s)", "%d элемент(а,ов)" };
     /** Status Panel */
     public static String[] STATUS_PANEL_X_LABEL = { "Mouse coordinates, X: ", "Координаты мыши, X: " };
     public static String[] STATUS_PANEL_Y_LABEL = { "Y: ", "Y: " };

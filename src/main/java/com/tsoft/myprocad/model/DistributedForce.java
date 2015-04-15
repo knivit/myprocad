@@ -1,4 +1,4 @@
-package com.tsoft.myprocad.model.calculation;
+package com.tsoft.myprocad.model;
 
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.util.StringUtil;
@@ -41,30 +41,6 @@ public class DistributedForce implements Cloneable, JsonSerializable {
             z1 = z2;
             z2 = a;
         }
-    }
-
-    public static Class<?> getColumnClass(int columnIndex) {
-        return Double.class;
-    }
-
-    public Object getTableModelColumnValueAt(int columnIndex) {
-        switch (columnIndex) {
-            case 0: return q1;
-            case 1: return z1;
-            case 2: return q2;
-            case 3: return z2;
-        }
-        throw new IllegalArgumentException("Wrong columnIndex=" + columnIndex);
-    }
-
-    public void setTableModelColumnValueAt(int col, Object value) {
-        switch (col) {
-            case 0: { setQ1(value); return; }
-            case 1: { setZ1(value); return; }
-            case 2: { setQ2(value); return; }
-            case 3: { setZ2(value); return; }
-        }
-        throw new IllegalArgumentException("Wrong columnIndex=" + col);
     }
 
     public String getName() { return L10.get(L10.CALCULATION_BEAM_DISTRIBUTED_FORCES_PROPERTY); }

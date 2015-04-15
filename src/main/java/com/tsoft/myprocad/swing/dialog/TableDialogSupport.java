@@ -1,16 +1,23 @@
 package com.tsoft.myprocad.swing.dialog;
 
-import javax.swing.table.AbstractTableModel;
+import com.tsoft.myprocad.l10n.L10;
 
-public class TableDialogSupport implements TableDialogPanelSupport {
+import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
+
+public class TableDialogSupport extends ArrayList<Object[]> implements TableDialogPanelSupport {
     private TableDialogModel tableModel;
 
     public TableDialogSupport(String[] columnNames, Class[] columnClasses, boolean[] editable) {
         assert(columnNames.length == columnClasses.length && columnClasses.length == editable.length);
         tableModel = new TableDialogModel(columnNames, columnClasses, editable);
+        tableModel.setElements(this);
     }
 
-    public Object addElement(Object ... values) { return tableModel.addElement(values); }
+    public Object[] addElement(Object ... values) {
+        add(values);
+        return values;
+    }
 
     @Override
     public AbstractTableModel getTableModel() {
@@ -18,13 +25,16 @@ public class TableDialogSupport implements TableDialogPanelSupport {
     }
 
     @Override
-    public Object[] get(int index) {
-        return tableModel.getElement(index);
-    }
+    public TableDialogPanelSupport getDeepClone() {
+        TableDialogSupport clone = (TableDialogSupport)this.clone();
+        clone.tableModel.setElements(clone);
+        clone.clear();
 
-    @Override
-    public int size() {
-        return tableModel.getRowCount();
+        for (Object[] element : this) {
+            Object[] copy = element.clone();
+            clone.add(copy);
+        }
+        return clone;
     }
 
     @Override
@@ -35,7 +45,12 @@ public class TableDialogSupport implements TableDialogPanelSupport {
 
     @Override
     public boolean deleteDialog(int row) {
-        tableModel.removeElement(row);
+        remove(row);
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return L10.get(L10.NUMBER_OF_ITEMS, size());
     }
 }

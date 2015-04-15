@@ -1,4 +1,4 @@
-package com.tsoft.myprocad.model.calculation;
+package com.tsoft.myprocad.model;
 
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.util.StringUtil;
@@ -18,26 +18,6 @@ public class Force implements Cloneable, JsonSerializable {
 
     public void setZs(Object value) {
         this.zs = (double)value;
-    }
-
-    public static Class<?> getColumnClass(int columnIndex) {
-        return Double.class;
-    }
-
-    public Object getTableModelColumnValueAt(int columnIndex) {
-        switch (columnIndex) {
-            case 0: return vs;
-            case 1: return zs;
-        }
-        throw new IllegalArgumentException("Wrong columnIndex=" + columnIndex);
-    }
-
-    public void setTableModelColumnValueAt(int col, Object value) {
-        switch (col) {
-            case 0: { setVs(value); return; }
-            case 1: { setZs(value); return; }
-        }
-        throw new IllegalArgumentException("Wrong columnIndex=" + col);
     }
 
     public String getName() { return L10.get(L10.CALCULATION_BEAM_FORCES_PROPERTY); }

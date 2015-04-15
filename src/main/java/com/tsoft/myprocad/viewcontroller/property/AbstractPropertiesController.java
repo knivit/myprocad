@@ -18,7 +18,7 @@ public abstract class AbstractPropertiesController<T> {
     private Map<ObjectProperty, Object> values = new HashMap<>();
     private Set<ObjectProperty> changedProperties = new HashSet<>();
 
-    private ObjectPropertyList properties = new ObjectPropertyList();;
+    private ObjectPropertyList properties = new ObjectPropertyList();
 
     protected abstract void initObjectProperties();
     protected abstract void setPanelProperties();

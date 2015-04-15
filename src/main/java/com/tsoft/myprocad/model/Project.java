@@ -1,7 +1,6 @@
 package com.tsoft.myprocad.model;
 
 import com.tsoft.myprocad.l10n.L10;
-import com.tsoft.myprocad.model.property.ListenedField;
 import com.tsoft.myprocad.model.property.ProjectProperties;
 import com.tsoft.myprocad.swing.dialog.TableDialogPanelSupport;
 import com.tsoft.myprocad.util.StringUtil;
@@ -13,7 +12,8 @@ import com.tsoft.myprocad.viewcontroller.ProjectItemController;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Project implements JsonSerializable, Cloneable {
     private MaterialList materials = new MaterialList();
@@ -173,9 +173,7 @@ public class Project implements JsonSerializable, Cloneable {
         materials.add(material);
     }
 
-    /** Used from JavaScript
-     *
-     */
+    /** Used in JavaScript */
     public void addMaterial(String name, float density, float price) {
         Material material = new Material();
         material.setName(name);
