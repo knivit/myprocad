@@ -3,6 +3,7 @@ package com.tsoft.myprocad.model;
 import com.sun.j3d.utils.geometry.GeometryInfo;
 import com.sun.j3d.utils.geometry.NormalGenerator;
 import com.tsoft.myprocad.l10n.L10;
+import com.tsoft.myprocad.lib.mm.MMLib;
 import com.tsoft.myprocad.swing.dialog.TableDialogPanelSupport;
 import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
@@ -555,6 +556,10 @@ public abstract class AbstractMaterialItem extends Item {
             buf.append("f " + (vno + faces[i][0]) + " " + (vno + faces[i][1]) + " " + (vno + faces[i][2])).append('\n');
         }
         return buf.toString();
+    }
+
+    public String getMechanicsSolution() {
+        return MMLib.calcStatic(this);
     }
 
     @Override

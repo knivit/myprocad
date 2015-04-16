@@ -1,6 +1,7 @@
 package com.tsoft.myprocad.model.property;
 
 import com.l2fprod.common.beans.editor.AbstractPropertyEditor;
+import com.tsoft.myprocad.swing.dialog.AbstractDialogPanel;
 import com.tsoft.myprocad.viewcontroller.property.AbstractPropertiesController;
 
 import java.awt.event.ActionListener;
@@ -18,15 +19,18 @@ public class ObjectProperty {
     private Class editorType = String.class;
 
     private Object[] availableValues;
+    private AbstractDialogPanel dialogPanel;
+    private boolean calculable; // true if the property should be re-calculated (it's getter invoked) on every change of other properties
+    private boolean tooComplexForBatchOpertion; // usually true for lists as they consume too much reources in their getter
 
     private List<ActionListener> editorButtons = new ArrayList<>();
 
-    public static interface Getter { public Object getValue(Object object); }
+    public interface Getter { public Object getValue(Object object); }
 
-    public static interface Setter { public void setValue(Object object, Object value); }
+    public interface Setter { public void setValue(Object object, Object value); }
 
     /** Return error message or null */
-    public static interface Validator { public String validateValue(Object object, Object value); }
+    public interface Validator { public String validateValue(Object object, Object value); }
 
     private Getter getter;
     private Setter setter;
@@ -119,6 +123,31 @@ public class ObjectProperty {
     }
 
     public List<ActionListener> getEditorButtons() { return editorButtons ;}
+
+    public boolean isCalculable() {
+        return calculable;
+    }
+
+    public ObjectProperty setCalculable(boolean calculable) {
+        this.calculable = calculable;
+        return this;
+    }
+
+    public boolean isTooComplexForBatchOpertion() {
+        return tooComplexForBatchOpertion;
+    }
+
+    public ObjectProperty setTooComplexForBatchOpertion(boolean tooComplexForBatchOpertion) {
+        this.tooComplexForBatchOpertion = tooComplexForBatchOpertion;
+        return this;
+    }
+
+    public AbstractDialogPanel getDialogPanel() { return dialogPanel; }
+
+    public ObjectProperty setDialogPanel(AbstractDialogPanel dialogPanel) {
+        this.dialogPanel = dialogPanel;
+        return this;
+    }
 
     public AbstractPropertiesController getPropertiesController() {
         return propertiesController;

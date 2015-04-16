@@ -1,7 +1,11 @@
 package com.tsoft.myprocad.lib.mm;
 
-import com.tsoft.myprocad.model.*;
-import com.tsoft.myprocad.model.calculation.*;
+import com.tsoft.myprocad.model.AbstractMaterialItem;
+import com.tsoft.myprocad.model.Beam;
+import com.tsoft.myprocad.model.BeamSolution;
+import com.tsoft.myprocad.model.DistributedForce;
+import com.tsoft.myprocad.model.Force;
+import com.tsoft.myprocad.model.Moment;
 import com.tsoft.myprocad.util.StringUtil;
 
 import java.awt.*;
@@ -181,7 +185,7 @@ public class MMLib {
      * Calculate beam
      * @return Result
      */
-    public static String calcStatic(Beam beam) {
+    public static String calcStatic(AbstractMaterialItem beam) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < beam.solutions.length; i ++) beam.solutions[i] = new BeamSolution();
 
@@ -784,7 +788,7 @@ public class MMLib {
     }
 
     // Рис "Балочка и нагрузка на неё"
-    private static void drawActions(Beam beam, Graphics2D g2d, double vsc) {
+    private static void drawActions(AbstractMaterialItem beam, Graphics2D g2d, double vsc) {
         drawBalka(beam, g2d);
 
         double[] y = new double[11];
@@ -882,7 +886,7 @@ public class MMLib {
     }
 
     // Эпюра перерезывающих сил
-    private static void drawShearingForces(Beam beam, Graphics2D g2d, int kpr, double yqmax, double[] xx, double[] yq, double vscq) {
+    private static void drawShearingForces(AbstractMaterialItem beam, Graphics2D g2d, int kpr, double yqmax, double[] xx, double[] yq, double vscq) {
         drawBalka(beam, g2d);
 
         double[] y = new double[11];
@@ -900,7 +904,7 @@ public class MMLib {
     }
 
     // Эпюра изгибающих моментов
-    private static void drawBendingMoments(Beam beam, Graphics2D g2d, int kpr, double ymmax, double[] xx, double[] ym, double vscm) {
+    private static void drawBendingMoments(AbstractMaterialItem beam, Graphics2D g2d, int kpr, double ymmax, double[] xx, double[] ym, double vscm) {
         drawBalka(beam, g2d);
 
         double[] y = new double[11];
@@ -918,7 +922,7 @@ public class MMLib {
     }
 
     // Распределение напряжений в опасном сечении
-    private static void drawNapr(Beam beam, Graphics2D g2d, Profile profile) {
+    private static void drawNapr(AbstractMaterialItem beam, Graphics2D g2d, Profile profile) {
         g2d.setColor(Color.BLACK);
         g2d.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 
@@ -1003,20 +1007,20 @@ public class MMLib {
     }
 
     // Эпюра углов поворота
-    private static void drawRotationCurve(Beam beam, Graphics2D g2d, int kpr, double tmax, double Jx, double[] xx, double[] yt, double vsct) {
+    private static void drawRotationCurve(AbstractMaterialItem beam, Graphics2D g2d, int kpr, double tmax, double Jx, double[] xx, double[] yt, double vsct) {
         double[] y = new double[11];
         for (int i = 0 ; i < 11; i ++) y[i] =  tmax / beam.getElasticStrength() / Jx*1e5 - tmax / beam.getElasticStrength() / Jx*1e5 / 5 * i;
         drawCurve(beam, g2d, kpr, y, "радиан", xx, yt, vsct);
     }
 
     // Эпюра перемещений
-    private static void drawMovementsCurve(Beam beam, Graphics2D g2d, int kpr, double wmax, double Jx, double[] xx, double[] yw, double vscw) {
+    private static void drawMovementsCurve(AbstractMaterialItem beam, Graphics2D g2d, int kpr, double wmax, double Jx, double[] xx, double[] yw, double vscw) {
         double[] y = new double[11];
         for (int i = 0 ; i < 11; i ++) y[i] = wmax / beam.getElasticStrength() / Jx*1e8 - wmax / beam.getElasticStrength() / Jx*1e8 / 5 * i;
         drawCurve(beam, g2d, kpr, y, "мм", xx, yw, vscw);
     }
 
-    private static void drawCurve(Beam beam, Graphics2D g2d, int kpr, double[] y, String ei, double[] xx, double[] yw, double v) {
+    private static void drawCurve(AbstractMaterialItem beam, Graphics2D g2d, int kpr, double[] y, String ei, double[] xx, double[] yw, double v) {
         drawBalka(beam, g2d);
         drawScale(beam, g2d, y, ei);
 
@@ -1031,7 +1035,7 @@ public class MMLib {
     private static final float dash1[] = {2.0f};
     private static final BasicStroke dashed = new BasicStroke(1.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1, 0.0f);
 
-    private static void drawScale(Beam beam, Graphics2D g2d, double[] y, String ei) {
+    private static void drawScale(AbstractMaterialItem beam, Graphics2D g2d, double[] y, String ei) {
         g2d.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         int a = (int)Math.round(beam.getLeftSupport() / beam.getLength() * 700);
         int b = (int)Math.round(beam.getRightSupport() / beam.getLength() * 700);
@@ -1055,7 +1059,7 @@ public class MMLib {
     }
 
     // Балка
-    private static void drawBalka(Beam beam, Graphics2D g2d) {
+    private static void drawBalka(AbstractMaterialItem beam, Graphics2D g2d) {
         g2d.setColor(Color.BLACK);
 
         int lx = (int)Math.round(beam.getLeftSupport()/beam.getLength()*700);

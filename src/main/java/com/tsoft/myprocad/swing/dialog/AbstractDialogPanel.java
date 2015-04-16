@@ -21,8 +21,6 @@ public abstract class AbstractDialogPanel extends JPanel {
     private Supplier<Boolean> beforeCloseValidator;
     private DialogButton pressedButton;
 
-    public abstract Dimension getDialogPreferredSize();
-
     public AbstractDialogPanel(LayoutManager layout) {
         super(layout);
     }
@@ -95,6 +93,12 @@ public abstract class AbstractDialogPanel extends JPanel {
     public void setBeforeCloseValidator(Supplier<Boolean> beforeCloseValidator) {
         this.beforeCloseValidator = beforeCloseValidator;
     }
+
+    public Dimension getDialogPreferredSize() {
+        return new Dimension(400, 500);
+    }
+
+    public void setText(Object value) { }
 
     private Dimension getLastSize(String title) {
         Dimension size = Application.getInstance().getWindowSize(title);

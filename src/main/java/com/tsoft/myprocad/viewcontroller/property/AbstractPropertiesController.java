@@ -70,31 +70,41 @@ public abstract class AbstractPropertiesController<T> {
         propertiesManagerPanel.refreshValues();
     }
 
+    /** Invokes on every change of any of Item's property (i.e. on a mouse move etc) */
     public void loadValues() {
-        values.clear();
         changedProperties.clear();
-        if (selectedItems.isEmpty()) return;
+        if (selectedItems.isEmpty()) {
+            values.clear();
+            return;
+        }
 
         // Copy first selected object's properties
         // Do not use setPropertyValue as it changes changedProperties
+        Map<ObjectProperty, Object> newValues = new HashMap<>();
         Iterator<T> iterator = selectedItems.iterator();
         T firstObject = iterator.next();
         for (ObjectProperty property : properties) {
-            Object value = getObjectPropertyValue(firstObject, property);
-            values.put(property, value);
+            if (property.isCalculable() || !values.containsKey(property)) {
+                Object value = getObjectPropertyValue(firstObject, property);
+                newValues.put(property, value);
+            } else newValues.put(property, values.get(property));
         }
 
         // Reset properties with different values
         while (iterator.hasNext()) {
             T object = iterator.next();
             for (ObjectProperty property : properties) {
-                Object currValue = getPropertyValue(property);
+                if (!property.isTooComplexForBatchOpertion()) continue;
+                Object currValue = newValues.get(property);
+
                 Object newValue = getObjectPropertyValue(object, property);
                 if (!ObjectUtil.equals(currValue, newValue)) {
-                    values.put(property, null);
+                    newValues.put(property, null);
                 }
             }
         }
+
+        values = newValues;
     }
 
     public void loadAndRefreshValues() {

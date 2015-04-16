@@ -2,8 +2,8 @@ package com.l2fprod.common.beans.editor;
 
 import com.l2fprod.common.swing.ComponentFactory;
 import com.l2fprod.common.swing.PercentLayout;
+import com.tsoft.myprocad.swing.dialog.AbstractDialogPanel;
 import com.tsoft.myprocad.swing.dialog.DialogButton;
-import com.tsoft.myprocad.swing.dialog.TextDialog;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,14 +40,9 @@ public class TextPropertyViewer extends AbstractPropertyEditor {
     }
 
     private void showTextViewer() {
-        Object oldValue = getValue();
-        TextDialog dialog = new TextDialog();
-        dialog.setText((String)oldValue, true);
+        AbstractDialogPanel dialog = getObjectProperty().getDialogPanel();
+        dialog.setText(data);
         String title = getObjectProperty().getLabelName();
-        if (dialog.displayView(title, DialogButton.SAVE, DialogButton.CANCEL) == DialogButton.SAVE) {
-            String value = dialog.getText();
-            setValue(value);
-            firePropertyChange(oldValue, value);
-        }
+        dialog.displayView(title, DialogButton.CLOSE);
     }
 }

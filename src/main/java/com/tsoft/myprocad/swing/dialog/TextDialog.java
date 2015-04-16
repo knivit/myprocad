@@ -3,8 +3,6 @@ package com.tsoft.myprocad.swing.dialog;
 import com.tsoft.myprocad.util.StringUtil;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class TextDialog extends AbstractDialogPanel {
@@ -21,11 +19,6 @@ public class TextDialog extends AbstractDialogPanel {
 
         JScrollPane scrollPane = new JScrollPane(ta);
         add(scrollPane, BorderLayout.CENTER);
-    }
-
-    @Override
-    public Dimension getDialogPreferredSize() {
-        return new Dimension(400, 300);
     }
 
     public String getText() {

@@ -2,6 +2,7 @@ package com.tsoft.myprocad.swing;
 
 import com.tsoft.myprocad.MyProCAD;
 import com.tsoft.myprocad.l10n.L10;
+import com.tsoft.myprocad.swing.dialog.AbstractDialogPanel;
 import com.tsoft.myprocad.swing.properties.PropertiesManagerPanel;
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 
-public class BeamPanel extends JPanel implements Printable {
+public class BeamPanel extends AbstractDialogPanel implements Printable {
     private JLabel[] labels = new JLabel[8];
     private String[] labelsText = new String[] {
             L10.get(L10.CALCULATION_BEAM_COORDS_FIG),
