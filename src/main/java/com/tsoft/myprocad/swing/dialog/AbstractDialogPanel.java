@@ -2,11 +2,19 @@ package com.tsoft.myprocad.swing.dialog;
 
 import com.tsoft.myprocad.model.Application;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.ComponentOrientation;
+import java.awt.Dimension;
+import java.awt.LayoutManager;
+import java.awt.Toolkit;
 import java.util.Locale;
-import java.util.function.Function;
 import java.util.function.Supplier;
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
 
 public abstract class AbstractDialogPanel extends JPanel {
     private JDialog dialog;

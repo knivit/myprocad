@@ -7,7 +7,6 @@ import com.tsoft.myprocad.swing.dialog.TextDialog;
 
 import java.awt.Component;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -50,7 +49,7 @@ public class TextPropertyEditor extends AbstractPropertyEditor {
         TextDialog dialog = new TextDialog();
         dialog.setText((String)oldValue, true);
         String title = getObjectProperty().getLabelName();
-        if (dialog.displayView(title, DialogButton.OK, DialogButton.CANCEL) == DialogButton.OK) {
+        if (dialog.displayView(title, DialogButton.SAVE, DialogButton.CANCEL) == DialogButton.SAVE) {
             String value = dialog.getText();
             setValue(value);
             firePropertyChange(oldValue, value);

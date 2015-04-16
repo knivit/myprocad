@@ -364,7 +364,7 @@ public class L10 {
 
     /** Calculation */
     public static String[] CALCULATION_DIALOG_TITLE = { "Calculations", "Расчеты" };
-    public static String[] CALCULATION_PARAMETERS_CATEGORY = { "Parameters", "Параметры" };
+    public static String[] CALCULATION_PARAMETERS_CATEGORY = { "Mechanics", "Нагрузки" };
     public static String[] CALCULATION_A_LEG_PROPERTY = { "a Leg (mm)", "Сторона a (мм)" };
     public static String[] CALCULATION_B_LEG_PROPERTY = { "b Leg (mm)", "Сторона b (мм)" };
     public static String[] CALCULATION_C_LEG_PROPERTY = { "c Leg (mm)", "Сторона c (мм)" };
@@ -381,7 +381,6 @@ public class L10 {
     public static String[] MENU_DELETE_WOOD_BEAM_NAME = { "Delete Wood Beam", "Удалить деревянную балку" };
 
     /* Beam */
-    public static String[] CALCULATION_BEAM_LENGTH_PROPERTY = { "Beam Length, L (m)", "Длина балки (м)" };
     public static String[] CALCULATION_BEAM_LEFT_SUPPORT_PROPERTY = { "Left Support, a (m)", "Левая опора (м)" };
     public static String[] CALCULATION_BEAM_RIGHT_SUPPORT_PROPERTY = { "Right Support, b (m)", "Правая опора (м)" };
     public static String[] CALCULATION_BEAM_ELASTIC_STRENGTH_PROPERTY = { "Elastic Strength, E (MPa)", "Модуль упругости E (МПа)" };

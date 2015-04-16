@@ -3,10 +3,12 @@ package com.tsoft.myprocad.viewcontroller.property;
 import com.l2fprod.common.beans.editor.ColorPropertyEditor;
 import com.l2fprod.common.beans.editor.ComboBoxPropertyEditor;
 import com.l2fprod.common.beans.editor.ObjectListPropertyEditor;
+import com.l2fprod.common.beans.editor.TextPropertyViewer;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.model.*;
 import com.tsoft.myprocad.model.property.ObjectProperty;
 import com.tsoft.myprocad.swing.properties.PatternComboBoxPropertyEditor;
+import com.tsoft.myprocad.util.StringUtil;
 
 import java.awt.*;
 import java.util.Collections;
@@ -368,6 +370,13 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
                 DistributedForceTableDialogSupport support = (DistributedForceTableDialogSupport)value;
                 ((AbstractMaterialItem) entity).setDistributedForces(support.getElements());
             });
+
+        new ObjectProperty(this)
+            .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
+            .setLabelName(L10.get(L10.LABEL_TEXT_PROPERTY))
+            .setType(TextPropertyViewer.class)
+                .set
+            .setValueGetter(entity -> ((AbstractMaterialItem) entity).getMechanicsSolution());
     }
 
     protected void add3dItemProperties() {
