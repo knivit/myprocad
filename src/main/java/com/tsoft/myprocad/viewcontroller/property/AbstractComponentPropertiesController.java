@@ -416,7 +416,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setType(TextPropertyViewer.class)
             .setTooComplexForSelectionOperation(true)
             .setDialogPanel(new BeamPanel())
-            .setValueGetter(entity -> ((AbstractMaterialItem) entity).getMechanicsSolution());
+            .setValueGetter(entity -> { return null; });//((AbstractMaterialItem) entity).getMechanicsSolution());
     }
 
     protected void add3dItemProperties() {
