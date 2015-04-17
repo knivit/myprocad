@@ -137,7 +137,7 @@ public class ObjectProperty {
         return tooComplexForBatchOpertion;
     }
 
-    public ObjectProperty setTooComplexForBatchOpertion(boolean tooComplexForBatchOpertion) {
+    public ObjectProperty setTooComplexForSelectionOperation(boolean tooComplexForBatchOpertion) {
         this.tooComplexForBatchOpertion = tooComplexForBatchOpertion;
         return this;
     }

@@ -66,6 +66,7 @@ public class Beam extends AbstractMaterialItem implements JsonSerializable {
         return new Seg3(startPoint, endPoint);
     }
 
+    @Override
     public double getArea() {
         return width / 1000.0 * height / 1000.0;
     }

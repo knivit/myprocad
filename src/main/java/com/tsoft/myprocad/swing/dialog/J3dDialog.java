@@ -114,23 +114,7 @@ public class J3dDialog extends Frame {
         transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
         transformGroup.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
 
-        List<Light> lights = new ArrayList<>(planLights);
-        if (lights.isEmpty()) {
-            Light ambientLight = new Light();
-            ambientLight.setLightType(LightType.AMBIENT);
-            ambientLight.setCenter(new Vec3(0, 0, 0));
-            ambientLight.setColor(new Color(120, 120, 120));
-            lights.add(ambientLight);
-
-            Light dirLight = new Light();
-            dirLight.setLightType(LightType.DIRECTIONAL);
-            dirLight.setColor(Color.WHITE);
-            dirLight.setCenter(0, 0, 0);
-            dirLight.setDirection(1, 1, 1);
-            lights.add(dirLight);
-        }
-        addLights(contentGroup, lights);
-
+        // find out the scale to place items within [-1, 1] range
         int xMin = items.getXMin(); int xMax = items.getXMax();
         int yMin = items.getYMin(); int yMax = items.getYMax();
         int zMin = items.getZMin(); int zMax = items.getZMax();
@@ -141,6 +125,26 @@ public class J3dDialog extends Frame {
         int dy = Math.abs(yMax) + Math.abs(yMin);
         int dz = Math.abs(zMax) + Math.abs(zMin);
         float scale = Math.max(dx, Math.max(dy, dz)) / 2;
+
+        // if no lights defined, add default
+        List<Light> lights = new ArrayList<>(planLights);
+        if (lights.isEmpty()) {
+            Light ambientLight = new Light();
+            ambientLight.setLightType(LightType.AMBIENT);
+            ambientLight.setCenter(new Vec3(0, 0, 0));
+            ambientLight.setColor(new Color(180, 180, 180));
+            lights.add(ambientLight);
+
+            Light dirLight = new Light();
+            dirLight.setLightType(LightType.DIRECTIONAL);
+            dirLight.setColor(Color.WHITE);
+            dirLight.setCenter(0, 0, 0);
+            dirLight.setDirection(1, 1, 1);
+            lights.add(dirLight);
+        }
+        addLights(contentGroup, lights, scale, ox, oy, oz);
+
+        // translate items to [-1, 1] space
         for (AbstractMaterialItem item : items) {
             Shape3D shape = item.getShape3D(scale, ox, oy, oz);
             transformGroup.addChild(shape);
@@ -169,10 +173,14 @@ public class J3dDialog extends Frame {
         universe.addBranchGraph(contentGroup);
     }
 
-    protected void addLights(BranchGroup group, List<Light> lights) {
+    private void addLights(BranchGroup group, List<Light> lights, float scale, int ox, int oy, int oz) {
         for (Light light : lights) {
-            Point3d center = new Point3d(light.getCx(), light.getCy(), light.getCz());
+            float cx = (light.getCx() - ox) / scale;
+            float cy = (light.getCy() - oy) / scale;
+            float cz = (light.getCz() - oz) / scale;
+            Point3d center = new Point3d(cx, cy, cz);
             BoundingSphere bounds = new BoundingSphere(center, 100.0);
+
             Color3f color = new Color3f(light.getColor());
 
             javax.media.j3d.Light li;
@@ -182,7 +190,10 @@ public class J3dDialog extends Frame {
                     break;
                 }
                 case DIRECTIONAL: {
-                    Vector3f dir = new Vector3f(light.getDx(), light.getDy(), light.getDz());
+                    float dx = (light.getDx() - ox) / scale;
+                    float dy = (light.getDy() - oy) / scale;
+                    float dz = (light.getDz() - oz) / scale;
+                    Vector3f dir = new Vector3f(dx, dy, dz);
                     li = new DirectionalLight(color, dir);
                     break;
                 }

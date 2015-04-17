@@ -3,7 +3,6 @@ package com.tsoft.myprocad.model;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.model.property.PlanProperties;
 import com.tsoft.myprocad.swing.dialog.TableDialogPanelSupport;
-import com.tsoft.myprocad.swing.dialog.TableDialogSupport;
 import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.StringUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
@@ -205,15 +204,26 @@ public class Plan extends ProjectItem implements Cloneable {
         Light light = new Light();
         light.setLightType(lightTypeName);
         lights.add(light);
+        getProject().planChanged();
         return light;
     }
 
-    public String validateLights(TableDialogSupport values) {
+    public String validateLights(List<Light> lights) {
+        for (Light light : lights) {
+            if (light.getCx() < Item.MIN_COORDINATE || light.getCx() > Item.MAX_COORDINATE) return L10.get(L10.ITEM_INVALID_COORDINATE, Item.MIN_COORDINATE, Item.MAX_COORDINATE);
+            if (light.getCy() < Item.MIN_COORDINATE || light.getCy() > Item.MAX_COORDINATE) return L10.get(L10.ITEM_INVALID_COORDINATE, Item.MIN_COORDINATE, Item.MAX_COORDINATE);
+            if (light.getCz() < Item.MIN_COORDINATE || light.getCz() > Item.MAX_COORDINATE) return L10.get(L10.ITEM_INVALID_COORDINATE, Item.MIN_COORDINATE, Item.MAX_COORDINATE);
+            if (light.getDx() < Item.MIN_COORDINATE || light.getDx() > Item.MAX_COORDINATE) return L10.get(L10.ITEM_INVALID_COORDINATE, Item.MIN_COORDINATE, Item.MAX_COORDINATE);
+            if (light.getDy() < Item.MIN_COORDINATE || light.getDy() > Item.MAX_COORDINATE) return L10.get(L10.ITEM_INVALID_COORDINATE, Item.MIN_COORDINATE, Item.MAX_COORDINATE);
+            if (light.getDz() < Item.MIN_COORDINATE || light.getDz() > Item.MAX_COORDINATE) return L10.get(L10.ITEM_INVALID_COORDINATE, Item.MIN_COORDINATE, Item.MAX_COORDINATE);
+        }
         return null;
     }
 
     public void setLights(List<Light> lights) {
+        if (this.lights.equals(lights)) return;
         this.lights = lights;
+        getProject().planChanged();
     }
 
     public void undoItem(Item item) {
@@ -225,7 +235,7 @@ public class Plan extends ProjectItem implements Cloneable {
     public void addItem(Item item) {
         if (item == null) return;
 
-        getProject().setModified(true);
+        getProject().planChanged();
         item.plan = this;
 
         if (item instanceof Wall) walls.add((Wall) item);
@@ -241,7 +251,7 @@ public class Plan extends ProjectItem implements Cloneable {
     public void deleteItem(Item item) {
         if (item == null) return;
 
-        getProject().setModified(true);
+        getProject().planChanged();
         planController.deselectItem(item);
 
         if (item instanceof Wall) walls.deleteItem((Wall) item);
@@ -288,7 +298,7 @@ public class Plan extends ProjectItem implements Cloneable {
     }
 
     public void itemChanged(Item item) {
-        getProject().setModified(true);
+        getProject().planChanged();
         planController.itemChanged(item);
     }
 
@@ -844,7 +854,7 @@ public class Plan extends ProjectItem implements Cloneable {
         levelId = value.getId();
         level = value;
         planController.planChanged(PlanProperties.LEVEL, level);
-        getProject().setModified(true);
+        getProject().planChanged();
     }
 
     public LevelList getLevels() {
@@ -852,10 +862,11 @@ public class Plan extends ProjectItem implements Cloneable {
     }
 
     public void setLevels(LevelList levels) {
-        this.levels = levels;
+        if (this.levels.equals(levels)) return;
 
+        this.levels = levels;
         planController.planChanged(PlanProperties.LEVEL, levels);
-        getProject().setModified(true);
+        getProject().planChanged();
     }
 
     public PageSetup getPageSetup() {
@@ -908,25 +919,25 @@ public class Plan extends ProjectItem implements Cloneable {
     public void setPageSetupPaperBottomMargin(int paperBottomMargin) {
         if (pageSetup.getPaperBottomMargin() == paperBottomMargin) return;
         pageSetup.setPaperBottomMargin(paperBottomMargin);
-        getProject().setModified(true);
+        getProject().planChanged();
     }
 
     public void setPageSetupGridPrinted(boolean gridPrinted) {
         if (pageSetup.isGridPrinted() == gridPrinted) return;
         pageSetup.setGridPrinted(gridPrinted);
-        getProject().setModified(true);
+        getProject().planChanged();
     }
 
     public void setPageSetupPrintScale(PageSetup.PrintScale printScale) {
         if (pageSetup.getPrintScale().equals(printScale)) return;
         pageSetup.setPrintScale(printScale);
-        getProject().setModified(true);
+        getProject().planChanged();
     }
 
     public void setPageSetupPaperOrientation(PaperOrientation paperOrientation) {
         if (pageSetup.getPaperOrientation().equals(paperOrientation)) return;
         pageSetup.setPaperOrientation(paperOrientation);
-        getProject().setModified(true);
+        getProject().planChanged();
     }
 
     public Selection getSelection() {
@@ -970,7 +981,7 @@ public class Plan extends ProjectItem implements Cloneable {
     public void setScript(String value) {
         if (ObjectUtil.equals(script, value)) return;
         this.script = value;
-        getProject().setModified(true);
+        getProject().planChanged();
     }
 
     /* Methods invoked from JavaScript. Do not delete them. */

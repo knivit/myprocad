@@ -135,4 +135,36 @@ public class Light implements JsonSerializable, Cloneable {
                 .read();
 
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Light light = (Light) o;
+
+        if (cx != light.cx) return false;
+        if (cy != light.cy) return false;
+        if (cz != light.cz) return false;
+        if (dx != light.dx) return false;
+        if (dy != light.dy) return false;
+        if (dz != light.dz) return false;
+        if (lightTypeId != light.lightTypeId) return false;
+        if (!color.equals(light.color)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = lightTypeId;
+        result = 31 * result + cx;
+        result = 31 * result + cy;
+        result = 31 * result + cz;
+        result = 31 * result + dx;
+        result = 31 * result + dy;
+        result = 31 * result + dz;
+        result = 31 * result + color.hashCode();
+        return result;
+    }
 }

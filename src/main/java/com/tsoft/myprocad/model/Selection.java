@@ -4,7 +4,6 @@ import com.tsoft.myprocad.l10n.L10;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Optional;
 
 public class Selection {
@@ -186,49 +185,23 @@ public class Selection {
         return length / 1000f;
     }
 
-    public double getMaterialItemsArea() {
-        double area = 0;
-        if (items != null) {
-            area = items.getWallsSubList().stream().map(e -> e.getArea()).reduce(0.0, Double::sum);
-            area += items.getBeamsSubList().stream().map(e -> e.getArea()).reduce(0.0, Double::sum);
-        }
-        return area;
+    public double getMaterialItemsLength() {
+        return (items == null) ? 0 : ItemList.getLength(items.getMaterialItemsSubList());
     }
 
     public double getMaterialItemsVolume() {
-        double volume = 0;
-        if (items != null) {
-            volume = items.getWallsSubList().stream().map(Wall::getVolume).reduce(0.0, Double::sum);
-            volume += items.getBeamsSubList().stream().map(Beam::getVolume).reduce(0.0, Double::sum);
-        }
-        return volume;
+        return (items == null) ? 0 : ItemList.getVolume(items.getMaterialItemsSubList());
+    }
+
+    public double getMaterialItemsArea() {
+        return (items == null) ? 0 : ItemList.getArea(items.getMaterialItemsSubList());
     }
 
     public double getMaterialItemsWeight() {
-        double weight = 0;
-        if (items != null) {
-            weight = items.getWallsSubList().stream().map(Wall::getWeight).reduce(0.0, Double::sum);
-            weight += items.getBeamsSubList().stream().map(Beam::getWeight).reduce(0.0, Double::sum);
-        }
-        return weight;
+        return (items == null) ? 0 : ItemList.getWeight(items.getMaterialItemsSubList());
     }
 
     public double getMaterialItemsPrice() {
-        double price = 0;
-        if (items != null) {
-            price = items.getWallsSubList().stream().map(Wall::getPrice).reduce(0.0, Double::sum);
-            price += items.getBeamsSubList().stream().map(Beam::getPrice).reduce(0.0, Double::sum);
-        }
-        return price;
-    }
-
-    public ItemList<DimensionLine> getDimensionLinesSubList() { return items.getDimensionLinesSubList(); }
-
-    public void addItems(ItemList<Wall> newWalls) {
-        items.addAll(newWalls);
-    }
-
-    public void removeItems(ItemList<Item> newWalls) {
-        items.removeAll(newWalls);
+        return (items == null) ? 0 : ItemList.getPrice(items.getMaterialItemsSubList());
     }
 }

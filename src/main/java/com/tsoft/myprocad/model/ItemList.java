@@ -108,6 +108,36 @@ public class ItemList<T extends Item> extends ArrayList<T> {
         return names;
     }
 
+    public static double getLength(ItemList<AbstractMaterialItem> items) {
+        double val = 0;
+        for (AbstractMaterialItem item : items) val += item.getLength();
+        return val;
+    }
+
+    public static double getVolume(ItemList<AbstractMaterialItem> items) {
+        double val = 0;
+        for (AbstractMaterialItem item : items) val += item.getVolume();
+        return val;
+    }
+
+    public static double getArea(ItemList<AbstractMaterialItem> items) {
+        double val = 0;
+        for (AbstractMaterialItem item : items) val += item.getArea();
+        return val;
+    }
+
+    public static double getWeight(ItemList<AbstractMaterialItem> items) {
+        double val = 0;
+        for (AbstractMaterialItem item : items) val += item.getWeight();
+        return val;
+    }
+
+    public static double getPrice(ItemList<AbstractMaterialItem> items) {
+        double val = 0;
+        for (AbstractMaterialItem item : items) val += item.getPrice();
+        return val;
+    }
+
     public ItemList<DimensionLine> getDimensionLinesSubList() {
         return getSubList(DimensionLine.class);
     }

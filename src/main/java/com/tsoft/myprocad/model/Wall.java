@@ -100,6 +100,7 @@ public class Wall extends AbstractMaterialItem implements JsonSerializable {
         return L10.get(L10.WALL_SIZE_PROPERTY, Math.abs(xEnd - xStart), Math.abs(yEnd - yStart), Math.abs(zEnd - zStart));
     }
 
+    @Override
     public double getArea() {
         int x1 = xStart; int x2 = xEnd;
         if (xEnd < xStart) { x1 = xEnd; x2 = xStart; }

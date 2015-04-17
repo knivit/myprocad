@@ -48,6 +48,7 @@ public abstract class AbstractPropertiesController<T> {
 
     public void selectObjects(List<T> selectedItems) {
         this.selectedItems = selectedItems;
+        values.clear();
 
         setPanelProperties();
         loadAndRefreshValues();

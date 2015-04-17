@@ -167,7 +167,7 @@ public class DimensionLine extends Item implements JsonSerializable {
     }
 
     public Integer getAngle(Selection selection) {
-        ItemList<DimensionLine> dimensionLines = selection.getDimensionLinesSubList();
+        ItemList<DimensionLine> dimensionLines = selection.getItems().getDimensionLinesSubList();
 
         // For one item, return an angle between it and X-axis
         if (dimensionLines.size() == 1) {

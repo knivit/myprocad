@@ -1,6 +1,6 @@
 output.clear();
 
-output.print("*** Расчет крыши ***\n");
+output.print("*** Крыша 3D ***\n");
 
 var plan = project.getActivePlan();
 
@@ -244,9 +244,9 @@ $$1 = "\nИтого:";
 var Труба = plan.addWall(6170, 10000, 6000, 6870, 10300, 11000).setPattern("brick").setKeColor(255, 80, 80);
 
 plan.addLight("ambient").setCenter(5000, 6000, 10000);
-plan.addLight("directional").setCenter(5000, 6000, 10000).setDirection(1, 1, 1);
+plan.addLight("directional").setCenter(5000, 6000, 10000).setDirection(0, 0, 0);
 
-project.saveToFile("Модель_крыши.mpc");
+project.saveToFile("Крыша3D.mpc");
 
 output.printVariables();
-output.print("*** Конец расчета крыши ***");
+output.print("*** Конец расчета Крыша 3D ***");

@@ -55,6 +55,7 @@ public abstract class AbstractMaterialItem extends Item {
     public transient Vec3[] vertexes = new Vec3[8];
 
     public abstract double getLength();
+    public abstract double getArea();
     public abstract double getVolume();
 
     public AbstractMaterialItem() {

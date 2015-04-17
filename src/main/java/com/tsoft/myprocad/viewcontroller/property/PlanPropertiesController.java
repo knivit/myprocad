@@ -54,6 +54,10 @@ public class PlanPropertiesController extends AbstractComponentPropertiesControl
                 support.setElements(((Plan) entity).getLights());
                 return support;
             })
+            .setValueValidator((plan, value) -> {
+                LightTableDialogSupport support = (LightTableDialogSupport)value;
+                return ((Plan) plan).validateLights(support.getElements());
+            })
             .setValueSetter((plan, value) -> {
                 LightTableDialogSupport support = (LightTableDialogSupport)value;
                 ((Plan) plan).setLights(support.getElements());

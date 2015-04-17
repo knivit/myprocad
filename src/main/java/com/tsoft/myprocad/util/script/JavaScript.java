@@ -20,14 +20,19 @@ public class JavaScript {
         return js.eval(command);
     }
 
-    public void executeScript(String resourceFileName, OutputBinding output) throws IOException, ScriptException {
-        addBinding(output);
-        loadLibrary(resourceFileName);
+    public void executeScript(String fileName) throws IOException, ScriptException {
+        class ConsoleOutputBinding extends OutputBinding {
+            ConsoleOutputBinding(JavaScript js) { super(js); }
+            public void print(String text) {
+                System.out.println(text);
+            }
+        }
+        executeScript(fileName, new ConsoleOutputBinding(this));
     }
 
-    public void addBinding(JavaScriptBinding binding) {
-        Bindings bindings = js.getBindings(ScriptContext.ENGINE_SCOPE);
-        bindings.put(binding.getBindingName(), binding);
+    public void executeScript(String fileName, OutputBinding output) throws IOException, ScriptException {
+        addBinding(output);
+        loadLibrary(fileName);
     }
 
     public void loadLibrary(String resourceFileName) throws IOException, ScriptException {
@@ -35,6 +40,11 @@ public class JavaScript {
             if (is == null) throw new IOException("File " + resourceFileName + " doesn't exist");
             js.eval(new InputStreamReader(is));
         }
+    }
+
+    public void addBinding(JavaScriptBinding binding) {
+        Bindings bindings = js.getBindings(ScriptContext.ENGINE_SCOPE);
+        bindings.put(binding.getBindingName(), binding);
     }
 
     public Object getVariable(String name) {
