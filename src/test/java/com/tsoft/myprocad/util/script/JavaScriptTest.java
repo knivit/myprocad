@@ -3,8 +3,6 @@ package com.tsoft.myprocad.util.script;
 import com.tsoft.myprocad.AbstractItemTest;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-
 public class JavaScriptTest extends AbstractItemTest {
      @Test
     public void calcFirstFloor() throws Exception {
@@ -17,12 +15,13 @@ public class JavaScriptTest extends AbstractItemTest {
         js.loadLibrary("lib/js/СопротивлениеМатериалов.js");
         js.loadLibrary("lib/js/ЖелезнаяБалка.js");
         js.loadLibrary("lib/js/Железобетон.js");
+        js.loadLibrary("lib/js/Теплотехника.js");
 
      //   js.executeScript("lib/js/Деденево/РасчетКрыльца.js");
-     //   js.executeScript("lib/js/Деденево/РасчетСтен.js");
+        js.executeScript("lib/js/Деденево/РасчетСтен.js");
      //   js.executeScript("lib/js/Деденево/РасчетКрыши.js");
 
-         js.executeScript("lib/js/Деденево/Крыша3D.js");
-    //   js.executeScript("lib/js/Деденево/Стены3D.js");
+      //   js.executeScript("lib/js/Деденево/Крыша3D.js");
+      //   js.executeScript("lib/js/Деденево/Стены3D.js");
      }
 }
