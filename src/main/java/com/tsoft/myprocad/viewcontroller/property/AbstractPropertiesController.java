@@ -95,7 +95,7 @@ public abstract class AbstractPropertiesController<T> {
         while (iterator.hasNext()) {
             T object = iterator.next();
             for (ObjectProperty property : properties) {
-                if (!property.isTooComplexForBatchOpertion()) continue;
+                if (!property.isSingleSelection()) continue;
                 Object currValue = newValues.get(property);
 
                 Object newValue = getObjectPropertyValue(object, property);

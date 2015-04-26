@@ -376,6 +376,7 @@ public class L10 {
     public static String[] CALCULATION_AREA_M2_PROPERTY = { "Area (m2)", "Площадь (м2)" };
     public static String[] CALCULATION_PERIMETER_PROPERTY = { "Perimeter (mm)", "Периметр (мм)" };
     public static String[] CALCULATION_PROPERTY = { "Calculation", "Расчет" };
+    public static String[] VIEW_VALUE = { "View ...", "Открыть ..." };
 
     public static String[] WOOD_BEAM_MENU = { "Wood Beam", "Деревянная балка" };
     public static String[] MENU_ADD_WOOD_BEAM_NAME = { "Add Wood Beam", "Добавить деревянную балку" };

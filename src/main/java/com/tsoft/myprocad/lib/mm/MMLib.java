@@ -1,7 +1,6 @@
 package com.tsoft.myprocad.lib.mm;
 
 import com.tsoft.myprocad.model.AbstractMaterialItem;
-import com.tsoft.myprocad.model.Beam;
 import com.tsoft.myprocad.model.BeamSolution;
 import com.tsoft.myprocad.model.DistributedForce;
 import com.tsoft.myprocad.model.Force;

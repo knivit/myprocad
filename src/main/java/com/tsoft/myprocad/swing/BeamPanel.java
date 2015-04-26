@@ -3,7 +3,6 @@ package com.tsoft.myprocad.swing;
 import com.tsoft.myprocad.MyProCAD;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.swing.dialog.AbstractDialogPanel;
-import com.tsoft.myprocad.swing.properties.PropertiesManagerPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,8 +23,8 @@ public class BeamPanel extends AbstractDialogPanel implements Printable {
             L10.get(L10.CALCULATION_BEAM_ROTATIONS_FIG),
             L10.get(L10.CALCULATION_BEAM_MOVEMENTS_FIG),
     };
+    private int imageIndex = 0;
 
-    private JComponent parentComponent;
     private JSplitPane splitPane;
     private JEditorPane textPane;
 
@@ -38,8 +37,8 @@ public class BeamPanel extends AbstractDialogPanel implements Printable {
         JScrollPane textScrollPane = new JScrollPane(textPane);
 
         // right
-        labels[0] = new JLabel(new ImageIcon(MyProCAD.class.getResource("resources/calculations/Beam1.gif")));
-        labels[1] = new JLabel(new ImageIcon(MyProCAD.class.getResource("resources/calculations/Beam2.gif")));
+        labels[imageIndex ++] = new JLabel(new ImageIcon(MyProCAD.class.getResource("resources/calculations/Beam1.gif")));
+        labels[imageIndex ++] = new JLabel(new ImageIcon(MyProCAD.class.getResource("resources/calculations/Beam2.gif")));
         for (int i = 2; i < labels.length; i ++) {
             labels[i] = new JLabel();
             labels[i].setOpaque(false);
@@ -84,16 +83,9 @@ public class BeamPanel extends AbstractDialogPanel implements Printable {
         splitPane.setBorder(null);
     }
 
-    public void afterOpen(PropertiesManagerPanel propertiesManagerPanel) {
-        parentComponent = propertiesManagerPanel.linkTo(splitPane);
-        add(BorderLayout.CENTER, parentComponent);
-    }
-
-    public JComponent getParentComponent() { return parentComponent; }
-
-    public void setImage(int index, BufferedImage bufferedImage) {
+    public void addImage(BufferedImage bufferedImage) {
         ImageIcon icon = new ImageIcon(bufferedImage);
-        labels[index + 2].setIcon(icon);
+        labels[imageIndex ++].setIcon(icon);
     }
 
     public void setText(String text) {

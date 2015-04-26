@@ -3,7 +3,6 @@ package com.tsoft.myprocad.viewcontroller.property;
 import com.l2fprod.common.beans.editor.ColorPropertyEditor;
 import com.l2fprod.common.beans.editor.ComboBoxPropertyEditor;
 import com.l2fprod.common.beans.editor.ObjectListPropertyEditor;
-import com.l2fprod.common.beans.editor.TextPropertyViewer;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.model.AbstractMaterialItem;
 import com.tsoft.myprocad.model.DistributedForceTableDialogSupport;
@@ -19,6 +18,7 @@ import com.tsoft.myprocad.model.Project;
 import com.tsoft.myprocad.model.Selection;
 import com.tsoft.myprocad.model.property.ObjectProperty;
 import com.tsoft.myprocad.swing.BeamPanel;
+import com.tsoft.myprocad.swing.dialog.DialogButton;
 import com.tsoft.myprocad.swing.properties.PatternComboBoxPropertyEditor;
 
 import java.awt.Color;
@@ -61,7 +61,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setType(Integer.class)
             .setCalculable(true)
             .setValueGetter(item -> ((Item) item).getXStart())
-            .setValueValidator((item, value) -> { return ((Item)item).validateCoordinate((Integer)value); })
+            .setValueValidator((item, value) -> Item.validateCoordinate((Integer) value))
             .setValueSetter((item, value) -> {
                 addToHistory((Item) item);
                 ((Item) item).setXStart((int) value);
@@ -73,7 +73,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setType(Integer.class)
             .setCalculable(true)
             .setValueGetter(item -> ((Item) item).getXEnd())
-            .setValueValidator((item, value) -> { return ((Item)item).validateCoordinate((Integer)value); })
+            .setValueValidator((item, value) -> Item.validateCoordinate((Integer) value))
             .setValueSetter((item, value) -> {
                 addToHistory((Item) item);
                 ((Item) item).setXEnd((int) value);
@@ -105,7 +105,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.MOVE_PROPERTY))
             .setType(Integer.class)
             .setCalculable(true)
-            .setValueValidator((item, value) -> { return plan.getSelection().validateMoveX((Integer) value); })
+            .setValueValidator((item, value) -> plan.getSelection().validateMoveX((Integer) value))
             .setValueSetter((item, value) -> {
                 Selection selection = plan.getSelection();
                 addToHistory(selection.getItems());
@@ -117,7 +117,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.SHIFT_PROPERTY))
             .setType(Integer.class)
             .setCalculable(true)
-            .setValueValidator((item, value) -> { return plan.getSelection().validateShift((Integer) value); })
+            .setValueValidator((item, value) -> plan.getSelection().validateShift((Integer) value))
             .setValueSetter((item, value) -> {
                 Selection selection = plan.getSelection();
                 addToHistory(selection.getItems());
@@ -202,7 +202,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.START_PROPERTY))
             .setType(Integer.class)
             .setValueGetter(item -> ((Item) item).getZStart())
-            .setValueValidator((item, value) -> { return ((Item)item).validateCoordinate((Integer)value); })
+            .setValueValidator((item, value) -> ((Item)item).validateCoordinate((Integer)value))
             .setValueSetter((item, value) -> {
                 addToHistory((Item) item);
                 ((Item) item).setZStart((int) value);
@@ -213,7 +213,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.END_PROPERTY))
             .setType(Integer.class)
             .setValueGetter(item -> ((Item) item).getZEnd())
-            .setValueValidator((item, value) -> { return ((Item)item).validateCoordinate((Integer)value); })
+            .setValueValidator((item, value) -> ((Item)item).validateCoordinate((Integer)value))
             .setValueSetter((item, value) -> {
                 addToHistory((Item) item);
                 ((Item) item).setZEnd((int) value);
@@ -323,7 +323,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_BEAM_LEFT_SUPPORT_PROPERTY))
             .setType(Double.class)
-            .setTooComplexForSelectionOperation(true)
+            .setSingleSelection(true)
             .setValueGetter(entity -> ((AbstractMaterialItem) entity).getLeftSupport())
             .setValueValidator((entity, value) -> ((AbstractMaterialItem) entity).validateLeftSupport(((Double) value)))
             .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setLeftSupport((Double) value));
@@ -332,8 +332,8 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_BEAM_RIGHT_SUPPORT_PROPERTY))
             .setType(Double.class)
-            .setTooComplexForSelectionOperation(true)
-            .setValueGetter(entity -> ((AbstractMaterialItem) entity).getRightSupport())
+            .setSingleSelection(true)
+                .setValueGetter(entity -> ((AbstractMaterialItem) entity).getRightSupport())
             .setValueValidator((entity, value) -> ((AbstractMaterialItem) entity).validateRightSupport(((Double) value)))
             .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setRightSupport((Double) value));
 
@@ -341,30 +341,30 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_BEAM_ELASTIC_STRENGTH_PROPERTY))
             .setType(Double.class)
-            .setTooComplexForSelectionOperation(true)
-            .setValueGetter(entity -> ((AbstractMaterialItem) entity).getElasticStrength())
+            .setSingleSelection(true)
+                .setValueGetter(entity -> ((AbstractMaterialItem) entity).getElasticStrength())
             .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setElasticStrength((Double) value));
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_BEAM_ALLOWABLE_STRESS_PROPERTY))
             .setType(Double.class)
-            .setTooComplexForSelectionOperation(true)
-            .setValueGetter(entity -> ((AbstractMaterialItem) entity).getAllowableStress())
+            .setSingleSelection(true)
+                .setValueGetter(entity -> ((AbstractMaterialItem) entity).getAllowableStress())
             .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setAllowableStress((Double) value));
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_BEAM_BENDING_MOMENTS_PROPERTY))
             .setType(ObjectListPropertyEditor.class)
-            .setTooComplexForSelectionOperation(true)
-            .setValueGetter(entity -> {
+            .setSingleSelection(true)
+                .setValueGetter(entity -> {
                 MomentTableDialogSupport support = new MomentTableDialogSupport();
                 support.setElements(((AbstractMaterialItem) entity).getMoments());
                 return support;
             })
             .setValueValidator((entity, value) -> {
-                MomentTableDialogSupport support = (MomentTableDialogSupport)value;
+                MomentTableDialogSupport support = (MomentTableDialogSupport) value;
                 return ((AbstractMaterialItem) entity).validateMoments(support.getElements());
             })
             .setValueSetter((entity, value) -> {
@@ -376,8 +376,8 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_BEAM_FORCES_PROPERTY))
             .setType(ObjectListPropertyEditor.class)
-            .setTooComplexForSelectionOperation(true)
-            .setValueGetter(entity -> {
+            .setSingleSelection(true)
+                .setValueGetter(entity -> {
                 ForceTableDialogSupport support = new ForceTableDialogSupport();
                 support.setElements(((AbstractMaterialItem) entity).getForces());
                 return support;
@@ -395,8 +395,8 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_BEAM_DISTRIBUTED_FORCES_PROPERTY))
             .setType(ObjectListPropertyEditor.class)
-            .setTooComplexForSelectionOperation(true)
-            .setValueGetter(entity -> {
+            .setSingleSelection(true)
+                .setValueGetter(entity -> {
                 DistributedForceTableDialogSupport support = new DistributedForceTableDialogSupport();
                 support.setElements(((AbstractMaterialItem) entity).getDistributedForces());
                 return support;
@@ -413,10 +413,15 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_PROPERTY))
-            .setType(TextPropertyViewer.class)
-            .setTooComplexForSelectionOperation(true)
-            .setDialogPanel(new BeamPanel())
-            .setValueGetter(entity -> { return null; });//((AbstractMaterialItem) entity).getMechanicsSolution());
+                    // .setType(TextPropertyViewer.class)
+            .setSingleSelection(true)
+            .setValueGetter(entity -> L10.get(L10.VIEW_VALUE))
+            .addEditorButton(e -> {
+                BeamPanel beamPanel = new BeamPanel();
+                AbstractMaterialItem materialItem = (AbstractMaterialItem) plan.getSelection().getItems().get(0);
+                materialItem.getMechanicsSolution(beamPanel);
+                beamPanel.displayView(L10.get(L10.CALCULATION_PROPERTY), DialogButton.CLOSE);
+            });
     }
 
     protected void add3dItemProperties() {
@@ -460,7 +465,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.SHININESS_PROPERTY))
             .setType(Float.class)
             .setValueGetter(item -> ((AbstractMaterialItem) item).getShininess())
-            .setValueValidator((item, value) -> { return ((AbstractMaterialItem)item).validateShininess((Float)value); })
+            .setValueValidator((item, value) -> ((AbstractMaterialItem)item).validateShininess((Float)value))
             .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setShininess((float) value));
 
         new ObjectProperty(this)
@@ -468,7 +473,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.TRANSPARENCY_PROPERTY))
             .setType(Float.class)
             .setValueGetter(item -> ((AbstractMaterialItem) item).getTransparency())
-            .setValueValidator((item, value) -> { return ((AbstractMaterialItem)item).validateTransparency((Float)value); })
+            .setValueValidator((item, value) -> ((AbstractMaterialItem)item).validateTransparency((Float)value))
             .setValueSetter((item, value) -> ((AbstractMaterialItem) item).setTransparency((float) value));
     }
 

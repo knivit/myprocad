@@ -133,28 +133,6 @@ public class SheetProperty implements PropertyChangeListener {
         this.value = value;
         if (value != oldValue && (value == null || !value.equals(oldValue)))
             firePropertyChange(oldValue, getValue());
-
-      /*  if (parent != null) {
-            Object parentValue = parent.getValue();
-            if (parentValue != null) {
-                writeToObject(parentValue);
-                parent.setValue(parentValue);
-            }
-        }
-
-        if (value != null) {
-            for (SheetProperty subProperty : subProperties) {
-                subProperty.readFromObject(value);
-            }
-        } */
-    }
-
-    public SheetProperty getParentProperty() {
-        return parent;
-    }
-
-    public void setParentProperty( SheetProperty parent ) {
-        this.parent = parent;
     }
 
     public List<SheetProperty> getSubProperties() {

@@ -1,7 +1,6 @@
 package com.tsoft.myprocad.model.property;
 
 import com.l2fprod.common.beans.editor.AbstractPropertyEditor;
-import com.tsoft.myprocad.swing.dialog.AbstractDialogPanel;
 import com.tsoft.myprocad.viewcontroller.property.AbstractPropertiesController;
 
 import java.awt.event.ActionListener;
@@ -19,18 +18,17 @@ public class ObjectProperty {
     private Class editorType = String.class;
 
     private Object[] availableValues;
-    private AbstractDialogPanel dialogPanel;
     private boolean calculable; // true if the property should be re-calculated (it's getter invoked) on every change of other properties
-    private boolean tooComplexForBatchOpertion; // usually true for lists as they consume too much reources in their getter
+    private boolean singleSelection; // usually true for lists as they consume too much resources in their getter
 
     private List<ActionListener> editorButtons = new ArrayList<>();
 
-    public interface Getter { public Object getValue(Object object); }
+    public interface Getter { Object getValue(Object object); }
 
-    public interface Setter { public void setValue(Object object, Object value); }
+    public interface Setter { void setValue(Object object, Object value); }
 
     /** Return error message or null */
-    public interface Validator { public String validateValue(Object object, Object value); }
+    public interface Validator { String validateValue(Object object, Object value); }
 
     private Getter getter;
     private Setter setter;
@@ -61,7 +59,7 @@ public class ObjectProperty {
     }
 
     public boolean isEditable() {
-        return setter != null;
+        return setter != null || ??? !editorButtons.isEmpty();
     }
 
     public Getter getValueGetter() {
@@ -133,19 +131,12 @@ public class ObjectProperty {
         return this;
     }
 
-    public boolean isTooComplexForBatchOpertion() {
-        return tooComplexForBatchOpertion;
+    public boolean isSingleSelection() {
+        return singleSelection;
     }
 
-    public ObjectProperty setTooComplexForSelectionOperation(boolean tooComplexForBatchOpertion) {
-        this.tooComplexForBatchOpertion = tooComplexForBatchOpertion;
-        return this;
-    }
-
-    public AbstractDialogPanel getDialogPanel() { return dialogPanel; }
-
-    public ObjectProperty setDialogPanel(AbstractDialogPanel dialogPanel) {
-        this.dialogPanel = dialogPanel;
+    public ObjectProperty setSingleSelection(boolean singleSelection) {
+        this.singleSelection = singleSelection;
         return this;
     }
 
