@@ -21,7 +21,19 @@ public class ObjectProperty {
     private boolean calculable; // true if the property should be re-calculated (it's getter invoked) on every change of other properties
     private boolean singleSelection; // usually true for lists as they consume too much resources in their getter
 
-    private List<ActionListener> editorButtons = new ArrayList<>();
+    /** Buttons to show popup dialogs */
+    public static class Button {
+        public String name;
+        public String toolTipText;
+        public ActionListener actionListener;
+
+        public Button(String name, String toolTipText, ActionListener actionListener) {
+            this.name = name;
+            this.toolTipText = toolTipText;
+            this.actionListener = actionListener;
+        }
+    }
+    private List<Button> editorButtons = new ArrayList<>();
 
     public interface Getter { Object getValue(Object object); }
 
@@ -59,7 +71,7 @@ public class ObjectProperty {
     }
 
     public boolean isEditable() {
-        return setter != null || ??? !editorButtons.isEmpty();
+        return setter != null || !editorButtons.isEmpty();
     }
 
     public Getter getValueGetter() {
@@ -115,12 +127,17 @@ public class ObjectProperty {
         return this;
     }
 
-    public ObjectProperty addEditorButton(ActionListener listener) {
-        editorButtons.add(listener);
+    public ObjectProperty addEditorButton(Button button) {
+        editorButtons.add(button);
         return this;
     }
 
-    public List<ActionListener> getEditorButtons() { return editorButtons ;}
+    public ObjectProperty addEditorButton(ActionListener listener) {
+        editorButtons.add(new Button(null, null, listener));
+        return this;
+    }
+
+    public List<Button> getEditorButtons() { return editorButtons ;}
 
     public boolean isCalculable() {
         return calculable;

@@ -70,10 +70,10 @@ public class ComboBoxPropertyEditor extends AbstractPropertyEditor {
     }
 
     @Override
-    public void addButton(ActionListener listener) {
+    public void addButton(ObjectProperty.Button dialogButton) {
         JButton button = ComponentFactory.Helper.getFactory().createMiniButton();
         editorComponent.add(button, BorderLayout.EAST);
-        button.addActionListener(listener);
+        button.addActionListener(dialogButton.actionListener);
 
         // stop editing so after the dialog done, the editor will be recreated with new available values
         button.addActionListener(l -> cellEditorAdapter.stopCellEditing());

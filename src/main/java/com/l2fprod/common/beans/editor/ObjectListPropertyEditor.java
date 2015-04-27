@@ -15,8 +15,6 @@ import java.util.List;
 public class ObjectListPropertyEditor extends AbstractPropertyEditor {
     private JPanel editorComponent;
     private ObjectListCellRenderer label;
-    private JButton button;
-
     private TableDialogPanelSupport values;
 
     public ObjectListPropertyEditor() {
@@ -24,8 +22,9 @@ public class ObjectListPropertyEditor extends AbstractPropertyEditor {
         editorComponent.add("*", label = new ObjectListCellRenderer());
         label.setOpaque(false);
 
-        editorComponent.add(button = ComponentFactory.Helper.getFactory().createMiniButton());
+        JButton button = ComponentFactory.Helper.getFactory().createMiniButton();
         button.addActionListener(e -> showDialog());
+        editorComponent.add(button);
 
         editorComponent.setOpaque(false);
     }

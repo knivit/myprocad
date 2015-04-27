@@ -2,6 +2,7 @@ package com.tsoft.myprocad.viewcontroller.property;
 
 import com.l2fprod.common.beans.editor.ColorPropertyEditor;
 import com.l2fprod.common.beans.editor.ComboBoxPropertyEditor;
+import com.l2fprod.common.beans.editor.DialogButtonsPropertyEditor;
 import com.l2fprod.common.beans.editor.ObjectListPropertyEditor;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.model.AbstractMaterialItem;
@@ -22,6 +23,8 @@ import com.tsoft.myprocad.swing.dialog.DialogButton;
 import com.tsoft.myprocad.swing.properties.PatternComboBoxPropertyEditor;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Collections;
 
 public abstract class AbstractComponentPropertiesController<T> extends AbstractPropertiesController<T> {
@@ -413,15 +416,15 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_PROPERTY))
-                    // .setType(TextPropertyViewer.class)
+            .setType(DialogButtonsPropertyEditor.class)
             .setSingleSelection(true)
             .setValueGetter(entity -> L10.get(L10.VIEW_VALUE))
-            .addEditorButton(e -> {
+            .addEditorButton(new ObjectProperty.Button(L10.get(L10.VIEW_VALUE), "", e -> {
                 BeamPanel beamPanel = new BeamPanel();
                 AbstractMaterialItem materialItem = (AbstractMaterialItem) plan.getSelection().getItems().get(0);
                 materialItem.getMechanicsSolution(beamPanel);
                 beamPanel.displayView(L10.get(L10.CALCULATION_PROPERTY), DialogButton.CLOSE);
-            });
+            }));
     }
 
     protected void add3dItemProperties() {

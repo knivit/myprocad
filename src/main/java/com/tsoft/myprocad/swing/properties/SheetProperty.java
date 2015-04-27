@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SheetProperty implements PropertyChangeListener {
-    private SheetProperty parent;
     private List<SheetProperty> subProperties = new ArrayList<>();
 
     private Object value;
@@ -97,18 +96,15 @@ public class SheetProperty implements PropertyChangeListener {
         final Object newValue = evt.getNewValue();
 
         // invoke separately to prevent hanging under debugger
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                // set the value and this triggers propertyChange event
-                // and it will refresh all PropertyEditor's properties
-                // (this is needed for calculable properties)
-                Object value = newValue;
-                propertiesController.setPropertyValue(objectProperty, value);
+        EventQueue.invokeLater(() -> {
+            // set the value and this triggers propertyChange event
+            // and it will refresh all PropertyEditor's properties
+            // (this is needed for calculable properties)
+            Object value1 = newValue;
+            propertiesController.setPropertyValue(objectProperty, value1);
 
-                // apply the changes
-                propertiesController.applyChanges();
-            }
+            // apply the changes
+            propertiesController.applyChanges();
         });
     }
 

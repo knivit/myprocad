@@ -157,7 +157,8 @@ public abstract class AbstractPropertiesController<T> {
     private void applyChangesInternal() {
         for (T object : selectedItems) {
             for (ObjectProperty property : properties) {
-                if (!changedProperties.contains(property) || !property.isEditable()) {
+                if (!changedProperties.contains(property) || !property.isEditable() ||
+                        property.getValueSetter() == null) {
                     continue;
                 }
 

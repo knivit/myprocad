@@ -81,6 +81,8 @@ public class BeamPanel extends AbstractDialogPanel implements Printable {
         splitPane.setOneTouchExpandable(true);
         splitPane.setResizeWeight(0.3);
         splitPane.setBorder(null);
+
+        add(splitPane);
     }
 
     public void addImage(BufferedImage bufferedImage) {

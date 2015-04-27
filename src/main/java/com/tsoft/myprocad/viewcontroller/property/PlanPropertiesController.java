@@ -82,7 +82,7 @@ public class PlanPropertiesController extends AbstractComponentPropertiesControl
             .setLabelName(L10.get(L10.PLAN_SCALE_PROPERTY))
             .setType(Float.class)
             .setValueGetter(plan -> ((Plan) plan).getScale())
-            .setValueValidator((plan, value) -> { return ((Plan)plan).validateScale((Float)value); })
+            .setValueValidator((plan, value) -> ((Plan)plan).validateScale((Float)value))
             .setValueSetter((plan, value) -> ((Plan) plan).setScale((float) value));
 
         new ObjectProperty(this)
