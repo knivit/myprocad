@@ -28,10 +28,15 @@ public abstract class AbstractMaterialItem extends Item {
     private int patternId = Pattern.HATCH_UP.getId();
 
     // Mechanics of Materials
-    private Double leftSupport = 0d;      // Левая опора, расстояние от начала балки, м
-    private Double rightSupport = 0d;     // Правая опора, расстояние от конца балки, м
-    private double elasticStrength = 2e5; // Elastic Strength E, MPa (модуль упругости Юнга E (МПа))
-    private double allowableStress = 160; // Allowable Stress, [σ] MPa (допускаемое напряжение [σ] (МПа))
+    private Double leftSupport = 0d;         // Левая опора, расстояние от начала балки, м
+    private Double rightSupport = 0d;        // Правая опора, расстояние от конца балки, м
+    private double elasticStrength = 200000; // Elastic Strength E, MPa (модуль упругости Юнга E (МПа))
+                                             // 200000 - металл
+                                             // 10000 - дерево
+                                             // 14 - фанера 5-7-слойная, толщиной 5-8 мм и более
+    private double allowableStress = 160;    // Allowable Stress, [σ] MPa (допускаемое напряжение [σ] (МПа))
+                                             // 160 - металл
+                                             // 10 - древесина на изгиб (7 - растяжение вдоль волокон, 10 - сжатие вдоль волокон)
     private List<Moment> moments = new ArrayList<>(); // Bending moments, kNm
     private List<Force> forces = new ArrayList<>();    // Normal Force, kN
     private List<DistributedForce> distributedForces = new ArrayList<>(); // Distributed Normal Forces, kN/m
