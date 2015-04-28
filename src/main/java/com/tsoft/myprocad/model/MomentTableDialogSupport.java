@@ -28,6 +28,7 @@ public class MomentTableDialogSupport extends TableDialogSupport {
             Moment m = new Moment();
             m.setVm(data[0]);
             m.setZm(data[1]);
+            ms.add(m);
         }
         return ms;
     }

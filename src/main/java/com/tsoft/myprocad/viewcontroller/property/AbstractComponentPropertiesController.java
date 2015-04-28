@@ -21,10 +21,9 @@ import com.tsoft.myprocad.model.property.ObjectProperty;
 import com.tsoft.myprocad.swing.BeamPanel;
 import com.tsoft.myprocad.swing.dialog.DialogButton;
 import com.tsoft.myprocad.swing.properties.PatternComboBoxPropertyEditor;
+import com.tsoft.myprocad.util.SwingTools;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Collections;
 
 public abstract class AbstractComponentPropertiesController<T> extends AbstractPropertiesController<T> {
@@ -336,7 +335,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.CALCULATION_BEAM_RIGHT_SUPPORT_PROPERTY))
             .setType(Double.class)
             .setSingleSelection(true)
-                .setValueGetter(entity -> ((AbstractMaterialItem) entity).getRightSupport())
+            .setValueGetter(entity -> ((AbstractMaterialItem) entity).getRightSupport())
             .setValueValidator((entity, value) -> ((AbstractMaterialItem) entity).validateRightSupport(((Double) value)))
             .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setRightSupport((Double) value));
 
@@ -345,7 +344,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.CALCULATION_BEAM_ELASTIC_STRENGTH_PROPERTY))
             .setType(Double.class)
             .setSingleSelection(true)
-                .setValueGetter(entity -> ((AbstractMaterialItem) entity).getElasticStrength())
+            .setValueGetter(entity -> ((AbstractMaterialItem) entity).getElasticStrength())
             .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setElasticStrength((Double) value));
 
         new ObjectProperty(this)
@@ -353,7 +352,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.CALCULATION_BEAM_ALLOWABLE_STRESS_PROPERTY))
             .setType(Double.class)
             .setSingleSelection(true)
-                .setValueGetter(entity -> ((AbstractMaterialItem) entity).getAllowableStress())
+            .setValueGetter(entity -> ((AbstractMaterialItem) entity).getAllowableStress())
             .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setAllowableStress((Double) value));
 
         new ObjectProperty(this)
@@ -361,7 +360,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.CALCULATION_BEAM_BENDING_MOMENTS_PROPERTY))
             .setType(ObjectListPropertyEditor.class)
             .setSingleSelection(true)
-                .setValueGetter(entity -> {
+            .setValueGetter(entity -> {
                 MomentTableDialogSupport support = new MomentTableDialogSupport();
                 support.setElements(((AbstractMaterialItem) entity).getMoments());
                 return support;
@@ -380,7 +379,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.CALCULATION_BEAM_FORCES_PROPERTY))
             .setType(ObjectListPropertyEditor.class)
             .setSingleSelection(true)
-                .setValueGetter(entity -> {
+            .setValueGetter(entity -> {
                 ForceTableDialogSupport support = new ForceTableDialogSupport();
                 support.setElements(((AbstractMaterialItem) entity).getForces());
                 return support;
@@ -399,7 +398,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.CALCULATION_BEAM_DISTRIBUTED_FORCES_PROPERTY))
             .setType(ObjectListPropertyEditor.class)
             .setSingleSelection(true)
-                .setValueGetter(entity -> {
+            .setValueGetter(entity -> {
                 DistributedForceTableDialogSupport support = new DistributedForceTableDialogSupport();
                 support.setElements(((AbstractMaterialItem) entity).getDistributedForces());
                 return support;
@@ -422,8 +421,11 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .addEditorButton(new ObjectProperty.Button(L10.get(L10.VIEW_VALUE), "", e -> {
                 BeamPanel beamPanel = new BeamPanel();
                 AbstractMaterialItem materialItem = (AbstractMaterialItem) plan.getSelection().getItems().get(0);
-                materialItem.getMechanicsSolution(beamPanel);
-                beamPanel.displayView(L10.get(L10.CALCULATION_PROPERTY), DialogButton.CLOSE);
+                if (materialItem.applyMechanicsSolution(beamPanel)) {
+                    beamPanel.displayView(L10.get(L10.CALCULATION_PROPERTY), DialogButton.CLOSE);
+                } else {
+                    SwingTools.showMessage(L10.get(L10.FILL_MECHANICS_PROPERTIES));
+                }
             }));
     }
 

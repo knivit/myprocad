@@ -383,13 +383,14 @@ public class L10 {
     public static String[] MENU_DELETE_WOOD_BEAM_NAME = { "Delete Wood Beam", "Удалить деревянную балку" };
 
     /* Beam */
-    public static String[] CALCULATION_BEAM_LEFT_SUPPORT_PROPERTY = { "Left Support, a (m)", "Левая опора (м)" };
-    public static String[] CALCULATION_BEAM_RIGHT_SUPPORT_PROPERTY = { "Right Support, b (m)", "Правая опора (м)" };
+    public static String[] CALCULATION_BEAM_LEFT_SUPPORT_PROPERTY = { "Left Support (m)", "Левая опора (м)" };
+    public static String[] CALCULATION_BEAM_RIGHT_SUPPORT_PROPERTY = { "Right Support (m)", "Правая опора (м)" };
     public static String[] CALCULATION_BEAM_ELASTIC_STRENGTH_PROPERTY = { "Elastic Strength, E (MPa)", "Модуль упругости E (МПа)" };
     public static String[] CALCULATION_BEAM_ALLOWABLE_STRESS_PROPERTY = { "Allowable Stress, [σ] (MPa)", "Допускаемое напряжение [σ] (МПа)" };
     public static String[] CALCULATION_BEAM_BENDING_MOMENTS_PROPERTY = { "Bending moments, M (kNm)", "Изгибающие моменты M (кНм)" };
     public static String[] CALCULATION_BEAM_FORCES_PROPERTY = { "Forces, F (kN)", "Сосредоточенные силы F (кН)" };
     public static String[] CALCULATION_BEAM_DISTRIBUTED_FORCES_PROPERTY = { "Distributed Forces, g (kN/m)", "Распределенные нагрузки, g (кН/м)" };
+    public static String[] FILL_MECHANICS_PROPERTIES = { "Add load on the beam", "Введите нагрузку на балку" };
 
     public static String[] CALCULATION_BEAM_MOMENTS_TABLE_COLUMN_VM = { "Bending moment, M (kNm)", "Изгибающий момент M (кНм)" };
     public static String[] CALCULATION_BEAM_MOMENTS_TABLE_COLUMN_ZM = { "Distance, L (m)", "Приложение (м)" };

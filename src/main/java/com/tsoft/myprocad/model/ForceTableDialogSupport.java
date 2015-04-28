@@ -28,6 +28,7 @@ public class ForceTableDialogSupport extends TableDialogSupport {
             Force f = new Force();
             f.setVs(data[0]);
             f.setZs(data[1]);
+            fs.add(f);
         }
         return fs;
     }

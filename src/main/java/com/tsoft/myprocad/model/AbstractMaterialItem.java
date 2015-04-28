@@ -5,7 +5,6 @@ import com.sun.j3d.utils.geometry.NormalGenerator;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.lib.mm.MMLib;
 import com.tsoft.myprocad.swing.BeamPanel;
-import com.tsoft.myprocad.swing.dialog.TableDialogPanelSupport;
 import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
 import com.tsoft.myprocad.util.json.JsonWriter;
@@ -29,8 +28,8 @@ public abstract class AbstractMaterialItem extends Item {
     private int patternId = Pattern.HATCH_UP.getId();
 
     // Mechanics of Materials
-    private double leftSupport = 0;       // Offset to the left support, m (0 .. length)
-    private double rightSupport = 10;     // Offset to the right support, m (0 .. length)
+    private Double leftSupport = 0d;      // Левая опора, расстояние от начала балки, м
+    private Double rightSupport = 0d;     // Правая опора, расстояние от конца балки, м
     private double elasticStrength = 2e5; // Elastic Strength E, MPa (модуль упругости Юнга E (МПа))
     private double allowableStress = 160; // Allowable Stress, [σ] MPa (допускаемое напряжение [σ] (МПа))
     private List<Moment> moments = new ArrayList<>(); // Bending moments, kNm
@@ -48,9 +47,6 @@ public abstract class AbstractMaterialItem extends Item {
 
     private transient Material material;
     private transient Pattern pattern;
-
-    /* Static calculation results */
-    public transient BeamSolution[] solutions = new BeamSolution[6];
 
     /* Inner props */
     public transient Vec3[] vertexes = new Vec3[8];
@@ -284,61 +280,42 @@ public abstract class AbstractMaterialItem extends Item {
         return 0;
     }
 
-    public String validateLength(Double length) {
-        if (length == null || length <= 0.001) return "Длина балки не может быть меньше 0.001 м";
+    public String validateMechanicsProperties(double length) {
+        if (leftSupport > length) leftSupport = length;
+        if (rightSupport > length) rightSupport = length;
 
-        if ((leftSupport < 0) || (leftSupport > length)) return "Левая опора должна быть на балке";
-
-        if ((rightSupport < 0) || (rightSupport > length)) return "Правая опора должна быть на балке";
-
-        for (Moment moment : moments) {
-            if (moment.zm >= length) return "Изгибающий момент не может быть вне балки";
-        }
-
-        for (Force force : forces) {
-            if (force.zs >= length) return "Сосредоточеггая сила не может быть вне балки";
-        }
-
-        for (DistributedForce distributedForce : distributedForces) {
-            if (distributedForce.z2 >= length) return "Распределенная нагрузка не может быть вне балки";
-        }
+        moments.stream().filter(moment -> moment.zm >= length).forEach(moment -> moment.zm = length);
+        forces.stream().filter(force -> force.zs >= length).forEach(force -> force.zs = length);
+        distributedForces.stream().filter(distributedForce -> distributedForce.z2 >= length).forEach(distributedForce -> distributedForce.z2 = length);
 
         return null;
     }
 
-    public double getLeftSupport() {
+    public Double getLeftSupport() {
         return leftSupport;
     }
 
-    public String validateLeftSupport(double leftSupport) {
+    public String validateLeftSupport(Double leftSupport) {
+        if (leftSupport == null) return null;
         if ((leftSupport < 0) || (leftSupport > getLength())) return "Левая опора должна быть на балке";
         return null;
     }
 
-    public void setLeftSupport(double value) {
-        if (rightSupport < value) {
-            double tmp = value;
-            value = rightSupport;
-            rightSupport = tmp;
-        }
+    public void setLeftSupport(Double value) {
         leftSupport = value;
     }
 
-    public double getRightSupport() {
+    public Double getRightSupport() {
         return rightSupport;
     }
 
-    public String validateRightSupport(double rightSupport) {
-        if ((rightSupport < 0) || (rightSupport > getLength())) return "Правая опора должна быть на балке";
+    public String validateRightSupport(Double rightSupport) {
+        if (rightSupport == null) return null;
+        if (Math.abs(rightSupport) > getLength()) return "Правая опора должна быть на балке";
         return null;
     }
 
-    public void setRightSupport(double value) {
-        if (value < leftSupport) {
-            double tmp = leftSupport;
-            leftSupport = value;
-            value = tmp;
-        }
+    public void setRightSupport(Double value) {
         rightSupport = value;
     }
 
@@ -417,25 +394,6 @@ public abstract class AbstractMaterialItem extends Item {
             row ++;
         }
         return null;
-    }
-
-    /** For MMLib */
-    public double getVsc() {
-        double vsc = 0;
-
-        for (Moment moment : moments) {
-            vsc = Math.max(vsc, Math.abs(moment.vm));
-        }
-
-        for (Force force : forces) {
-            vsc = Math.max(vsc, Math.abs(force.vs));
-        }
-
-        for (DistributedForce distributedForce : distributedForces) {
-            vsc = Math.max(vsc, Math.abs(distributedForce.q1));
-            vsc = Math.max(vsc, Math.abs(distributedForce.q2));
-        }
-        return vsc;
     }
 
     /**
@@ -560,9 +518,15 @@ public abstract class AbstractMaterialItem extends Item {
         return buf.toString();
     }
 
-    public void getMechanicsSolution(BeamPanel beamPanel) {
-        beamPanel.setText(MMLib.calcStatic(this));
-        for (BeamSolution solution : solutions) beamPanel.addImage(solution.getImage());
+    public boolean applyMechanicsSolution(BeamPanel beamPanel) {
+        MMLib mm = new MMLib(this);
+        String calculation = mm.calculate();
+        if (calculation != null) {
+            beamPanel.setText(calculation);
+            for (BeamSolution solution : mm.solutions) beamPanel.addImage(solution.getImage());
+            return true;
+        }
+        return false;
     }
 
     @Override

@@ -7,7 +7,11 @@ import com.tsoft.myprocad.model.Force;
 import com.tsoft.myprocad.model.Moment;
 import com.tsoft.myprocad.util.StringUtil;
 
-import java.awt.*;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.util.List;
 import java.awt.geom.GeneralPath;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -180,30 +184,82 @@ public class MMLib {
         profiles.add(new Profile("60", 600, 190, 12, 17.8, 20, 8, 138, 76806, 2560, 1491, 1725, 182));
     }
 
-    /**
-     * Calculate beam
-     * @return Result
-     */
-    public static String calcStatic(AbstractMaterialItem beam) {
+    private double length;
+    private double leftSupport;
+    private double rightSupport;
+    private double allowableStress;
+    private double elasticStrength;
+    private List<Force> forces = new ArrayList<>();
+    private List<Moment> moments = new ArrayList<>();
+    private List<DistributedForce> distributedForces = new ArrayList<>();
+
+    /* Calculation results */
+    public BeamSolution[] solutions = new BeamSolution[6];
+
+    public MMLib(AbstractMaterialItem beam) {
+        length = beam.getLength() / 1000; // переводим в метры
+        allowableStress = beam.getAllowableStress();
+        elasticStrength = beam.getElasticStrength();
+
+        leftSupport = beam.getLeftSupport();
+        if (leftSupport < 0 || leftSupport > length) leftSupport = 0;
+
+        rightSupport = length - Math.abs(beam.getRightSupport());
+        if (rightSupport < 0 || rightSupport > length) rightSupport = length;
+        
+        for (Moment moment : beam.getMoments()) {
+            Moment m = new Moment();
+            m.setVm(moment.vm);
+            m.setZm(moment.zm < 0 || moment.zm > length ? 0 : moment.zm);
+            moments.add(m);
+        }
+
+        for (Force force : beam.getForces()) {
+            Force f = new Force();
+            f.setVs(force.vs);
+            f.setZs(force.zs < 0 || force.zs > length ? 0 : force.zs);
+            forces.add(f);
+        }
+
+        for (DistributedForce force : beam.getDistributedForces()) {
+            DistributedForce f = new DistributedForce();
+            f.setQ1(force.q1);
+            f.setZ1(force.z1 < 0 || force.z1 > length ? 0 : force.z1);
+            f.setQ2(force.q2);
+            f.setZ2(force.z2 < 0 || force.z2 > length ? 0 : force.z2);
+            distributedForces.add(f);
+        }
+    }
+
+    public String calculate() {
+        if (moments.isEmpty() &&
+                forces.isEmpty() &&
+                distributedForces.isEmpty()) return null;
+
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < beam.solutions.length; i ++) beam.solutions[i] = new BeamSolution();
+        for (int i = 0; i < solutions.length; i ++) solutions[i] = new BeamSolution();
 
         String sout = "<center><h2>Расчет</h2></center>" +
                 "<b>Таблица нагружения</b><br>";
 
         // Таблица нагружения
         int n = 0;
-        for (Moment moment : beam.getMoments()) {
+        double vsc = 0; // масштаб по вертикали
+        for (Moment moment : moments) {
+            vsc = Math.max(vsc, Math.abs(moment.vm));
             sout = sout + (++n) + ") " + moment.getName() + " ";
             sout = sout + str(moment.vm) + " кНм<, " + str(moment.zm) + " м<br>";
         }
 
-        for (Force force : beam.getForces()) {
+        for (Force force : forces) {
+            vsc = Math.max(vsc, Math.abs(force.vs));
             sout = sout + (++n) + ") " + force.getName() + " ";
             sout = sout + str(force.vs) + " кН, " + str(force.zs) + " м<br>";
         }
 
-        for (DistributedForce distributedForce : beam.getDistributedForces()) {
+        for (DistributedForce distributedForce : distributedForces) {
+            vsc = Math.max(vsc, Math.abs(distributedForce.q1));
+            vsc = Math.max(vsc, Math.abs(distributedForce.q2));
             sout = sout + (++n) + ") " + distributedForce.getName() + " ";
             sout = sout + String.format("[%s, %s] кН/м, [%s, %s] м<br>",
                     str(distributedForce.q1),
@@ -213,8 +269,8 @@ public class MMLib {
         }
         result.append(sout);
 
-        double vsc = 200/beam.getVsc(); // масштаб по вертикали
-        drawActions(beam, beam.solutions[0].getG2d(), vsc);
+        vsc = 200/vsc;
+        drawActions(solutions[0].getG2d(), vsc);
 
         /* Нахождение реакций опор */
         sout = "<br><b>Нахождение реакций опор</b><br>" +
@@ -232,18 +288,18 @@ public class MMLib {
         String textRsum = "<p>Проверим полученные результаты по уравнению ∑ Fy = 0<br>" +
                 "Составим сумму проекций всех сил на ось <i>Oy</i>, она должна оказаться равной нулю.</p>" +
                 "<i>R<sub>a</sub></i>+<i>R<sub>b</sub></i>";
-        for (int i = 0; i < beam.getMoments().size(); i++) {
+        for (int i = 0; i < moments.size(); i++) {
             textRb = textRb + "+<i>M</i><sub>" + (i + 1) + "</sub>";
             textRa = textRa + "+<i>M</i><sub>" + (i + 1) + "</sub>";
         }
 
-        for (int i = 0; i < beam.getForces().size(); i++) {
+        for (int i = 0; i < forces.size(); i++) {
             textRb = textRb + "+<i>F</i><sub>" + (i + 1) + "</sub>(<i>a</i>&minus;<i>a</i><sub>" + (i + 1) + "</sub>)";
             textRa = textRa + "+<i>F</i><sub>" + (i + 1) + "</sub>(<i>b</i>&minus;<i>a</i><sub>" + (i + 1) + "</sub>)";
             textRsum = textRsum + "+<i>F</i><sub>" + (i + 1) + "</sub>";
         }
 
-        for (int i = 0; i < beam.getDistributedForces().size(); i++) {
+        for (int i = 0; i < distributedForces.size(); i++) {
             textRb = textRb + "&minus;(<i>b</i><sub>" + (i + 1) +
                     "</sub>&minus;<i>a</i><sub>" + (i + 1) +
                     "</sub>)/6&middot;(<i>q</i><sub><i>a</i>" + (i + 1) +
@@ -273,43 +329,43 @@ public class MMLib {
                     "</sub>)";
         }
 
-        textRb = textRb + "=0;<br><i>R<sub>b</sub></i>&middot;(" + str(beam.getLeftSupport()) + "&minus;" + str(beam.getRightSupport()) + ")";
-        textRa = textRa + "=0;<br><i>R<sub>a</sub></i>&middot;(" + str(beam.getRightSupport()) + "&minus;" + str(beam.getLeftSupport()) + ")";
+        textRb = textRb + "=0;<br><i>R<sub>b</sub></i>&middot;(" + str(leftSupport) + "&minus;" + str(rightSupport) + ")";
+        textRa = textRa + "=0;<br><i>R<sub>a</sub></i>&middot;(" + str(rightSupport) + "&minus;" + str(leftSupport) + ")";
         textRsum = textRsum + "=";
 
         double Rb = 0;
         double Ra = 0;
-        for (Moment moment : beam.getMoments()) {
+        for (Moment moment : moments) {
             textRb = textRb + signStr(moment.vm);
             textRa = textRa + signStr(moment.vm);
             Rb = Rb + moment.vm;
             Ra = Ra + moment.vm;
         }
 
-        for (Force force : beam.getForces()) {
-            textRb = textRb + signStr(force.vs) + "&middot;(" + str(beam.getLeftSupport()) + "&minus;" + str(force.zs) + ")";
-            textRa = textRa + signStr(force.vs) + "&middot;(" + str(beam.getRightSupport()) + "&minus;" + str(force.zs) + ")";
-            Rb = Rb + force.vs * (beam.getLeftSupport() - force.zs);
-            Ra = Ra + force.vs * (beam.getRightSupport() - force.zs);
+        for (Force force : forces) {
+            textRb = textRb + signStr(force.vs) + "&middot;(" + str(leftSupport) + "&minus;" + str(force.zs) + ")";
+            textRa = textRa + signStr(force.vs) + "&middot;(" + str(rightSupport) + "&minus;" + str(force.zs) + ")";
+            Rb = Rb + force.vs * (leftSupport - force.zs);
+            Ra = Ra + force.vs * (rightSupport - force.zs);
         }
 
-        for (DistributedForce distributedForce : beam.getDistributedForces()) {
-            textRb = textRb + "&minus;(" + str(distributedForce.z2) + "&minus;" + str(distributedForce.z1) + ")/6&middot;(" + str(distributedForce.q1) + "&middot;(2&middot;" + str(distributedForce.z1) + signStr(distributedForce.z2) + ")" + signStr(distributedForce.q2) + "&middot;(" + str(distributedForce.z1) + "+2&middot;" + str(distributedForce.z2) + ")&minus;3&middot;" + str(beam.getLeftSupport()) + "&middot;(" + str(distributedForce.q1) + signStr(distributedForce.q2) + "))";
-            textRa = textRa + "&minus;(" + str(distributedForce.z2) + "&minus;" + str(distributedForce.z1) + ")/6&middot;(" + str(distributedForce.q1) + "&middot;(2&middot;" + str(distributedForce.z1) + signStr(distributedForce.z2) + ")" + signStr(distributedForce.q2) + "&middot;(" + str(distributedForce.z1) + "+2&middot;" + str(distributedForce.z2) + ")&minus;3&middot;" + str(beam.getRightSupport()) + "&middot;(" + str(distributedForce.q1) + signStr(distributedForce.q2) + "))";
-            Rb = Rb - (distributedForce.z2 - distributedForce.z1) / 6 * (distributedForce.q1 * (2 * distributedForce.z1 + distributedForce.z2) + distributedForce.q2 * (distributedForce.z1 + 2 * distributedForce.z2) - 3 * beam.getLeftSupport() * (distributedForce.q1 + distributedForce.q2));
-            Ra = Ra - (distributedForce.z2 - distributedForce.z1) / 6 * (distributedForce.q1 * (2 * distributedForce.z1 + distributedForce.z2) + distributedForce.q2 * (distributedForce.z1 + 2 * distributedForce.z2) - 3 * beam.getRightSupport() * (distributedForce.q1 + distributedForce.q2));
+        for (DistributedForce distributedForce : distributedForces) {
+            textRb = textRb + "&minus;(" + str(distributedForce.z2) + "&minus;" + str(distributedForce.z1) + ")/6&middot;(" + str(distributedForce.q1) + "&middot;(2&middot;" + str(distributedForce.z1) + signStr(distributedForce.z2) + ")" + signStr(distributedForce.q2) + "&middot;(" + str(distributedForce.z1) + "+2&middot;" + str(distributedForce.z2) + ")&minus;3&middot;" + str(leftSupport) + "&middot;(" + str(distributedForce.q1) + signStr(distributedForce.q2) + "))";
+            textRa = textRa + "&minus;(" + str(distributedForce.z2) + "&minus;" + str(distributedForce.z1) + ")/6&middot;(" + str(distributedForce.q1) + "&middot;(2&middot;" + str(distributedForce.z1) + signStr(distributedForce.z2) + ")" + signStr(distributedForce.q2) + "&middot;(" + str(distributedForce.z1) + "+2&middot;" + str(distributedForce.z2) + ")&minus;3&middot;" + str(rightSupport) + "&middot;(" + str(distributedForce.q1) + signStr(distributedForce.q2) + "))";
+            Rb = Rb - (distributedForce.z2 - distributedForce.z1) / 6 * (distributedForce.q1 * (2 * distributedForce.z1 + distributedForce.z2) + distributedForce.q2 * (distributedForce.z1 + 2 * distributedForce.z2) - 3 * leftSupport * (distributedForce.q1 + distributedForce.q2));
+            Ra = Ra - (distributedForce.z2 - distributedForce.z1) / 6 * (distributedForce.q1 * (2 * distributedForce.z1 + distributedForce.z2) + distributedForce.q2 * (distributedForce.z1 + 2 * distributedForce.z2) - 3 * rightSupport * (distributedForce.q1 + distributedForce.q2));
         }
-        textRb = textRb + "=0;<br>" + str(beam.getLeftSupport() - beam.getRightSupport()) + "<i>R<sub>b</sub></i>" + signStr(Rb) + "=0;<br>";
-        textRa = textRa + "=0;<br>" + str(beam.getRightSupport() - beam.getLeftSupport()) + "<i>R<sub>a</sub></i>" + signStr(Ra) + "=0;<br>";
+        textRb = textRb + "=0;<br>" + str(leftSupport - rightSupport) + "<i>R<sub>b</sub></i>" + signStr(Rb) + "=0;<br>";
+        textRa = textRa + "=0;<br>" + str(rightSupport - leftSupport) + "<i>R<sub>a</sub></i>" + signStr(Ra) + "=0;<br>";
 
-        Rb = -Rb / (beam.getLeftSupport() - beam.getRightSupport());
-        Ra = -Ra / (beam.getRightSupport() - beam.getLeftSupport());
+        Rb = -Rb / (leftSupport - rightSupport);
+        Ra = -Ra / (rightSupport - leftSupport);
         textRsum = textRsum + str(Ra) + signStr(Rb);
-        for (Force force : beam.getForces()) {
+        for (Force force : forces) {
             textRsum = textRsum + signStr(force.vs);
         }
 
-        for (DistributedForce distributedForce : beam.getDistributedForces()) {
+        for (DistributedForce distributedForce : distributedForces) {
             textRsum = textRsum + "+(" + str(distributedForce.q1) + signStr(distributedForce.q2) + ")/2&middot;(" + str(distributedForce.z2) + "&minus;" + str(distributedForce.z1) + ")";
         }
 
@@ -321,113 +377,113 @@ public class MMLib {
         String stext = "<b>Построение эпюр поперечных сил и изгибающих моментов</b>";
         String souteq1 = "<p><i>EJ<sub>x</sub>w</i>(0)+<i>EJ<sub>x</sub></i>&theta;(0)<i>a</i>";
         String souteq2 = "<i>EJ<sub>x</sub>w</i>(0)+<i>EJ<sub>x</sub></i>&theta;(0)<i>b</i>+<i>R<sub>a</sub></i>(<i>b</i>&minus;<i>a</i>)<sup>3</sup>/6";
-        String souteq11 = "<p><i>EJ<sub>x</sub>w</i>(0)+<i>EJ<sub>x</sub></i>&theta;(0)&middot;" + str(beam.getLeftSupport());
-        String souteq22 = "<i>EJ<sub>x</sub>w</i>(0)+<i>EJ<sub>x</sub></i>&theta;(0)&middot;" + str(beam.getRightSupport()) + signStr(Ra) + "&middot;(" + str(beam.getRightSupport()) + signStr(-beam.getLeftSupport()) + ")<sup>3</sup>/6";
+        String souteq11 = "<p><i>EJ<sub>x</sub>w</i>(0)+<i>EJ<sub>x</sub></i>&theta;(0)&middot;" + str(leftSupport);
+        String souteq22 = "<i>EJ<sub>x</sub>w</i>(0)+<i>EJ<sub>x</sub></i>&theta;(0)&middot;" + str(rightSupport) + signStr(Ra) + "&middot;(" + str(rightSupport) + signStr(-leftSupport) + ")<sup>3</sup>/6";
 
         double b1 = 0;
-        double b2 = Ra * Math.pow(beam.getRightSupport() - beam.getLeftSupport(), 3) / 6;
+        double b2 = Ra * Math.pow(rightSupport - leftSupport, 3) / 6;
 
         // просматриваем моменты
         int k = 0;
-        for (Moment moment : beam.getMoments()) {
+        for (Moment moment : moments) {
             k++;
-            if (moment.zm < beam.getLeftSupport()) {
+            if (moment.zm < leftSupport) {
                 souteq1 = souteq1 + "+<i>M</i><sub>" + k + "</sub>(<i>a</i>&minus;<i>a</i><sub>" + k + "</sub>)<sup>2</sup>/2";
-                souteq11 = souteq11 + signStr(moment.vm) + "&middot;(" + str(beam.getLeftSupport()) + signStr(-moment.zm) + ")<sup>2</sup>/2";
-                b1 = b1 + moment.vm * Math.pow(beam.getLeftSupport() - moment.zm, 2) / 2;
+                souteq11 = souteq11 + signStr(moment.vm) + "&middot;(" + str(leftSupport) + signStr(-moment.zm) + ")<sup>2</sup>/2";
+                b1 = b1 + moment.vm * Math.pow(leftSupport - moment.zm, 2) / 2;
             }
-            if (moment.zm < beam.getRightSupport()) {
+            if (moment.zm < rightSupport) {
                 souteq2 = souteq2 + "+<i>M</i><sub>" + k + "</sub>(<i>b</i>&minus;<i>a</i><sub>" + k + "</sub>)<sup>2</sup>/2";
-                souteq22 = souteq22 + signStr(moment.vm) + "&middot;(" + str(beam.getRightSupport()) + signStr(-moment.zm) + ")<sup>2</sup>/2";
-                b2 = b2 + moment.vm * Math.pow(beam.getRightSupport() - moment.zm, 2) / 2;
+                souteq22 = souteq22 + signStr(moment.vm) + "&middot;(" + str(rightSupport) + signStr(-moment.zm) + ")<sup>2</sup>/2";
+                b2 = b2 + moment.vm * Math.pow(rightSupport - moment.zm, 2) / 2;
             }
         }
 
         // просматриваем силы
         k = 0;
-        for (Force force : beam.getForces()) {
+        for (Force force : forces) {
             k++;
-            if (force.zs < beam.getLeftSupport()) {
+            if (force.zs < leftSupport) {
                 souteq1 = souteq1 + "+<i>F</i><sub>" + k + "</sub>(<i>a</i>&minus;<i>a</i><sub>" + k + "</sub>)<sup>3</sup>/6";
-                souteq11 = souteq11 + signStr(force.vs) + "&middot;(" + str(beam.getLeftSupport()) + signStr(-force.zs) + ")<sup>3</sup>/6";
-                b1 = b1 + force.vs * Math.pow(beam.getLeftSupport() - force.zs, 3) / 6;
+                souteq11 = souteq11 + signStr(force.vs) + "&middot;(" + str(leftSupport) + signStr(-force.zs) + ")<sup>3</sup>/6";
+                b1 = b1 + force.vs * Math.pow(leftSupport - force.zs, 3) / 6;
             }
-            if (force.zs < beam.getRightSupport()) {
+            if (force.zs < rightSupport) {
                 souteq2 = souteq2 + "+<i>F</i><sub>" + k + "</sub>(<i>b</i>&minus;<i>a</i><sub>" + k + "</sub>)<sup>3</sup>/6";
-                souteq22 = souteq22 + signStr(force.vs) + "&middot;(" + str(beam.getRightSupport()) + signStr(-force.zs) + ")<sup>3</sup>/6";
-                b2 = b2 + force.vs * Math.pow(beam.getRightSupport() - force.zs, 3) / 6;
+                souteq22 = souteq22 + signStr(force.vs) + "&middot;(" + str(rightSupport) + signStr(-force.zs) + ")<sup>3</sup>/6";
+                b2 = b2 + force.vs * Math.pow(rightSupport - force.zs, 3) / 6;
             }
         }
 
         // просматриваем нагрузки
         k = 0;
-        for (DistributedForce distributedForce : beam.getDistributedForces()) {
+        for (DistributedForce distributedForce : distributedForces) {
             k++;
             double ck = (distributedForce.q2 - distributedForce.q1) / (distributedForce.z2 - distributedForce.z1);
-            if (distributedForce.z1 < beam.getLeftSupport()) {
+            if (distributedForce.z1 < leftSupport) {
                 souteq1 = souteq1 + "+<i>q</i><sub><i>a</i>" + k + "</sub>(<i>a</i>&minus;<i>a</i><sub>" + k + "</sub>)<sup>4</sup>/24";
-                souteq11 = souteq11 + signStr(distributedForce.q1) + "&middot;(" + str(beam.getLeftSupport()) + signStr(-distributedForce.z1) + ")<sup>4</sup>/24";
+                souteq11 = souteq11 + signStr(distributedForce.q1) + "&middot;(" + str(leftSupport) + signStr(-distributedForce.z1) + ")<sup>4</sup>/24";
                 if (Math.abs(ck) > 1e-8) {
                     souteq1 = souteq1 + "+<i>c</i><sub>" + k + "</sub>(<i>a</i>&minus;<i>a</i><sub>" + k + "</sub>)<sup>5</sup>/120";
-                    souteq11 = souteq11 + signStr(ck) + "&middot;(" + str(beam.getLeftSupport()) + signStr(-distributedForce.z1) + ")<sup>5</sup>/120";
+                    souteq11 = souteq11 + signStr(ck) + "&middot;(" + str(leftSupport) + signStr(-distributedForce.z1) + ")<sup>5</sup>/120";
                 }
-                b1 = b1 + distributedForce.q1 * Math.pow(beam.getLeftSupport() - distributedForce.z1, 4) / 24 + ck * Math.pow(beam.getLeftSupport() - distributedForce.z1, 5) / 120;
+                b1 = b1 + distributedForce.q1 * Math.pow(leftSupport - distributedForce.z1, 4) / 24 + ck * Math.pow(leftSupport - distributedForce.z1, 5) / 120;
             }
 
-            if (distributedForce.z2 < beam.getLeftSupport()) {
+            if (distributedForce.z2 < leftSupport) {
                 souteq1 = souteq1 + "&minus;<i>q</i><sub><i>b</i>" + k + "</sub>(<i>a</i>&minus;<i>b</i><sub>" + k + "</sub>)<sup>4</sup>/24";
-                souteq11 = souteq11 + signStr(-distributedForce.q2) + "&middot;(" + str(beam.getLeftSupport()) + signStr(-distributedForce.z2) + ")<sup>4</sup>/24";
+                souteq11 = souteq11 + signStr(-distributedForce.q2) + "&middot;(" + str(leftSupport) + signStr(-distributedForce.z2) + ")<sup>4</sup>/24";
                 if (Math.abs(ck) > 1e-8) {
                     souteq1 = souteq1 + "-<i>c</i><sub>" + k + "</sub>(<i>a</i>&minus;<i>b</i><sub>" + k + "</sub>)<sup>5</sup>/120";
-                    souteq11 = souteq11 + signStr(-ck) + "&middot;(" + str(beam.getLeftSupport()) + signStr(-distributedForce.z2) + ")<sup>5</sup>/120";
+                    souteq11 = souteq11 + signStr(-ck) + "&middot;(" + str(leftSupport) + signStr(-distributedForce.z2) + ")<sup>5</sup>/120";
                 }
-                b1 = b1 - distributedForce.q2 * Math.pow(beam.getLeftSupport() - distributedForce.z2, 4) / 24 - ck * Math.pow(beam.getLeftSupport() - distributedForce.z2, 5) / 120;
+                b1 = b1 - distributedForce.q2 * Math.pow(leftSupport - distributedForce.z2, 4) / 24 - ck * Math.pow(leftSupport - distributedForce.z2, 5) / 120;
             }
 
-            if (distributedForce.z1 < beam.getRightSupport()) {
+            if (distributedForce.z1 < rightSupport) {
                 souteq2 = souteq2 + "+<i>q</i><sub><i>a</i>" + k + "</sub>(<i>b</i>&minus;<i>a</i><sub>" + k + "</sub>)<sup>4</sup>/24";
-                souteq22 = souteq22 + signStr(distributedForce.q1) + "&middot;(" + str(beam.getRightSupport()) + signStr(-distributedForce.z1) + ")<sup>4</sup>/24";
+                souteq22 = souteq22 + signStr(distributedForce.q1) + "&middot;(" + str(rightSupport) + signStr(-distributedForce.z1) + ")<sup>4</sup>/24";
                 if (Math.abs(ck) > 1e-8) {
                     souteq2 = souteq2 + "+<i>c</i><sub>" + k + "</sub>(<i>b</i>&minus;<i>a</i><sub>" + k + "</sub>)<sup>5</sup>/120";
-                    souteq22 = souteq22 + signStr(ck) + "&middot;(" + str(beam.getRightSupport()) + signStr(-distributedForce.z1) + ")<sup>5</sup>/120";
+                    souteq22 = souteq22 + signStr(ck) + "&middot;(" + str(rightSupport) + signStr(-distributedForce.z1) + ")<sup>5</sup>/120";
                 }
 
-                b2 = b2 + distributedForce.q1 * Math.pow(beam.getRightSupport() - distributedForce.z1, 4) / 24 + ck * Math.pow(beam.getRightSupport() - distributedForce.z1, 5) / 120;
+                b2 = b2 + distributedForce.q1 * Math.pow(rightSupport - distributedForce.z1, 4) / 24 + ck * Math.pow(rightSupport - distributedForce.z1, 5) / 120;
             }
 
-            if (distributedForce.z2 < beam.getRightSupport()) {
+            if (distributedForce.z2 < rightSupport) {
                 souteq2 = souteq2 + "&minus;<i>q</i><sub><i>b</i>" + k + "</sub>(<i>b</i>&minus;<i>b</i><sub>" + k + "</sub>)<sup>4</sup>/24";
-                souteq22 = souteq22 + signStr(-distributedForce.q2) + "&middot;(" + str(beam.getRightSupport()) + signStr(-distributedForce.z2) + ")<sup>4</sup>/24";
+                souteq22 = souteq22 + signStr(-distributedForce.q2) + "&middot;(" + str(rightSupport) + signStr(-distributedForce.z2) + ")<sup>4</sup>/24";
                 if (Math.abs(ck) > 1e-8) {
                     souteq2 = souteq2 + "-<i>c</i><sub>" + k + "</sub>(<i>b</i>&minus;<i>b</i><sub>" + k + "</sub>)<sup>5</sup>/120";
-                    souteq22 = souteq22 + signStr(-ck) + "&middot;(" + str(beam.getRightSupport()) + signStr(-distributedForce.z2) + ")<sup>5</sup>/120";
+                    souteq22 = souteq22 + signStr(-ck) + "&middot;(" + str(rightSupport) + signStr(-distributedForce.z2) + ")<sup>5</sup>/120";
                 }
-                b2 = b2 - distributedForce.q2 * Math.pow(beam.getRightSupport() - distributedForce.z2, 4) / 24 - ck * Math.pow(beam.getRightSupport() - distributedForce.z2, 5) / 120;
+                b2 = b2 - distributedForce.q2 * Math.pow(rightSupport - distributedForce.z2, 4) / 24 - ck * Math.pow(rightSupport - distributedForce.z2, 5) / 120;
             }
         }
 
-        double EJt0 = (b1 - b2) / (beam.getRightSupport() - beam.getLeftSupport());
-        double EJw0 = -b1 - EJt0 * beam.getLeftSupport();
+        double EJt0 = (b1 - b2) / (rightSupport - leftSupport);
+        double EJw0 = -b1 - EJt0 * leftSupport;
         souteq1 = souteq1 + "=0;<br>";
         souteq2 = souteq2 + "=0.</p><p>Подставляем:</p>";
         souteq11 = souteq11 + "=0;<br>";
         souteq22 = souteq22 + "=0.</p><p>Считаем:</p>";
-        String souteq111 = "<p><i>EJ<sub>x</sub>w</i>(0)+<i>EJ<sub>x</sub></i>&theta;(0)&middot;" + str(beam.getLeftSupport()) + signStr(b1) + "=0;<br>";
-        String souteq222 = "<i>EJ<sub>x</sub>w</i>(0)+<i>EJ<sub>x</sub></i>&theta;(0)&middot;" + str(beam.getRightSupport()) + signStr(b2) + "=0.</p><p>Решаем систему:</p>";
+        String souteq111 = "<p><i>EJ<sub>x</sub>w</i>(0)+<i>EJ<sub>x</sub></i>&theta;(0)&middot;" + str(leftSupport) + signStr(b1) + "=0;<br>";
+        String souteq222 = "<i>EJ<sub>x</sub>w</i>(0)+<i>EJ<sub>x</sub></i>&theta;(0)&middot;" + str(rightSupport) + signStr(b2) + "=0.</p><p>Решаем систему:</p>";
         souteq222 = souteq222 + "<p><i>EJ<sub>x</sub>w</i>(0) = " + str(EJw0) + " кНм<sup>3</sup>;<br><i>EJ<sub>x</sub></i>&theta;(0) = " + str(EJt0) + " кНм<sup>2</sup>.</p>";
         result.append(stext + souteq1 + souteq2 + souteq11 + souteq22 + souteq111 + souteq222);
 
         // Число и точки интервалов переключения
         ArrayList<Double> Li = new ArrayList<>();
         Li.add(0.0); // начало балочки
-        Li.add(beam.getLength()); // длина балочки
-        if ((Math.abs(beam.getLeftSupport() - Li.get(0)) > 1e-3) && (Math.abs(beam.getLeftSupport() - Li.get(1)) > 1e-3))
-            Li.add(beam.getLeftSupport());
-        if ((Math.abs(beam.getRightSupport() - Li.get(0)) > 1e-3) && (Math.abs(beam.getRightSupport() - Li.get(1)) > 1e-3))
-            Li.add(beam.getRightSupport());
+        Li.add(length); // длина балки
+        if ((Math.abs(leftSupport - Li.get(0)) > 1e-3) && (Math.abs(leftSupport - Li.get(1)) > 1e-3))
+            Li.add(leftSupport);
+        if ((Math.abs(rightSupport - Li.get(0)) > 1e-3) && (Math.abs(rightSupport - Li.get(1)) > 1e-3))
+            Li.add(rightSupport);
 
         // проверяем уникальность
-        for (Moment moment : beam.getMoments()) {
+        for (Moment moment : moments) {
             boolean found = false;
             for (int i = 0; i < Li.size(); i ++) {
                 if (Math.abs(moment.zm - Li.get(i)) < 1e-8) {
@@ -438,7 +494,7 @@ public class MMLib {
             if (!found) Li.add(moment.zm);
         }
 
-        for (Force force : beam.getForces()) {
+        for (Force force : forces) {
             boolean found = false;
             for (int i = 0; i < Li.size(); i ++) {
                 if (Math.abs(force.zs - Li.get(i)) < 1e-8) {
@@ -449,7 +505,7 @@ public class MMLib {
             if (!found) Li.add(force.zs);
         }
 
-        for (DistributedForce distributedForce : beam.getDistributedForces()) {
+        for (DistributedForce distributedForce : distributedForces) {
             boolean found = false;
             for (int i = 0; i < Li.size(); i ++) {
                 if (Math.abs(distributedForce.z1 - Li.get(i)) < 1e-8) {
@@ -509,8 +565,8 @@ public class MMLib {
             soutt = soutt + "<p><i>z</i>&isin;[" + t1 + ", " + t2 + "): <i>EJ<sub>x</sub></i>&theta;<sub>" + j + "</sub>(<i>z</i>) = <i>EJ<sub>x</sub></i>&theta;(0)";
             soutw = soutw + "<p'><i>z</i>&isin;[" + t1 + ", " + t2 + "): <i>EJ<sub>x</sub>w</i><sub>" + j + "</sub>(<i>z</i>) = <i>EJ<sub>x</sub>w</i>(0)+<i>EJ<sub>x</sub></i>&theta;(0)<i>z</i>";
 
-            k1 = (int)Math.round(Li.get(j - 1) / beam.getLength() * 700);
-            k2 = (int)Math.round(Li.get(j) / beam.getLength() * 700); // количество точек
+            k1 = (int)Math.round(Li.get(j - 1) / length * 700);
+            k2 = (int)Math.round(Li.get(j) / length * 700); // количество точек
             for (int i1 = 0; i1 < k2 - k1 + 1; i1++) {
                 xx[kpr + i1] = k1 + i1 + 50;
                 yq[kpr + i1] = 0;
@@ -525,12 +581,12 @@ public class MMLib {
             soutw1 = str(EJw0) + signStr(EJt0) + "<i>z</i>";
 
             // учитываем Ra
-            if (beam.getLeftSupport() < Li.get(j)) {
+            if (leftSupport < Li.get(j)) {
                 for (int i1 = 0; i1 < k2 - k1 + 1; i1++) {
                     yq[kpr + i1] = yq[kpr + i1] + Ra;
-                    ym[kpr + i1] = ym[kpr + i1] + Ra * ((Li.get(j - 1) + (Li.get(j) - Li.get(j - 1)) / (k2 - k1) * i1) - beam.getLeftSupport());
-                    yt[kpr + i1] = yt[kpr + i1] + Ra * Math.pow((Li.get(j - 1) + (Li.get(j) - Li.get(j - 1)) / (k2 - k1) * i1) - beam.getLeftSupport(), 2) / 2;
-                    yw[kpr + i1] = yw[kpr + i1] + Ra * Math.pow((Li.get(j - 1) + (Li.get(j) - Li.get(j - 1)) / (k2 - k1) * i1) - beam.getLeftSupport(), 3) / 6;
+                    ym[kpr + i1] = ym[kpr + i1] + Ra * ((Li.get(j - 1) + (Li.get(j) - Li.get(j - 1)) / (k2 - k1) * i1) - leftSupport);
+                    yt[kpr + i1] = yt[kpr + i1] + Ra * Math.pow((Li.get(j - 1) + (Li.get(j) - Li.get(j - 1)) / (k2 - k1) * i1) - leftSupport, 2) / 2;
+                    yw[kpr + i1] = yw[kpr + i1] + Ra * Math.pow((Li.get(j - 1) + (Li.get(j) - Li.get(j - 1)) / (k2 - k1) * i1) - leftSupport, 3) / 6;
                 }
 
                 souta = souta + "<i>R<sub>a</sub></i>";
@@ -538,18 +594,18 @@ public class MMLib {
                 soutt = soutt + "+<i>R<sub>a</sub></i>(<i>z</i>&minus;<i>a</i>)<sup>2</sup>/2";
                 soutw = soutw + "+<i>R<sub>a</sub></i>(<i>z</i>&minus;<i>a</i>)<sup>3</sup>/6";
                 sout1 = sout1 + str(Ra);
-                soutm1 = soutm1 + str(Ra) + "&middot;(<i>z</i>&minus;" + str(beam.getLeftSupport()) + ")";
-                soutt1 = soutt1 + str(Ra) + "&middot;(<i>z</i>&minus;" + str(beam.getLeftSupport()) + ")<sup>2</sup>/2";
-                soutw1 = soutw1 + str(Ra) + "&middot;(<i>z</i>&minus;" + str(beam.getLeftSupport()) + ")<sup>3</sup>/6";
+                soutm1 = soutm1 + str(Ra) + "&middot;(<i>z</i>&minus;" + str(leftSupport) + ")";
+                soutt1 = soutt1 + str(Ra) + "&middot;(<i>z</i>&minus;" + str(leftSupport) + ")<sup>2</sup>/2";
+                soutw1 = soutw1 + str(Ra) + "&middot;(<i>z</i>&minus;" + str(leftSupport) + ")<sup>3</sup>/6";
             }
 
             // учитываем Rb
-            if (beam.getRightSupport() < Li.get(j)) {
+            if (rightSupport < Li.get(j)) {
                 for (int i1 = 0; i1 < k2 - k1 + 1; i1++) {
                     yq[kpr + i1] = yq[kpr + i1] + Rb;
-                    ym[kpr + i1] = ym[kpr + i1] + Rb * ((Li.get(j - 1) + (Li.get(j) - Li.get(j - 1)) / (k2 - k1) * i1) - beam.getRightSupport());
-                    yt[kpr + i1] = yt[kpr + i1] + Rb * Math.pow((Li.get(j - 1) + (Li.get(j) - Li.get(j - 1)) / (k2 - k1) * i1) - beam.getRightSupport(), 2) / 2;
-                    yw[kpr + i1] = yw[kpr + i1] + Rb * Math.pow((Li.get(j - 1) + (Li.get(j) - Li.get(j - 1)) / (k2 - k1) * i1) - beam.getRightSupport(), 3) / 6;
+                    ym[kpr + i1] = ym[kpr + i1] + Rb * ((Li.get(j - 1) + (Li.get(j) - Li.get(j - 1)) / (k2 - k1) * i1) - rightSupport);
+                    yt[kpr + i1] = yt[kpr + i1] + Rb * Math.pow((Li.get(j - 1) + (Li.get(j) - Li.get(j - 1)) / (k2 - k1) * i1) - rightSupport, 2) / 2;
+                    yw[kpr + i1] = yw[kpr + i1] + Rb * Math.pow((Li.get(j - 1) + (Li.get(j) - Li.get(j - 1)) / (k2 - k1) * i1) - rightSupport, 3) / 6;
                 }
 
                 souta = souta + "+<i>R<sub>b</sub></i>";
@@ -557,14 +613,14 @@ public class MMLib {
                 soutt = soutt + "+<i>R<sub>b</sub></i>(<i>z</i>&minus;<i>b</i>)<sup>2</sup>/2";
                 soutw = soutw + "+<i>R<sub>b</sub></i>(<i>z</i>&minus;<i>b</i>)<sup>3</sup>/6";
                 sout1 = sout1 + str(Rb);
-                soutm1 = soutm1 + str(Rb) + "&middot;(<i>z</i>&minus;" + str(beam.getRightSupport()) + ")";
-                soutt1 = soutt1 + str(Rb) + "&middot;(<i>z</i>&minus;" + str(beam.getRightSupport()) + ")<sup>2</sup>/2";
-                soutw1 = soutw1 + str(Rb) + "&middot;(<i>z</i>&minus;" + str(beam.getRightSupport()) + ")<sup>3</sup>/6";
+                soutm1 = soutm1 + str(Rb) + "&middot;(<i>z</i>&minus;" + str(rightSupport) + ")";
+                soutt1 = soutt1 + str(Rb) + "&middot;(<i>z</i>&minus;" + str(rightSupport) + ")<sup>2</sup>/2";
+                soutw1 = soutw1 + str(Rb) + "&middot;(<i>z</i>&minus;" + str(rightSupport) + ")<sup>3</sup>/6";
             }
 
             // просматриваем моменты
             k = 0;
-            for (Moment moment : beam.getMoments()) {
+            for (Moment moment : moments) {
                 if (moment.zm < Li.get(j)) {
                     k++;
                     soutm = soutm + "+<i>M</i><sub>" + k + "</sub>";
@@ -583,7 +639,7 @@ public class MMLib {
 
             // просматриваем сосредоточенные силы
             k = 0;
-            for (Force force : beam.getForces()) {
+            for (Force force : forces) {
                 if (force.zs < Li.get(j)) {
                     k++;
                     souta = souta + "+<i>F</i><sub>" + k + "</sub>";
@@ -605,7 +661,7 @@ public class MMLib {
 
             // просматриваем начала распределённых нагрузок
             k = 0;
-            for (DistributedForce distributedForce : beam.getDistributedForces()) {
+            for (DistributedForce distributedForce : distributedForces) {
                 if (distributedForce.z1 < Li.get(j)) {
                     k++;
                     double ck = (distributedForce.q2 - distributedForce.q1) / (distributedForce.z2 - distributedForce.z1);
@@ -639,7 +695,7 @@ public class MMLib {
 
             // просматриваем концы распределённых нагрузок
             k = 0;
-            for (DistributedForce distributedForce : beam.getDistributedForces()) {
+            for (DistributedForce distributedForce : distributedForces) {
                 if (distributedForce.z2 < Li.get(j)) {
                     k++;
                     double ck = (distributedForce.q2 - distributedForce.q1) / (distributedForce.z2 - distributedForce.z1);
@@ -692,18 +748,18 @@ public class MMLib {
         for (int i = 0; i < kpr; i++) {
             if (Math.abs(yq[i]) > yqmax) {
                 yqmax = Math.abs(yq[i]);
-                zqmax = (xx[i] - 50) / 700 * beam.getLength();
+                zqmax = (xx[i] - 50) / 700 * length;
             }
 
             if (Math.abs(ym[i]) > ymmax) {
                 ymmax = Math.abs(ym[i]);
-                zmmax = (xx[i] - 50) / 700 * beam.getLength();
+                zmmax = (xx[i] - 50) / 700 * length;
                 Qmmax = Math.abs(yq[i]);
             }
 
             if (Math.abs(yw[i]) > wmax) {
                 wmax = Math.abs(yw[i]);
-                zwmax = (xx[i] - 50) / 700 * beam.getLength();
+                zwmax = (xx[i] - 50) / 700 * length;
             }
 
             if (Math.abs(yt[i]) > tmax)
@@ -723,15 +779,15 @@ public class MMLib {
         if (wmax > 0) vscw = 200 / wmax; // масштаб w
 
         // Эпюра перерезывающих сил
-        drawShearingForces(beam, beam.solutions[1].getG2d(), kpr, yqmax, xx, yq, vscq);
+        drawShearingForces(solutions[1].getG2d(), kpr, yqmax, xx, yq, vscq);
 
-        drawBendingMoments(beam, beam.solutions[2].getG2d(), kpr, ymmax, xx, ym, vscm);
+        drawBendingMoments(solutions[2].getG2d(), kpr, ymmax, xx, ym, vscm);
 
         sout = "<p>Максимальный изгибающий момент |<i>M</i><sub>max</sub>| = " + str(ymmax) + " кНм, он достигается при <i>z</i> = " + str(zmmax) + " м.</p>";
         result.append(sout);
 
         // ищем нужный профиль
-        double Wmin = ymmax / beam.getAllowableStress() * 1000; // минимальный момент сопротивления
+        double Wmin = ymmax / allowableStress * 1000; // минимальный момент сопротивления
         Profile profile = null;
         for (int i = 0; i < profiles.size(); i++) {
             profile = profiles.get(i);
@@ -744,7 +800,7 @@ public class MMLib {
 
         // Подбор сечения по условиям прочности
         sout = "Минимально допустимый момент сопротивления <i>W</i><sub><i>x</i> min</sub> = |<i>M</i><sub>max</sub>|/[&sigma;] = " +
-                str(ymmax) + "/" + str(beam.getAllowableStress()) +
+                str(ymmax) + "/" + str(allowableStress) +
                 "&middot;10<sup>3</sup> = " + str(Wmin) + " см<sup>3</sup>.<br>";
         sout = sout + "<b>Выбираем двутавр №" + profile.name + "</b>. Его характеристики:";
         sout = sout + "<ul><li>Момент инерции <i>J<sub>x</sub></i> = " + str(profile.Jx) + " см<sup>4</sup>;</li>";
@@ -767,39 +823,36 @@ public class MMLib {
 
         result.append("<b>Построение эпюры прогибов (перемещений)</b>");
         soutw = soutw + "<p>Максимальный по модулю прогиб |<i>w</i><sub>max</sub>| = " +
-                str(wmax / beam.getElasticStrength() / profile.Jx * 1e8) +
+                str(wmax / elasticStrength / profile.Jx * 1e8) +
                 " мм, он достигается при <i>z</i> = " + str(zwmax) + " м.</p>";
         result.append(soutw);
 
         // Распределение напряжений в опасном сечении
-        drawNapr(beam, beam.solutions[3].getG2d(), profile);
+        drawNapr(solutions[3].getG2d(), profile);
 
         // Эпюра углов поворота
-        drawRotationCurve(beam, beam.solutions[4].getG2d(), kpr, tmax, profile.Jx, xx, yt, vsct);
+        drawRotationCurve(solutions[4].getG2d(), kpr, tmax, profile.Jx, xx, yt, vsct);
 
         // Эпюра перемещений
-        drawMovementsCurve(beam, beam.solutions[5].getG2d(), kpr, wmax, profile.Jx, xx, yw, vscw);
+        drawMovementsCurve(solutions[5].getG2d(), kpr, wmax, profile.Jx, xx, yw, vscw);
 
-        if (beam.getMoments().isEmpty() &&
-                beam.getForces().isEmpty() &&
-                beam.getDistributedForces().isEmpty()) return "";
         return result.toString();
     }
 
     // Рис "Балочка и нагрузка на неё"
-    private static void drawActions(AbstractMaterialItem beam, Graphics2D g2d, double vsc) {
-        drawBalka(beam, g2d);
+    private void drawActions(Graphics2D g2d, double vsc) {
+        drawBalka(g2d);
 
         double[] y = new double[11];
-        for (int i = 0 ; i < 11; i ++) y[i] = beam.getLength() / 10 * i;
-        drawScale(beam, g2d, y, "м");
+        for (int i = 0 ; i < 11; i ++) y[i] = length / 10 * i;
+        drawScale(g2d, y, "м");
 
         g2d.setColor(Color.BLACK);
         g2d.setStroke(new BasicStroke(1));
 
         int nm = 0;
-        for (Moment moment : beam.getMoments()) {
-            int x1 = (int)Math.round(moment.zm / beam.getLength() * 700) + 50; // точка приложения в pxl
+        for (Moment moment : moments) {
+            int x1 = (int)Math.round(moment.zm / length * 700) + 50; // точка приложения в pxl
             int v1 = (int)Math.round(moment.vm * vsc); // величина нагрузки в pxl
             GeneralPath shape = new GeneralPath();
             shape.moveTo(x1-40, v1+3+250);
@@ -825,8 +878,8 @@ public class MMLib {
         }
 
         int nf = 0;
-        for (Force force : beam.getForces()) {
-            int x1 = (int)Math.round(force.zs / beam.getLength() * 700) + 50; // точка приложения в pxl
+        for (Force force : forces) {
+            int x1 = (int)Math.round(force.zs / length * 700) + 50; // точка приложения в pxl
             int v1 = (int)Math.round(force.vs * vsc); // величина нагрузки в pxl
             GeneralPath shape = new GeneralPath();
             shape.moveTo(x1,v1 + 250);
@@ -847,9 +900,9 @@ public class MMLib {
         }
 
         int nq = 0;
-        for (DistributedForce distributedForce : beam.getDistributedForces()) {
-            int x1 = (int)Math.round(distributedForce.z1 / beam.getLength() * 700) + 50; // точка приложения в pxl
-            int x2 = (int)Math.round(distributedForce.z2 / beam.getLength() * 700) + 50; // точка приложения в pxl
+        for (DistributedForce distributedForce : distributedForces) {
+            int x1 = (int)Math.round(distributedForce.z1 / length * 700) + 50; // точка приложения в pxl
+            int x2 = (int)Math.round(distributedForce.z2 / length * 700) + 50; // точка приложения в pxl
             int v1 = (int)Math.round(distributedForce.q1 * vsc); // величина нагрузки в pxl
             int v2 = (int)Math.round(distributedForce.q2 * vsc); // величина нагрузки в pxl
 
@@ -885,12 +938,12 @@ public class MMLib {
     }
 
     // Эпюра перерезывающих сил
-    private static void drawShearingForces(AbstractMaterialItem beam, Graphics2D g2d, int kpr, double yqmax, double[] xx, double[] yq, double vscq) {
-        drawBalka(beam, g2d);
+    private void drawShearingForces(Graphics2D g2d, int kpr, double yqmax, double[] xx, double[] yq, double vscq) {
+        drawBalka(g2d);
 
         double[] y = new double[11];
         for (int i = 0 ; i < 11; i ++) y[i] = yqmax - yqmax / 5 * i;
-        drawScale(beam, g2d, y, "кН");
+        drawScale(g2d, y, "кН");
 
         g2d.setColor(Color.RED);
         g2d.setStroke(new BasicStroke(3));
@@ -903,12 +956,12 @@ public class MMLib {
     }
 
     // Эпюра изгибающих моментов
-    private static void drawBendingMoments(AbstractMaterialItem beam, Graphics2D g2d, int kpr, double ymmax, double[] xx, double[] ym, double vscm) {
-        drawBalka(beam, g2d);
+    private void drawBendingMoments(Graphics2D g2d, int kpr, double ymmax, double[] xx, double[] ym, double vscm) {
+        drawBalka(g2d);
 
         double[] y = new double[11];
         for (int i = 0 ; i < 11; i ++) y[i] = ymmax - ymmax / 5 * i;
-        drawScale(beam, g2d, y, "кН*м");
+        drawScale(g2d, y, "кН*м");
 
         g2d.setColor(Color.BLACK);
         g2d.setStroke(new BasicStroke(1));
@@ -921,7 +974,7 @@ public class MMLib {
     }
 
     // Распределение напряжений в опасном сечении
-    private static void drawNapr(AbstractMaterialItem beam, Graphics2D g2d, Profile profile) {
+    private void drawNapr(Graphics2D g2d, Profile profile) {
         g2d.setColor(Color.BLACK);
         g2d.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 
@@ -929,7 +982,7 @@ public class MMLib {
         for (int i = 0; i < 5; i++) {
             g2d.setStroke(new BasicStroke(1));
             g2d.drawLine(50 + i * 175, 500, 50 + i * 175, 495);
-            g2d.drawString(str(beam.getAllowableStress() / 2 * (i - 2)), 40 + i * 175, 494);
+            g2d.drawString(str(allowableStress / 2 * (i - 2)), 40 + i * 175, 494);
             //g2d.drawLine(0, 50 + i * 100, 5, 50 + i * 100);
             g2d.drawString(str(profile.h / 4 * (2 - i)), 0, 55 + i * 100);
 
@@ -962,9 +1015,9 @@ public class MMLib {
 
         g2d.setColor(Color.RED);
         g2d.setStroke(new BasicStroke(1));
-        g2d.drawLine(400, 50, 400 + (int)Math.round(profile.sigmax / beam.getAllowableStress() * 350), 50);
-        g2d.drawLine(400 + (int)Math.round(profile.sigmax / beam.getAllowableStress() * 350), 50, 400 - (int)Math.round(profile.sigmax / beam.getAllowableStress() * 350), 450);
-        g2d.drawLine(400 - (int)Math.round(profile.sigmax / beam.getAllowableStress() * 350), 450, 400, 450);
+        g2d.drawLine(400, 50, 400 + (int)Math.round(profile.sigmax / allowableStress * 350), 50);
+        g2d.drawLine(400 + (int)Math.round(profile.sigmax / allowableStress * 350), 50, 400 - (int)Math.round(profile.sigmax / allowableStress * 350), 450);
+        g2d.drawLine(400 - (int)Math.round(profile.sigmax / allowableStress * 350), 450, 400, 450);
 
         double[] ydwut = new double[205];
         double[] xdwut = new double[205];
@@ -982,10 +1035,10 @@ public class MMLib {
         ydwut[204] = profile.h;
         xdwut[204] = 0;
 
-        int x1 = 400 + (int)Math.round(xdwut[0] / beam.getAllowableStress() * 350);
+        int x1 = 400 + (int)Math.round(xdwut[0] / allowableStress * 350);
         int y1 = 250 - (int)Math.round((ydwut[0] - profile.h / 2) / profile.h * 400);
         for (int i = 1; i < 205; i++) {
-            int x2 = 400 + (int)Math.round(xdwut[i] / beam.getAllowableStress() / profile.tqmax * profile.tmmax * 350);
+            int x2 = 400 + (int)Math.round(xdwut[i] / allowableStress / profile.tqmax * profile.tmmax * 350);
             int y2 = 250 - (int)Math.round((ydwut[i] - profile.h / 2) / profile.h * 400);
             g2d.drawLine(x1, y1, x2, y2);
             x1 = x2;
@@ -994,10 +1047,10 @@ public class MMLib {
 
         g2d.setColor(Color.GREEN);
         g2d.setStroke(new BasicStroke(2));
-        x1 = 400 + (int)Math.round(xdwut[0] / beam.getAllowableStress() * 350);
+        x1 = 400 + (int)Math.round(xdwut[0] / allowableStress * 350);
         y1 = 250 - (int)Math.round((ydwut[0] - profile.h / 2) / profile.h * 400);
         for (int i = 1; i < 205; i ++) {
-            int x2 = 400 + (int)Math.round(xdwut[i] / beam.getAllowableStress() * 350);
+            int x2 = 400 + (int)Math.round(xdwut[i] / allowableStress * 350);
             int y2 = 250 - (int)Math.round((ydwut[i] - profile.h / 2) / profile.h * 400);
             g2d.drawLine(x1, y1, x2, y2);
             x1 = x2;
@@ -1006,22 +1059,22 @@ public class MMLib {
     }
 
     // Эпюра углов поворота
-    private static void drawRotationCurve(AbstractMaterialItem beam, Graphics2D g2d, int kpr, double tmax, double Jx, double[] xx, double[] yt, double vsct) {
+    private void drawRotationCurve(Graphics2D g2d, int kpr, double tmax, double Jx, double[] xx, double[] yt, double vsct) {
         double[] y = new double[11];
-        for (int i = 0 ; i < 11; i ++) y[i] =  tmax / beam.getElasticStrength() / Jx*1e5 - tmax / beam.getElasticStrength() / Jx*1e5 / 5 * i;
-        drawCurve(beam, g2d, kpr, y, "радиан", xx, yt, vsct);
+        for (int i = 0 ; i < 11; i ++) y[i] =  tmax / elasticStrength / Jx*1e5 - tmax / elasticStrength / Jx*1e5 / 5 * i;
+        drawCurve(g2d, kpr, y, "радиан", xx, yt, vsct);
     }
 
     // Эпюра перемещений
-    private static void drawMovementsCurve(AbstractMaterialItem beam, Graphics2D g2d, int kpr, double wmax, double Jx, double[] xx, double[] yw, double vscw) {
+    private void drawMovementsCurve(Graphics2D g2d, int kpr, double wmax, double Jx, double[] xx, double[] yw, double vscw) {
         double[] y = new double[11];
-        for (int i = 0 ; i < 11; i ++) y[i] = wmax / beam.getElasticStrength() / Jx*1e8 - wmax / beam.getElasticStrength() / Jx*1e8 / 5 * i;
-        drawCurve(beam, g2d, kpr, y, "мм", xx, yw, vscw);
+        for (int i = 0 ; i < 11; i ++) y[i] = wmax / elasticStrength / Jx*1e8 - wmax / elasticStrength / Jx*1e8 / 5 * i;
+        drawCurve(g2d, kpr, y, "мм", xx, yw, vscw);
     }
 
-    private static void drawCurve(AbstractMaterialItem beam, Graphics2D g2d, int kpr, double[] y, String ei, double[] xx, double[] yw, double v) {
-        drawBalka(beam, g2d);
-        drawScale(beam, g2d, y, ei);
+    private void drawCurve(Graphics2D g2d, int kpr, double[] y, String ei, double[] xx, double[] yw, double v) {
+        drawBalka(g2d);
+        drawScale(g2d, y, ei);
 
         GeneralPath shape = new GeneralPath();
         shape.moveTo(50, 250);
@@ -1034,16 +1087,16 @@ public class MMLib {
     private static final float dash1[] = {2.0f};
     private static final BasicStroke dashed = new BasicStroke(1.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10.0f, dash1, 0.0f);
 
-    private static void drawScale(AbstractMaterialItem beam, Graphics2D g2d, double[] y, String ei) {
+    private void drawScale(Graphics2D g2d, double[] y, String ei) {
         g2d.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-        int a = (int)Math.round(beam.getLeftSupport() / beam.getLength() * 700);
-        int b = (int)Math.round(beam.getRightSupport() / beam.getLength() * 700);
+        int a = (int)Math.round(leftSupport / length * 700);
+        int b = (int)Math.round(rightSupport / length * 700);
         for (int i = 0; i < 11; i++) {
             g2d.setStroke(new BasicStroke(1));
             g2d.drawLine(a + 30 + 4*i, 278, a + 20 + 4*i, 288);
             g2d.drawLine(b + 30 + 4*i, 283, b + 20 + 4*i, 293);
             g2d.drawLine(50 + i*70, 500, 50 + i*70, 495);
-            g2d.drawString(str(beam.getLength() / 10 * i), 40 + i*70, 494);
+            g2d.drawString(str(length / 10 * i), 40 + i*70, 494);
             //g2d.drawLine(0, 50 + i*40, 5, 50 + i*40);
             g2d.drawString(str(y[i]), 0, 55 + i*40);
 
@@ -1058,12 +1111,11 @@ public class MMLib {
     }
 
     // Балка
-    private static void drawBalka(AbstractMaterialItem beam, Graphics2D g2d) {
+    private void drawBalka(Graphics2D g2d) {
+        int lx = (int)Math.round(leftSupport / length * 700);
+        int rx = (int)Math.round(rightSupport / length * 700);
+
         g2d.setColor(Color.BLACK);
-
-        int lx = (int)Math.round(beam.getLeftSupport()/beam.getLength()*700);
-        int rx = (int)Math.round(beam.getRightSupport()/beam.getLength()*700);
-
         g2d.setStroke(new BasicStroke(5));
         g2d.drawLine(50, 250, 750, 250);
 

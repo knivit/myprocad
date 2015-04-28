@@ -30,6 +30,7 @@ public class DistributedForceTableDialogSupport extends TableDialogSupport {
             df.setZ1(data[1]);
             df.setQ2(data[2]);
             df.setZ2(data[3]);
+            dfs.add(df);
         }
         return dfs;
     }
