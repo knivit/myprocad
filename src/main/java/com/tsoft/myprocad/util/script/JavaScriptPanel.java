@@ -30,7 +30,7 @@ public class JavaScriptPanel extends JPanel {
         super();
 
         js = new JavaScript();
-        js.addBinding(new ProjectBinding(plan.getProject(), plan));
+        js.addBinding("Plan", plan);
 
         final OutputBinding outputBinding = new OutputBinding(js) {
             public void print(String text) {

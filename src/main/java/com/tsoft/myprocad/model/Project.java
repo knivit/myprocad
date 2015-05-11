@@ -174,12 +174,23 @@ public class Project implements JsonSerializable, Cloneable {
     }
 
     /** Used in JavaScript */
-    public void addMaterial(String name, float density, float price) {
+    public Material addMaterial(String name, float density, float price) {
         Material material = new Material();
         material.setName(name);
         material.setDensity(density);
         material.setPrice(price);
         addMaterial(material);
+        return material;
+    }
+
+    public ProjectItem addPlan(String name) {
+        return projectController.addItem(ProjectItemType.PLAN, name, Integer.MAX_VALUE);
+    }
+
+    public void saveToFile(String fileName) {
+        String userHome = System.getProperty("user.home") + File.separator;
+        setFileName(userHome + fileName);
+        projectController.save();
     }
 
     public String validateMaterials(TableDialogPanelSupport<Material> materials) {

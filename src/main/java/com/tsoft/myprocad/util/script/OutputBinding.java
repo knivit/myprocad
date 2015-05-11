@@ -1,6 +1,6 @@
 package com.tsoft.myprocad.util.script;
 
-public abstract class OutputBinding implements JavaScriptBinding {
+public abstract class OutputBinding {
     private JavaScript js;
 
     public OutputBinding(JavaScript js) { this.js = js; }
@@ -32,8 +32,4 @@ public abstract class OutputBinding implements JavaScriptBinding {
     }
 
     public void clear() { }
-
-    public String getBindingName() {
-        return "output";
-    }
 }

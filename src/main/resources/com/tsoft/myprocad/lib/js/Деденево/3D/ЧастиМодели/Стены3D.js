@@ -1,8 +1,6 @@
-output.clear();
+Console.print("*** Стены 3D ***\n");
 
-output.print("*** Стены 3D ***\n");
-
-var plan = project.getActivePlan();
+var plan = project.addPlan("Стены 3D");
 
 /* Материалы */
 $$Бетон = project.addMaterial("Бетон", 2.400, 4200);
@@ -53,7 +51,5 @@ plan.setDefaultMaterial($$Кирпич).setDefaultPattern("brick").setDefaultBac
 //Стена_справа = plan.addWall(10100, 100, 160, 10500, 13500, 3200);
 //Стена_низ = plan.addWallWithAperturesXZ(500, 13100, 160, 10100, 13500, 3200);
 
-project.saveToFile("Стены3D.mpc");
-
-output.printVariables();
-output.print("*** Конец расчета Стены 3D ***");
+Console.printVariables();
+Console.print("*** Конец расчета Стены 3D ***");

@@ -16,7 +16,7 @@ public class JavaScript {
     }
 
     public Object execute(String command, OutputBinding output) throws ScriptException {
-        addBinding(output);
+        addBinding("Console", output);
         return js.eval(command);
     }
 
@@ -31,7 +31,7 @@ public class JavaScript {
     }
 
     public void executeScript(String fileName, OutputBinding output) throws IOException, ScriptException {
-        addBinding(output);
+        addBinding("Console", output);
         loadLibrary(fileName);
     }
 
@@ -42,9 +42,9 @@ public class JavaScript {
         }
     }
 
-    public void addBinding(JavaScriptBinding binding) {
+    public void addBinding(String bindingName, Object binding) {
         Bindings bindings = js.getBindings(ScriptContext.ENGINE_SCOPE);
-        bindings.put(binding.getBindingName(), binding);
+        bindings.put(bindingName, binding);
     }
 
     public Object getVariable(String name) {

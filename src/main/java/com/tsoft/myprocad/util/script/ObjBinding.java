@@ -1,8 +1,5 @@
 package com.tsoft.myprocad.util.script;
 
-import com.tsoft.myprocad.util.SwingTools;
-import sun.nio.ch.IOUtil;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,7 +7,7 @@ import java.io.PrintWriter;
 /**
  * OBJ 3D Model bindings
  */
-public class ObjBinding implements JavaScriptBinding {
+public class ObjBinding {
     /** Returns full file name with generated OBJ data */
     public String generate(String outputFileName, Object[][] vertexes, Object[][] faces) throws IOException {
         outputFileName = System.getProperty("user.home") + File.separator + outputFileName;
@@ -34,10 +31,5 @@ public class ObjBinding implements JavaScriptBinding {
             }
         }
         return outputFileName;
-    }
-
-    @Override
-    public String getBindingName() {
-        return "obj";
     }
 }

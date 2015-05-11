@@ -1,8 +1,6 @@
-output.clear();
+Console.print("*** Крыша 3D ***\n");
 
-output.print("*** Крыша 3D ***\n");
-
-var plan = project.getActivePlan();
+var plan = project.addPlan("Крыша 3D");
 
 /* Материалы */
 $$Бетон = project.addMaterial("Бетон", 2.400, 4200);
@@ -246,7 +244,5 @@ var Труба = plan.addWall(6170, 10000, 6000, 6870, 10300, 11000).setPattern(
 plan.addLight("ambient").setCenter(5000, 6000, 10000);
 plan.addLight("directional").setCenter(5000, 6000, 10000).setDirection(0, 0, 0);
 
-project.saveToFile("Крыша3D.mpc");
-
-output.printVariables();
-output.print("*** Конец расчета Крыша 3D ***");
+Console.printVariables();
+Console.print("*** Конец расчета Крыша 3D ***");

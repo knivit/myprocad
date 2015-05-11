@@ -40,8 +40,8 @@ public class WoodBeamController implements ProjectItemController {
     }
 
     private void updatePanel() {
-        String result = WoodBeamLib.calcStatic(woodBeam);
-        woodBeamPanel.setText(result);
+//        String result = WoodBeamLib.calcStatic(woodBeam);
+//        woodBeamPanel.setText(result);
     }
 
     public void woodBeamChanged() {

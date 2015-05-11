@@ -4,6 +4,9 @@ import com.sun.j3d.utils.geometry.GeometryInfo;
 import com.sun.j3d.utils.geometry.NormalGenerator;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.lib.mm.MMLib;
+import com.tsoft.myprocad.model.calculation.BeamSag;
+import com.tsoft.myprocad.model.calculation.Load1List;
+import com.tsoft.myprocad.model.calculation.Load2List;
 import com.tsoft.myprocad.swing.BeamPanel;
 import com.tsoft.myprocad.util.ObjectUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
@@ -27,7 +30,8 @@ public abstract class AbstractMaterialItem extends Item {
     private int borderWidth = 1;
     private int patternId = Pattern.HATCH_UP.getId();
 
-    // Mechanics of Materials
+    // Сопротивление материалов
+    // - для двутавровых балок
     private Double leftSupport = 0d;         // Левая опора, расстояние от начала балки, м
     private Double rightSupport = 0d;        // Правая опора, расстояние от конца балки, м
     private double elasticStrength = 200000; // Elastic Strength E, MPa (модуль упругости Юнга E (МПа))
@@ -37,9 +41,15 @@ public abstract class AbstractMaterialItem extends Item {
     private double allowableStress = 160;    // Allowable Stress, [σ] MPa (допускаемое напряжение [σ] (МПа))
                                              // 160 - металл
                                              // 10 - древесина на изгиб (7 - растяжение вдоль волокон, 10 - сжатие вдоль волокон)
-    private List<Moment> moments = new ArrayList<>(); // Bending moments, kNm
-    private List<Force> forces = new ArrayList<>();    // Normal Force, kN
-    private List<DistributedForce> distributedForces = new ArrayList<>(); // Distributed Normal Forces, kN/m
+    private List<Moment> moments = new ArrayList<>(); // Изгибающие моменты, kNm
+    private List<Force> forces = new ArrayList<>();    // Точечные нагрузки, kN
+    private List<DistributedForce> distributedForces = new ArrayList<>(); // Распределенные нагрузки, kN/m
+
+    // - для перекрытий из дерева
+    private double b = 600; // расстояние между балками, мм
+    private Load1List permanentLoad = new Load1List(); // постоянная нагрузка (т.е. состав перекрытия)
+    private Load2List temporaryLoad = new Load2List(); // временная нагрузка (люди, перегородки, снеговая и ветровая нагрузки)
+    private int sagId = BeamSag.ATTIC_LAP.getId(); // элемент здания (для определения максимального прогиба)
 
     // 3D properties
     private boolean showWired;
@@ -399,6 +409,12 @@ public abstract class AbstractMaterialItem extends Item {
             row ++;
         }
         return null;
+    }
+
+    public double getB() { return b; }
+
+    public void setB(double b) {
+        this.b = b;
     }
 
     /**

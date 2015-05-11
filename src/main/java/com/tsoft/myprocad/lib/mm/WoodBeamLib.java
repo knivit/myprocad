@@ -1,7 +1,11 @@
 package com.tsoft.myprocad.lib.mm;
 
+import com.tsoft.myprocad.model.AbstractMaterialItem;
+import com.tsoft.myprocad.model.calculation.BeamSag;
 import com.tsoft.myprocad.model.calculation.Load1;
+import com.tsoft.myprocad.model.calculation.Load1List;
 import com.tsoft.myprocad.model.calculation.Load2;
+import com.tsoft.myprocad.model.calculation.Load2List;
 import com.tsoft.myprocad.model.calculation.WoodBeam;
 import com.tsoft.myprocad.util.StringUtil;
 
@@ -147,7 +151,19 @@ public class WoodBeamLib {
         woodRects.add(new WoodRect(22, 22, 1775, 19214 ));
     }
 
-    public static String calcStatic(WoodBeam woodBeam) {
+    private double l; // длина пролета, мм
+    private double b; // расстояние между балками, мм
+    private Load1List permanentLoad = new Load1List(); // постоянная нагрузка (т.е. состав перекрытия)
+    private Load2List temporaryLoad = new Load2List(); // временная нагрузка (люди, перегородки, снеговая и ветровая нагрузки)
+    private int sagId = BeamSag.ATTIC_LAP.getId(); // элемент здания (для определения максимального прогиба)
+    private boolean calcAll; // рассчитать по всем типоразмерам
+
+    public WoodBeamLib(AbstractMaterialItem beam) {
+        l = Math.abs(beam.getRightSupport() - beam.getLeftSupport());
+        b = beam.getB();
+    }
+/*
+    public String calculate() {
         for (WoodRect wr : woodRects) wr.clear();
 
         String buf = "";
@@ -203,7 +219,7 @@ public class WoodBeamLib {
         // Part 3
 
         // определяем минимально допустимое сечение
-        double l_cm = woodBeam.getL() / 10.0; // длина балки в см
+        double l_cm = l / 10.0; // длина пролета в см
         double limitF = l_cm * woodBeam.getSag().getF() * 10.0;
         buf += "Для заданного элемента здания \"" + woodBeam.getSag().toString() + "\" при ширине пролета=" +
                 str(l_cm) + " см, <b>максимально допустимый прогиб равен</b> " + str(limitF, 0) + " мм.<br><br>";
@@ -217,7 +233,7 @@ public class WoodBeamLib {
             wr.gn = load * woodBeam.getB()/1000 + wr.beamWeight; // нагрузка на 1 погонный метр балки при ширине зоны сбора нагрузки, кгс/п.м
 
             wr.gn_cm = wr.gn / 100.0; // кгс/п.см
-            wr.M = wr.gn * Math.pow(woodBeam.getL()/1000.0, 2) / 8;
+            wr.M = wr.gn * Math.pow(l_cm/100, 2) / 8;
             wr.W_calc = wr.M * 100.0 / 130.0;
             wr.f = (5.0/384.0) * (wr.gn_cm * Math.pow(l_cm, 4)) / (100000.0 * wr.J) * 10.0; // переводим в мм
         }
@@ -238,7 +254,7 @@ public class WoodBeamLib {
             buf += "где<br>";
             buf += "&nbsp; l - длина пролета однопролетной балки, м<br>";
             buf += "&nbsp; g<sub>н</sub> - нагрузка на балку, кгс/м<br>";
-            buf += "М=" + str(res.gn) + "*" + str(woodBeam.getL()/1000.0) + "<sup>2</sup>/8=" + str(res.M, 0) + " кг*м<br><br>";
+            buf += "М=" + str(res.gn) + "*" + str(l_cm/100) + "<sup>2</sup>/8=" + str(res.M, 0) + " кг*м<br><br>";
 
             // Part 6
             buf += "Проверяем сечение балки на прочность по расчетным нагрузкам.<br>";
@@ -260,7 +276,7 @@ public class WoodBeamLib {
             buf += "&nbsp; J - момент инерции балки, см<sup>4</sup> (для балки " + res.name + " равен " + str(res.J) + ")<br><br>";
             buf += "Перед расчетом приводим размерности в соответствие<br>";
             buf += "&nbsp; g<sub>н</sub>=" + str(res.gn) + " кг/п.м = " + str(res.gn_cm) + " кгс/см<br>";
-            buf += "&nbsp; l=" + str(woodBeam.getL()/1000.0) + " м = " + str(l_cm) + " см<br>";
+            buf += "&nbsp; l=" + str(l_cm/100) + " м = " + str(l_cm) + " см<br>";
             buf += "f=(5/384) * (" + str(res.gn_cm) + "*" + str(l_cm) + "<sup>4</sup>) / (100000*" + str(res.J) + ") = <b>" + str(res.f, 0) + " мм</b><br>";
             buf += "Запас по прогибу: " + str(100- res.f*100.0/limitF, 0) + " %<br>";
         }
@@ -304,5 +320,5 @@ public class WoodBeamLib {
 
     private static String str(double val, int dec) {
         return StringUtil.toString(val, dec);
-    }
+    } */
 }
