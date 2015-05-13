@@ -18,6 +18,7 @@ import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.swing.menu.Menu;
 import com.tsoft.myprocad.swing.dialog.AbstractDialogPanel;
 import com.tsoft.myprocad.swing.ext.ProportionalLayout;
+import com.tsoft.myprocad.swing.menu.MenuAction;
 import com.tsoft.myprocad.util.OperatingSystem;
 
 public class PrintPreviewPanel extends AbstractDialogPanel {

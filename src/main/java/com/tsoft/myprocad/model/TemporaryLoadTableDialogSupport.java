@@ -2,8 +2,11 @@ package com.tsoft.myprocad.model;
 
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.swing.dialog.TableDialogSupport;
+import com.tsoft.myprocad.swing.menu.Menu;
+import com.tsoft.myprocad.swing.menu.MenuAction;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TemporaryLoadTableDialogSupport extends TableDialogSupport {
@@ -33,12 +36,16 @@ public class TemporaryLoadTableDialogSupport extends TableDialogSupport {
         return list;
     }
 
-    public void addDefaults() {
-        List<TemporaryLoad> list = new ArrayList<>();
-        list.add(new TemporaryLoad("Нормативная нагрузка на межэтажное перекрытие", 250));
-        list.add(new TemporaryLoad("Нормативная нагрузка от веса перегородок", 75));
-        list.add(new TemporaryLoad("Снеговая нагрузка", 100));
-        list.add(new TemporaryLoad("Ветровая нагрузка", 20));
-        setElements(list);
+    public List<MenuAction> getCustomButtons() {
+        MenuAction addDefaults = new MenuAction(Menu.ADD_DEFAULT_LOAD, e -> {
+            List<TemporaryLoad> list = new ArrayList<>();
+            list.add(new TemporaryLoad("Нормативная нагрузка на межэтажное перекрытие", 250));
+            list.add(new TemporaryLoad("Нормативная нагрузка от веса перегородок", 75));
+            list.add(new TemporaryLoad("Снеговая нагрузка", 100));
+            list.add(new TemporaryLoad("Ветровая нагрузка", 20));
+            setElements(list);
+        });
+
+        return Arrays.asList(addDefaults);
     }
 }

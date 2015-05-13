@@ -11,6 +11,8 @@ import com.tsoft.myprocad.model.property.ObjectProperty;
 import com.tsoft.myprocad.swing.BeamPanel;
 import com.tsoft.myprocad.swing.WoodBeamPanel;
 import com.tsoft.myprocad.swing.dialog.DialogButton;
+import com.tsoft.myprocad.swing.menu.Menu;
+import com.tsoft.myprocad.swing.menu.MenuAction;
 import com.tsoft.myprocad.swing.properties.PatternComboBoxPropertyEditor;
 import com.tsoft.myprocad.util.SwingTools;
 
@@ -463,7 +465,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setType(DialogButtonsPropertyEditor.class)
             .setSingleSelection(true)
             .setValueGetter(entity -> L10.get(L10.VIEW_VALUE))
-            .addEditorButton(new ObjectProperty.Button(L10.get(L10.VIEW_VALUE), "", e -> {
+            .addEditorButton(new MenuAction(Menu.VIEW_VALUE, e -> {
                 BeamPanel beamPanel = new BeamPanel();
                 AbstractMaterialItem materialItem = (AbstractMaterialItem) plan.getSelection().getItems().get(0);
                 if (materialItem.applyMechanicsSolution(beamPanel)) {
@@ -472,7 +474,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
                     SwingTools.showMessage(L10.get(L10.FILL_MECHANICS_PROPERTIES));
                 }
             }))
-            .addEditorButton(new ObjectProperty.Button(L10.get(L10.VIEW_VALUE), "", e -> {
+            .addEditorButton(new MenuAction(Menu.VIEW_VALUE, e -> {
                 WoodBeamPanel beamPanel = new WoodBeamPanel();
                 AbstractMaterialItem materialItem = (AbstractMaterialItem) plan.getSelection().getItems().get(0);
                 if (materialItem.applyWoodBeamSolution(beamPanel)) {

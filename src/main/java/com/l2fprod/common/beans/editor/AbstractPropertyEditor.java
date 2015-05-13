@@ -2,6 +2,7 @@ package com.l2fprod.common.beans.editor;
 
 import com.l2fprod.common.propertysheet.CellEditorAdapter;
 import com.tsoft.myprocad.model.property.ObjectProperty;
+import com.tsoft.myprocad.swing.menu.MenuAction;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -17,7 +18,7 @@ public abstract class AbstractPropertyEditor implements PropertyEditor {
     // Adapter made by JTable during an editing
     protected CellEditorAdapter cellEditorAdapter;
 
-    public void addButton(ObjectProperty.Button dialogButton) { }
+    public void addButton(MenuAction dialogButton) { }
 
     @Override
     public boolean isPaintable() {

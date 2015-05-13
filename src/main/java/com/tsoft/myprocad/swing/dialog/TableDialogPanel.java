@@ -2,10 +2,20 @@ package com.tsoft.myprocad.swing.dialog;
 
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.model.property.ObjectProperty;
+import com.tsoft.myprocad.swing.menu.MenuAction;
 import com.tsoft.myprocad.util.SwingTools;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Toolkit;
+import java.util.List;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 /** A panel with a table and controls to add/delete items */
 public class TableDialogPanel extends AbstractDialogPanel {
@@ -49,6 +59,18 @@ public class TableDialogPanel extends AbstractDialogPanel {
             if (values.deleteDialog(selectedRow)) values.getTableModel().fireTableDataChanged();
         });
         toolbar.add(delete);
+
+        // custom buttons
+        List<MenuAction> customButtons = values.getCustomButtons();
+        if (customButtons != null) {
+            for (MenuAction menuAction : customButtons) {
+                JButton button = menuAction.getMenu().createMenuButton();
+                button.addActionListener(menuAction);
+                button.addActionListener(e -> values.getTableModel().fireTableDataChanged());
+                toolbar.add(button);
+            }
+        }
+
         toolbar.add(Box.createVerticalGlue());
         JPanel toolBarPanel = new JPanel(new BorderLayout());
         toolBarPanel.add(toolbar, BorderLayout.NORTH);

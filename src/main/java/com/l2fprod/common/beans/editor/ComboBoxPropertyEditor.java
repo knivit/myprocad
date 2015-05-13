@@ -2,6 +2,7 @@ package com.l2fprod.common.beans.editor;
 
 import com.l2fprod.common.swing.ComponentFactory;
 import com.tsoft.myprocad.model.property.ObjectProperty;
+import com.tsoft.myprocad.swing.menu.MenuAction;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -70,13 +71,14 @@ public class ComboBoxPropertyEditor extends AbstractPropertyEditor {
     }
 
     @Override
-    public void addButton(ObjectProperty.Button dialogButton) {
+    public void addButton(MenuAction dialogButton) {
         JButton button = ComponentFactory.Helper.getFactory().createMiniButton();
-        editorComponent.add(button, BorderLayout.EAST);
-        button.addActionListener(dialogButton.actionListener);
+        button.addActionListener(dialogButton);
 
         // stop editing so after the dialog done, the editor will be recreated with new available values
         button.addActionListener(l -> cellEditorAdapter.stopCellEditing());
+
+        editorComponent.add(button, BorderLayout.EAST);
     }
 
     @Override

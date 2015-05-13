@@ -107,6 +107,9 @@ public class Menu {
 
     public static final Menu MATERIALS_REPORT = new Menu(L10.get(L10.MENU_MATERIALS_REPORT_NAME));
 
+    public static final Menu VIEW_VALUE = new Menu(L10.get(L10.VIEW_VALUE));
+    public static final Menu ADD_DEFAULT_LOAD = new Menu(L10.get(L10.ADD_DEFAULT_LOAD));
+
     private String id;
     private String name;
     private String hint;
@@ -158,10 +161,23 @@ public class Menu {
         return (JMenu)menuItem;
     }
 
+    public JButton createMenuButton() {
+        JButton button = new JButton();
+        button.setText(name);
+        button.setToolTipText(hint);
+        if (icon != null) button.setIcon(getIcon());
+        return button;
+    }
+
+    private JButton createToolBarButton() {
+        JButton button = new JButton();
+        button.setToolTipText(hint);
+        if (icon != null) button.setIcon(getIcon());
+        return button;
+    }
+
     public void addToToolBar() {
-        toolBarButton = new JButton();
-        toolBarButton.setToolTipText(hint);
-        if (icon != null) toolBarButton.setIcon(getIcon());
+        toolBarButton = createToolBarButton();
         toolBarButton.addActionListener((e) -> ApplicationController.getInstance().doMenuAction(this, Source.TOOL_BUTTON));
         toolBar.add(toolBarButton);
     }

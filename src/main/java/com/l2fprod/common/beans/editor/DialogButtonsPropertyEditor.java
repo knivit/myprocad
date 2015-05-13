@@ -2,6 +2,7 @@ package com.l2fprod.common.beans.editor;
 
 import com.l2fprod.common.swing.PercentLayout;
 import com.tsoft.myprocad.model.property.ObjectProperty;
+import com.tsoft.myprocad.swing.menu.MenuAction;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,12 +15,10 @@ public class DialogButtonsPropertyEditor extends AbstractPropertyEditor {
     }
 
     @Override
-    public void addButton(ObjectProperty.Button dialogButton) {
-        JButton button = new JButton(dialogButton.name);
-        button.setToolTipText(dialogButton.toolTipText);
+    public void addButton(MenuAction dialogButton) {
+        JButton button = dialogButton.getMenu().createMenuButton();
+        button.addActionListener(dialogButton);
         editorComponent.add(button);
-
-        button.addActionListener(dialogButton.actionListener);
     }
 
     @Override

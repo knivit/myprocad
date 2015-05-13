@@ -377,10 +377,7 @@ public class L10 {
     public static String[] CALCULATION_PERIMETER_PROPERTY = { "Perimeter (mm)", "Периметр (мм)" };
     public static String[] CALCULATION_PROPERTY = { "Calculation", "Расчет" };
     public static String[] VIEW_VALUE = { "View ...", "Открыть ..." };
-
-    public static String[] WOOD_BEAM_MENU = { "Wood Beam", "Деревянная балка" };
-    public static String[] MENU_ADD_WOOD_BEAM_NAME = { "Add Wood Beam", "Добавить деревянную балку" };
-    public static String[] MENU_DELETE_WOOD_BEAM_NAME = { "Delete Wood Beam", "Удалить деревянную балку" };
+    public static String[] ADD_DEFAULT_LOAD = { "Add defaults", "Добавить нагрузки по умолчанию" };
 
     /* Beam */
     public static String[] CALCULATION_BEAM_LEFT_SUPPORT_PROPERTY = { "Left Support (m)", "Левая опора (м)" };

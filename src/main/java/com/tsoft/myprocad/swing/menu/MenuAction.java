@@ -1,8 +1,7 @@
-package com.tsoft.myprocad.swing;
+package com.tsoft.myprocad.swing.menu;
 
-import com.tsoft.myprocad.swing.menu.Menu;
-
-import javax.swing.*;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,7 +13,7 @@ public class MenuAction extends AbstractAction {
         this.menu = menu;
         this.actionListener = actionListener;
 
-        putValue(Action.NAME, menu.getName());
+        if (menu != null) putValue(Action.NAME, menu.getName());
     }
 
     public Menu getMenu() {
