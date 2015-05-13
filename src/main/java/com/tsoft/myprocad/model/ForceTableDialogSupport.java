@@ -23,13 +23,13 @@ public class ForceTableDialogSupport extends TableDialogSupport {
     }
 
     public List<Force> getElements() {
-        List<Force> fs = new ArrayList<>();
+        List<Force> list = new ArrayList<>();
         for (Object[] data : this) {
             Force f = new Force();
             f.setVs(data[0]);
             f.setZs(data[1]);
-            fs.add(f);
+            list.add(f);
         }
-        return fs;
+        return list;
     }
 }

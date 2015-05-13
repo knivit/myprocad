@@ -1,7 +1,6 @@
 package com.tsoft.myprocad.model;
 
 import com.tsoft.myprocad.l10n.L10;
-import com.tsoft.myprocad.model.calculation.WoodBeam;
 
 public enum ProjectItemType {
     PLAN("Plan", L10.get(L10.PROJECT_ITEM_PLAN)) {
@@ -18,15 +17,6 @@ public enum ProjectItemType {
         public ProjectItem newInstance() {
             ProjectItem item = new Notes();
             item.setTypeName(NOTES.getId());
-            return item;
-        }
-    },
-
-    WOOD_BEAM("WoodBeam", L10.get(L10.PROJECT_ITEM_WOOD_BEAM)) {
-        @Override
-        public ProjectItem newInstance() {
-            ProjectItem item = new WoodBeam();
-            item.setTypeName(WOOD_BEAM.getId());
             return item;
         }
     };

@@ -390,6 +390,9 @@ public class L10 {
     public static String[] CALCULATION_BEAM_BENDING_MOMENTS_PROPERTY = { "Bending moments, M (kNm)", "Изгибающие моменты M (кНм)" };
     public static String[] CALCULATION_BEAM_FORCES_PROPERTY = { "Forces, F (kN)", "Сосредоточенные силы F (кН)" };
     public static String[] CALCULATION_BEAM_DISTRIBUTED_FORCES_PROPERTY = { "Distributed Forces, g (kN/m)", "Распределенные нагрузки, g (кН/м)" };
+    public static String[] CALCULATION_BEAM_B_PROPERTY = { "B, mm", "Расстояние между осями балок, мм" };
+    public static String[] CALCULATION_BEAM_PERMANENT_LOAD_PROPERTY = { "Permanent load", "Постоянная нагрузка" };
+    public static String[] CALCULATION_BEAM_TEMPORARY_LOAD_PROPERTY = { "Temporary load", "Временная нагрузка" };
     public static String[] FILL_MECHANICS_PROPERTIES = { "Add load on the beam", "Введите нагрузку на балку" };
 
     public static String[] CALCULATION_BEAM_MOMENTS_TABLE_COLUMN_VM = { "Bending moment, M (kNm)", "Изгибающий момент M (кНм)" };
@@ -402,6 +405,13 @@ public class L10 {
     public static String[] CALCULATION_BEAM_DISTRIBUTED_FORCES_TABLE_COLUMN_Z1 = { "Distance, L (m)", "Приложение (м)" };
     public static String[] CALCULATION_BEAM_DISTRIBUTED_FORCES_TABLE_COLUMN_Q2 = { "Force, F (kN)", "<html><center>Сосредоточенная сила F (кН)</center>" };
     public static String[] CALCULATION_BEAM_DISTRIBUTED_FORCES_TABLE_COLUMN_Z2 = { "Distance, L (m)", "Приложение (м)" };
+
+    public static String[] CALCULATION_BEAM_PERMANENT_LOAD_TABLE_COLUMN_NAME = { "Name", "<html><center>Название</center>" };
+    public static String[] CALCULATION_BEAM_PERMANENT_LOAD_TABLE_COLUMN_DENSITY = { "Density", "<html><center>Плотность</center>" };
+    public static String[] CALCULATION_BEAM_PERMANENT_LOAD_TABLE_COLUMN_H = { "Height, m", "<html><center>Высота слоя, м</center>" };
+
+    public static String[] CALCULATION_BEAM_TEMPORARY_LOAD_TABLE_COLUMN_NAME = { "Name", "<html><center>Название</center>" };
+    public static String[] CALCULATION_BEAM_TEMPORARY_LOAD_TABLE_COLUMN_VALUE = { "Load, kg/m2", "<html><center>Нагрузка, кгс/м2</center>" };
 
     public static String[] CALCULATION_BEAM_ERROR_FORCE_IS_ZERO = { "Row %d. Zero force must not be specified", "Строка %d. Не нужно задавать нулевую силу" };
     public static String[] CALCULATION_BEAM_ERROR_FORCE_IS_OUT = { "Row %d. The force must be on the beam", "Строка %d. Сила должна быть на балке" };
@@ -454,7 +464,6 @@ public class L10 {
     public static String[] FIND_BY_PATTERN = { "Wall's pattern", "Шаблон стены" };
     public static String[] MATERIAL_NAME_CANT_BE_EMPTY = { "Row %d. Material's name can't be empty", "Строка %d. Название материала не может быть пустым" };
     public static String[] MATERIAL_ALREADY_EXISTS = { "Row %d. Material already exists", "Строка %d. Материал уже существует" };
-    public static String[] ITEMS_NOT_FOUND = { "Items not found", "Элементы не найдены" };
     public static String[] CANT_REMOVE_MATERIAL = { "Can not remove material \"%s\" as it is used in plan(s): %s\n. Replace it first with another material.", "Нельзя удалить материал \"%s\", так как он используется на планах: %s\n. Сначала замените его другим материалом." };
     public static String[] CANT_REMOVE_DEFAULT_MATERIAL = { "Can not remove material \"%s\" as it is the default one. You can rename it.", "Нельзя удалить материал \"%s\", т.к. это материал по умолчанию. Однако, его можно переименовать" };
 

@@ -1,4 +1,4 @@
-package com.tsoft.myprocad.model.calculation;
+package com.tsoft.myprocad.model;
 
 import com.tsoft.myprocad.util.StringUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
@@ -8,46 +8,23 @@ import com.tsoft.myprocad.util.json.JsonWriter;
 import java.io.IOException;
 
 /** Постояннвая нагрузка (например, перекрытия) */
-public class Load1 implements Cloneable, JsonSerializable {
+public class PermanentLoad implements Cloneable, JsonSerializable {
     public String name;
     public double density; // плотность, кгс/м3
     public double h;       // высота, м
 
-    public Load1() { }
+    public PermanentLoad() { }
 
-    public Load1(String name, double density, double h) {
+    public PermanentLoad(String name, double density, double h) {
         this.name = name;
         this.density = density;
         this.h = h;
     }
 
-    public static Class<?> getColumnClass(int columnIndex) {
-        if (columnIndex == 0) return String.class;
-        return Double.class;
-    }
-
-    public Object getTableModelColumnValueAt(int columnIndex) {
-        switch (columnIndex) {
-            case 0: return name;
-            case 1: return density;
-            case 2: return h;
-        }
-        throw new IllegalArgumentException("Wrong columnIndex=" + columnIndex);
-    }
-
-    public void setTableModelColumnValueAt(int col, Object value) {
-        switch (col) {
-            case 0: { name = (String)value; return; }
-            case 1: { density = (double)value; return; }
-            case 2: { h = (double)value; return; }
-        }
-        throw new IllegalArgumentException("Wrong columnIndex=" + col);
-    }
-
     @Override
-    public Load1 clone() {
+    public PermanentLoad clone() {
         try {
-            Load1 clone = (Load1)super.clone();
+            PermanentLoad clone = (PermanentLoad)super.clone();
             return clone;
         } catch (CloneNotSupportedException ex) {
             throw new IllegalStateException("Super class isn't cloneable");
@@ -64,11 +41,11 @@ public class Load1 implements Cloneable, JsonSerializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Load1 load1 = (Load1) o;
+        PermanentLoad permanentLoad = (PermanentLoad) o;
 
-        if (Double.compare(load1.density, density) != 0) return false;
-        if (Double.compare(load1.h, h) != 0) return false;
-        if (!name.equals(load1.name)) return false;
+        if (Double.compare(permanentLoad.density, density) != 0) return false;
+        if (Double.compare(permanentLoad.h, h) != 0) return false;
+        if (!name.equals(permanentLoad.name)) return false;
 
         return true;
     }

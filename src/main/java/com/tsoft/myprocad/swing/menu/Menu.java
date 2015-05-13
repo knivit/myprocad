@@ -103,13 +103,6 @@ public class Menu {
     public static final Menu NOTES_PRINT = new Menu(L10.get(L10.MENU_PRINT_NAME), "resources/icons/document-print.png");
     public static final Menu NOTES_PRINT_TO_PDF = new Menu(L10.get(L10.MENU_PRINT_TO_PDF_NAME), "resources/icons/document-print-pdf.png");
 
-    public static final Menu WOOD_BEAM_MENU = new Menu(L10.get(L10.WOOD_BEAM_MENU));
-    public static final Menu ADD_WOOD_BEAM = new Menu(L10.get(L10.MENU_ADD_WOOD_BEAM_NAME));
-    public static final Menu DELETE_WOOD_BEAM = new Menu(L10.get(L10.MENU_DELETE_WOOD_BEAM_NAME));
-    public static final Menu WOOD_BEAM_PRINT_PREVIEW = new Menu(L10.get(L10.MENU_PRINT_PREVIEW_NAME), "resources/icons/document-print-preview.png");
-    public static final Menu WOOD_BEAM_PRINT = new Menu(L10.get(L10.MENU_PRINT_NAME), "resources/icons/document-print.png");
-    public static final Menu WOOD_BEAM_PRINT_TO_PDF = new Menu(L10.get(L10.MENU_PRINT_TO_PDF_NAME), "resources/icons/document-print-pdf.png");
-
     public static final Menu REPORT_MENU = new Menu(L10.get(L10.REPORT_MENU));
 
     public static final Menu MATERIALS_REPORT = new Menu(L10.get(L10.MENU_MATERIALS_REPORT_NAME));

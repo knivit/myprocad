@@ -23,13 +23,13 @@ public class MomentTableDialogSupport extends TableDialogSupport {
     }
 
     public List<Moment> getElements() {
-        List<Moment> ms = new ArrayList<>();
+        List<Moment> list = new ArrayList<>();
         for (Object[] data : this) {
             Moment m = new Moment();
             m.setVm(data[0]);
             m.setZm(data[1]);
-            ms.add(m);
+            list.add(m);
         }
-        return ms;
+        return list;
     }
 }

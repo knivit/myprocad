@@ -47,15 +47,15 @@ public class LightTableDialogSupport extends TableDialogSupport {
     }
 
     public List<Light> getElements() {
-        List<Light> lights = new ArrayList<>();
+        List<Light> list = new ArrayList<>();
         for (Object[] data : this) {
             Light light = new Light();
             light.setLightType((LightType)data[0]);
             light.setColor((Color)data[1]);
             light.setCenter((int)data[2], (int)data[3], (int)data[4]);
             light.setDirection((int)data[5], (int)data[6], (int)data[7]);
-            lights.add(light);
+            list.add(light);
         }
-        return lights;
+        return list;
     }
 }

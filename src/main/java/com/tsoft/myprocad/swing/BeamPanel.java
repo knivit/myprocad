@@ -11,7 +11,7 @@ import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 
-public class BeamPanel extends AbstractDialogPanel implements Printable {
+public class BeamPanel extends AbstractDialogPanel {
     private JLabel[] labels = new JLabel[8];
     private String[] labelsText = new String[] {
             L10.get(L10.CALCULATION_BEAM_COORDS_FIG),
@@ -129,10 +129,5 @@ public class BeamPanel extends AbstractDialogPanel implements Printable {
 
         textPane.setText("<html><body style='font-size: 22'>" + t1 + text + "</body></html>");
         textPane.setCaretPosition(0);
-    }
-
-    @Override
-    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
-        return 0;
     }
 }

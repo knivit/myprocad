@@ -1,12 +1,9 @@
 package com.tsoft.myprocad.lib.mm;
 
 import com.tsoft.myprocad.model.AbstractMaterialItem;
-import com.tsoft.myprocad.model.calculation.BeamSag;
-import com.tsoft.myprocad.model.calculation.Load1;
-import com.tsoft.myprocad.model.calculation.Load1List;
-import com.tsoft.myprocad.model.calculation.Load2;
-import com.tsoft.myprocad.model.calculation.Load2List;
-import com.tsoft.myprocad.model.calculation.WoodBeam;
+import com.tsoft.myprocad.model.BeamSag;
+import com.tsoft.myprocad.model.TemporaryLoad;
+import com.tsoft.myprocad.model.PermanentLoad;
 import com.tsoft.myprocad.util.StringUtil;
 
 import java.util.ArrayList;
@@ -152,17 +149,28 @@ public class WoodBeamLib {
     }
 
     private double l; // длина пролета, мм
-    private double b; // расстояние между балками, мм
-    private Load1List permanentLoad = new Load1List(); // постоянная нагрузка (т.е. состав перекрытия)
-    private Load2List temporaryLoad = new Load2List(); // временная нагрузка (люди, перегородки, снеговая и ветровая нагрузки)
-    private int sagId = BeamSag.ATTIC_LAP.getId(); // элемент здания (для определения максимального прогиба)
+    private double b; // расстояние между осями балок, м
+    private List<PermanentLoad> permanentLoadList; // постоянная нагрузка (т.е. состав перекрытия)
+    private List<TemporaryLoad> temporaryLoadList; // временная нагрузка (люди, перегородки, снеговая и ветровая нагрузки)
+    private BeamSag beamSag; // элемент здания (для определения максимального прогиба)
     private boolean calcAll; // рассчитать по всем типоразмерам
 
     public WoodBeamLib(AbstractMaterialItem beam) {
         l = Math.abs(beam.getRightSupport() - beam.getLeftSupport());
-        b = beam.getB();
+        b = beam.getB() / 1000; // переводим в метры
+        beamSag = beam.getBeamSag();
+
+        permanentLoadList = new ArrayList<>();
+        for (PermanentLoad load : beam.getPermanentLoad()) {
+            permanentLoadList.add(load.clone());
+        }
+
+        temporaryLoadList = new ArrayList<>();
+        for (TemporaryLoad load : beam.getTemporaryLoad()) {
+            temporaryLoadList.add(load.clone());
+        }
     }
-/*
+
     public String calculate() {
         for (WoodRect wr : woodRects) wr.clear();
 
@@ -178,7 +186,7 @@ public class WoodBeamLib {
         double permanentLoad = 0;
         String formula = "";
         int i = 1;
-        for (Load1 load : woodBeam.getPermanentLoad()) {
+        for (PermanentLoad load : permanentLoadList) {
             buf += (i++) + ") " + load.name + " " + str(load.density) + " кгс/м<sup>3</sup>, толщина слоя " + str(load.h*1000) + " мм.<br>";
             formula += (i > 2 ? "+" : "") + str(load.density) + "*" + str(load.h);
 
@@ -190,7 +198,7 @@ public class WoodBeamLib {
         double temporaryLoad = 0;
         formula = "";
         i = 1;
-        for (Load2 load : woodBeam.getTemporaryLoad()) {
+        for (TemporaryLoad load : temporaryLoadList) {
             buf += (i++) + ") " + load.name + " " + str(load.value) + " кгс/м<sup>2</sup><br>";
             formula += (i > 2 ? "+" : "") + str(load.value);
 
@@ -220,8 +228,8 @@ public class WoodBeamLib {
 
         // определяем минимально допустимое сечение
         double l_cm = l / 10.0; // длина пролета в см
-        double limitF = l_cm * woodBeam.getSag().getF() * 10.0;
-        buf += "Для заданного элемента здания \"" + woodBeam.getSag().toString() + "\" при ширине пролета=" +
+        double limitF = l_cm * beamSag.getF() * 10.0;
+        buf += "Для заданного элемента здания \"" + beamSag.toString() + "\" при ширине пролета=" +
                 str(l_cm) + " см, <b>максимально допустимый прогиб равен</b> " + str(limitF, 0) + " мм.<br><br>";
 
         // рассчитываем прогибы всех сечений балок
@@ -230,7 +238,7 @@ public class WoodBeamLib {
 
             wr.beamWeight = wr.h/100 * wr.w/100 * 600;
             wr.beamWeightStr = str(wr.h/100) + "*" + str(wr.w/100) + "*600=" + str(wr.beamWeight) + " кг/м<sup>2</sup>";
-            wr.gn = load * woodBeam.getB()/1000 + wr.beamWeight; // нагрузка на 1 погонный метр балки при ширине зоны сбора нагрузки, кгс/п.м
+            wr.gn = load * b + wr.beamWeight; // нагрузка на 1 погонный метр балки при ширине зоны сбора нагрузки, кгс/п.м
 
             wr.gn_cm = wr.gn / 100.0; // кгс/п.см
             wr.M = wr.gn * Math.pow(l_cm/100, 2) / 8;
@@ -245,8 +253,8 @@ public class WoodBeamLib {
             // Part 4
             buf += "<b>Возьмем несущую балку сечением " + res.name + "</b>, тогда вес одного погонного метра балки будет равен:<br>";
             buf += res.beamWeightStr + "<br>";
-            buf += "Нагрузка на 1 погонный метр балки при ширине зоны сбора нагрузки b=" + str(woodBeam.getB()) + " мм будет равна:<br>";
-            buf += "g<sub>н</sub>=" + str(load, 1) + "*" + str(woodBeam.getB() / 1000) + "+" + str(res.beamWeight) + "=" + str(res.gn, 0) + " кг/п.м<br><br>";
+            buf += "Нагрузка на 1 погонный метр балки при ширине зоны сбора нагрузки b=" + str(b) + " м будет равна:<br>";
+            buf += "g<sub>н</sub>=" + str(load, 1) + "*" + str(b) + "+" + str(res.beamWeight) + "=" + str(res.gn, 0) + " кг/п.м<br><br>";
 
             // Part 5
             buf += "Определяем изгибающий момент балки<br>";
@@ -281,7 +289,7 @@ public class WoodBeamLib {
             buf += "Запас по прогибу: " + str(100- res.f*100.0/limitF, 0) + " %<br>";
         }
 
-        // Part 8 Выводим расчет по всем балкам
+        /* Part 8 Выводим расчет по всем балкам
         if (woodBeam.isCalcAll()) {
             buf += "<br>Расчет по всем типоразмерам:";
             double w = 0;
@@ -293,7 +301,7 @@ public class WoodBeamLib {
                 buf += "M=" + str(wr.M) + " кг*м, " + "W=" + str(wr.W_calc) + " см<sup>3</sup>";
                 buf += ", f=" + (wr.f < limitF ? "<b>" : "") + str(wr.f, 0) + (wr.f < limitF ? "</b>" : "") + " мм<br>";
             }
-        }
+        } */
 
         return buf;
     }
@@ -320,5 +328,5 @@ public class WoodBeamLib {
 
     private static String str(double val, int dec) {
         return StringUtil.toString(val, dec);
-    } */
+    }
 }

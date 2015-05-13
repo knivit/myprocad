@@ -23,15 +23,15 @@ public class DistributedForceTableDialogSupport extends TableDialogSupport {
     }
 
     public List<DistributedForce> getElements() {
-        List<DistributedForce> dfs = new ArrayList<>();
+        List<DistributedForce> list = new ArrayList<>();
         for (Object[] data : this) {
             DistributedForce df = new DistributedForce();
             df.setQ1(data[0]);
             df.setZ1(data[1]);
             df.setQ2(data[2]);
             df.setZ2(data[3]);
-            dfs.add(df);
+            list.add(df);
         }
-        return dfs;
+        return list;
     }
 }

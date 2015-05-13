@@ -5,20 +5,11 @@ import com.l2fprod.common.beans.editor.ComboBoxPropertyEditor;
 import com.l2fprod.common.beans.editor.DialogButtonsPropertyEditor;
 import com.l2fprod.common.beans.editor.ObjectListPropertyEditor;
 import com.tsoft.myprocad.l10n.L10;
-import com.tsoft.myprocad.model.AbstractMaterialItem;
-import com.tsoft.myprocad.model.DistributedForceTableDialogSupport;
-import com.tsoft.myprocad.model.ForceTableDialogSupport;
-import com.tsoft.myprocad.model.Item;
-import com.tsoft.myprocad.model.ItemList;
-import com.tsoft.myprocad.model.Material;
-import com.tsoft.myprocad.model.MaterialList;
-import com.tsoft.myprocad.model.MomentTableDialogSupport;
-import com.tsoft.myprocad.model.Pattern;
-import com.tsoft.myprocad.model.Plan;
-import com.tsoft.myprocad.model.Project;
-import com.tsoft.myprocad.model.Selection;
+import com.tsoft.myprocad.model.*;
+import com.tsoft.myprocad.model.BeamSag;
 import com.tsoft.myprocad.model.property.ObjectProperty;
 import com.tsoft.myprocad.swing.BeamPanel;
+import com.tsoft.myprocad.swing.WoodBeamPanel;
 import com.tsoft.myprocad.swing.dialog.DialogButton;
 import com.tsoft.myprocad.swing.properties.PatternComboBoxPropertyEditor;
 import com.tsoft.myprocad.util.SwingTools;
@@ -385,7 +376,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
                 return support;
             })
             .setValueValidator((entity, value) -> {
-                ForceTableDialogSupport support = (ForceTableDialogSupport)value;
+                ForceTableDialogSupport support = (ForceTableDialogSupport) value;
                 return ((AbstractMaterialItem) entity).validateForces(support.getElements());
             })
             .setValueSetter((entity, value) -> {
@@ -414,6 +405,60 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
+            .setLabelName(L10.get(L10.CALCULATION_BEAM_B_PROPERTY))
+            .setType(Double.class)
+            .setSingleSelection(true)
+            .setValueGetter(entity -> ((AbstractMaterialItem) entity).getB())
+            .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setB((Double) value));
+
+        new ObjectProperty(this)
+            .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
+            .setLabelName(L10.get(L10.CALCULATION_BEAM_PERMANENT_LOAD_PROPERTY))
+            .setType(ObjectListPropertyEditor.class)
+            .setSingleSelection(true)
+            .setValueGetter(entity -> {
+                PermanentLoadTableDialogSupport support = new PermanentLoadTableDialogSupport();
+                support.setElements(((AbstractMaterialItem) entity).getPermanentLoad());
+                return support;
+            })
+            .setValueValidator((entity, value) -> {
+                PermanentLoadTableDialogSupport support = (PermanentLoadTableDialogSupport) value;
+                return ((AbstractMaterialItem) entity).validatePermanentLoad(support.getElements());
+            })
+            .setValueSetter((entity, value) -> {
+                PermanentLoadTableDialogSupport support = (PermanentLoadTableDialogSupport) value;
+                ((AbstractMaterialItem) entity).setPermanentLoad(support.getElements());
+            });
+
+        new ObjectProperty(this)
+            .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
+            .setLabelName(L10.get(L10.CALCULATION_BEAM_TEMPORARY_LOAD_PROPERTY))
+            .setType(ObjectListPropertyEditor.class)
+            .setSingleSelection(true)
+            .setValueGetter(entity -> {
+                TemporaryLoadTableDialogSupport support = new TemporaryLoadTableDialogSupport();
+                support.setElements(((AbstractMaterialItem) entity).getTemporaryLoad());
+                return support;
+            })
+            .setValueValidator((entity, value) -> {
+                TemporaryLoadTableDialogSupport support = (TemporaryLoadTableDialogSupport) value;
+                return ((AbstractMaterialItem) entity).validateTemporaryLoad(support.getElements());
+            })
+            .setValueSetter((entity, value) -> {
+                TemporaryLoadTableDialogSupport support = (TemporaryLoadTableDialogSupport) value;
+                ((AbstractMaterialItem) entity).setTemporaryLoad(support.getElements());
+            });
+
+        new ObjectProperty(this)
+            .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
+            .setLabelName(L10.get(L10.CALCULATION_WOOD_BEAM_SAG_PROPERTY))
+            .setType(ComboBoxPropertyEditor.class)
+            .setAvailableValues(BeamSag.values())
+            .setValueGetter(entity -> ((AbstractMaterialItem) entity).getBeamSag())
+            .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setBeamSag((BeamSag) value));
+
+        new ObjectProperty(this)
+            .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_PROPERTY))
             .setType(DialogButtonsPropertyEditor.class)
             .setSingleSelection(true)
@@ -422,6 +467,15 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
                 BeamPanel beamPanel = new BeamPanel();
                 AbstractMaterialItem materialItem = (AbstractMaterialItem) plan.getSelection().getItems().get(0);
                 if (materialItem.applyMechanicsSolution(beamPanel)) {
+                    beamPanel.displayView(L10.get(L10.CALCULATION_PROPERTY), DialogButton.CLOSE);
+                } else {
+                    SwingTools.showMessage(L10.get(L10.FILL_MECHANICS_PROPERTIES));
+                }
+            }))
+            .addEditorButton(new ObjectProperty.Button(L10.get(L10.VIEW_VALUE), "", e -> {
+                WoodBeamPanel beamPanel = new WoodBeamPanel();
+                AbstractMaterialItem materialItem = (AbstractMaterialItem) plan.getSelection().getItems().get(0);
+                if (materialItem.applyWoodBeamSolution(beamPanel)) {
                     beamPanel.displayView(L10.get(L10.CALCULATION_PROPERTY), DialogButton.CLOSE);
                 } else {
                     SwingTools.showMessage(L10.get(L10.FILL_MECHANICS_PROPERTIES));

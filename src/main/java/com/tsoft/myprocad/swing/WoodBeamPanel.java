@@ -1,7 +1,7 @@
 package com.tsoft.myprocad.swing;
 
 import com.tsoft.myprocad.MyProCAD;
-import com.tsoft.myprocad.swing.properties.PropertiesManagerPanel;
+import com.tsoft.myprocad.swing.dialog.AbstractDialogPanel;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -15,16 +15,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import java.awt.print.PrinterException;
 
-public class WoodBeamPanel extends JPanel implements Printable {
+public class WoodBeamPanel extends AbstractDialogPanel {
     private JLabel[] labels = new JLabel[1];
 
-    private JComponent parentComponent;
     private JSplitPane splitPane;
     private JEditorPane textPane;
 
@@ -34,7 +28,6 @@ public class WoodBeamPanel extends JPanel implements Printable {
         // center
         textPane = new JEditorPane();
         textPane.setContentType("text/html");
-        Font font = textPane.getFont();
         JScrollPane textScrollPane = new JScrollPane(textPane);
 
         // right
@@ -66,24 +59,12 @@ public class WoodBeamPanel extends JPanel implements Printable {
         splitPane.setOneTouchExpandable(true);
         splitPane.setResizeWeight(0.3);
         splitPane.setBorder(null);
-    }
 
-    public void afterOpen(PropertiesManagerPanel propertiesManagerPanel) {
-        parentComponent = propertiesManagerPanel.linkTo(splitPane);
-        add(BorderLayout.CENTER, parentComponent);
-    }
-
-    public JComponent getParentComponent() {
-        return parentComponent;
+        add(splitPane);
     }
 
     public void setText(String text) {
         textPane.setText("<html><body style='font-size: 22'>" + text + "</body></html>");
         textPane.setCaretPosition(0);
-    }
-
-    @Override
-    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
-        return 0;
     }
 }

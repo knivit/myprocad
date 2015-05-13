@@ -1,4 +1,4 @@
-package com.tsoft.myprocad.model.calculation;
+package com.tsoft.myprocad.model;
 
 /** Предельные прогибы в долях пролета балки, в см */
 public enum BeamSag {

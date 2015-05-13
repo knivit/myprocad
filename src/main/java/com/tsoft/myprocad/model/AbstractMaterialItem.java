@@ -4,11 +4,11 @@ import com.sun.j3d.utils.geometry.GeometryInfo;
 import com.sun.j3d.utils.geometry.NormalGenerator;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.lib.mm.MMLib;
-import com.tsoft.myprocad.model.calculation.BeamSag;
-import com.tsoft.myprocad.model.calculation.Load1List;
-import com.tsoft.myprocad.model.calculation.Load2List;
+import com.tsoft.myprocad.lib.mm.WoodBeamLib;
 import com.tsoft.myprocad.swing.BeamPanel;
+import com.tsoft.myprocad.swing.WoodBeamPanel;
 import com.tsoft.myprocad.util.ObjectUtil;
+import com.tsoft.myprocad.util.StringUtil;
 import com.tsoft.myprocad.util.json.JsonReader;
 import com.tsoft.myprocad.util.json.JsonWriter;
 import com.tsoft.myprocad.util.linealg.Vec3;
@@ -47,9 +47,9 @@ public abstract class AbstractMaterialItem extends Item {
 
     // - для перекрытий из дерева
     private double b = 600; // расстояние между балками, мм
-    private Load1List permanentLoad = new Load1List(); // постоянная нагрузка (т.е. состав перекрытия)
-    private Load2List temporaryLoad = new Load2List(); // временная нагрузка (люди, перегородки, снеговая и ветровая нагрузки)
-    private int sagId = BeamSag.ATTIC_LAP.getId(); // элемент здания (для определения максимального прогиба)
+    private List<PermanentLoad> permanentLoad = new ArrayList<>(); // постоянная нагрузка (т.е. состав перекрытия)
+    private List<TemporaryLoad> temporaryLoad = new ArrayList<>(); // временная нагрузка (люди, перегородки, снеговая и ветровая нагрузки)
+    private int beamSagId = BeamSag.ATTIC_LAP.getId(); // элемент здания (для определения максимального прогиба)
 
     // 3D properties
     private boolean showWired;
@@ -62,6 +62,7 @@ public abstract class AbstractMaterialItem extends Item {
 
     private transient Material material;
     private transient Pattern pattern;
+    private transient BeamSag beamSag;
 
     /* Inner props */
     public transient Vec3[] vertexes = new Vec3[8];
@@ -417,6 +418,59 @@ public abstract class AbstractMaterialItem extends Item {
         this.b = b;
     }
 
+    public List<PermanentLoad> getPermanentLoad() {
+        return permanentLoad;
+    }
+
+    public void setPermanentLoad(List<PermanentLoad> value) {
+        permanentLoad = value;
+    }
+
+    public String validatePermanentLoad(List<PermanentLoad> list) {
+        int row = 1;
+        for (PermanentLoad load : list) {
+            if (StringUtil.isEmpty(load.name)) return String.format("Строка %d. Укажите название нагрузки", row);
+            if ((load.density < 0) || (load.density > 10000)) return String.format("Строка %d. Нереальная плотность материала", row);
+            if ((load.h < 0.01) || (load.h > 5)) return String.format("Строка %d. Толщина слоя д.б в пределах [0.01 .. 5] метров", row);
+
+            row ++;
+        }
+        return null;
+    }
+
+    public List<TemporaryLoad> getTemporaryLoad() {
+        return temporaryLoad;
+    }
+
+    public void setTemporaryLoad(List<TemporaryLoad> value) {
+        temporaryLoad = value;
+    }
+
+    public String validateTemporaryLoad(List<TemporaryLoad> list) {
+        int row = 1;
+        for (TemporaryLoad load : list) {
+            if (StringUtil.isEmpty(load.name)) return String.format("Строка %d. Укажите название нагрузки", row);
+            if ((load.value < 0) || (load.value > 10000)) return String.format("Строка %d. Нереальная нагрузка", row);
+
+            row ++;
+        }
+        return null;
+    }
+
+    public BeamSag getBeamSag() {
+        if (beamSag == null) beamSag = BeamSag.findById(beamSagId);
+        return beamSag;
+    }
+
+    public AbstractMaterialItem setBeamSag(BeamSag value) {
+        if (!ObjectUtil.equals(getBeamSag(), value)) {
+            beamSagId = value.getId();
+            beamSag = value;
+            if (plan != null) plan.itemChanged(this);
+        }
+        return this;
+    }
+
     /**
      * The coordinate system of the Java 3D virtual universe is right-handed. The x-axis is positive to the right,
      * y-axis is positive up, and z-axis is positive toward the viewer, with all units in meters
@@ -542,12 +596,20 @@ public abstract class AbstractMaterialItem extends Item {
     public boolean applyMechanicsSolution(BeamPanel beamPanel) {
         MMLib mm = new MMLib(this);
         String calculation = mm.calculate();
-        if (calculation != null) {
-            beamPanel.setText(calculation);
-            for (BeamSolution solution : mm.solutions) beamPanel.addImage(solution.getImage());
-            return true;
-        }
-        return false;
+        if (calculation == null) return false;
+
+        beamPanel.setText(calculation);
+        for (BeamSolution solution : mm.solutions) beamPanel.addImage(solution.getImage());
+        return true;
+    }
+
+    public boolean applyWoodBeamSolution(WoodBeamPanel beamPanel) {
+        WoodBeamLib lib = new WoodBeamLib(this);
+        String result = lib.calculate();
+        if (result == null) return false;
+
+        beamPanel.setText(result);
+        return true;
     }
 
     @Override
@@ -573,6 +635,10 @@ public abstract class AbstractMaterialItem extends Item {
                 .write("moments", moments)
                 .write("forces", forces)
                 .write("distributedForces", distributedForces)
+                .write("b", b)
+                .write("permanentLoad", permanentLoad)
+                .write("temporaryLoad", temporaryLoad)
+                .write("sagId", beamSagId)
 
                 .write("showWired", showWired)
                 .write("Ka", Ka.getRGB())
@@ -585,9 +651,9 @@ public abstract class AbstractMaterialItem extends Item {
 
     @Override
     public void fromJson(JsonReader reader) throws IOException {
-        moments = new ArrayList();
+        moments = new ArrayList<>();
         forces = new ArrayList<>();
-        distributedForces = new ArrayList();
+        distributedForces = new ArrayList<>();
 
         super.fromJson(reader);
         reader
@@ -605,6 +671,10 @@ public abstract class AbstractMaterialItem extends Item {
                 .defCollection("moments", Moment::new, ((value) -> moments.add((Moment) value)))
                 .defCollection("forces", Force::new, ((value) -> forces.add((Force) value)))
                 .defCollection("distributedForces", DistributedForce::new, ((value) -> distributedForces.add((DistributedForce) value)))
+                .defDouble("b", ((value) -> b = value))
+                .defCollection("permanentLoad", PermanentLoad::new, ((value) -> permanentLoad.add((PermanentLoad) value)))
+                .defCollection("temporaryLoad", TemporaryLoad::new, ((value) -> temporaryLoad.add((TemporaryLoad)value)))
+                .defInteger("sagId", ((value) -> beamSagId = value))
 
                 .defBoolean("showWired", ((value) -> showWired = value))
                 .defInteger("Ka", ((value) -> Ka = new Color(value)))
