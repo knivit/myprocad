@@ -5,7 +5,6 @@ import com.l2fprod.common.util.converter.ConverterRegistry;
 import com.l2fprod.common.util.converter.NumberConverters;
 
 import java.awt.Component;
-import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 
 import javax.swing.*;
@@ -58,9 +57,8 @@ public abstract class NumberPropertyEditor extends AbstractPropertyEditor {
     }
 
     public void setValue(Object value) {
-        if (value instanceof Number) {
-            editorComponent.setText(value.toString());
-        }
+        if (value == null && getObjectProperty().isNullable()) editorComponent.setText(null);
+        else if (value instanceof Number) editorComponent.setText(value.toString());
         lastGoodValue = value;
     }
 }

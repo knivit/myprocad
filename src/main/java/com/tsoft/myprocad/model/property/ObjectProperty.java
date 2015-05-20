@@ -25,7 +25,6 @@ public class ObjectProperty {
     private List<MenuAction> editorButtons = new ArrayList<>();
 
     public interface Getter { Object getValue(Object object); }
-
     public interface Setter { void setValue(Object object, Object value); }
 
     /** Return error message or null */
@@ -34,6 +33,7 @@ public class ObjectProperty {
     private Getter getter;
     private Setter setter;
     private Validator validator;
+    private boolean isNullable;
 
     public ObjectProperty(AbstractPropertiesController propertiesController) {
         this.propertiesController = propertiesController;
@@ -143,6 +143,15 @@ public class ObjectProperty {
 
     public ObjectProperty setSingleSelection(boolean singleSelection) {
         this.singleSelection = singleSelection;
+        return this;
+    }
+
+    public boolean isNullable() {
+        return isNullable;
+    }
+
+    public ObjectProperty setNullable(boolean isNullable) {
+        this.isNullable = isNullable;
         return this;
     }
 

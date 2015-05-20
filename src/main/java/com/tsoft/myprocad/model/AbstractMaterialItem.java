@@ -32,8 +32,8 @@ public abstract class AbstractMaterialItem extends Item {
 
     // Сопротивление материалов
     // - для двутавровых балок
-    private Double leftSupport = 0d;         // Левая опора, расстояние от начала балки, м
-    private Double rightSupport = 0d;        // Правая опора, расстояние от конца балки, м
+    private Double leftSupport;              // Левая опора, расстояние от начала балки, м (null означает левый конец)
+    private Double rightSupport;             // Правая опора, расстояние от конца балки, м (null означает правый конец)
     private double elasticStrength = 200000; // Elastic Strength E, MPa (модуль упругости Юнга E (МПа))
                                              // 200000 - металл
                                              // 10000 - дерево
@@ -294,17 +294,6 @@ public abstract class AbstractMaterialItem extends Item {
         Material material = getMaterial();
         if (material != null) return getVolume() * material.getPrice();
         return 0;
-    }
-
-    public String validateMechanicsProperties(double length) {
-        if (leftSupport > length) leftSupport = length;
-        if (rightSupport > length) rightSupport = length;
-
-        moments.stream().filter(moment -> moment.zm >= length).forEach(moment -> moment.zm = length);
-        forces.stream().filter(force -> force.zs >= length).forEach(force -> force.zs = length);
-        distributedForces.stream().filter(distributedForce -> distributedForce.z2 >= length).forEach(distributedForce -> distributedForce.z2 = length);
-
-        return null;
     }
 
     public Double getLeftSupport() {

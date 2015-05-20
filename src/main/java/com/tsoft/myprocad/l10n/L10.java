@@ -387,7 +387,7 @@ public class L10 {
     public static String[] CALCULATION_BEAM_BENDING_MOMENTS_PROPERTY = { "Bending moments, M (kNm)", "Изгибающие моменты M (кНм)" };
     public static String[] CALCULATION_BEAM_FORCES_PROPERTY = { "Forces, F (kN)", "Сосредоточенные силы F (кН)" };
     public static String[] CALCULATION_BEAM_DISTRIBUTED_FORCES_PROPERTY = { "Distributed Forces, g (kN/m)", "Распределенные нагрузки, g (кН/м)" };
-    public static String[] CALCULATION_BEAM_B_PROPERTY = { "B, mm", "Расстояние между осями балок, мм" };
+    public static String[] CALCULATION_BEAM_B_PROPERTY = { "Load zone B, mm", "Ширина сбора нагрузки B, мм" };
     public static String[] CALCULATION_BEAM_PERMANENT_LOAD_PROPERTY = { "Permanent load", "Постоянная нагрузка" };
     public static String[] CALCULATION_BEAM_TEMPORARY_LOAD_PROPERTY = { "Temporary load", "Временная нагрузка" };
     public static String[] FILL_MECHANICS_PROPERTIES = { "Add load on the beam", "Введите нагрузку на балку" };

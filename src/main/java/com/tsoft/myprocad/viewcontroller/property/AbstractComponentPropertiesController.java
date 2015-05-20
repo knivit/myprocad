@@ -319,6 +319,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.CALCULATION_BEAM_LEFT_SUPPORT_PROPERTY))
             .setType(Double.class)
             .setSingleSelection(true)
+            .setNullable(true)
             .setValueGetter(entity -> ((AbstractMaterialItem) entity).getLeftSupport())
             .setValueValidator((entity, value) -> ((AbstractMaterialItem) entity).validateLeftSupport(((Double) value)))
             .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setLeftSupport((Double) value));
@@ -328,6 +329,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setLabelName(L10.get(L10.CALCULATION_BEAM_RIGHT_SUPPORT_PROPERTY))
             .setType(Double.class)
             .setSingleSelection(true)
+            .setNullable(true)
             .setValueGetter(entity -> ((AbstractMaterialItem) entity).getRightSupport())
             .setValueValidator((entity, value) -> ((AbstractMaterialItem) entity).validateRightSupport(((Double) value)))
             .setValueSetter((entity, value) -> ((AbstractMaterialItem) entity).setRightSupport((Double) value));

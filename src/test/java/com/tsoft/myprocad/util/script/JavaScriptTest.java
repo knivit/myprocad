@@ -9,7 +9,7 @@ public class JavaScriptTest extends AbstractItemTest {
         JavaScript js = new JavaScript();
 
         js.addBinding("Application", new ApplicationBinding(js));
-//        js.executeScript("lib/js/Деденево/3D/Модель3D.js");
+        js.executeScript("lib/js/Деденево/3D/Модель3D.js");
         //js.addBinding(new ObjBinding());
 
         js.loadLibrary("lib/js/БиблиотекаФункций.js");
@@ -18,7 +18,7 @@ public class JavaScriptTest extends AbstractItemTest {
         js.loadLibrary("lib/js/Железобетон.js");
         js.loadLibrary("lib/js/Теплотехника.js");
 
-        js.executeScript("lib/js/Деденево/ПерекрытиеДвутавр.js");
+     //   js.executeScript("lib/js/Деденево/ПерекрытиеДвутавр.js");
      //   js.executeScript("lib/js/Деденево/РасчетКрыльца.js");
      //   js.executeScript("lib/js/Деденево/РасчетСтен.js");
      //   js.executeScript("lib/js/Деденево/РасчетКрыши.js");
