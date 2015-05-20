@@ -1,5 +1,6 @@
 {"materials":[
-{"id":"8", "name":"Доска 40х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
+{"id":"2", "name":"Unknown", "density":"1.0", "price":"1.0", "unitId":"3", "isDefault":"true"}
+,{"id":"8", "name":"Доска 40х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"9", "name":"Доска 50х100", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"10", "name":"Доска 50х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"34", "name":"Доска 50х200", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
@@ -7,7 +8,6 @@
 ,{"id":"22", "name":"КББ перегородочный", "density":"1.05", "price":"3000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"18", "name":"КББ стеновой", "density":"1.05", "price":"3000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"20", "name":"Кирпич облицовочный", "density":"1.2", "price":"8000.0", "unitId":"3", "isDefault":"false"}
-,{"id":"2", "name":"Неопределен", "density":"1.0", "price":"1.0", "unitId":"3", "isDefault":"true"}
 ,{"id":"21", "name":"Окно", "density":"100.0", "price":"8000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"16", "name":"Плита ПНО 42.12-8", "density":"1.38", "price":"7000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"15", "name":"Плита ПНО 54.12-8", "density":"1.38", "price":"7000.0", "unitId":"3", "isDefault":"false"}
@@ -8681,10 +8681,10 @@
 ,{"xStart":"666", "xEnd":"1116", "yStart":"2051", "yEnd":"2251", "zStart":"0", "zEnd":"3200", "text":" +2250", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
 ,{"xStart":"1344", "xEnd":"1794", "yStart":"3200", "yEnd":"3400", "zStart":"0", "zEnd":"3200", "text":" +3400", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
 ,{"xStart":"648", "xEnd":"1098", "yStart":"3100", "yEnd":"3300", "zStart":"0", "zEnd":"3200", "text":" +3300", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
-,{"xStart":"5192", "xEnd":"5642", "yStart":"4201", "yEnd":"4401", "zStart":"0", "zEnd":"3200", "text":" +4400", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
+,{"xStart":"5200", "xEnd":"5650", "yStart":"4201", "yEnd":"4401", "zStart":"0", "zEnd":"3200", "text":" +4400", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
 ,{"xStart":"668", "xEnd":"1118", "yStart":"4898", "yEnd":"5098", "zStart":"0", "zEnd":"3200", "text":" +5100", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
-,{"xStart":"564", "xEnd":"1014", "yStart":"6098", "yEnd":"6298", "zStart":"0", "zEnd":"3200", "text":" +6300", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
-,{"xStart":"674", "xEnd":"1124", "yStart":"6696", "yEnd":"6896", "zStart":"0", "zEnd":"3200", "text":" +6900", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
+,{"xStart":"636", "xEnd":"1086", "yStart":"6098", "yEnd":"6298", "zStart":"0", "zEnd":"3200", "text":" +6300", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
+,{"xStart":"682", "xEnd":"1132", "yStart":"6696", "yEnd":"6896", "zStart":"0", "zEnd":"3200", "text":" +6900", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
 ,{"xStart":"604", "xEnd":"1054", "yStart":"7904", "yEnd":"8104", "zStart":"0", "zEnd":"3200", "text":" +8100", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
 ,{"xStart":"675", "xEnd":"1125", "yStart":"10304", "yEnd":"10504", "zStart":"0", "zEnd":"3200", "text":" +10500", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
 ,{"xStart":"526", "xEnd":"976", "yStart":"11503", "yEnd":"11703", "zStart":"0", "zEnd":"3200", "text":" +11700", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
@@ -8692,7 +8692,7 @@
 ,{"xStart":"2500", "xEnd":"2950", "yStart":"12605", "yEnd":"12805", "zStart":"0", "zEnd":"3200", "text":" +2800", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"2"}
 ,{"xStart":"4302", "xEnd":"4752", "yStart":"12608", "yEnd":"12808", "zStart":"0", "zEnd":"3200", "text":" +4600", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"2"}
 ,{"xStart":"5188", "xEnd":"5638", "yStart":"6001", "yEnd":"6201", "zStart":"0", "zEnd":"3200", "text":" +6200", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
-,{"xStart":"634", "xEnd":"1084", "yStart":"9198", "yEnd":"9398", "zStart":"0", "zEnd":"3200", "text":" +9400", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
+,{"xStart":"674", "xEnd":"1124", "yStart":"9198", "yEnd":"9398", "zStart":"0", "zEnd":"3200", "text":" +9400", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
 ,{"xStart":"9575", "xEnd":"10025", "yStart":"2052", "yEnd":"2252", "zStart":"0", "zEnd":"3200", "text":" +2250", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
 ,{"xStart":"9535", "xEnd":"9985", "yStart":"3100", "yEnd":"3300", "zStart":"0", "zEnd":"3200", "text":" +3300", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
 ,{"xStart":"9381", "xEnd":"9831", "yStart":"4402", "yEnd":"4602", "zStart":"0", "zEnd":"3200", "text":" +4600", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
