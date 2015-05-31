@@ -1134,7 +1134,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"400", "xEnd":"5000", "yStart":"-3435", "yEnd":"-3235", "zStart":"-50000", "zEnd":"40000", "materialId":"2", "patternId":"5", "backgroundColor":"-3355393", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"400", "xEnd":"5000", "yStart":"-3395", "yEnd":"-3235", "zStart":"-50000", "zEnd":"40000", "materialId":"2", "patternId":"5", "backgroundColor":"-3355393", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -3073,7 +3073,7 @@
 ,{"xStart":"-580", "xEnd":"-130", "yStart":"-6111", "yEnd":"-5911", "zStart":"-50000", "zEnd":"50000", "text":"5911", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
 ,{"xStart":"-406", "xEnd":"44", "yStart":"-490", "yEnd":"-290", "zStart":"-50000", "zEnd":"50000", "text":"290", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
 ,{"xStart":"340", "xEnd":"790", "yStart":"-439", "yEnd":"-239", "zStart":"-50000", "zEnd":"50000", "text":"235", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
-,{"xStart":"587", "xEnd":"1037", "yStart":"-3635", "yEnd":"-3435", "zStart":"-50000", "zEnd":"50000", "text":"3435", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
+,{"xStart":"587", "xEnd":"1037", "yStart":"-3595", "yEnd":"-3395", "zStart":"-50000", "zEnd":"50000", "text":"3395", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
 ,{"xStart":"2616", "xEnd":"3066", "yStart":"-1435", "yEnd":"-1235", "zStart":"-50000", "zEnd":"50000", "text":"1235", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
 ,{"xStart":"3100", "xEnd":"3550", "yStart":"-1494", "yEnd":"-1294", "zStart":"-50000", "zEnd":"50000", "text":"1294", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
 ,{"xStart":"416", "xEnd":"866", "yStart":"-3245", "yEnd":"-3045", "zStart":"-50000", "zEnd":"50000", "text":"3045", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
@@ -6085,7 +6085,7 @@
 ], "levelId":"32", "pasteOffsetX":"258", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"true", "gridPrinted":"true", "printScaleId":"1"}
 , "script":null}
 ]}
-,{"id":"1", "name":"2014", "tabIndex":"4", "items":[
+,{"id":"1", "name":"2014", "tabIndex":"11", "items":[
 "Plan":{"name":"Плита", "gridVisible":"true", "rulersVisible":"true", "scale":"0.12", "originLocationId":"1", "walls":[
 {"xStart":"-300", "xEnd":"10900", "yStart":"-300", "yEnd":"13900", "zStart":"-1400", "zEnd":"-1100", "materialId":"4", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
@@ -8858,6 +8858,60 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"true"}
+,{"xStart":"400", "xEnd":"593", "yStart":"10449", "yEnd":"10632", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"1", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"5712", "xEnd":"5905", "yStart":"6716", "yEnd":"6899", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"1", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"5710", "xEnd":"5903", "yStart":"10447", "yEnd":"10630", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"1", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"5972", "xEnd":"6165", "yStart":"7749", "yEnd":"7932", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"1", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"9964", "xEnd":"10157", "yStart":"7743", "yEnd":"7926", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"1", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"5706", "xEnd":"5899", "yStart":"1791", "yEnd":"1974", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"1", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"9978", "xEnd":"10154", "yStart":"10314", "yEnd":"10639", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"1", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"842", "xEnd":"1035", "yStart":"13563", "yEnd":"13746", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"1", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"851", "xEnd":"1027", "yStart":"13812", "yEnd":"14137", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"1", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
 ], "beams":[
 ], "dimensionLines":[
 {"xStart":"200", "xEnd":"5900", "yStart":"2200", "yEnd":"2200", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
@@ -8876,15 +8930,17 @@
 ,{"xStart":"8700", "xEnd":"8700", "yStart":"7940", "yEnd":"7740", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ], "labels":[
 {"xStart":"800", "xEnd":"2434", "yStart":"800", "yEnd":"1070", "zStart":"-50000", "zEnd":"50000", "text":"Перекрытие 1 эт", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"817", "xEnd":"2701", "yStart":"3350", "yEnd":"3595", "zStart":"-50000", "zEnd":"50000", "text":"ПНО 57-12-8, 10 шт", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"817", "xEnd":"2701", "yStart":"3350", "yEnd":"3803", "zStart":"-50000", "zEnd":"50000", "text":"ПНО 57-12-8, 10 шт\n(5680 x 1180)", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"6200", "xEnd":"6834", "yStart":"10312", "yEnd":"10514", "zStart":"-50000", "zEnd":"50000", "text":"Трубы", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"6375", "xEnd":"8283", "yStart":"3425", "yEnd":"3645", "zStart":"-50000", "zEnd":"50000", "text":"ПНО 42-12-8, 9 шт", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"6375", "xEnd":"8283", "yStart":"3425", "yEnd":"3878", "zStart":"-50000", "zEnd":"50000", "text":"ПНО 42-12-8, 9 шт\n(4180 x 1180)", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"1442", "xEnd":"5208", "yStart":"13550", "yEnd":"13752", "zStart":"-50000", "zEnd":"50000", "text":"Вентялиционный проем 200х200, 6 шт", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"1442", "xEnd":"5042", "yStart":"13883", "yEnd":"14169", "zStart":"-50000", "zEnd":"50000", "text":"Вентялиционный проем 340х200, 1шт", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ], "levelMarks":[
 {"xStart":"6048", "xEnd":"6498", "yStart":"10098", "yEnd":"10298", "zStart":"-50000", "zEnd":"50000", "text":" +10300", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
 ], "lights":[
 ], "levels":[
 {"id":"38", "name":"По умолчанию", "start":"-50000", "end":"50000"}
-], "levelId":"38", "pasteOffsetX":"0", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"1", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"false", "gridPrinted":"false", "printScaleId":"1"}
+], "levelId":"38", "pasteOffsetX":"400", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"false", "gridPrinted":"false", "printScaleId":"1"}
 , "script":null}
 ,"Plan":{"name":"2 этаж", "gridVisible":"false", "rulersVisible":"false", "scale":"0.120000005", "originLocationId":"1", "walls":[
 {"xStart":"100", "xEnd":"3800", "yStart":"-20", "yEnd":"100", "zStart":"3200", "zEnd":"6400", "materialId":"20", "patternId":"10", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
@@ -11164,7 +11220,7 @@
 {"id":"29", "name":"По умолчанию", "start":"-50000", "end":"50000"}
 ], "levelId":"29", "pasteOffsetX":"0", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"1", "pageSetup":{"paperOrientationId":"2", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"false", "gridPrinted":"false", "printScaleId":"1"}
 , "script":null}
-,"Plan":{"name":"Планировка", "gridVisible":"true", "rulersVisible":"true", "scale":"0.046296287", "originLocationId":"1", "walls":[
+,"Plan":{"name":"Планировка", "gridVisible":"false", "rulersVisible":"false", "scale":"0.046296287", "originLocationId":"1", "walls":[
 {"xStart":"100", "xEnd":"490", "yStart":"100", "yEnd":"290", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
@@ -11969,591 +12025,9 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"36989", "xEnd":"39114", "yStart":"2728", "yEnd":"8678", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"38200", "xEnd":"39000", "yStart":"9000", "yEnd":"10200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"38200", "xEnd":"39000", "yStart":"10400", "yEnd":"11600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"38200", "xEnd":"39000", "yStart":"11800", "yEnd":"13000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"38200", "xEnd":"39000", "yStart":"13200", "yEnd":"14400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"38200", "xEnd":"39000", "yStart":"14600", "yEnd":"15800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"38200", "xEnd":"39000", "yStart":"16000", "yEnd":"17200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"38200", "xEnd":"39000", "yStart":"17400", "yEnd":"18600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"38200", "xEnd":"39000", "yStart":"18800", "yEnd":"20000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"38200", "xEnd":"39000", "yStart":"20200", "yEnd":"21400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"38200", "xEnd":"39000", "yStart":"21600", "yEnd":"22800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"38200", "xEnd":"39000", "yStart":"23000", "yEnd":"24200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"38200", "xEnd":"39000", "yStart":"24400", "yEnd":"25600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"37200", "xEnd":"38000", "yStart":"9000", "yEnd":"10200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"37200", "xEnd":"38000", "yStart":"10400", "yEnd":"11600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"37200", "xEnd":"38000", "yStart":"11800", "yEnd":"13000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"37200", "xEnd":"38000", "yStart":"13200", "yEnd":"14400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"37200", "xEnd":"38000", "yStart":"14600", "yEnd":"15800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"37200", "xEnd":"38000", "yStart":"16000", "yEnd":"17200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"37200", "xEnd":"38000", "yStart":"17400", "yEnd":"18600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"37200", "xEnd":"38000", "yStart":"18800", "yEnd":"20000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"37200", "xEnd":"38000", "yStart":"20200", "yEnd":"21400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"37200", "xEnd":"38000", "yStart":"21600", "yEnd":"22800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"37200", "xEnd":"38000", "yStart":"23000", "yEnd":"24200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"37200", "xEnd":"38000", "yStart":"24400", "yEnd":"25600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"36200", "xEnd":"37000", "yStart":"9000", "yEnd":"10200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"36200", "xEnd":"37000", "yStart":"10400", "yEnd":"11600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"36200", "xEnd":"37000", "yStart":"11800", "yEnd":"13000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"36200", "xEnd":"37000", "yStart":"13200", "yEnd":"14400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"36200", "xEnd":"37000", "yStart":"14600", "yEnd":"15800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"36200", "xEnd":"37000", "yStart":"16000", "yEnd":"17200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"36200", "xEnd":"37000", "yStart":"17400", "yEnd":"18600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"36200", "xEnd":"37000", "yStart":"18800", "yEnd":"20000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"36200", "xEnd":"37000", "yStart":"20200", "yEnd":"21400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"36200", "xEnd":"37000", "yStart":"21600", "yEnd":"22800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"36200", "xEnd":"37000", "yStart":"23000", "yEnd":"24200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"36200", "xEnd":"37000", "yStart":"24400", "yEnd":"25600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"35200", "xEnd":"36000", "yStart":"9000", "yEnd":"10200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"35200", "xEnd":"36000", "yStart":"10400", "yEnd":"11600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"35200", "xEnd":"36000", "yStart":"11800", "yEnd":"13000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"35200", "xEnd":"36000", "yStart":"13200", "yEnd":"14400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"35200", "xEnd":"36000", "yStart":"14600", "yEnd":"15800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"35200", "xEnd":"36000", "yStart":"16000", "yEnd":"17200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"35200", "xEnd":"36000", "yStart":"17400", "yEnd":"18600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"35200", "xEnd":"36000", "yStart":"18800", "yEnd":"20000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"35200", "xEnd":"36000", "yStart":"20200", "yEnd":"21400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"35200", "xEnd":"36000", "yStart":"21600", "yEnd":"22800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"35200", "xEnd":"36000", "yStart":"23000", "yEnd":"24200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"35200", "xEnd":"36000", "yStart":"24400", "yEnd":"25600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"34200", "xEnd":"35000", "yStart":"9000", "yEnd":"10200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"34200", "xEnd":"35000", "yStart":"10400", "yEnd":"11600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"34200", "xEnd":"35000", "yStart":"11800", "yEnd":"13000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"34200", "xEnd":"35000", "yStart":"13200", "yEnd":"14400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"34200", "xEnd":"35000", "yStart":"14600", "yEnd":"15800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"34200", "xEnd":"35000", "yStart":"16000", "yEnd":"17200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"34200", "xEnd":"35000", "yStart":"17400", "yEnd":"18600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"34200", "xEnd":"35000", "yStart":"18800", "yEnd":"20000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"34200", "xEnd":"35000", "yStart":"20200", "yEnd":"21400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"34200", "xEnd":"35000", "yStart":"21600", "yEnd":"22800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"34200", "xEnd":"35000", "yStart":"23000", "yEnd":"24200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"34200", "xEnd":"35000", "yStart":"24400", "yEnd":"25600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"33200", "xEnd":"34000", "yStart":"9000", "yEnd":"10200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"33200", "xEnd":"34000", "yStart":"10400", "yEnd":"11600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"33200", "xEnd":"34000", "yStart":"11800", "yEnd":"13000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"33200", "xEnd":"34000", "yStart":"13200", "yEnd":"14400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"33200", "xEnd":"34000", "yStart":"14600", "yEnd":"15800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"33200", "xEnd":"34000", "yStart":"16000", "yEnd":"17200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"33200", "xEnd":"34000", "yStart":"17400", "yEnd":"18600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"33200", "xEnd":"34000", "yStart":"18800", "yEnd":"20000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"33200", "xEnd":"34000", "yStart":"20200", "yEnd":"21400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"33200", "xEnd":"34000", "yStart":"21600", "yEnd":"22800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"33200", "xEnd":"34000", "yStart":"23000", "yEnd":"24200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"33200", "xEnd":"34000", "yStart":"24400", "yEnd":"25600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"32200", "xEnd":"33000", "yStart":"9000", "yEnd":"10200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"32200", "xEnd":"33000", "yStart":"10400", "yEnd":"11600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"32200", "xEnd":"33000", "yStart":"11800", "yEnd":"13000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"32200", "xEnd":"33000", "yStart":"13200", "yEnd":"14400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"32200", "xEnd":"33000", "yStart":"14600", "yEnd":"15800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"32200", "xEnd":"33000", "yStart":"16000", "yEnd":"17200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"32200", "xEnd":"33000", "yStart":"17400", "yEnd":"18600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"32200", "xEnd":"33000", "yStart":"18800", "yEnd":"20000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"32200", "xEnd":"33000", "yStart":"20200", "yEnd":"21400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"32200", "xEnd":"33000", "yStart":"21600", "yEnd":"22800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"32200", "xEnd":"33000", "yStart":"23000", "yEnd":"24200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"32200", "xEnd":"33000", "yStart":"24400", "yEnd":"25600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"31200", "xEnd":"32000", "yStart":"9000", "yEnd":"10200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"31200", "xEnd":"32000", "yStart":"10400", "yEnd":"11600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"31200", "xEnd":"32000", "yStart":"11800", "yEnd":"13000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"31200", "xEnd":"32000", "yStart":"13200", "yEnd":"14400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-13261", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"31200", "xEnd":"32000", "yStart":"14600", "yEnd":"15800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"31200", "xEnd":"32000", "yStart":"16000", "yEnd":"17200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"31200", "xEnd":"32000", "yStart":"17400", "yEnd":"18600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"31200", "xEnd":"32000", "yStart":"18800", "yEnd":"20000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-39322", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"31200", "xEnd":"32000", "yStart":"20200", "yEnd":"21400", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"31200", "xEnd":"32000", "yStart":"21600", "yEnd":"22800", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"31200", "xEnd":"32000", "yStart":"23000", "yEnd":"24200", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"31200", "xEnd":"32000", "yStart":"24400", "yEnd":"25600", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-6684775", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
 ], "beams":[
 ], "dimensionLines":[
-{"xStart":"0", "xEnd":"40000", "yStart":"0", "yEnd":"0", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"300", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"3"}
+{"xStart":"0", "xEnd":"20000", "yStart":"0", "yEnd":"0", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"300", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"3"}
 ,{"xStart":"0", "xEnd":"8000", "yStart":"7300", "yEnd":"7300", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"300", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"0", "xEnd":"0", "yStart":"6820", "yEnd":"11500", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"300", "startPointShapeTypeId":"1", "endPointShapeTypeId":"4", "color":"-16777216", "lineWidth":"3"}
 ,{"xStart":"-1", "xEnd":"0", "yStart":"12700", "yEnd":"26000", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"300", "startPointShapeTypeId":"4", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"3"}
@@ -12570,7 +12044,7 @@
 ,{"xStart":"7300", "xEnd":"7300", "yStart":"6850", "yEnd":"9650", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"300", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"6500", "xEnd":"10500", "yStart":"23600", "yEnd":"23600", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"300", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"13900", "xEnd":"17100", "yStart":"23598", "yEnd":"23598", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"300", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"0", "xEnd":"40000", "yStart":"26000", "yEnd":"26000", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"0", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"3"}
+,{"xStart":"0", "xEnd":"20000", "yStart":"26000", "yEnd":"26000", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"0", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"3"}
 ,{"xStart":"5623", "xEnd":"12900", "yStart":"25431", "yEnd":"25419", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"300", "startPointShapeTypeId":"5", "endPointShapeTypeId":"1", "color":"-7843326", "lineWidth":"8"}
 ,{"xStart":"12900", "xEnd":"12900", "yStart":"20125", "yEnd":"25425", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"300", "startPointShapeTypeId":"5", "endPointShapeTypeId":"1", "color":"-7843326", "lineWidth":"8"}
 ,{"xStart":"613", "xEnd":"625", "yStart":"25069", "yEnd":"24269", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"0", "startPointShapeTypeId":"5", "endPointShapeTypeId":"5", "color":"-7843326", "lineWidth":"8"}
@@ -12613,7 +12087,7 @@
 ], "lights":[
 ], "levels":[
 {"id":"30", "name":"По умолчанию", "start":"-50000", "end":"50000"}
-], "levelId":"30", "pasteOffsetX":"-4000", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"true", "gridPrinted":"true", "printScaleId":"1"}
+], "levelId":"30", "pasteOffsetX":"-4000", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"false", "gridPrinted":"false", "printScaleId":"1"}
 , "script":"test = { значение:10.0, текст:\"Текст\" };\nx = test.значение*2;\noutput.print(x);"}
 ]}
 ,{"id":"23", "name":"Электрика", "tabIndex":"0", "items":[
@@ -12853,4 +12327,4 @@
 ], "levelId":"25", "pasteOffsetX":"0", "pasteOffsetY":"300", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"false", "gridPrinted":"false", "printScaleId":"1"}
 , "script":null}
 ]}
-], "activeFolderId":"1", "nextId":"39"}
+], "activeFolderId":"5", "nextId":"39"}
