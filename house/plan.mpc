@@ -1,6 +1,5 @@
 {"materials":[
-{"id":"2", "name":"Unknown", "density":"1.0", "price":"1.0", "unitId":"3", "isDefault":"true"}
-,{"id":"8", "name":"Доска 40х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
+{"id":"8", "name":"Доска 40х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"9", "name":"Доска 50х100", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"10", "name":"Доска 50х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"34", "name":"Доска 50х200", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
@@ -8,6 +7,7 @@
 ,{"id":"22", "name":"КББ перегородочный", "density":"1.05", "price":"3000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"18", "name":"КББ стеновой", "density":"1.05", "price":"3000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"20", "name":"Кирпич облицовочный", "density":"1.2", "price":"8000.0", "unitId":"3", "isDefault":"false"}
+,{"id":"2", "name":"Неопределен", "density":"1.0", "price":"1.0", "unitId":"3", "isDefault":"true"}
 ,{"id":"21", "name":"Окно", "density":"100.0", "price":"8000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"16", "name":"Плита ПНО 42.12-8", "density":"1.38", "price":"7000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"15", "name":"Плита ПНО 54.12-8", "density":"1.38", "price":"7000.0", "unitId":"3", "isDefault":"false"}
@@ -6089,7 +6089,7 @@
 ], "levelId":"32", "pasteOffsetX":"258", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"true", "gridPrinted":"true", "printScaleId":"1"}
 , "script":null}
 ]}
-,{"id":"1", "name":"2014", "tabIndex":"6", "items":[
+,{"id":"1", "name":"2014", "tabIndex":"4", "items":[
 "Plan":{"name":"Плита", "gridVisible":"true", "rulersVisible":"true", "scale":"0.12", "originLocationId":"1", "walls":[
 {"xStart":"-300", "xEnd":"10900", "yStart":"-300", "yEnd":"13900", "zStart":"-1400", "zEnd":"-1100", "materialId":"4", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
@@ -6827,7 +6827,7 @@
 {"id":"13", "name":"Custom", "start":"-50000", "end":"50000"}
 ], "levelId":"13", "pasteOffsetX":"0", "pasteOffsetY":"-1200", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"true", "gridPrinted":"true", "printScaleId":"1"}
 , "script":null}
-,"Plan":{"name":"1 этаж", "gridVisible":"false", "rulersVisible":"false", "scale":"0.12", "originLocationId":"1", "walls":[
+,"Plan":{"name":"1 этаж", "gridVisible":"false", "rulersVisible":"false", "scale":"0.17280002", "originLocationId":"1", "walls":[
 {"xStart":"-20", "xEnd":"100", "yStart":"-20", "yEnd":"2250", "zStart":"0", "zEnd":"3200", "materialId":"2", "patternId":"10", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
@@ -8862,12 +8862,6 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"true"}
-,{"xStart":"400", "xEnd":"593", "yStart":"10449", "yEnd":"10632", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"1", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
 ,{"xStart":"5712", "xEnd":"5905", "yStart":"6716", "yEnd":"6899", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"1", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
