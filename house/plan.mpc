@@ -1,5 +1,6 @@
 {"materials":[
-{"id":"8", "name":"Доска 40х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
+{"id":"2", "name":"Unknown", "density":"1.0", "price":"1.0", "unitId":"3", "isDefault":"true"}
+,{"id":"8", "name":"Доска 40х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"9", "name":"Доска 50х100", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"10", "name":"Доска 50х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"34", "name":"Доска 50х200", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
@@ -7,7 +8,6 @@
 ,{"id":"22", "name":"КББ перегородочный", "density":"1.05", "price":"3000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"18", "name":"КББ стеновой", "density":"1.05", "price":"3000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"20", "name":"Кирпич облицовочный", "density":"1.2", "price":"8000.0", "unitId":"3", "isDefault":"false"}
-,{"id":"2", "name":"Неопределен", "density":"1.0", "price":"1.0", "unitId":"3", "isDefault":"true"}
 ,{"id":"21", "name":"Окно", "density":"100.0", "price":"8000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"16", "name":"Плита ПНО 42.12-8", "density":"1.38", "price":"7000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"15", "name":"Плита ПНО 54.12-8", "density":"1.38", "price":"7000.0", "unitId":"3", "isDefault":"false"}
@@ -17,7 +17,7 @@
 {"id":"5", "name":"2015", "tabIndex":"1", "items":[
 "Notes":{"name":"План работ", "text":"План работ на 2015 год:\n\nЦоколь\n1. (До)утепление фундамента и низа цоколя\n2. Утепление фундамента на спуске в подвал (Пеноплекс 10мм)\n3. Облицовка фундамента на спуске в подвал\n4. Облицовка цоколя камнем\n5. Просверлить стену под трубопроводы отопления и водоснабжения\n\n1 этаж\n1. Горизонтальная гидроизоляция 1 этажа\n2. Заливка обоих крылец дверных проемов (в свежий бетон вставить железные трубки под крыльцо)\n3. Кладка облицовки\n4. Установка утеплителя с высоким коэффициентом паропроницаемости\n5. Кладка несущих стен (8-ми щелевой КББ)\n6. Кладка перегородок (узкий КББ)\n7. Заливка армопояса\n8. Монтаж плит перекрытия\n\n2 этаж\n1. Козырек над крыльцами (металл. труба 10см, длина 2 крыльца * (1,5м * 2 боковых + 3м длинная) = 12м)\n2. Кладка облицовки\n3. Кладка несущих стен\n4. Кладка перегородок\n5. Заливка армопояса (замонолитить (закрутить гайку, надеть шайбу и привязать к арматуре) шпильки d=12мм с шагом 60 см для крепления мауэрлата)\n\nКрыша\n1. Установка мауэрлата\n2. Установка лаг перекрытия\n3. Сборка каркаса\n4. Обрешетка каркаса\n5. Утепление пеноплексом\n6. Обрешетка пеноплекса\n7. Установка металлочерепицы\n8. Установка водостоков", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"true", "gridPrinted":"true", "printScaleId":"1"}
 }
-,"Plan":{"name":"Стена", "gridVisible":"false", "rulersVisible":"false", "scale":"0.27359998", "originLocationId":"1", "walls":[
+,"Plan":{"name":"Стена", "gridVisible":"false", "rulersVisible":"false", "scale":"0.18999997", "originLocationId":"1", "walls":[
 {"xStart":"0", "xEnd":"5000", "yStart":"0", "yEnd":"200", "zStart":"-50000", "zEnd":"50000", "materialId":"4", "patternId":"5", "backgroundColor":"-4144960", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
@@ -373,12 +373,6 @@
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
 ,{"xStart":"-20", "xEnd":"230", "yStart":"-2991", "yEnd":"-2926", "zStart":"-50000", "zEnd":"50000", "materialId":"20", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"200", "xEnd":"390", "yStart":"-3245", "yEnd":"-3435", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -2952,12 +2946,6 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"2800", "xEnd":"2990", "yStart":"-3245", "yEnd":"-3435", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
-], "forces":[
-], "distributedForces":[
-], "b":"600.0", "permanentLoad":[
-], "temporaryLoad":[
-], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
 ,{"xStart":"2800", "xEnd":"2990", "yStart":"-3445", "yEnd":"-3635", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
@@ -2983,6 +2971,24 @@
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
 ,{"xStart":"2800", "xEnd":"2990", "yStart":"-4245", "yEnd":"-4435", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"200", "xEnd":"450", "yStart":"-3395", "yEnd":"-3330", "zStart":"-50000", "zEnd":"50000", "materialId":"20", "patternId":"5", "backgroundColor":"-65536", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"200", "xEnd":"320", "yStart":"-3316", "yEnd":"-3251", "zStart":"-50000", "zEnd":"50000", "materialId":"20", "patternId":"5", "backgroundColor":"-65536", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"328", "xEnd":"448", "yStart":"-3316", "yEnd":"-3251", "zStart":"-50000", "zEnd":"50000", "materialId":"20", "patternId":"5", "backgroundColor":"-65536", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -3029,21 +3035,20 @@
 ,{"xStart":"264", "xEnd":"385", "yStart":"-2580", "yEnd":"-2454", "zStart":"-50000", "zEnd":"50000", "text":"12", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"264", "xEnd":"385", "yStart":"-2764", "yEnd":"-2638", "zStart":"-50000", "zEnd":"50000", "text":"13", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"257", "xEnd":"378", "yStart":"-2971", "yEnd":"-2845", "zStart":"-50000", "zEnd":"50000", "text":"14", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"301", "xEnd":"378", "yStart":"-3372", "yEnd":"-3245", "zStart":"-50000", "zEnd":"50000", "text":"1", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"305", "xEnd":"382", "yStart":"-3584", "yEnd":"-3457", "zStart":"-50000", "zEnd":"50000", "text":"2", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"305", "xEnd":"382", "yStart":"-3784", "yEnd":"-3657", "zStart":"-50000", "zEnd":"50000", "text":"3", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"305", "xEnd":"382", "yStart":"-3984", "yEnd":"-3857", "zStart":"-50000", "zEnd":"50000", "text":"4", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"305", "xEnd":"382", "yStart":"-4184", "yEnd":"-4057", "zStart":"-50000", "zEnd":"50000", "text":"5", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"305", "xEnd":"382", "yStart":"-4384", "yEnd":"-4257", "zStart":"-50000", "zEnd":"50000", "text":"6", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"305", "xEnd":"382", "yStart":"-4584", "yEnd":"-4457", "zStart":"-50000", "zEnd":"50000", "text":"7", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"305", "xEnd":"382", "yStart":"-4784", "yEnd":"-4657", "zStart":"-50000", "zEnd":"50000", "text":"8", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"305", "xEnd":"382", "yStart":"-4984", "yEnd":"-4857", "zStart":"-50000", "zEnd":"50000", "text":"9", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"268", "xEnd":"393", "yStart":"-5184", "yEnd":"-5053", "zStart":"-50000", "zEnd":"50000", "text":"10", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"268", "xEnd":"393", "yStart":"-5384", "yEnd":"-5253", "zStart":"-50000", "zEnd":"50000", "text":"11", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"268", "xEnd":"393", "yStart":"-5584", "yEnd":"-5453", "zStart":"-50000", "zEnd":"50000", "text":"12", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"268", "xEnd":"393", "yStart":"-5784", "yEnd":"-5653", "zStart":"-50000", "zEnd":"50000", "text":"13", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"268", "xEnd":"393", "yStart":"-5984", "yEnd":"-5853", "zStart":"-50000", "zEnd":"50000", "text":"14", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"268", "xEnd":"393", "yStart":"-6184", "yEnd":"-6053", "zStart":"-50000", "zEnd":"50000", "text":"15", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"305", "xEnd":"382", "yStart":"-3584", "yEnd":"-3457", "zStart":"-50000", "zEnd":"50000", "text":"1", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"305", "xEnd":"382", "yStart":"-3784", "yEnd":"-3657", "zStart":"-50000", "zEnd":"50000", "text":"2", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"305", "xEnd":"382", "yStart":"-3984", "yEnd":"-3857", "zStart":"-50000", "zEnd":"50000", "text":"3", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"305", "xEnd":"382", "yStart":"-4184", "yEnd":"-4057", "zStart":"-50000", "zEnd":"50000", "text":"4", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"305", "xEnd":"382", "yStart":"-4384", "yEnd":"-4257", "zStart":"-50000", "zEnd":"50000", "text":"5", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"305", "xEnd":"382", "yStart":"-4584", "yEnd":"-4457", "zStart":"-50000", "zEnd":"50000", "text":"6", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"305", "xEnd":"382", "yStart":"-4784", "yEnd":"-4657", "zStart":"-50000", "zEnd":"50000", "text":"7", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"305", "xEnd":"382", "yStart":"-4984", "yEnd":"-4857", "zStart":"-50000", "zEnd":"50000", "text":"8", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"302", "xEnd":"372", "yStart":"-5188", "yEnd":"-5057", "zStart":"-50000", "zEnd":"50000", "text":"9", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"268", "xEnd":"393", "yStart":"-5384", "yEnd":"-5253", "zStart":"-50000", "zEnd":"50000", "text":"10", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"268", "xEnd":"393", "yStart":"-5584", "yEnd":"-5453", "zStart":"-50000", "zEnd":"50000", "text":"11", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"268", "xEnd":"393", "yStart":"-5784", "yEnd":"-5653", "zStart":"-50000", "zEnd":"50000", "text":"12", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"268", "xEnd":"393", "yStart":"-5984", "yEnd":"-5853", "zStart":"-50000", "zEnd":"50000", "text":"13", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"268", "xEnd":"393", "yStart":"-6184", "yEnd":"-6053", "zStart":"-50000", "zEnd":"50000", "text":"14", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"310", "xEnd":"393", "yStart":"-6565", "yEnd":"-6434", "zStart":"-50000", "zEnd":"50000", "text":"1", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"310", "xEnd":"393", "yStart":"-6765", "yEnd":"-6634", "zStart":"-50000", "zEnd":"50000", "text":"2", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"647", "xEnd":"1400", "yStart":"2", "yEnd":"215", "zStart":"-50000", "zEnd":"50000", "text":"Армопояс", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
@@ -3059,12 +3064,11 @@
 ,{"xStart":"-141", "xEnd":"-16", "yStart":"-1196", "yEnd":"-1089", "zStart":"-50000", "zEnd":"50000", "text":"12", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"-298", "xEnd":"-176", "yStart":"-6747", "yEnd":"-6646", "zStart":"-50000", "zEnd":"50000", "text":"88", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"-204", "xEnd":"-79", "yStart":"-2426", "yEnd":"-1423", "zStart":"-50000", "zEnd":"50000", "text":"Толщина шва 8 мм", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"4", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"2901", "xEnd":"2978", "yStart":"-3372", "yEnd":"-3245", "zStart":"-50000", "zEnd":"50000", "text":"1", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"2905", "xEnd":"2982", "yStart":"-3584", "yEnd":"-3457", "zStart":"-50000", "zEnd":"50000", "text":"2", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"2905", "xEnd":"2982", "yStart":"-3784", "yEnd":"-3657", "zStart":"-50000", "zEnd":"50000", "text":"3", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"2905", "xEnd":"2982", "yStart":"-3984", "yEnd":"-3857", "zStart":"-50000", "zEnd":"50000", "text":"4", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"2905", "xEnd":"2982", "yStart":"-4184", "yEnd":"-4057", "zStart":"-50000", "zEnd":"50000", "text":"5", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"2905", "xEnd":"2982", "yStart":"-4384", "yEnd":"-4257", "zStart":"-50000", "zEnd":"50000", "text":"6", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"2905", "xEnd":"2982", "yStart":"-3584", "yEnd":"-3457", "zStart":"-50000", "zEnd":"50000", "text":"1", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"2905", "xEnd":"2982", "yStart":"-3784", "yEnd":"-3657", "zStart":"-50000", "zEnd":"50000", "text":"2", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"2905", "xEnd":"2982", "yStart":"-3984", "yEnd":"-3857", "zStart":"-50000", "zEnd":"50000", "text":"3", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"2905", "xEnd":"2982", "yStart":"-4184", "yEnd":"-4057", "zStart":"-50000", "zEnd":"50000", "text":"4", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"2905", "xEnd":"2982", "yStart":"-4384", "yEnd":"-4257", "zStart":"-50000", "zEnd":"50000", "text":"5", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ], "levelMarks":[
 {"xStart":"-567", "xEnd":"-117", "yStart":"-200", "yEnd":"0", "zStart":"-50000", "zEnd":"50000", "text":" +0", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
 ,{"xStart":"-511", "xEnd":"-61", "yStart":"-1293", "yEnd":"-1093", "zStart":"-50000", "zEnd":"50000", "text":"1093", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
@@ -3083,7 +3087,7 @@
 ], "lights":[
 ], "levels":[
 {"id":"6", "name":"По умолчанию", "start":"-50000", "end":"50000"}
-], "levelId":"6", "pasteOffsetX":"3000", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"false", "gridPrinted":"false", "printScaleId":"1"}
+], "levelId":"6", "pasteOffsetX":"200", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"false", "gridPrinted":"false", "printScaleId":"1"}
 , "script":"output.print(15*17*2.5)"}
 ,"Plan":{"name":"Дверь", "gridVisible":"true", "rulersVisible":"true", "scale":"0.20736003", "originLocationId":"1", "walls":[
 {"xStart":"200", "xEnd":"590", "yStart":"-400", "yEnd":"-210", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
@@ -6085,7 +6089,7 @@
 ], "levelId":"32", "pasteOffsetX":"258", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"true", "gridPrinted":"true", "printScaleId":"1"}
 , "script":null}
 ]}
-,{"id":"1", "name":"2014", "tabIndex":"11", "items":[
+,{"id":"1", "name":"2014", "tabIndex":"6", "items":[
 "Plan":{"name":"Плита", "gridVisible":"true", "rulersVisible":"true", "scale":"0.12", "originLocationId":"1", "walls":[
 {"xStart":"-300", "xEnd":"10900", "yStart":"-300", "yEnd":"13900", "zStart":"-1400", "zEnd":"-1100", "materialId":"4", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
