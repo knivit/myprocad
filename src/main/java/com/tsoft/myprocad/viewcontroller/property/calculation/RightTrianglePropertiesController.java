@@ -46,30 +46,35 @@ public class RightTrianglePropertiesController extends AbstractCalculationProper
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_A_ANGLE_PROPERTY))
             .setType(Integer.class)
+            .setCalculable(true)
             .setValueGetter(entity -> ((RightTriangle) entity).getAAngle());
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_B_ANGLE_PROPERTY))
             .setType(Integer.class)
+            .setCalculable(true)
             .setValueGetter(entity -> ((RightTriangle) entity).getBAngle());
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_AREA_PROPERTY))
             .setType(Integer.class)
+            .setCalculable(true)
             .setValueGetter(entity -> ((RightTriangle) entity).getArea());
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_AREA_M2_PROPERTY))
-            .setType(String.class)
+            .setType(Integer.class)
+            .setCalculable(true)
             .setValueGetter(entity -> ((RightTriangle) entity).getAreaM2());
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_PERIMETER_PROPERTY))
             .setType(Integer.class)
+            .setCalculable(true)
             .setValueGetter(entity -> ((RightTriangle) entity).getPerimeter());
     }
 }

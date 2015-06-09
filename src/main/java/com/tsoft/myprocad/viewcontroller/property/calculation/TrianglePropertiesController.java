@@ -46,36 +46,42 @@ public class TrianglePropertiesController extends AbstractCalculationPropertiesC
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_A_ANGLE_PROPERTY))
             .setType(Integer.class)
+            .setCalculable(true)
             .setValueGetter(entity -> ((Triangle) entity).getAAngle());
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_B_ANGLE_PROPERTY))
             .setType(Integer.class)
+            .setCalculable(true)
             .setValueGetter(entity -> ((Triangle) entity).getBAngle());
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_C_ANGLE_PROPERTY))
             .setType(Integer.class)
+            .setCalculable(true)
             .setValueGetter(entity -> ((Triangle) entity).getCAngle());
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_AREA_PROPERTY))
             .setType(Integer.class)
+            .setCalculable(true)
             .setValueGetter(entity -> ((Triangle) entity).getArea());
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_AREA_M2_PROPERTY))
-            .setType(String.class)
+            .setType(Integer.class)
+            .setCalculable(true)
             .setValueGetter(entity -> ((Triangle) entity).getAreaM2());
 
         new ObjectProperty(this)
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_PERIMETER_PROPERTY))
-             .setType(Integer.class)
+            .setType(Integer.class)
+            .setCalculable(true)
             .setValueGetter(entity -> ((Triangle) entity).getPerimeter());
     }
 }

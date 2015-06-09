@@ -7,6 +7,7 @@ import javax.script.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 public class JavaScript {
     private ScriptEngine js;
@@ -38,7 +39,7 @@ public class JavaScript {
     public void loadLibrary(String resourceFileName) throws IOException, ScriptException {
         try (InputStream is = MyProCAD.class.getResourceAsStream(resourceFileName)) {
             if (is == null) throw new IOException("File " + resourceFileName + " doesn't exist");
-            js.eval(new InputStreamReader(is));
+            js.eval(new InputStreamReader(is, StandardCharsets.UTF_8));
         }
     }
 
