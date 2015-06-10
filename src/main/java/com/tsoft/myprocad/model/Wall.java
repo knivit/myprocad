@@ -57,13 +57,20 @@ public class Wall extends AbstractMaterialItem implements JsonSerializable {
         return wallShape;
     }
 
-    public void setWallShape(WallShape value) {
-        if (ObjectUtil.equals(getWallShape(), value)) return;
+    public Wall setWallShape(WallShape value) {
+        if (ObjectUtil.equals(getWallShape(), value)) return this;
 
         wallShapeId = value.getId();
         wallShape = value;
         resetCaches();
         if (plan != null) plan.itemChanged(this);
+        return this;
+    }
+
+    public Wall setWallShape(String name) {
+        WallShape wallShape = WallShape.findByName(name);
+        if (wallShape == null) throw new IllegalArgumentException("Unknown wall shape '" + name + "'");
+        return setWallShape(wallShape);
     }
 
     public boolean isAlwaysShowBorders() { return alwaysShowBorders; }

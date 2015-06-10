@@ -35,6 +35,13 @@ public enum WallShape {
         return null;
     }
 
+    public static WallShape findByName(String name) {
+        for (WallShape wallShape : values()) {
+            if (wallShape.name().equalsIgnoreCase(name)) return wallShape;
+        }
+        return null;
+    }
+
     @Override
     public String toString() { return text; }
 }
