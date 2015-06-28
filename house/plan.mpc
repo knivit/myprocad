@@ -1,6 +1,5 @@
 {"materials":[
-{"id":"2", "name":"Unknown", "density":"1.0", "price":"1.0", "unitId":"3", "isDefault":"true"}
-,{"id":"8", "name":"Доска 40х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
+{"id":"8", "name":"Доска 40х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"9", "name":"Доска 50х100", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"10", "name":"Доска 50х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"34", "name":"Доска 50х200", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
@@ -8,6 +7,7 @@
 ,{"id":"22", "name":"КББ перегородочный", "density":"1.05", "price":"3000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"18", "name":"КББ стеновой", "density":"1.05", "price":"3000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"20", "name":"Кирпич облицовочный", "density":"1.2", "price":"8000.0", "unitId":"3", "isDefault":"false"}
+,{"id":"2", "name":"Неопределен", "density":"1.0", "price":"1.0", "unitId":"3", "isDefault":"true"}
 ,{"id":"21", "name":"Окно", "density":"100.0", "price":"8000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"16", "name":"Плита ПНО 42.12-8", "density":"1.38", "price":"7000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"15", "name":"Плита ПНО 54.12-8", "density":"1.38", "price":"7000.0", "unitId":"3", "isDefault":"false"}
@@ -9946,7 +9946,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"2600", "xEnd":"2990", "yStart":"8900", "yEnd":"9300", "zStart":"3200", "zEnd":"6400", "materialId":"18", "patternId":"10", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"2592", "xEnd":"2982", "yStart":"9050", "yEnd":"9450", "zStart":"3200", "zEnd":"6400", "materialId":"18", "patternId":"10", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -10510,7 +10510,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"2600", "xEnd":"2990", "yStart":"3200", "yEnd":"3600", "zStart":"3200", "zEnd":"6400", "materialId":"18", "patternId":"10", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"2600", "xEnd":"2990", "yStart":"1950", "yEnd":"2350", "zStart":"3200", "zEnd":"6400", "materialId":"18", "patternId":"10", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -10855,7 +10855,7 @@
 ,{"xStart":"5300", "xEnd":"5300", "yStart":"600", "yEnd":"8900", "zStart":"3200", "zEnd":"6400", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"600", "xEnd":"3800", "yStart":"900", "yEnd":"900", "zStart":"3200", "zEnd":"6400", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"4400", "xEnd":"5300", "yStart":"9150", "yEnd":"9150", "zStart":"3200", "zEnd":"6400", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"2800", "xEnd":"2800", "yStart":"9300", "yEnd":"13000", "zStart":"3200", "zEnd":"6400", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"2800", "xEnd":"2800", "yStart":"9450", "yEnd":"13000", "zStart":"3200", "zEnd":"6400", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"7700", "xEnd":"7700", "yStart":"8200", "yEnd":"13000", "zStart":"3200", "zEnd":"6400", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"5900", "xEnd":"5900", "yStart":"8200", "yEnd":"9100", "zStart":"3200", "zEnd":"6400", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"-200", "xEnd":"-200", "yStart":"0", "yEnd":"13600", "zStart":"3200", "zEnd":"6400", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
@@ -10866,8 +10866,8 @@
 ,{"xStart":"6507", "xEnd":"6900", "yStart":"10426", "yEnd":"10434", "zStart":"3200", "zEnd":"6400", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"0", "startPointShapeTypeId":"5", "endPointShapeTypeId":"5", "color":"-7843326", "lineWidth":"8"}
 ,{"xStart":"3000", "xEnd":"5700", "yStart":"9400", "yEnd":"9400", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"6100", "xEnd":"7600", "yStart":"7700", "yEnd":"7700", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"2800", "xEnd":"2800", "yStart":"3600", "yEnd":"8900", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"2800", "xEnd":"2800", "yStart":"600", "yEnd":"3200", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"2800", "xEnd":"2800", "yStart":"2350", "yEnd":"9050", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"2800", "xEnd":"2800", "yStart":"600", "yEnd":"1950", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"7700", "xEnd":"7700", "yStart":"600", "yEnd":"3200", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"7700", "xEnd":"7700", "yStart":"3600", "yEnd":"7800", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"5000", "xEnd":"5700", "yStart":"900", "yEnd":"900", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
@@ -11395,8 +11395,8 @@
 ,{"xStart":"5300", "xEnd":"11000", "yStart":"-8700", "yEnd":"-4200", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"-400", "xEnd":"0", "yStart":"-4200", "yEnd":"-4200", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"10600", "xEnd":"11000", "yStart":"-4200", "yEnd":"-4200", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
-,{"xStart":"6164", "xEnd":"10600", "yStart":"-8000", "yEnd":"-8000", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
-,{"xStart":"10612", "xEnd":"10636", "yStart":"-8000", "yEnd":"-4528", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"6600", "xEnd":"10600", "yStart":"-7700", "yEnd":"-7700", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"10612", "xEnd":"10636", "yStart":"-7700", "yEnd":"-4528", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ], "labels":[
 ], "levelMarks":[
 ], "lights":[
@@ -11455,8 +11455,8 @@
 ,{"xStart":"5300", "xEnd":"11000", "yStart":"-8700", "yEnd":"-4200", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"-400", "xEnd":"0", "yStart":"-4200", "yEnd":"-4200", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"10600", "xEnd":"11000", "yStart":"-4200", "yEnd":"-4200", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
-,{"xStart":"6164", "xEnd":"10600", "yStart":"-8000", "yEnd":"-8000", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
-,{"xStart":"10612", "xEnd":"10636", "yStart":"-8000", "yEnd":"-4528", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"6600", "xEnd":"10600", "yStart":"-7700", "yEnd":"-7700", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"10612", "xEnd":"10636", "yStart":"-7700", "yEnd":"-4528", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ], "labels":[
 ], "levelMarks":[
 ], "lights":[
@@ -11464,8 +11464,42 @@
 {"id":"43", "name":"По умолчанию", "start":"-50000", "end":"50000"}
 ], "levelId":"43", "pasteOffsetX":"0", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"1", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"true", "gridPrinted":"true", "printScaleId":"1"}
 , "script":null}
+,"Plan":{"name":"Стропила", "gridVisible":"true", "rulersVisible":"true", "scale":"0.12", "originLocationId":"1", "walls":[
+{"xStart":"0", "xEnd":"400", "yStart":"2000", "yEnd":"4000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"0", "xEnd":"200", "yStart":"1900", "yEnd":"2000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"5", "backgroundColor":"-13312", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"2400", "xEnd":"2800", "yStart":"0", "yEnd":"4000", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"2500", "xEnd":"2600", "yStart":"-300", "yEnd":"0", "zStart":"-50000", "zEnd":"50000", "materialId":"2", "patternId":"5", "backgroundColor":"-6710887", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+], "beams":[
+], "dimensionLines":[
+], "labels":[
+], "levelMarks":[
+], "lights":[
+], "levels":[
+{"id":"45", "name":"По умолчанию", "start":"-50000", "end":"50000"}
+], "levelId":"45", "pasteOffsetX":"500", "pasteOffsetY":"300", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"true", "gridPrinted":"true", "printScaleId":"1"}
+, "script":null}
 ]}
-,{"id":"1", "name":"2014", "tabIndex":"4", "items":[
+,{"id":"1", "name":"2014", "tabIndex":"5", "items":[
 "Plan":{"name":"Плита", "gridVisible":"true", "rulersVisible":"true", "scale":"0.12", "originLocationId":"1", "walls":[
 {"xStart":"-300", "xEnd":"10900", "yStart":"-300", "yEnd":"13900", "zStart":"-1400", "zEnd":"-1100", "materialId":"4", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":"0.0", "rightSupport":"10.0", "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
@@ -17701,4 +17735,4 @@
 ], "levelId":"25", "pasteOffsetX":"0", "pasteOffsetY":"300", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"false", "gridPrinted":"false", "printScaleId":"1"}
 , "script":null}
 ]}
-], "activeFolderId":"5", "nextId":"45"}
+], "activeFolderId":"5", "nextId":"46"}
