@@ -18,7 +18,7 @@ public class MaterialListController {
         materials.setProject(project);
 
         TableDialogPanel tableDialogPanel = new TableDialogPanel(project, materials,
-                (entity, value) -> { return ((Project)entity).validateMaterials((TableDialogPanelSupport<Material>)value); });
+                (entity, value) -> ((Project)entity).validateMaterials((TableDialogPanelSupport<Material>)value));
 
         DialogButton result = tableDialogPanel.displayView(L10.get(L10.EDIT_MATERIALS_TITLE), DialogButton.SAVE, DialogButton.CANCEL);
         if (DialogButton.SAVE.equals(result)) {

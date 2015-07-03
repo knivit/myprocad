@@ -37,15 +37,16 @@ public class TableDialogPanel extends AbstractDialogPanel {
         JButton add = new JButton(L10.get(L10.ADD_BUTTON));
         add.addActionListener(e -> {
             Object obj = values.addDialog();
-            if (obj != null) {
-                values.getTableModel().fireTableDataChanged();
-                // do not use values.indexOf() as all of the added element's fields can be null/empty
-                // so its equals() won't work
-                for (int index = 0; index < values.size(); index ++) {
-                    if (values.get(index) == obj) {
-                        table.setRowSelectionInterval(index, index);
-                        break;
-                    }
+            if (obj == null) return;
+
+            values.getTableModel().fireTableDataChanged();
+
+            // do not use values.indexOf() as all of the added element's fields can be null/empty
+            // so its equals() won't work
+            for (int index = 0; index < values.size(); index ++) {
+                if (values.get(index) == obj) {
+                    table.setRowSelectionInterval(index, index);
+                    break;
                 }
             }
         });

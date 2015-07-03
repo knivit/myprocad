@@ -62,7 +62,8 @@ public class MaterialList extends ArrayList<Material> implements TableDialogPane
     @Override
     public Object addDialog() {
         Material material = new Material();
-        project.addMaterial(material);
+        material.setId(project.generateNextId());
+        add(material);
         return material;
     }
 

@@ -173,7 +173,8 @@ public class Application implements JsonSerializable {
     }
 
     public void setLastDirectory(ContentManager.ContentType contentType, String dir) {
-        lastDirs.add(new LastDir(contentType.getId(), dir));
+        LastDir lastDir = lastDirs.
+        lastDirs.put(new LastDir(contentType.getId(), dir));
         flush();
     }
 

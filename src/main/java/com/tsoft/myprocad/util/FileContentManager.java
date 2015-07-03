@@ -269,6 +269,7 @@ public class FileContentManager implements ContentManager {
         for (FileFilter filter : contentFileFilters) {
             fileChooser.addChoosableFileFilter(filter);
         }
+
         // If there's only one file filter, select it
         if (contentFileFilters.length == 1) {
             fileChooser.setFileFilter(contentFileFilters [0]);
@@ -292,8 +293,10 @@ public class FileContentManager implements ContentManager {
             } else {
                 directory = fileChooser.getCurrentDirectory();
             }
+
             // Store last directory
             setLastDirectory(contentType, directory);
+            
             // Return selected file
             return fileChooser.getSelectedFile().toString();
         } else {
