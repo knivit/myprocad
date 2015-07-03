@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Collection;
+import java.util.Map;
 
 public class JsonWriter {
     private Writer out;
@@ -24,14 +25,15 @@ public class JsonWriter {
         else if (value instanceof Collection) {
             // a list, a set etc
             writeCollection((Collection) value, false);
+        } else if (value instanceof Map) {
+            writeMap((Map)value, false);
         } else if (value instanceof JsonSerializable) {
             // an object
             out.write('{');
             isFirstField = true;
             ((JsonSerializable)value).toJson(this);
             out.write("}\n");
-        }
-        else {
+        } else {
             out.write('"');
             String str = value.toString();
             for (int i = 0; i < str.length(); i ++) {
@@ -67,15 +69,18 @@ public class JsonWriter {
         return this;
     }
 
+    // writeType = true for a mixed collections,
+    // in this case there is item's type before every item value
     private void writeCollection(Collection collection, boolean writeType) throws IOException {
         out.write("[\n");
         boolean isFirst = true;
         for (Object item : collection) {
             if (!isFirst) out.write(',');
+
             if (item == null) {
                 out.write("{}");
             } else {
-                if (!(item instanceof JsonSerializable)) throw new IllegalStateException("Items int the list must implement " + JsonSerializable.class.getName());
+                if (!(item instanceof JsonSerializable)) throw new IllegalStateException("Items in the list must implement " + JsonSerializable.class.getName());
 
                 JsonSerializable jsi = (JsonSerializable)item;
                 if (writeType) {
@@ -88,6 +93,11 @@ public class JsonWriter {
             isFirst = false;
         }
         out.write(']');
+    }
+
+    private JsonWriter writeMap(Map map, boolean writeType) {
+        // TODO
+        return this;
     }
 
     public JsonWriter write(String fieldName, Object value) throws IOException {

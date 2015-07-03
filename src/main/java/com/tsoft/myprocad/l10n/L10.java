@@ -567,7 +567,7 @@ public class L10 {
             "  sin(degrees)\n" +
             "  cos(degrees)\n" +
             "  tan(degrees)\n" +
-            "  sqrt(degrees) Square Root. Example: sqrt(4)\n" +
+            "  sqrt()) Square Root. Example: sqrt(4)\n" +
             "  qe(a, b, c) Quadratic Equation. Example: qe(1, 0, 0)\n" +
             "Constants\n" +
             "  pi" };

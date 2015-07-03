@@ -205,9 +205,9 @@ public class FileContentManager implements ContentManager {
             setLastDirectory(contentType, directory);
             // Return selected file
             return directory + File.separator + selectedFile;
-        } else {
-            return null;
         }
+
+        return null;
     }
 
     /**
@@ -217,9 +217,9 @@ public class FileContentManager implements ContentManager {
      *         returned directory will be the default last one or <code>null</code> if it's not set yet.
      */
     protected File getLastDirectory(ContentType contentType) {
-        File directory = this.lastDirectories.get(contentType);
+        File directory = lastDirectories.get(contentType);
         if (directory == null) {
-            directory = this.lastDirectories.get(null);
+            directory = lastDirectories.get(null);
         }
         return directory;
     }
@@ -228,9 +228,10 @@ public class FileContentManager implements ContentManager {
      * Stores the last directory for the given content type.
      */
     protected void setLastDirectory(ContentType contentType, File directory) {
-        this.lastDirectories.put(contentType, directory);
+        lastDirectories.put(contentType, directory);
+
         // Store default last directory in null content
-        this.lastDirectories.put(null, directory);
+        lastDirectories.put(null, directory);
     }
 
     /**
@@ -296,7 +297,7 @@ public class FileContentManager implements ContentManager {
 
             // Store last directory
             setLastDirectory(contentType, directory);
-            
+
             // Return selected file
             return fileChooser.getSelectedFile().toString();
         } else {

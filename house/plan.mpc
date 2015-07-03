@@ -6,6 +6,7 @@
 ,{"id":"10", "name":"Доска 50х150", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"34", "name":"Доска 50х200", "density":"0.52", "price":"6500.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"4", "name":"Железобетон", "density":"2.5", "price":"4500.0", "unitId":"3", "isDefault":"false"}
+,{"id":"52", "name":"Желоб", "density":"1.0", "price":"1.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"50", "name":"Заглушки желоба", "density":"1.0", "price":"1.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"22", "name":"КББ перегородочный", "density":"1.05", "price":"3000.0", "unitId":"3", "isDefault":"false"}
 ,{"id":"18", "name":"КББ стеновой", "density":"1.05", "price":"3000.0", "unitId":"3", "isDefault":"false"}
@@ -11360,11 +11361,12 @@
 ,{"xStart":"-400", "xEnd":"200", "yStart":"-5100", "yEnd":"-5100", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"8000", "xEnd":"14000", "yStart":"-4200", "yEnd":"-4200", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"4800", "xEnd":"7500", "yStart":"-5272", "yEnd":"-5272", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"3886", "xEnd":"6100", "yStart":"-6182", "yEnd":"-8000", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
-,{"xStart":"6100", "xEnd":"8252", "yStart":"-8000", "yEnd":"-6200", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"3812", "xEnd":"6100", "yStart":"-6266", "yEnd":"-7700", "zStart":"-50000", "zEnd":"50000", "text":"", "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"6100", "xEnd":"8407", "yStart":"-7700", "yEnd":"-6345", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"4200", "xEnd":"4200", "yStart":"-6500", "yEnd":"-4200", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"8100", "xEnd":"8100", "yStart":"-6512", "yEnd":"-4212", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
-,{"xStart":"6100", "xEnd":"6100", "yStart":"-8000", "yEnd":"-6400", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6100", "xEnd":"6100", "yStart":"-7700", "yEnd":"-6400", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6100", "xEnd":"6100", "yStart":"-8700", "yEnd":"-7700", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ], "labels":[
 ], "levelMarks":[
 ], "lights":[
@@ -11441,8 +11443,13 @@
 ,{"xStart":"5300", "xEnd":"11000", "yStart":"-8700", "yEnd":"-4200", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"-400", "xEnd":"0", "yStart":"-4200", "yEnd":"-4200", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"10600", "xEnd":"11000", "yStart":"-4200", "yEnd":"-4200", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
-,{"xStart":"6600", "xEnd":"10600", "yStart":"-7700", "yEnd":"-7700", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
-,{"xStart":"10612", "xEnd":"10636", "yStart":"-7700", "yEnd":"-4528", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"6600", "xEnd":"10600", "yStart":"-7700", "yEnd":"-7700", "zStart":"-50000", "zEnd":"50000", "text":"", "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"10600", "xEnd":"10600", "yStart":"-7700", "yEnd":"-6500", "zStart":"-50000", "zEnd":"50000", "text":"", "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"8100", "xEnd":"10600", "yStart":"-6500", "yEnd":"-6500", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"10600", "xEnd":"10600", "yStart":"-6500", "yEnd":"-4528", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"6594", "xEnd":"10600", "yStart":"-7688", "yEnd":"-4532", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"213", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"4060", "xEnd":"6560", "yStart":"-7700", "yEnd":"-7700", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"4000", "xEnd":"4000", "yStart":"-7700", "yEnd":"-8700", "zStart":"-50000", "zEnd":"50000", "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ], "labels":[
 ], "levelMarks":[
 ], "lights":[
@@ -11503,6 +11510,7 @@
 ,{"xStart":"10600", "xEnd":"11000", "yStart":"-4200", "yEnd":"-4200", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"6600", "xEnd":"10600", "yStart":"-7700", "yEnd":"-7700", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"10612", "xEnd":"10636", "yStart":"-7700", "yEnd":"-4528", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"8100", "xEnd":"10600", "yStart":"-6500", "yEnd":"-6500", "zStart":"-50000", "zEnd":"50000", "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ], "labels":[
 ], "levelMarks":[
 ], "lights":[
@@ -12472,8 +12480,8 @@
 {"xStart":"133", "xEnd":"1833", "yStart":"13009", "yEnd":"13774", "zStart":"-50000", "zEnd":"50000", "text":"Длина листа: 350 мм длина волны * 6 волн + 100 мм = 2200 мм\nНахлест 150 мм", "fontFamily":"SansSerif", "fontSize":"160", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"140", "xEnd":"1840", "yStart":"11908", "yEnd":"12673", "zStart":"-50000", "zEnd":"50000", "text":"Длина листа: 350 мм длина волны * 7 волн + 100 мм = 2550 мм\nНахлест 150 мм", "fontFamily":"SansSerif", "fontSize":"160", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"155", "xEnd":"1855", "yStart":"10825", "yEnd":"11590", "zStart":"-50000", "zEnd":"50000", "text":"Длина листа: 350 мм длина волны * 8 волн + 100 мм = 2900 мм\nНахлест 150 мм", "fontFamily":"SansSerif", "fontSize":"160", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"316", "xEnd":"3058", "yStart":"-50", "yEnd":"222", "zStart":"-50000", "zEnd":"50000", "text":"Кровля (металлочерепица)", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"315", "xEnd":"4315", "yStart":"533", "yEnd":"2760", "zStart":"-50000", "zEnd":"50000", "text":"Количество листов по длине:\n13 шт * 1100 = 14 300 мм (т.е. меньше 14 400 на 100)\n\nЕсли взять лист 2550 х 1180 мм\nто площадь 1 листа = 3,009 м2\n\nВсего листов:\nНа крышу: (13 шт * 3 листа по 2550 мм) * 2 = 78 шт\nНа пристройку: 3 шт\n\nИтого площадь листов:\n(78 + 3) * 3,009 = 244 м2", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"316", "xEnd":"1266", "yStart":"-50", "yEnd":"214", "zStart":"-50000", "zEnd":"50000", "text":"Кровля", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"315", "xEnd":"6073", "yStart":"533", "yEnd":"8043", "zStart":"-50000", "zEnd":"50000", "text":"Металлоцерепица с длиной волны 35 см и высотой волны 23 мм.\n\nКоличество листов по длине дома:\n13 шт * 1100 мм = 14 300 мм (т.е. меньше 14 400 на 100)\n\nЕсли взять лист 2550 х 1180 мм, то площадь 1 листа = 3,009 м2\n\nВсего листов:\n  На крышу: (13 шт * 3 листа по 2550 мм) * 2 = 78 шт\n  На пристройку: 3 (???)\n\n1) Металлочерепица\n  (78 + 3) * 3,009 = 244 м2\n\n2) Коньки\n   На основную крышу: 14 м полукруглый большой + 2 заглушки\n   На пристройку: 4,5 полукруглый малый + 1 заглушка\n\n3) Карнизная планка\n   14,4 м + 5,2 м + 6,6 м = 26,2 м\n\n3) Торцевая планка\n   Фронтоны 8 м * 4 шт + Фронтон пристройки 3 м * 2 шт = 38 м\n\n4) Ендовы\n   Пристройка:\n     ендова: 5 м + 5 м = 10 м\n     накладка ендовы: 10 м\n   Скаты фронтонов:\n     ендова: (2 м + 2 м) * 2 фронтона = 8 м\n     накладка ендовы: 8 м\n\n5) Планки примыкания\n   к трубе: \n     нижняя планка: 1 м + 1 м + 0,5 м + 0,5 м = 3 м\n     верхняя планка: 3 м\n   к пристройке:\n     нижняя планка: ?\n     верхняя планка:  ?\n ", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ], "levelMarks":[
 ], "lights":[
 ], "levels":[
@@ -18717,4 +18725,4 @@
 ], "levelId":"25", "pasteOffsetX":"0", "pasteOffsetY":"300", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"false", "gridPrinted":"false", "printScaleId":"1"}
 , "script":null}
 ]}
-], "activeFolderId":"5", "nextId":"52"}
+], "activeFolderId":"5", "nextId":"53"}

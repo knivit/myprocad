@@ -45,9 +45,7 @@ public class FileContentManagerWithRecordedLastDirectories extends FileContentMa
             Application.getInstance().setLastDirectory(contentType, directoryPath);
         }
 
-        if (directoryPath != null) {
-            // set default value
-            Application.getInstance().setLastDirectory(ContentType.DEFAULT, directoryPath);
-        }
+        // set default value
+        Application.getInstance().setLastDirectory(ContentType.DEFAULT, directoryPath);
     }
 }

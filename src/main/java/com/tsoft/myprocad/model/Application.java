@@ -9,9 +9,9 @@ import com.tsoft.myprocad.util.json.JsonWriter;
 import java.awt.Dimension;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 /**
  * Application-wide instance
@@ -134,8 +134,8 @@ public class Application implements JsonSerializable {
     }
 
     private int languageId;
-    private Set<LastDir> lastDirs = new HashSet<>();
-    private Set<WindowSize> windowSizes = new HashSet<>();
+    private List<LastDir> lastDirs = new ArrayList<>();
+    private List<WindowSize> windowSizes = new ArrayList<>();
     private boolean isItemCreationToggled;
 
     private transient Language language;
@@ -173,8 +173,11 @@ public class Application implements JsonSerializable {
     }
 
     public void setLastDirectory(ContentManager.ContentType contentType, String dir) {
-        LastDir lastDir = lastDirs.
-        lastDirs.put(new LastDir(contentType.getId(), dir));
+        LastDir newDir = new LastDir(contentType.getId(), dir);
+        int index = lastDirs.indexOf(newDir);
+        if (index == -1) lastDirs.add(newDir);
+        else lastDirs.set(index, newDir);
+
         flush();
     }
 
@@ -184,7 +187,11 @@ public class Application implements JsonSerializable {
     }
 
     public void setWindowSize(String title, Dimension dimension) {
-        windowSizes.add(new WindowSize(title, dimension));
+        WindowSize newWindowSize = new WindowSize(title, new Dimension(dimension));
+        int index = windowSizes.indexOf(newWindowSize);
+        if (index == -1) windowSizes.add(newWindowSize);
+        else windowSizes.set(index, newWindowSize);
+
         flush();
     }
 
@@ -221,8 +228,8 @@ public class Application implements JsonSerializable {
 
     @Override
     public void fromJson(JsonReader reader) throws IOException {
-        lastDirs = new HashSet<>();
-        windowSizes = new HashSet<>();
+        lastDirs = new ArrayList<>();
+        windowSizes = new ArrayList<>();
         reader
                 .defInteger("languageId", ((value) -> languageId = value))
                 .defCollection("lastDirs", LastDir::new, ((value) -> lastDirs.add((LastDir)value)))
