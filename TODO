@@ -1,4 +1,7 @@
 BUGS
+  Can't add a material
+
+
   Refs always regenerate, so every commit is huge
   After plan's reordering the project must be marked as changed
   Logs, console in Cygwin
