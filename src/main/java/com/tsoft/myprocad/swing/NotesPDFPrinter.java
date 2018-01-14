@@ -9,11 +9,11 @@ import java.io.OutputStream;
 import com.tsoft.myprocad.l10n.L10;
 import com.tsoft.myprocad.model.Notes;
 import com.tsoft.myprocad.util.printer.PrinterUtil;
-import com.lowagie.text.Document;
-import com.lowagie.text.Rectangle;
-import com.lowagie.text.pdf.PdfContentByte;
-import com.lowagie.text.pdf.PdfTemplate;
-import com.lowagie.text.pdf.PdfWriter;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfTemplate;
+import com.itextpdf.text.pdf.PdfWriter;
 
 public class NotesPDFPrinter {
     private Notes notes;
