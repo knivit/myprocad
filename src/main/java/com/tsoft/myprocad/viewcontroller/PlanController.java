@@ -11,10 +11,15 @@ import com.tsoft.myprocad.swing.menu.PlanPanelMenu;
 import com.tsoft.myprocad.swing.properties.PatternComboBoxRenderer;
 import com.tsoft.myprocad.util.ContentManager;
 import com.tsoft.myprocad.util.SwingTools;
+import com.tsoft.myprocad.util.printer.PrinterUtil;
 import com.tsoft.myprocad.viewcontroller.component.*;
 import com.tsoft.myprocad.viewcontroller.property.PlanPropertiesManager;
 
+import java.awt.*;
 import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
 import java.io.*;
 
 import com.tsoft.myprocad.model.property.PlanProperties;
@@ -26,6 +31,7 @@ import com.tsoft.myprocad.viewcontroller.state.RectangleSelectionState;
 import com.tsoft.myprocad.viewcontroller.state.SelectionMoveState;
 import com.tsoft.myprocad.viewcontroller.state.SelectionState;
 
+import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -629,6 +635,39 @@ public class PlanController implements ProjectItemController {
         });
     }
 
+    private void exportToPng() {
+        String fileName = project.getFolders().size() > 1 ? String.format("%s_%s_{n}", project.getActiveFolder().name, plan.getName()) : plan.getName();
+        fileName = fileName.replace(' ', '_');
+        String pngName = SwingTools.showSaveDialog(fileName, ContentManager.ContentType.PNG);
+        if (pngName == null) return;
+
+        // Print to PNG in a threaded task
+        ThreadedTaskController task = new ThreadedTaskController(L10.get(L10.MENU_PLAN_EXPORT_TO_PNG_NAME));
+        task.execute(() -> {
+            PlanPrintableComponent printableComponent = new PlanPrintableComponent(plan.getController(), planPanel.getFont());
+            PageFormat pageFormat = PrinterUtil.getPageFormat(plan.getPageSetup());
+
+            // Print each page
+            int page = 0;
+            while (true) {
+                BufferedImage bi = new BufferedImage((int)pageFormat.getWidth(), (int)pageFormat.getHeight(), BufferedImage.TYPE_INT_ARGB);
+
+                Graphics g = bi.createGraphics();
+                int pageExists = printableComponent.print(g, pageFormat, page);
+                g.dispose();
+
+                if (pageExists != Printable.PAGE_EXISTS) {
+                    break;
+                }
+
+                ImageIO.write(bi, "png", new File(pngName.replace("{n}", Integer.toString(page + 1))));
+                page ++;
+            }
+
+            return null;
+        });
+    }
+
     private void printPreview() {
         PrintableComponent printableComponent = new PlanPrintableComponent(this, planPanel.getFont());
         new PrintPreviewController(printableComponent).displayView();
@@ -733,6 +772,7 @@ public class PlanController implements ProjectItemController {
         if (Menu.PLAN_PRINT_PREVIEW.equals(menu)) { printPreview(); return true; }
         if (Menu.PLAN_PRINT.equals(menu)) { print(); return true; }
         if (Menu.PLAN_EXPORT_TO_OBJ.equals(menu)) { exportToObj(); return true; }
+        if (Menu.PLAN_EXPORT_TO_PNG.equals(menu)) { exportToPng(); return true; }
         if (Menu.ZOOM_IN.equals(menu)) { zoomIn(); return true; }
         if (Menu.ZOOM_OUT.equals(menu)) { zoomOut(); return true; }
 

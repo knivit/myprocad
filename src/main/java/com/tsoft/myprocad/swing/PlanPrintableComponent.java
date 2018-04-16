@@ -1,22 +1,15 @@
 package com.tsoft.myprocad.swing;
 
-import com.tsoft.myprocad.util.LengthUnitUtil;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Insets;
-import java.awt.geom.Rectangle2D;
-import java.awt.print.PageFormat;
-import java.awt.print.PrinterException;
-import java.util.HashSet;
-import java.util.Set;
-
 import com.tsoft.myprocad.model.PageSetup;
 import com.tsoft.myprocad.model.Plan;
 import com.tsoft.myprocad.util.printer.PrinterUtil;
 import com.tsoft.myprocad.viewcontroller.PlanController;
+
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
+import java.awt.print.PageFormat;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A printable component used to print or preview the furniture, the plan
@@ -48,7 +41,7 @@ public class PlanPrintableComponent extends PrintableComponent {
     }
 
     @Override
-    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) {
         PagePrintData printData = new PagePrintData();
         printData.g = graphics;
         printData.g2D = (Graphics2D)graphics;
@@ -59,7 +52,7 @@ public class PlanPrintableComponent extends PrintableComponent {
         return printData.pageExists;
     }
 
-    private void printPage(PagePrintData printData) throws PrinterException {
+    private void printPage(PagePrintData printData) {
         Graphics2D g2D = printData.g2D;
         g2D.setFont(defaultFont);
         g2D.setColor(Color.WHITE);

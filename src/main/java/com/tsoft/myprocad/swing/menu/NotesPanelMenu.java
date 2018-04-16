@@ -24,6 +24,8 @@ public class NotesPanelMenu {
         notesMenu.add(Menu.NOTES_PRINT_TO_PDF.getMenuItem());
         notesMenu.add(Menu.NOTES_PRINT_PREVIEW.getMenuItem());
         notesMenu.add(Menu.NOTES_PRINT.getMenuItem());
+        notesMenu.addSeparator();
+        notesMenu.add(Menu.NOTES_EXPORT_TO_PNG.getMenuItem());
     }
 
     private static void updateToolBar() {

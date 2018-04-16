@@ -60,6 +60,7 @@ public class PlanPanelMenu {
         planMenu.add(Menu.PLAN_PRINT_PREVIEW.getMenuItem());
         planMenu.add(Menu.PLAN_PRINT.getMenuItem());
         planMenu.add(Menu.PLAN_EXPORT_TO_OBJ.getMenuItem());
+        planMenu.add(Menu.PLAN_EXPORT_TO_PNG.getMenuItem());
         planMenu.addSeparator();
         planMenu.add(Menu.SELECT.getMenuItem());
         planMenu.add(Menu.PAN.getMenuItem());

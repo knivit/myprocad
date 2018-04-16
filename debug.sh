@@ -1,4 +1,4 @@
-time mvn -T2C -Dmaven.test.skip=true package > /tmp/maven.log 2>&1
+time mvn -T2C -Dmaven.test.skip=true clean package > /tmp/maven.log 2>&1
 
 if [ "$?" != "0" ] ; then
   cat /tmp/maven.log

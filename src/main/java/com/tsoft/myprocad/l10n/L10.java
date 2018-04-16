@@ -18,6 +18,7 @@ public class L10 {
     public static String[] MYPROCAD_FILES = { "MyProCAD Files (*.mpc)", "Файлы MyProCAD (*.mpc)" };
     public static String[] PDF_FILES = { "PDF Files (*.pdf)", "Файлы PDF (*.pdf)" };
     public static String[] OBJ_FILES = { "3D Model Files (*.obj)", "Файлы 3D-моделей (*.obj)" };
+    public static String[] PNG_FILES = { "PNG Files (*.png)", "Файлы PNG (*.png)" };
 
     public static String[] WINDOW_UNTITLED = { "Untitled", "Без имени" };
     public static String[] DIALOG_SAVE_BUTTON = { "Save", "Сохранить" };
@@ -100,6 +101,7 @@ public class L10 {
     public static String[] MENU_ADD_PLAN_NAME = { "Add plan", "Добавить план" };
     public static String[] MENU_DELETE_PLAN_NAME = { "Delete plan", "Удалить план" };
     public static String[] MENU_PLAN_EXPORT_TO_OBJ_NAME = { "Export to 3D Model", "Экспортировать в 3D-модель" };
+    public static String[] MENU_PLAN_EXPORT_TO_PNG_NAME = { "Export to PNG", "Экспортировать в PNG" };
     public static String[] MENU_ADD_NOTES_NAME = { "Add notes", "Добавить записи" };
     public static String[] MENU_DELETE_NOTES_NAME = { "Delete notes", "Удалить записи" };
 

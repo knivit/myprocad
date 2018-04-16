@@ -42,6 +42,7 @@ public class Menu {
     public static final Menu PLAN_PRINT = new Menu(L10.get(L10.MENU_PRINT_NAME), "resources/icons/document-print.png");
     public static final Menu PLAN_PRINT_TO_PDF = new Menu(L10.get(L10.MENU_PRINT_TO_PDF_NAME), "resources/icons/document-print-pdf.png");
     public static final Menu PLAN_EXPORT_TO_OBJ = new Menu(L10.get(L10.MENU_PLAN_EXPORT_TO_OBJ_NAME));
+    public static final Menu PLAN_EXPORT_TO_PNG = new Menu(L10.get(L10.MENU_PLAN_EXPORT_TO_PNG_NAME));
     public static final Menu MATERIALS = new Menu(L10.get(L10.MENU_MATERIALS_NAME));
     public static final Menu FIND_MATERIALS_USAGE = new Menu(L10.get(L10.MENU_FIND_MATERIALS_USAGE_NAME));
     public static final Menu PRINT_PREVIEW_SHOW_PREVIOUS_PAGE = new Menu(L10.get(L10.PRINT_PREVIEW_SHOW_PREVIOUS_PAGE), "resources/icons/go-previous.png");
@@ -102,6 +103,7 @@ public class Menu {
     public static final Menu NOTES_PRINT_PREVIEW = new Menu(L10.get(L10.MENU_PRINT_PREVIEW_NAME), "resources/icons/document-print-preview.png");
     public static final Menu NOTES_PRINT = new Menu(L10.get(L10.MENU_PRINT_NAME), "resources/icons/document-print.png");
     public static final Menu NOTES_PRINT_TO_PDF = new Menu(L10.get(L10.MENU_PRINT_TO_PDF_NAME), "resources/icons/document-print-pdf.png");
+    public static final Menu NOTES_EXPORT_TO_PNG = new Menu(L10.get(L10.MENU_PLAN_EXPORT_TO_PNG_NAME));
 
     public static final Menu REPORT_MENU = new Menu(L10.get(L10.REPORT_MENU));
 

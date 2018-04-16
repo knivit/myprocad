@@ -7,7 +7,8 @@ public interface ContentManager {
         DEFAULT(0, "Default", ""),
         MY_PRO_CAD(1, L10.get(L10.MYPROCAD_FILES), ".mpc"),
         PDF(2, L10.get(L10.PDF_FILES), ".pdf"),
-        OBJ(3, L10.get(L10.OBJ_FILES), ".obj");
+        OBJ(3, L10.get(L10.OBJ_FILES), ".obj"),
+        PNG(4, L10.get(L10.PNG_FILES), ".png");
 
         private int id;
         private String description;
@@ -37,7 +38,7 @@ public interface ContentManager {
      * Returns the content location chosen by user with an open content dialog.
      * @return the chosen content location or <code>null</code> if user canceled its choice.
      */
-    public abstract String showOpenDialog(String dialogTitle, ContentType contentType);
+    String showOpenDialog(String dialogTitle, ContentType contentType);
 
     /**
      * Returns the content location chosen by user with a save content dialog.
