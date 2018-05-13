@@ -54,7 +54,7 @@ public class L10 {
     public static String[] MENU_EDIT_FOLDERS_NAME = { "Folders", "Папки" };
     public static String[] MENU_EDIT_PROJECT_NAME = { "Project's items", "Состав проекта" };
 
-    public static String[] MENU_CREATE_DIMENSION_LINES_NAME = { "Create s dimension", "Создать размер" };
+    public static String[] MENU_CREATE_DIMENSION_LINES_NAME = { "Create a dimension line", "Создать размер" };
     public static String[] MENU_CREATE_WALLS_NAME = { "Create a wall", "Создать стену" };
     public static String[] MENU_CREATE_BEAMS_NAME = { "Create a beam", "Создать балку" };
     public static String[] MENU_PAN_NAME = { "Pan", "Обзор" };
@@ -215,7 +215,7 @@ public class L10 {
     public static String[] ROTATION_ANGLE_90 = { "90", "90" };
     public static String[] ROTATION_ANGLE_180 = { "180", "180" };
     public static String[] ROTATION_ANGLE_270 = { "270", "270" };
-    public static String[] MOVE_PROPERTY = { "Move (mm)", "Переместить (мм)" };
+    public static String[] MOVE_PROPERTY = { "Move To (mm)", "Переместить (мм)" };
     public static String[] SHIFT_PROPERTY = { "Shift (+/-mm)", "Сдвинуть (+/-мм)" };
     public static String[] DISTANCE_PROPERTY = { "Distance (mm)", "Расстояние (мм)" };
     public static String[] AREA_PROPERTY = { "Area (m2)", "Площадь (м2)" };

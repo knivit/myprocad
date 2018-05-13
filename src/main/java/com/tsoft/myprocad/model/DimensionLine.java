@@ -16,7 +16,7 @@ import java.awt.geom.Point2D;
 import java.io.IOException;
 
 public class DimensionLine extends Item implements JsonSerializable {
-    public static transient final String TYPE_NAME = "DL"; // do not localize
+
     public static transient final int MAX_LINE_WIDTH = 10;
     public static transient final int MAX_FONT_SIZE = 1000;
 
@@ -250,11 +250,6 @@ public class DimensionLine extends Item implements JsonSerializable {
         shapeCache.append(new Line2D.Float(xEnd, yEnd, xEnd + dx, yEnd + dy), false);
 
         return shapeCache;
-    }
-
-    @Override
-    public String toString() {
-        return TYPE_NAME + ": " + getId();
     }
 
     @Override

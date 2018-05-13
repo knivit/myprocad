@@ -356,4 +356,17 @@ public abstract class Item implements Cloneable, JsonSerializable {
                 .defInteger("zStart", ((value) -> zStart = value))
                 .defInteger("zEnd", ((value) -> zEnd = value));
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "typeName='" + typeName + '\'' +
+                ", xStart=" + xStart +
+                ", xEnd=" + xEnd +
+                ", yStart=" + yStart +
+                ", yEnd=" + yEnd +
+                ", zStart=" + zStart +
+                ", zEnd=" + zEnd +
+                '}';
+    }
 }

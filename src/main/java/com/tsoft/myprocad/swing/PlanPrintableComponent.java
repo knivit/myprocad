@@ -62,7 +62,7 @@ public class PlanPrintableComponent extends PrintableComponent {
         // Try to print next plan view page
         PlanPanel planPanel = planController.planPanel;
         printData.pageExists = planPanel.print(printData.g2D, printData.pageFormat, printData.pageIndex);
-        if (printData.pageExists == PAGE_EXISTS && !printablePages.contains(printData.pageIndex)) {
+        if (printData.pageExists == PAGE_EXISTS) {
             printablePages.add(printData.pageIndex);
         }
     }

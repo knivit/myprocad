@@ -37,8 +37,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 public class PlanController implements ProjectItemController {
+    private static final Logger log = Logger.getLogger(PlanController.class.getName());
+
     public static class Mode {
         public static final Mode SELECTION = new Mode("SELECTION", L10.get(L10.STATUS_PANEL_SELECTION_MODE));
         public static final Mode PANNING = new Mode("PANNING", L10.get(L10.STATUS_PANEL_PANNING_MODE));
@@ -650,6 +653,8 @@ public class PlanController implements ProjectItemController {
             // Print each page
             int page = 0;
             while (true) {
+                log.fine("Export page " + page);
+
                 BufferedImage bi = new BufferedImage((int)pageFormat.getWidth(), (int)pageFormat.getHeight(), BufferedImage.TYPE_INT_ARGB);
 
                 Graphics g = bi.createGraphics();
