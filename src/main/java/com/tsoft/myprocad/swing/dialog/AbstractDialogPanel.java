@@ -7,14 +7,10 @@ import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.LayoutManager;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.util.Locale;
 import java.util.function.Supplier;
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public abstract class AbstractDialogPanel extends JPanel {
     private JDialog dialog;
@@ -37,6 +33,7 @@ public abstract class AbstractDialogPanel extends JPanel {
         dialog.setContentPane(contentPanel);
         dialog.applyComponentOrientation(ComponentOrientation.getOrientation(Locale.getDefault()));
         dialog.setResizable(true);
+        dialog.setFocusable(true);
 
         // Pack again because resize decorations may have changed dialog preferred size
         dialog.pack();
@@ -46,6 +43,19 @@ public abstract class AbstractDialogPanel extends JPanel {
         if (size != null) dialog.setSize(size);
         dialog.setLocationRelativeTo(null);
 
+        // Close on ESC
+        dialog.getRootPane().registerKeyboardAction(e -> {
+            dialog.setVisible(false);
+        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_IN_FOCUSED_WINDOW);
+
+        // Set a focus on the first input component
+        if (getActiveComponent() != null) {
+            SwingUtilities.invokeLater(() -> {
+                getActiveComponent().requestFocusInWindow();
+            });
+        }
+
+        // Show the dialog
         dialog.setVisible(true);
 
         // for auto-sized windows (with one element, for example) don't store it size
@@ -92,6 +102,10 @@ public abstract class AbstractDialogPanel extends JPanel {
 
     public void setBeforeCloseValidator(Supplier<Boolean> beforeCloseValidator) {
         this.beforeCloseValidator = beforeCloseValidator;
+    }
+
+    public JComponent getActiveComponent() {
+        return null;
     }
 
     public Dimension getDialogPreferredSize() {
