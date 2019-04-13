@@ -24,7 +24,9 @@ public enum Pattern {
     SAND(9, "sand"),
     BRICK(10, "brick"),
     DOTTED_VERTICAL(11, "dottedVertical"),
-    DOTTED_HORIZONTAL(12, "dottedHorizontal");
+    DOTTED_HORIZONTAL(12, "dottedHorizontal"),
+    VERTICAL(13, "vertical"),
+    HORIZONTAL(14, "horizontal");
 
     private int id;
     private String resourceName;

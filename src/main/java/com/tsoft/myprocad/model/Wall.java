@@ -9,9 +9,7 @@ import com.tsoft.myprocad.util.json.JsonWriter;
 import com.tsoft.myprocad.util.linealg.Vec3;
 
 import java.awt.Shape;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Point2D;
-import java.awt.geom.Rectangle2D;
+import java.awt.geom.*;
 import java.io.IOException;
 
 public class Wall extends AbstractMaterialItem implements JsonSerializable {
