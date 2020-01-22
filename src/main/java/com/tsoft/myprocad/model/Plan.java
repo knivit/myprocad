@@ -43,10 +43,10 @@ public class Plan extends ProjectItem implements Cloneable {
     private long levelId;
 
     /* For paste operations */
-    private int pasteOffsetX = 500; // mm
-    private int pasteOffsetY = 300;
+    private int pasteOffsetX = 0; // mm
+    private int pasteOffsetY = 0;
     private int pasteOffsetZ = 0;
-    private int pasteOperationId = PasteOperation.FIRST_SELECTED_PLUS_OFFSET.getId();
+    private int pasteOperationId = PasteOperation.MOVE_TO.getId();
 
     private PageSetup pageSetup = new PageSetup();
     private String script;

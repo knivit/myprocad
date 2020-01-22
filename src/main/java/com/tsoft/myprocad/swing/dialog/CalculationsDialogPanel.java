@@ -19,7 +19,7 @@ public class CalculationsDialogPanel<T> extends AbstractDialogPanel {
         PropertiesManagerPanel propertiesManagerPanel = new PropertiesManagerPanel();
         add(BorderLayout.CENTER, propertiesManagerPanel);
 
-        AbstractPropertiesController propertiesController = constructor.apply(propertiesManagerPanel);
+        AbstractPropertiesController<T> propertiesController = constructor.apply(propertiesManagerPanel);
         propertiesController.selectObjects(Arrays.asList(entity));
     }
 

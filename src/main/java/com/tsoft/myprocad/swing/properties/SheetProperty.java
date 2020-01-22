@@ -13,6 +13,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class SheetProperty implements PropertyChangeListener {
     private List<SheetProperty> subProperties = new ArrayList<>();
@@ -127,8 +128,9 @@ public class SheetProperty implements PropertyChangeListener {
     public void setValue( Object value ) {
         Object oldValue = this.value;
         this.value = value;
-        if (value != oldValue && (value == null || !value.equals(oldValue)))
+        if (!Objects.equals(value, oldValue)) {
             firePropertyChange(oldValue, getValue());
+        }
     }
 
     public List<SheetProperty> getSubProperties() {

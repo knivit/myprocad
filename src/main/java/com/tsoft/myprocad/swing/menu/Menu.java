@@ -68,6 +68,7 @@ public class Menu {
 
     public static final Menu SELECT_BY_MATERIAL = new Menu(L10.get(L10.MENU_SELECT_BY_MATERIAL_NAME));
     public static final Menu SELECT_BY_PATTERN = new Menu(L10.get(L10.MENU_SELECT_BY_PATTERN_NAME));
+    public static final Menu SELECT_BY_TAGS = new Menu(L10.get(L10.MENU_SELECT_BY_TAGS));
     public static final Menu SELECT_ALL = new Menu(L10.get(L10.MENU_SELECT_ALL_NAME), "resources/icons/edit-select-all.png");
     public static final Menu SELECT_WALLS = new Menu(L10.get(L10.MENU_SELECT_WALLS_NAME));
     public static final Menu ESCAPE = new Menu(L10.get(L10.MENU_ESCAPE_NAME));

@@ -72,7 +72,7 @@ public class Application implements JsonSerializable {
         }
     }
 
-    class WindowSize implements JsonSerializable {
+    static class WindowSize implements JsonSerializable {
         public String windowName;
         private int width, height;
 

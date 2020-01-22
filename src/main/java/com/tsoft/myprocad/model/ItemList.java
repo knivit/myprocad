@@ -1,14 +1,7 @@
 package com.tsoft.myprocad.model;
 
 import java.awt.geom.Area;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -32,6 +25,19 @@ public class ItemList<T extends Item> extends ArrayList<T> {
                 add(item);
             }
         }
+    }
+
+    public static List<String> getItemsTags(ItemList<Item> levelItems) {
+        List<String> result = new ArrayList<>();
+
+        for (Item item : levelItems) {
+            if (item.getTags() == null) continue;
+            String tags = item.getTags().trim();
+            if (tags.isEmpty()) continue;
+
+            result.addAll(Arrays.asList(tags.split(",")));
+        }
+        return result;
     }
 
     public ItemList<T> getDeepClone() {
@@ -251,6 +257,21 @@ public class ItemList<T extends Item> extends ArrayList<T> {
         ItemList<AbstractMaterialItem> list = new ItemList<>();
         for (AbstractMaterialItem item : (ItemList<AbstractMaterialItem>)this) {
             if (item.getPattern().equals(pattern)) list.add(item);
+        }
+        return list;
+    }
+
+    public ItemList<Item> filterByTags(List<String> tags) {
+        ItemList<Item> list = new ItemList<>();
+        for (Item item : this) {
+            if (item.getTags() == null) continue;
+
+            for (String tag : tags) {
+                if (item.getTags().contains(tag)) {
+                    list.add(item);
+                    break;
+                }
+            }
         }
         return list;
     }

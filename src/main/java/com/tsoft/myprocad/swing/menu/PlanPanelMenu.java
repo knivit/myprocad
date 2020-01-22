@@ -92,6 +92,7 @@ public class PlanPanelMenu {
         selectionMenu.add(Menu.SELECT_WALLS.getMenuItem());
         selectionMenu.add(Menu.SELECT_BY_MATERIAL.getMenuItem());
         selectionMenu.add(Menu.SELECT_BY_PATTERN.getMenuItem());
+        selectionMenu.add(Menu.SELECT_BY_TAGS.getMenuItem());
 
         // Report menu
         JMenu reportMenu = Menu.REPORT_MENU.addToMenuBar();

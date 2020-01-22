@@ -23,6 +23,7 @@ public abstract class Item implements Cloneable, JsonSerializable {
     protected int yEnd;
     protected int zStart;
     protected int zEnd;
+    protected String tags; // user-defined values separated by comma (can be used in "find by ..." operations)
 
     protected abstract Shape getItemShape();
 
@@ -79,6 +80,10 @@ public abstract class Item implements Cloneable, JsonSerializable {
         if (plan != null) plan.itemChanged(this);
     }
 
+    public void setTags(String value) {
+        tags = value;
+    }
+
     public abstract String getPopupItemName();
 
     protected Item() {
@@ -115,6 +120,7 @@ public abstract class Item implements Cloneable, JsonSerializable {
         yEnd = item.yEnd;
         zStart = item.zStart;
         zEnd = item.zEnd;
+        tags = item.tags;
 
         resetCaches();
     }
@@ -222,6 +228,10 @@ public abstract class Item implements Cloneable, JsonSerializable {
     public int getZStart() { return zStart; }
 
     public int getZEnd() { return zEnd; }
+
+    public String getTags() {
+        return tags;
+    }
 
     public int getXDistance() {
         return Math.abs(xEnd - xStart);
@@ -343,18 +353,20 @@ public abstract class Item implements Cloneable, JsonSerializable {
                 .write("yStart", yStart)
                 .write("yEnd", yEnd)
                 .write("zStart", zStart)
-                .write("zEnd", zEnd);
+                .write("zEnd", zEnd)
+                .write("tags", tags);
     }
 
     @Override
     public void fromJson(JsonReader reader) throws IOException {
         reader
-                .defInteger("xStart", ((value) -> xStart = value))
-                .defInteger("xEnd", ((value) -> xEnd = value))
-                .defInteger("yStart", ((value) -> yStart = value))
-                .defInteger("yEnd", ((value) -> yEnd = value))
-                .defInteger("zStart", ((value) -> zStart = value))
-                .defInteger("zEnd", ((value) -> zEnd = value));
+                .defInteger("xStart", (value) -> xStart = value)
+                .defInteger("xEnd", (value) -> xEnd = value)
+                .defInteger("yStart", (value) -> yStart = value)
+                .defInteger("yEnd", (value) -> yEnd = value)
+                .defInteger("zStart", (value) -> zStart = value)
+                .defInteger("zEnd", (value) -> zEnd = value)
+                .defString("tags", (value) -> tags = value);
     }
 
     @Override
@@ -367,6 +379,7 @@ public abstract class Item implements Cloneable, JsonSerializable {
                 ", yEnd=" + yEnd +
                 ", zStart=" + zStart +
                 ", zEnd=" + zEnd +
-                '}';
+                ", tags=" + tags +
+            '}';
     }
 }

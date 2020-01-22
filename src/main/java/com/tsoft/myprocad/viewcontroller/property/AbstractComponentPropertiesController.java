@@ -47,6 +47,7 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
         addXProperties();
         addYProperties();
         addZProperties();
+        addUserDefinedProperties();
     }
 
     private void addXProperties() {
@@ -220,6 +221,19 @@ public abstract class AbstractComponentPropertiesController<T> extends AbstractP
             .setType(Integer.class)
             .setCalculable(true)
             .setValueGetter(item -> ((Item) item).getZDistance());
+    }
+
+
+    private void addUserDefinedProperties() {
+        new ObjectProperty(this)
+            .setCategoryName(L10.get(L10.USER_CATEGORY))
+            .setLabelName(L10.get(L10.TAGS))
+            .setType(String.class)
+            .setValueGetter(item -> ((Item) item).getTags())
+            .setValueSetter((item, value) -> {
+                addToHistory((Item) item);
+                ((Item) item).setTags((String) value);
+            });
     }
 
     protected void addMaterialItemProperties() {

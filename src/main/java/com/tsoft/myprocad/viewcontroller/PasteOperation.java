@@ -12,6 +12,7 @@ public enum PasteOperation {
     // and the offsets are calculated
     // others are moved on these offsets
     MOVE_TO(1) {
+        @Override
         public void paste(Plan plan, ItemList<Item> items) {
             items.forEach(plan::addItem);
         }
@@ -25,6 +26,7 @@ public enum PasteOperation {
     // find out Z min along the selection
     // and move it on the level
     MOVE_TO_LEVEL(2) {
+        @Override
         public void paste(Plan plan, ItemList<Item> items) {
             items.forEach(plan::addItem);
             plan.moveItemsToLevel(plan.getLevel(), items);
@@ -37,6 +39,7 @@ public enum PasteOperation {
     },
 
     PLUS_OFFSET(3) {
+        @Override
         public void paste(Plan plan, ItemList<Item> items) {
             items.forEach(plan, item -> {
                 plan.addItem(item);
@@ -51,6 +54,7 @@ public enum PasteOperation {
     },
 
     FIRST_SELECTED_PLUS_OFFSET(4) {
+        @Override
         public void paste(Plan plan, ItemList<Item> items) {
             ItemList<Item> selectedItems = plan.getController().getSelectedItems();
             Item selectedAnchor = getAnchor(selectedItems);
@@ -90,6 +94,7 @@ public enum PasteOperation {
     private static Item getAnchor(ItemList<Item> items) {
         Item topLeftWall = null;
         Item topLeftItem = null;
+
         for (Item item : items) {
             // top-left Item
             if (topLeftItem == null) topLeftItem = item;

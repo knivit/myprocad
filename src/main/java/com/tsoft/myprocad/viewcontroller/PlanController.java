@@ -542,6 +542,35 @@ public class PlanController implements ProjectItemController {
         selectAndShowItems(materialItems);
     }
 
+    public List<String> getLevelTags() {
+        return ItemList.getItemsTags(plan.getLevelItems());
+    }
+
+    private void selectByTags() {
+        List<String> tags = getLevelTags();
+        if (tags.isEmpty()) return;
+
+        String[] names = { "", L10.get(L10.TAGS_COLUMN_NAME) };
+        Class[] classes = { Boolean.class, String.class };
+        boolean[] editable = { true, false };
+        TableDialogSupport tableDialog = new TableDialogSupport(names, classes, editable);
+        for (String tag : tags) tableDialog.addElement(false, tag);
+
+        InputTableElement element = new InputTableElement(L10.get(L10.TAGS_COLUMN_NAME), tableDialog);
+        InputDialogPanel inputDialogPanel = new InputDialogPanel(Arrays.asList(element));
+        DialogButton result = inputDialogPanel.displayView(L10.get(L10.FIND_BY_MATERIAL_NAME), DialogButton.OK, DialogButton.CANCEL);
+        if (!DialogButton.OK.equals(result)) return;
+
+        List<String> selectedTags = new ArrayList<>();
+        for (int i = 0; i < tableDialog.size(); i ++) {
+            Object[] data = tableDialog.get(i);
+            if ((boolean)data[0]) selectedTags.add((String)data[1]);
+        }
+
+        ItemList items = plan.getLevelItems().filterByTags(selectedTags);
+        selectAndShowItems(items);
+    }
+
     private void commandWindow() {
         planPanel.toggleCommandWindow();
     }
@@ -817,6 +846,7 @@ public class PlanController implements ProjectItemController {
 
         if (Menu.SELECT_BY_MATERIAL.equals(menu)) { selectByMaterial(); return true; }
         if (Menu.SELECT_BY_PATTERN.equals(menu)) { selectByPattern(); return true; }
+        if (Menu.SELECT_BY_TAGS.equals(menu)) { selectByTags(); return true; }
         if (Menu.SELECT_ALL.equals(menu)) { selectAll(); return true; }
         if (Menu.SELECT_WALLS.equals(menu)) { selectWalls(); return true; }
         if (Menu.ESCAPE.equals(menu)) { escape(); return true; }

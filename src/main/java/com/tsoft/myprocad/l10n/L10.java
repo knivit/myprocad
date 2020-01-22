@@ -65,6 +65,7 @@ public class L10 {
     public static String[] MENU_SELECT_WALLS_NAME = { "Select walls", "Выделить стены" };
     public static String[] MENU_SELECT_BY_MATERIAL_NAME = { "Select by material", "Выделить по материалу" };
     public static String[] MENU_SELECT_BY_PATTERN_NAME = { "Select by pattern", "Выделить по шаблону" };
+    public static String[] MENU_SELECT_BY_TAGS = { "Select by tags", "Выделить по тэгам" };
     public static String[] MENU_ESCAPE_NAME = { "Escape", "Сброс" };
     public static String[] MENU_GENERATE_SCRIPT_NAME = { "Generate a script", "Сгенерировать скрипт" };
     public static String[] MENU_MOVE_SELECTION_LEFT_NAME = { "Move selection left", "Сдвинуть выделение влево" };
@@ -207,6 +208,8 @@ public class L10 {
     public static String[] X_CATEGORY = { "X Coordinate", "Координата X" };
     public static String[] Y_CATEGORY = { "Y Coordinate", "Координата Y" };
     public static String[] Z_CATEGORY = { "Z Coordinate", "Координата Z" };
+    public static String[] USER_CATEGORY = { "User-defined", "Пользовательские" };
+
     public static String[] START_PROPERTY = { "Start (mm)", "Начало (мм)" };
     public static String[] END_PROPERTY = { "End (mm)", "Конец (мм)" };
     public static String[] MIN_PROPERTY = { "Min (mm)", "Минимум (мм)" };
@@ -231,6 +234,8 @@ public class L10 {
     public static String[] SHININESS_PROPERTY = { "Shininess", "Яркость" };
     public static String[] TRANSPARENCY_PROPERTY = { "Transparency", "Прозрачность" };
     public static String[] NUMBER_OF_ITEMS = { "%d item(s)", "%d элемент(а,ов)" };
+    public static String[] TAGS = { "Tags", "Тэги" };
+
     /** Status Panel */
     public static String[] STATUS_PANEL_X_LABEL = { "Mouse coordinates, X: ", "Координаты мыши, X: " };
     public static String[] STATUS_PANEL_Y_LABEL = { "Y: ", "Y: " };
@@ -506,6 +511,9 @@ public class L10 {
     public static String[] CONFIRM_ITEM_REMOVAL = { "Remove %s ?", "Удалить %s ?" };
     public static String[] ADD_ITEM = { "Add Item", "Добавить" };
     public static String[] NEW_LABEL_TEXT = { "Text", "Текст" };
+
+    public static String[] FIND_BY_TAG = { "Tag", "Тэг" };
+    public static String[] TAGS_COLUMN_NAME = { "Tag", "Тэг" };
 
     public static String[] ITEM_INVALID_COORDINATE = { "Item's coordinate must be in [%d, %d]", "Координата элемента должна быть в интервале [%d, %d]" };
     public static String[] ITEM_INVALID_DIAGONAL_WIDTH = { "Diagonal width must be positive and within the rectangle", "Ширина по диагонали д.б. положительна и вписываться в прямоугольник" };
