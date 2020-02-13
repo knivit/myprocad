@@ -21498,7 +21498,7 @@
 ], "levelId":"68", "pasteOffsetX":"500", "pasteOffsetY":"300", "pasteOffsetZ":"0", "pasteOperationId":"1", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"false", "gridPrinted":"false", "printScaleId":"1"}
 , "script":null}
 ]}
-,{"id":"69", "name":"2020", "tabIndex":"0", "items":[
+,{"id":"69", "name":"Топочная", "tabIndex":"1", "items":[
 "Plan":{"name":"Топочная", "gridVisible":"false", "rulersVisible":"true", "scale":"0.12", "originLocationId":"1", "walls":[
 {"xStart":"1400", "xEnd":"1600", "yStart":"1000", "yEnd":"2200", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
@@ -21554,19 +21554,19 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"4420", "xEnd":"8100", "yStart":"7200", "yEnd":"8000", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"13", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"4400", "xEnd":"8100", "yStart":"7200", "yEnd":"8000", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"13", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"1400", "xEnd":"4420", "yStart":"7400", "yEnd":"8000", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"1400", "xEnd":"4400", "yStart":"7400", "yEnd":"8000", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"1400", "xEnd":"4420", "yStart":"7200", "yEnd":"7400", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"13", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"1400", "xEnd":"4400", "yStart":"7200", "yEnd":"7400", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"13", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -21578,7 +21578,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"3000", "xEnd":"4420", "yStart":"5450", "yEnd":"7200", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"3000", "xEnd":"4400", "yStart":"5450", "yEnd":"7200", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -21614,7 +21614,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"4420", "xEnd":"8100", "yStart":"5450", "yEnd":"7200", "zStart":"-50000", "zEnd":"40000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"4400", "xEnd":"8100", "yStart":"5450", "yEnd":"7200", "zStart":"-50000", "zEnd":"40000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -21626,7 +21626,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"4950", "xEnd":"6050", "yStart":"2549", "yEnd":"3149", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"5150", "xEnd":"6150", "yStart":"2549", "yEnd":"3149", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -21726,7 +21726,7 @@
 ], "dimensionLines":[
 {"xStart":"4800", "xEnd":"7700", "yStart":"1434", "yEnd":"1434", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"7410", "xEnd":"7410", "yStart":"1210", "yEnd":"3310", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"4400", "xEnd":"8100", "yStart":"4000", "yEnd":"4000", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"4400", "xEnd":"8100", "yStart":"4100", "yEnd":"4100", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"8500", "xEnd":"8500", "yStart":"1000", "yEnd":"3700", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"1400", "xEnd":"4400", "yStart":"2600", "yEnd":"2600", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"1100", "xEnd":"1100", "yStart":"1000", "yEnd":"2400", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
@@ -21735,7 +21735,7 @@
 ,{"xStart":"1750", "xEnd":"2900", "yStart":"1300", "yEnd":"1300", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"2900", "xEnd":"4600", "yStart":"1300", "yEnd":"1300", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"1600", "xEnd":"4600", "yStart":"2000", "yEnd":"2000", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"7500", "xEnd":"8100", "yStart":"6150", "yEnd":"6150", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"7500", "xEnd":"8100", "yStart":"6350", "yEnd":"6350", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"6300", "xEnd":"7500", "yStart":"6700", "yEnd":"6700", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"6083", "xEnd":"6083", "yStart":"5601", "yEnd":"6401", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"6900", "xEnd":"6900", "yStart":"6400", "yEnd":"8000", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
@@ -21743,25 +21743,25 @@
 ,{"xStart":"8300", "xEnd":"8300", "yStart":"5600", "yEnd":"7200", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"1150", "xEnd":"1150", "yStart":"6800", "yEnd":"7200", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"8300", "xEnd":"8300", "yStart":"5400", "yEnd":"5600", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"4000", "xEnd":"4000", "yStart":"2400", "yEnd":"3700", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"4150", "xEnd":"4150", "yStart":"2400", "yEnd":"3700", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"8200", "xEnd":"8200", "yStart":"3300", "yEnd":"3700", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"8200", "xEnd":"8200", "yStart":"1000", "yEnd":"1200", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"4958", "xEnd":"6058", "yStart":"2417", "yEnd":"2417", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"6167", "xEnd":"6167", "yStart":"2550", "yEnd":"3150", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"7708", "xEnd":"8108", "yStart":"3858", "yEnd":"3858", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"4400", "xEnd":"4800", "yStart":"3900", "yEnd":"3900", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5150", "xEnd":"6150", "yStart":"2417", "yEnd":"2417", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6267", "xEnd":"6267", "yStart":"2550", "yEnd":"3150", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"7708", "xEnd":"8108", "yStart":"3850", "yEnd":"3850", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"4400", "xEnd":"4900", "yStart":"4000", "yEnd":"4000", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"-1000", "xEnd":"2600", "yStart":"2800", "yEnd":"2800", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"2800", "xEnd":"2800", "yStart":"3100", "yEnd":"6100", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"-1700", "xEnd":"2600", "yStart":"6300", "yEnd":"6300", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"2850", "xEnd":"2850", "yStart":"3100", "yEnd":"6100", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"-1700", "xEnd":"2600", "yStart":"6400", "yEnd":"6400", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"2300", "xEnd":"2600", "yStart":"3000", "yEnd":"3000", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"2450", "xEnd":"2450", "yStart":"5800", "yEnd":"6100", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"2700", "xEnd":"2700", "yStart":"5800", "yEnd":"6100", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"4800", "xEnd":"8100", "yStart":"900", "yEnd":"900", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"-1000", "xEnd":"2300", "yStart":"3000", "yEnd":"3000", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"-1400", "xEnd":"2300", "yStart":"5925", "yEnd":"5925", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"2450", "xEnd":"2450", "yStart":"3100", "yEnd":"5800", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"-1700", "xEnd":"-1400", "yStart":"5925", "yEnd":"5925", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"-1700", "xEnd":"-1000", "yStart":"4400", "yEnd":"4400", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"-1550", "xEnd":"-1550", "yStart":"4500", "yEnd":"5800", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"-1400", "xEnd":"2300", "yStart":"6225", "yEnd":"6225", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"2700", "xEnd":"2700", "yStart":"3100", "yEnd":"5800", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"-1700", "xEnd":"-1400", "yStart":"4400", "yEnd":"4400", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"-1400", "xEnd":"-1000", "yStart":"4400", "yEnd":"4400", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"-1850", "xEnd":"-1850", "yStart":"4500", "yEnd":"5800", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"650", "xEnd":"650", "yStart":"3300", "yEnd":"4150", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"642", "xEnd":"642", "yStart":"4750", "yEnd":"5400", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"-800", "xEnd":"50", "yStart":"4450", "yEnd":"4450", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
@@ -21769,78 +21769,86 @@
 ,{"xStart":"50", "xEnd":"1250", "yStart":"4925", "yEnd":"4925", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"-200", "xEnd":"-200", "yStart":"4150", "yEnd":"4750", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"500", "xEnd":"3259", "yStart":"3450", "yEnd":"3450", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"   ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"5", "endPointShapeTypeId":"1", "color":"-15383841", "lineWidth":"5"}
-,{"xStart":"-1800", "xEnd":"410", "yStart":"3450", "yEnd":"3450", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"  ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"5", "color":"-456158", "lineWidth":"5"}
+,{"xStart":"-1800", "xEnd":"410", "yStart":"3450", "yEnd":"3450", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"5", "color":"-456158", "lineWidth":"5"}
 ,{"xStart":"-1808", "xEnd":"410", "yStart":"3551", "yEnd":"3551", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"  ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"5", "color":"-15851025", "lineWidth":"5"}
 ,{"xStart":"500", "xEnd":"3000", "yStart":"3600", "yEnd":"3600", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"  ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"5", "endPointShapeTypeId":"1", "color":"-201189", "lineWidth":"5"}
 ,{"xStart":"5444", "xEnd":"5436", "yStart":"6000", "yEnd":"8000", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"4900", "xEnd":"5800", "yStart":"6458", "yEnd":"6458", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"4900", "xEnd":"5800", "yStart":"6350", "yEnd":"6350", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"4800", "xEnd":"5150", "yStart":"2417", "yEnd":"2417", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"4400", "xEnd":"4900", "yStart":"6350", "yEnd":"6350", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"4400", "xEnd":"4800", "yStart":"3850", "yEnd":"3850", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5800", "xEnd":"6300", "yStart":"6350", "yEnd":"6350", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"4900", "xEnd":"5508", "yStart":"3701", "yEnd":"4367", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"183", "xEnd":"1400", "yStart":"1433", "yEnd":"1117", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"3", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"167", "xEnd":"2975", "yStart":"1442", "yEnd":"1583", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"3", "color":"-16777216", "lineWidth":"1"}
 ], "labels":[
 {"xStart":"1768", "xEnd":"4210", "yStart":"7542", "yEnd":"7823", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Цоколь подвала (уже есть)", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"5826", "xEnd":"7026", "yStart":"1817", "yEnd":"2067", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Топочная", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"2442", "xEnd":"3642", "yStart":"218", "yEnd":"468", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Подвал", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"3682", "xEnd":"4365", "yStart":"-91", "yEnd":"176", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Дом", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"8584", "xEnd":"10309", "yStart":"5309", "yEnd":"5736", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Мауэрлат доска 5 см\nАрмопояс 15 см", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"8592", "xEnd":"10308", "yStart":"6173", "yEnd":"6978", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"8 рядов керамзит блока толщ 20см\n+ облицовка кирпичом 12 см", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"8608", "xEnd":"9966", "yStart":"7322", "yEnd":"7911", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"4 ряда фундамет блока толщ 40 см", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"-1747", "xEnd":"1111", "yStart":"6766", "yEnd":"7197", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"2 ряда керамзит блока толщ 20см\n+ облицовка кирпичом 12 см", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"5055", "xEnd":"5963", "yStart":"2641", "yEnd":"3060", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Люк в подвал", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"-1839", "xEnd":"520", "yStart":"2089", "yEnd":"2574", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Фундаментная плита\nтопочной", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"5215", "xEnd":"6123", "yStart":"2634", "yEnd":"3053", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Люк в подвал", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"-1839", "xEnd":"520", "yStart":"2089", "yEnd":"2574", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Фундаментная плита\nтопочной + цоколь", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"2832", "xEnd":"3407", "yStart":"3182", "yEnd":"3440", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"ХВС", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"-1809", "xEnd":"-1309", "yStart":"3158", "yEnd":"3416", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"ГВС", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"-1778", "xEnd":"1105", "yStart":"7197", "yEnd":"7436", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"1 ряд фундамет блока толщ 40 см", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"3195", "xEnd":"4578", "yStart":"4083", "yEnd":"4610", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Контур\nзаземления", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"6488", "xEnd":"7288", "yStart":"5800", "yEnd":"6177", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Окно с решеткой", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"-767", "xEnd":"433", "yStart":"1179", "yEnd":"1429", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Армопояс", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ], "levelMarks":[
 {"xStart":"1500", "xEnd":"1950", "yStart":"6400", "yEnd":"6600", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"+1,4м", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
 ,{"xStart":"7300", "xEnd":"7750", "yStart":"5200", "yEnd":"5400", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"+2,6 м", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
 ], "lights":[
 ], "levels":[
 {"id":"70", "name":"Custom", "start":"-50000", "end":"50000"}
-], "levelId":"70", "pasteOffsetX":"500", "pasteOffsetY":"300", "pasteOffsetZ":"0", "pasteOperationId":"4", "pageSetup":{"paperOrientationId":"2", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"false", "gridPrinted":"false", "printScaleId":"1"}
+], "levelId":"70", "pasteOffsetX":"0", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"1", "pageSetup":{"paperOrientationId":"2", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"false", "gridPrinted":"false", "printScaleId":"1"}
 , "script":null}
 ,"Plan":{"name":"Топочная сбоку", "gridVisible":"false", "rulersVisible":"true", "scale":"0.12", "originLocationId":"1", "walls":[
-{"xStart":"-700", "xEnd":"700", "yStart":"3000", "yEnd":"3600", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+{"xStart":"-800", "xEnd":"600", "yStart":"3000", "yEnd":"3600", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"-900", "xEnd":"700", "yStart":"2800", "yEnd":"3000", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"13", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"-1000", "xEnd":"600", "yStart":"2800", "yEnd":"3000", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"13", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"-700", "xEnd":"700", "yStart":"2400", "yEnd":"2800", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"-800", "xEnd":"600", "yStart":"2400", "yEnd":"2800", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"-900", "xEnd":"700", "yStart":"1700", "yEnd":"2200", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"-1000", "xEnd":"600", "yStart":"1700", "yEnd":"2200", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"9", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"-900", "xEnd":"-780", "yStart":"2400", "yEnd":"2800", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"10", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"-1000", "xEnd":"-880", "yStart":"2400", "yEnd":"2800", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"10", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"-1400", "xEnd":"700", "yStart":"1623", "yEnd":"2350", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"-1336", "xEnd":"597", "yStart":"1614", "yEnd":"2291", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"1", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"500", "xEnd":"550", "yStart":"2100", "yEnd":"2150", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"400", "xEnd":"450", "yStart":"2100", "yEnd":"2150", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"4000", "xEnd":"6700", "yStart":"2800", "yEnd":"3600", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"13", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"4000", "xEnd":"4400", "yStart":"2800", "yEnd":"3600", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"14", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -21852,7 +21860,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"3980", "xEnd":"4100", "yStart":"1200", "yEnd":"2800", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"10", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"4000", "xEnd":"4120", "yStart":"1200", "yEnd":"2800", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"10", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -21864,7 +21872,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"3980", "xEnd":"6700", "yStart":"1050", "yEnd":"1200", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"4", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"4000", "xEnd":"6700", "yStart":"1050", "yEnd":"1200", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"4", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -21882,57 +21890,67 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"9", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"-900", "xEnd":"700", "yStart":"2250", "yEnd":"2400", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"4", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"-1000", "xEnd":"600", "yStart":"2250", "yEnd":"2400", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"4", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"-900", "xEnd":"700", "yStart":"2200", "yEnd":"2250", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"9", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"-1000", "xEnd":"600", "yStart":"2200", "yEnd":"2250", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"9", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"3400", "xEnd":"6700", "yStart":"-70", "yEnd":"1190", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"3633", "xEnd":"6708", "yStart":"-81", "yEnd":"1113", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"1", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"4400", "xEnd":"6700", "yStart":"2800", "yEnd":"3600", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"13", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
 ], "beams":[
 ], "dimensionLines":[
-{"xStart":"925", "xEnd":"925", "yStart":"3000", "yEnd":"3600", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"-8", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"925", "xEnd":"925", "yStart":"2800", "yEnd":"3000", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"925", "xEnd":"925", "yStart":"2200", "yEnd":"2400", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"925", "xEnd":"925", "yStart":"1700", "yEnd":"2200", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"-700", "xEnd":"700", "yStart":"3900", "yEnd":"3900", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"4000", "xEnd":"6700", "yStart":"3900", "yEnd":"3900", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"6950", "xEnd":"6950", "yStart":"1200", "yEnd":"2800", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"6950", "xEnd":"6950", "yStart":"2800", "yEnd":"3600", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"6950", "xEnd":"6950", "yStart":"1000", "yEnd":"1200", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"925", "xEnd":"925", "yStart":"2400", "yEnd":"2800", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"6950", "xEnd":"6950", "yStart":"0", "yEnd":"1000", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"5666", "xEnd":"5658", "yStart":"1591", "yEnd":"2791", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"5900", "xEnd":"6700", "yStart":"1414", "yEnd":"1414", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"5118", "xEnd":"5118", "yStart":"1198", "yEnd":"1598", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"5292", "xEnd":"5892", "yStart":"1416", "yEnd":"1416", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+{"xStart":"825", "xEnd":"825", "yStart":"3000", "yEnd":"3600", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"-8", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"825", "xEnd":"825", "yStart":"2800", "yEnd":"3000", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"825", "xEnd":"825", "yStart":"2200", "yEnd":"2400", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"825", "xEnd":"825", "yStart":"1700", "yEnd":"2200", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"-800", "xEnd":"600", "yStart":"3850", "yEnd":"3850", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"4000", "xEnd":"6700", "yStart":"3850", "yEnd":"3850", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6950", "xEnd":"6950", "yStart":"1200", "yEnd":"2800", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6950", "xEnd":"6950", "yStart":"2800", "yEnd":"3600", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6950", "xEnd":"6950", "yStart":"1000", "yEnd":"1200", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"825", "xEnd":"825", "yStart":"2400", "yEnd":"2800", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6950", "xEnd":"6950", "yStart":"0", "yEnd":"1000", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5666", "xEnd":"5658", "yStart":"1591", "yEnd":"2791", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5900", "xEnd":"6700", "yStart":"1414", "yEnd":"1414", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5068", "xEnd":"5068", "yStart":"1198", "yEnd":"1598", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5292", "xEnd":"5892", "yStart":"1416", "yEnd":"1416", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"-1000", "xEnd":"-800", "yStart":"3250", "yEnd":"3250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"1761", "xEnd":"-857", "yStart":"3931", "yEnd":"2639", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"3", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"1812", "xEnd":"3979", "yStart":"3927", "yEnd":"1493", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"3", "color":"-16777216", "lineWidth":"1"}
 ], "labels":[
-{"xStart":"-399", "xEnd":"576", "yStart":"3125", "yEnd":"3439", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Цоколь подвала", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"-650", "xEnd":"33", "yStart":"1142", "yEnd":"1359", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Подвал", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+{"xStart":"-499", "xEnd":"476", "yStart":"3125", "yEnd":"3439", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Цоколь подвала", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"-750", "xEnd":"-67", "yStart":"1142", "yEnd":"1359", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Подвал", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"7159", "xEnd":"8884", "yStart":"907", "yEnd":"1334", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Армопояс 15 см + мауэрлат доска 5 см", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"7200", "xEnd":"8916", "yStart":"1767", "yEnd":"2572", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"8 рядов керамзит блока толщ 20см\n+ облицовка кирпичoм 12 см", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"7159", "xEnd":"9026", "yStart":"249", "yEnd":"591", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Угол наклона - 20 град\nПлощадь 1,35 м2", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"7216", "xEnd":"8882", "yStart":"2908", "yEnd":"3355", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"4 ряда фундамент блока толщ 40 см", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"1200", "xEnd":"3100", "yStart":"1777", "yEnd":"2144", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Угол наклона - 20 град\nПлощадь 0,35 м2", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"1151", "xEnd":"3909", "yStart":"2374", "yEnd":"2796", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"2 ряда керамзит блока толщ 20см\n+ облицовка кирпичoм 12 см", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"1128", "xEnd":"4061", "yStart":"2776", "yEnd":"3173", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"1 ряд фундамет блока толщ 40 см\nс выступом 10 см ВНУТРЬ подвала", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"1100", "xEnd":"3000", "yStart":"1777", "yEnd":"2144", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Угол наклона - 20 град\nПлощадь 0,35 м2", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"1100", "xEnd":"3858", "yStart":"2374", "yEnd":"2796", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"2 ряда керамзит блока толщ 20см\n+ облицовка кирпичoм 12 см", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"1092", "xEnd":"3850", "yStart":"2793", "yEnd":"3007", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"1 ряд фундамет блока толщ 40 см", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"4460", "xEnd":"5660", "yStart":"-208", "yEnd":"42", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Топочная", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"896", "xEnd":"4071", "yStart":"4003", "yEnd":"4401", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Облицовочный кирпич БЕЗ выступа\n(чтобы можно было установить дверь)", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ], "levelMarks":[
-{"xStart":"500", "xEnd":"950", "yStart":"1500", "yEnd":"1700", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"+1,9м", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
-,{"xStart":"6500", "xEnd":"6950", "yStart":"800", "yEnd":"1000", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"+2,6 м", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
-,{"xStart":"500", "xEnd":"950", "yStart":"2000", "yEnd":"2200", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"+1,4 м", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
-,{"xStart":"6500", "xEnd":"6950", "yStart":"-200", "yEnd":"0", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"+3,6 м", "fontFamily":"SansSerif", "fontSize":"100", "rotationId":"1"}
+{"xStart":"400", "xEnd":"850", "yStart":"1500", "yEnd":"1700", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"+1,9м", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
+,{"xStart":"6500", "xEnd":"6950", "yStart":"800", "yEnd":"1000", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"+2,6 м", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
+,{"xStart":"400", "xEnd":"850", "yStart":"2000", "yEnd":"2200", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"+1,4 м", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
+,{"xStart":"6500", "xEnd":"6950", "yStart":"-200", "yEnd":"0", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"+3,6 м", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1"}
 ], "lights":[
 ], "levels":[
 {"id":"71", "name":"Custom", "start":"-50000", "end":"50000"}
@@ -22155,7 +22173,7 @@
 ], "levelId":"75", "pasteOffsetX":"0", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"1", "pageSetup":{"paperOrientationId":"1", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"false", "gridPrinted":"false", "printScaleId":"1"}
 , "script":null}
 ]}
-,{"id":"76", "name":"Размеры", "tabIndex":"0", "items":[
+,{"id":"76", "name":"Размеры", "tabIndex":"3", "items":[
 "Plan":{"name":"Подвал", "gridVisible":"false", "rulersVisible":"true", "scale":"0.12", "originLocationId":"1", "walls":[
 {"xStart":"5100", "xEnd":"5500", "yStart":"0", "yEnd":"2330", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
@@ -22293,6 +22311,8 @@
 ], "labels":[
 {"xStart":"4577", "xEnd":"5694", "yStart":"-2219", "yEnd":"-1867", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Подвал", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"-1849", "xEnd":"1759", "yStart":"-2340", "yEnd":"-1455", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Вентиляционные отверстия в цоколе на высоте 1,74 м от пола\nВысота подвала 2,16 м\nВысота дверного проема 1,93 м", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"2016", "xEnd":"3299", "yStart":"3508", "yEnd":"3769", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"S = 63,3 м2", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"6892", "xEnd":"8142", "yStart":"3542", "yEnd":"3794", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"S = 48,4 м2", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ], "levelMarks":[
 ], "lights":[
 ], "levels":[
@@ -22571,7 +22591,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"5520", "xEnd":"6540", "yStart":"9510", "yEnd":"10250", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"5520", "xEnd":"6540", "yStart":"9490", "yEnd":"10350", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"10", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -22589,7 +22609,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"5820", "xEnd":"6640", "yStart":"12350", "yEnd":"12550", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"5920", "xEnd":"6740", "yStart":"12350", "yEnd":"12550", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -22655,7 +22675,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"6920", "xEnd":"7400", "yStart":"2810", "yEnd":"3210", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"6920", "xEnd":"7400", "yStart":"2680", "yEnd":"3140", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -22673,7 +22693,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"1930", "xEnd":"2390", "yStart":"3150", "yEnd":"3550", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"1930", "xEnd":"2390", "yStart":"3030", "yEnd":"3450", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -22703,25 +22723,31 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"7410", "xEnd":"7730", "yStart":"8410", "yEnd":"8550", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"7410", "xEnd":"7690", "yStart":"8410", "yEnd":"8550", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"7580", "xEnd":"7730", "yStart":"8550", "yEnd":"10250", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"7580", "xEnd":"7690", "yStart":"8550", "yEnd":"10250", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"5520", "xEnd":"7730", "yStart":"10250", "yEnd":"10350", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"6540", "xEnd":"7690", "yStart":"10230", "yEnd":"10350", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"8250", "xEnd":"9400", "yStart":"0", "yEnd":"1300", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"8400", "xEnd":"9400", "yStart":"0", "yEnd":"1120", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"5520", "xEnd":"6340", "yStart":"9690", "yEnd":"10150", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -22737,7 +22763,7 @@
 ,{"xStart":"10", "xEnd":"10", "yStart":"0", "yEnd":"12350", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"0", "xEnd":"9400", "yStart":"12350", "yEnd":"12350", "zStart":"0", "zEnd":"1", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"11400", "xEnd":"11400", "yStart":"-2500", "yEnd":"16500", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"6640", "xEnd":"8250", "yStart":"1140", "yEnd":"1140", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"6640", "xEnd":"9400", "yStart":"1140", "yEnd":"1140", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"10", "xEnd":"5050", "yStart":"450", "yEnd":"450", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"4800", "xEnd":"4800", "yStart":"0", "yEnd":"1400", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"3460", "xEnd":"5050", "yStart":"1250", "yEnd":"1250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
@@ -22747,7 +22773,7 @@
 ,{"xStart":"3590", "xEnd":"5050", "yStart":"3300", "yEnd":"3300", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"3510", "xEnd":"3510", "yStart":"1610", "yEnd":"2460", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"3250", "xEnd":"3250", "yStart":"2460", "yEnd":"3440", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"3685", "xEnd":"3685", "yStart":"2460", "yEnd":"3550", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"3685", "xEnd":"3685", "yStart":"2455", "yEnd":"3555", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"2390", "xEnd":"3460", "yStart":"3300", "yEnd":"3300", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"4800", "xEnd":"4800", "yStart":"2680", "yEnd":"7530", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"5050", "xEnd":"5850", "yStart":"2550", "yEnd":"2550", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
@@ -22755,7 +22781,7 @@
 ,{"xStart":"5520", "xEnd":"5850", "yStart":"3030", "yEnd":"3030", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"5300", "xEnd":"5300", "yStart":"1500", "yEnd":"2680", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"6700", "xEnd":"9400", "yStart":"2550", "yEnd":"2550", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"9150", "xEnd":"9150", "yStart":"1300", "yEnd":"2680", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"9150", "xEnd":"9150", "yStart":"1120", "yEnd":"2680", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"7400", "xEnd":"9400", "yStart":"3030", "yEnd":"3030", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"8950", "xEnd":"8950", "yStart":"2830", "yEnd":"7420", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"5300", "xEnd":"5300", "yStart":"7530", "yEnd":"8410", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
@@ -22770,54 +22796,57 @@
 ,{"xStart":"4310", "xEnd":"5050", "yStart":"250", "yEnd":"250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"5050", "xEnd":"5480", "yStart":"250", "yEnd":"250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"3110", "xEnd":"4310", "yStart":"250", "yEnd":"250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"5880", "xEnd":"6720", "yStart":"250", "yEnd":"250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5880", "xEnd":"6720", "yStart":"100", "yEnd":"100", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"10", "xEnd":"3110", "yStart":"250", "yEnd":"250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"3599", "xEnd":"4391", "yStart":"1618", "yEnd":"2052", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"5856", "xEnd":"6504", "yStart":"2815", "yEnd":"3473", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"5857", "xEnd":"6257", "yStart":"7414", "yEnd":"6606", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"6660", "xEnd":"6920", "yStart":"3030", "yEnd":"3030", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"6950", "xEnd":"7400", "yStart":"3460", "yEnd":"3460", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6950", "xEnd":"7400", "yStart":"3390", "yEnd":"3390", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"6720", "xEnd":"7370", "yStart":"8460", "yEnd":"8460", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"5520", "xEnd":"6720", "yStart":"8770", "yEnd":"8770", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"7470", "xEnd":"7470", "yStart":"8550", "yEnd":"10250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"6540", "xEnd":"7580", "yStart":"10117", "yEnd":"10117", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"6640", "xEnd":"6640", "yStart":"9510", "yEnd":"10250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"5677", "xEnd":"5677", "yStart":"8586", "yEnd":"9486", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"5520", "xEnd":"6540", "yStart":"9400", "yEnd":"9400", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"7470", "xEnd":"7470", "yStart":"8550", "yEnd":"10230", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6540", "xEnd":"7580", "yStart":"10097", "yEnd":"10097", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6640", "xEnd":"6640", "yStart":"9490", "yEnd":"10230", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5677", "xEnd":"5677", "yStart":"8576", "yEnd":"9476", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5520", "xEnd":"6540", "yStart":"9380", "yEnd":"9380", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"5650", "xEnd":"5650", "yStart":"10350", "yEnd":"12350", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"5520", "xEnd":"7730", "yStart":"10580", "yEnd":"10580", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"5520", "xEnd":"5820", "yStart":"12250", "yEnd":"12250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5520", "xEnd":"7690", "yStart":"10580", "yEnd":"10580", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5520", "xEnd":"5920", "yStart":"12250", "yEnd":"12250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"4320", "xEnd":"5050", "yStart":"12250", "yEnd":"12250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"3110", "xEnd":"4320", "yStart":"12250", "yEnd":"12250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"5820", "xEnd":"6640", "yStart":"12250", "yEnd":"12250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"6640", "xEnd":"9400", "yStart":"12250", "yEnd":"12250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5920", "xEnd":"6740", "yStart":"12250", "yEnd":"12250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6740", "xEnd":"9400", "yStart":"12250", "yEnd":"12250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"10", "xEnd":"3110", "yStart":"12250", "yEnd":"12250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"4800", "xEnd":"4800", "yStart":"8460", "yEnd":"8750", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"7394", "xEnd":"6925", "yStart":"8396", "yEnd":"7802", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
 ,{"xStart":"4558", "xEnd":"4108", "yStart":"8860", "yEnd":"9643", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
-,{"xStart":"8250", "xEnd":"9400", "yStart":"250", "yEnd":"250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"5480", "xEnd":"6640", "yStart":"1200", "yEnd":"1200", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"6640", "xEnd":"8250", "yStart":"945", "yEnd":"961", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"8400", "xEnd":"9400", "yStart":"250", "yEnd":"250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5480", "xEnd":"6640", "yStart":"1300", "yEnd":"1300", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6640", "xEnd":"8400", "yStart":"250", "yEnd":"250", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"9150", "xEnd":"9150", "yStart":"4190", "yEnd":"6890", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"9150", "xEnd":"9150", "yStart":"6890", "yEnd":"7420", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"9150", "xEnd":"9150", "yStart":"2830", "yEnd":"4190", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"8000", "xEnd":"8000", "yStart":"0", "yEnd":"1140", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6996", "xEnd":"6996", "yStart":"0", "yEnd":"1140", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"7400", "xEnd":"7400", "yStart":"-500", "yEnd":"12350", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"2380", "xEnd":"3700", "yStart":"8610", "yEnd":"8610", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"1930", "xEnd":"1930", "yStart":"-500", "yEnd":"12350", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"5850", "xEnd":"6700", "yStart":"2730", "yEnd":"2730", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"1930", "xEnd":"2390", "yStart":"3050", "yEnd":"3050", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"1930", "xEnd":"2390", "yStart":"2930", "yEnd":"2930", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"3250", "xEnd":"3250", "yStart":"1400", "yEnd":"1610", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"3700", "xEnd":"4550", "yStart":"8808", "yEnd":"8808", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"1930", "xEnd":"5050", "yStart":"6350", "yEnd":"6350", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"7850", "xEnd":"7850", "yStart":"0", "yEnd":"2680", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"5050", "xEnd":"5850", "yStart":"7749", "yEnd":"7749", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"7730", "xEnd":"9400", "yStart":"9200", "yEnd":"9200", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"7710", "xEnd":"9380", "yStart":"9200", "yEnd":"9200", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"7410", "xEnd":"7730", "yStart":"8309", "yEnd":"8301", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"5050", "xEnd":"6720", "yStart":"8290", "yEnd":"8290", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"2511", "xEnd":"2511", "yStart":"8410", "yEnd":"8730", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"7535", "xEnd":"7535", "yStart":"7100", "yEnd":"7420", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"5850", "xEnd":"6700", "yStart":"7503", "yEnd":"7503", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"1692", "xEnd":"1692", "yStart":"3030", "yEnd":"3450", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"7800", "xEnd":"7800", "yStart":"8470", "yEnd":"10350", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"7522", "xEnd":"7522", "yStart":"2810", "yEnd":"3140", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":null, "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ], "labels":[
 {"xStart":"2175", "xEnd":"3491", "yStart":"681", "yEnd":"1145", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Библиотека 14,2 м2", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"2269", "xEnd":"3283", "yStart":"4731", "yEnd":"5195", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Игровая 29,0 м2", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
@@ -22840,7 +22869,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"1950", "xEnd":"5130", "yStart":"2850", "yEnd":"6990", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"1950", "xEnd":"5130", "yStart":"2850", "yEnd":"6990", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"3", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -22852,7 +22881,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"8692", "xEnd":"9112", "yStart":"1049", "yEnd":"1474", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"8692", "xEnd":"9112", "yStart":"1049", "yEnd":"1474", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -22876,7 +22905,7 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"3450", "xEnd":"5124", "yStart":"7009", "yEnd":"7776", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"3450", "xEnd":"5124", "yStart":"6999", "yEnd":"7766", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -22906,13 +22935,115 @@
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
-,{"xStart":"4432", "xEnd":"4748", "yStart":"7748", "yEnd":"7814", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+,{"xStart":"4521", "xEnd":"4729", "yStart":"7730", "yEnd":"7804", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
 ], "temporaryLoad":[
 ], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
 ,{"xStart":"3037", "xEnd":"3270", "yStart":"6942", "yEnd":"7033", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"-217", "xEnd":"-75", "yStart":"5908", "yEnd":"6051", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"11", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"1854", "xEnd":"1929", "yStart":"6766", "yEnd":"6933", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"4787", "xEnd":"5004", "yStart":"7033", "yEnd":"7158", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"5906", "xEnd":"6206", "yStart":"6543", "yEnd":"6843", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"11396", "xEnd":"11721", "yStart":"6527", "yEnd":"6827", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"11", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"6296", "xEnd":"7829", "yStart":"7992", "yEnd":"8083", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"10710", "xEnd":"11977", "yStart":"1510", "yEnd":"3935", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"3", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"11471", "xEnd":"11621", "yStart":"3717", "yEnd":"3858", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"11", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"11696", "xEnd":"11896", "yStart":"2608", "yEnd":"2867", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"11404", "xEnd":"11754", "yStart":"3100", "yEnd":"3308", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"5", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"10670", "xEnd":"10737", "yStart":"3341", "yEnd":"3550", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"10679", "xEnd":"10729", "yStart":"2583", "yEnd":"2850", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"10679", "xEnd":"10738", "yStart":"1766", "yEnd":"2075", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"10962", "xEnd":"11162", "yStart":"1483", "yEnd":"1550", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"6", "backgroundColor":"-1", "foregroundColor":"-16777216", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"5429", "xEnd":"5471", "yStart":"7033", "yEnd":"7150", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"1", "backgroundColor":"-1", "foregroundColor":"-15065366", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"2677", "xEnd":"2777", "yStart":"475", "yEnd":"517", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"1", "backgroundColor":"-1", "foregroundColor":"-15065366", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
+], "forces":[
+], "distributedForces":[
+], "b":"600.0", "permanentLoad":[
+], "temporaryLoad":[
+], "sagId":"2", "showWired":"false", "Ka":"-13487566", "Kd":"-1", "Ks":"-8355712", "Ke":"-16777216", "shininess":"64.0", "transparency":"0.0", "wallShapeId":"0", "diagonalWidth":"100", "alwaysShowBorders":"false", "skipInReports":"false"}
+,{"xStart":"10345", "xEnd":"10312", "yStart":"2462", "yEnd":"2578", "zStart":"-50000", "zEnd":"50000", "tags":null, "materialId":"2", "patternId":"1", "backgroundColor":"-1", "foregroundColor":"-15065366", "borderColor":"-16777216", "borderWidth":"1", "leftSupport":null, "rightSupport":null, "elasticStrength":"200000.0", "allowableStress":"160.0", "moments":[
 ], "forces":[
 ], "distributedForces":[
 ], "b":"600.0", "permanentLoad":[
@@ -22935,7 +23066,7 @@
 ,{"xStart":"0", "xEnd":"1950", "yStart":"4950", "yEnd":"4950", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"6,5 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"9120", "xEnd":"12330", "yStart":"1225", "yEnd":"1225", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"10,7м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"6016", "xEnd":"8696", "yStart":"2683", "yEnd":"1334", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"12,5 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"2241", "xEnd":"2241", "yStart":"6990", "yEnd":"8040", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"4,0 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"1949", "xEnd":"1949", "yStart":"6990", "yEnd":"8040", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"4,0 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"1053", "xEnd":"1920", "yStart":"2817", "yEnd":"2817", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"1053", "xEnd":"1920", "yStart":"2937", "yEnd":"2937", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"1053", "xEnd":"1920", "yStart":"3057", "yEnd":"3057", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"1"}
@@ -22946,13 +23077,56 @@
 ,{"xStart":"5153", "xEnd":"6020", "yStart":"3177", "yEnd":"3177", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"3345", "xEnd":"3345", "yStart":"7025", "yEnd":"7375", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"1"}
 ,{"xStart":"3245", "xEnd":"3245", "yStart":"7025", "yEnd":"7375", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"1"}
-,{"xStart":"3851", "xEnd":"3851", "yStart":"7775", "yEnd":"8033", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"1,0 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"3851", "xEnd":"3851", "yStart":"7765", "yEnd":"8023", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"1,0 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5337", "xEnd":"5337", "yStart":"3183", "yEnd":"3958", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"2,05 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5146", "xEnd":"6038", "yStart":"3178", "yEnd":"3178", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"1,6 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"4903", "xEnd":"4895", "yStart":"2650", "yEnd":"2858", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"0,93 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"3444", "xEnd":"5111", "yStart":"7620", "yEnd":"7620", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"5,1 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"5252", "xEnd":"5244", "yStart":"6992", "yEnd":"7767", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"2,7 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"2924", "xEnd":"3445", "yStart":"7620", "yEnd":"7620", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"1,6 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"2703", "xEnd":"2703", "yStart":"7000", "yEnd":"7383", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"1,6 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"1950", "xEnd":"2924", "yStart":"7620", "yEnd":"7620", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"3,9 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"-63", "xEnd":"1846", "yStart":"6016", "yEnd":"6850", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"7,5 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-9342958", "lineWidth":"3"}
+,{"xStart":"1887", "xEnd":"1887", "yStart":"6942", "yEnd":"7092", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-9540844", "lineWidth":"3"}
+,{"xStart":"1893", "xEnd":"4766", "yStart":"7097", "yEnd":"7097", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-9342958", "lineWidth":"3"}
+,{"xStart":"5154", "xEnd":"8886", "yStart":"7081", "yEnd":"1473", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"28,5 м (ХВС)", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16054060", "lineWidth":"3"}
+,{"xStart":"5122", "xEnd":"5913", "yStart":"6714", "yEnd":"6706", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"3,0 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6063", "xEnd":"6079", "yStart":"6842", "yEnd":"8017", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"5,5 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"6212", "xEnd":"11387", "yStart":"6717", "yEnd":"6700", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"17,0 м (Техническая вода)", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-14801424", "lineWidth":"3"}
+,{"xStart":"8897", "xEnd":"8895", "yStart":"49", "yEnd":"1049", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"2,2 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"11722", "xEnd":"12305", "yStart":"6675", "yEnd":"6667", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"2,0 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"8911", "xEnd":"10703", "yStart":"1482", "yEnd":"2480", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" (ХВС)", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-15130642", "lineWidth":"3"}
+,{"xStart":"11229", "xEnd":"11971", "yStart":"3050", "yEnd":"3067", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"11546", "xEnd":"11546", "yStart":"3850", "yEnd":"6525", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"(Техническая вода)", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-15132686", "lineWidth":"3"}
+,{"xStart":"11220", "xEnd":"11954", "yStart":"2408", "yEnd":"2409", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"10727", "xEnd":"10920", "yStart":"3034", "yEnd":"3043", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"10727", "xEnd":"10903", "yStart":"2384", "yEnd":"2398", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"10917", "xEnd":"11088", "yStart":"2394", "yEnd":"2205", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"10915", "xEnd":"11086", "yStart":"3043", "yEnd":"2854", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"5", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"10738", "xEnd":"11979", "yStart":"4248", "yEnd":"4248", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"3,5 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"12079", "xEnd":"12096", "yStart":"1517", "yEnd":"3942", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"5,5 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"200", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"10812", "xEnd":"10812", "yStart":"3033", "yEnd":"3950", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"2,0 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"10811", "xEnd":"10805", "yStart":"2400", "yEnd":"3042", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"1,5 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"10806", "xEnd":"10806", "yStart":"1485", "yEnd":"2402", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"2,0 м", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"2", "endPointShapeTypeId":"2", "color":"-16777216", "lineWidth":"1"}
+,{"xStart":"10956", "xEnd":"11127", "yStart":"1487", "yEnd":"1298", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"100", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16777216", "lineWidth":"2"}
+,{"xStart":"8911", "xEnd":"8596", "yStart":"1482", "yEnd":"1474", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-15130642", "lineWidth":"3"}
+,{"xStart":"8604", "xEnd":"8596", "yStart":"284", "yEnd":"1474", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-15130642", "lineWidth":"3"}
+,{"xStart":"8604", "xEnd":"2729", "yStart":"284", "yEnd":"274", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-15130642", "lineWidth":"3"}
+,{"xStart":"2721", "xEnd":"2729", "yStart":"467", "yEnd":"274", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-15130642", "lineWidth":"3"}
+,{"xStart":"5154", "xEnd":"5431", "yStart":"7081", "yEnd":"7097", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-16054060", "lineWidth":"3"}
+,{"xStart":"10353", "xEnd":"10703", "yStart":"2521", "yEnd":"2480", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":" ", "offset":"0", "fontFamily":"SansSerif", "fontSize":"150", "startPointShapeTypeId":"1", "endPointShapeTypeId":"1", "color":"-15130642", "lineWidth":"3"}
 ], "labels":[
 {"xStart":"3235", "xEnd":"3843", "yStart":"4117", "yEnd":"4367", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Дом", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"937", "xEnd":"2137", "yStart":"2316", "yEnd":"2566", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Лестница", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"4894", "xEnd":"6094", "yStart":"2339", "yEnd":"2589", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Лестница", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
-,{"xStart":"3805", "xEnd":"5005", "yStart":"7219", "yEnd":"7469", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Топочная", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"888", "xEnd":"2088", "yStart":"2183", "yEnd":"2433", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Лестница", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"4967", "xEnd":"6167", "yStart":"2158", "yEnd":"2408", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Лестница", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"3747", "xEnd":"4947", "yStart":"7095", "yEnd":"7345", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Топочная", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ,{"xStart":"2262", "xEnd":"3820", "yStart":"5633", "yEnd":"6343", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Высота от земли до конька - 9,6 м", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"-388", "xEnd":"29", "yStart":"5633", "yEnd":"5866", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Газ", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"364", "xEnd":"1564", "yStart":"6464", "yEnd":"6953", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Газ (подземный ввод)", "fontFamily":"SansSerif", "fontSize":"150", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"5772", "xEnd":"7805", "yStart":"6260", "yEnd":"6495", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Септик Топас 5 Пр", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"10074", "xEnd":"11416", "yStart":"6061", "yEnd":"6480", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Дренажный колодец", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"7428", "xEnd":"8678", "yStart":"903", "yEnd":"1153", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Скважина", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
+,{"xStart":"11129", "xEnd":"11812", "yStart":"1784", "yEnd":"2067", "zStart":"-50000", "zEnd":"50000", "tags":null, "text":"Баня", "fontFamily":"SansSerif", "fontSize":"200", "rotationId":"1", "borderColor":"-16777216", "borderWidth":"0"}
 ], "levelMarks":[
 ], "lights":[
 ], "levels":[
@@ -22960,4 +23134,4 @@
 ], "levelId":"80", "pasteOffsetX":"0", "pasteOffsetY":"0", "pasteOffsetZ":"0", "pasteOperationId":"1", "pageSetup":{"paperOrientationId":"2", "paperSizeId":"1", "paperWidth":"2100", "paperHeight":"2970", "paperTopMargin":"10", "paperLeftMargin":"15", "paperBottomMargin":"10", "paperRightMargin":"10", "rulersPrinted":"false", "gridPrinted":"false", "printScaleId":"1"}
 , "script":null}
 ]}
-], "activeFolderId":"69", "nextId":"81"}
+], "activeFolderId":"76", "nextId":"81"}
