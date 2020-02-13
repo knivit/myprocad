@@ -33,10 +33,8 @@ import com.tsoft.myprocad.viewcontroller.state.SelectionState;
 
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.List;
-import java.util.Optional;
 import java.util.logging.Logger;
 
 public class PlanController implements ProjectItemController {
@@ -542,12 +540,12 @@ public class PlanController implements ProjectItemController {
         selectAndShowItems(materialItems);
     }
 
-    public List<String> getLevelTags() {
+    public Set<String> getLevelTags() {
         return ItemList.getItemsTags(plan.getLevelItems());
     }
 
     private void selectByTags() {
-        List<String> tags = getLevelTags();
+        Set<String> tags = getLevelTags();
         if (tags.isEmpty()) return;
 
         String[] names = { "", L10.get(L10.TAGS_COLUMN_NAME) };
@@ -558,7 +556,7 @@ public class PlanController implements ProjectItemController {
 
         InputTableElement element = new InputTableElement(L10.get(L10.TAGS_COLUMN_NAME), tableDialog);
         InputDialogPanel inputDialogPanel = new InputDialogPanel(Arrays.asList(element));
-        DialogButton result = inputDialogPanel.displayView(L10.get(L10.FIND_BY_MATERIAL_NAME), DialogButton.OK, DialogButton.CANCEL);
+        DialogButton result = inputDialogPanel.displayView(L10.get(L10.FIND_BY_TAG_NAME), DialogButton.OK, DialogButton.CANCEL);
         if (!DialogButton.OK.equals(result)) return;
 
         List<String> selectedTags = new ArrayList<>();

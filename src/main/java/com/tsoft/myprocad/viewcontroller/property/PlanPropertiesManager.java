@@ -131,7 +131,7 @@ public class PlanPropertiesManager {
 
         // mix of them
         if (!walls.isEmpty() || !beams.isEmpty() || !labels.isEmpty() || !dimensionLines.isEmpty() || !levelMarks.isEmpty()) {
-            currentPropertiesController= selectionPropertiesController;
+            currentPropertiesController = selectionPropertiesController;
             Selection selection = new Selection(selectedItems);
             selectionPropertiesController.selectObjects(Arrays.asList(selection));
             return;

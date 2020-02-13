@@ -27,8 +27,8 @@ public class ItemList<T extends Item> extends ArrayList<T> {
         }
     }
 
-    public static List<String> getItemsTags(ItemList<Item> levelItems) {
-        List<String> result = new ArrayList<>();
+    public static Set<String> getItemsTags(ItemList<Item> levelItems) {
+        Set<String> result = new HashSet<>();
 
         for (Item item : levelItems) {
             if (item.getTags() == null) continue;

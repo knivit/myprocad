@@ -512,7 +512,7 @@ public class L10 {
     public static String[] ADD_ITEM = { "Add Item", "Добавить" };
     public static String[] NEW_LABEL_TEXT = { "Text", "Текст" };
 
-    public static String[] FIND_BY_TAG = { "Tag", "Тэг" };
+    public static String[] FIND_BY_TAG_NAME = { "Find by Tags", "Найти по тэгам" };
     public static String[] TAGS_COLUMN_NAME = { "Tag", "Тэг" };
 
     public static String[] ITEM_INVALID_COORDINATE = { "Item's coordinate must be in [%d, %d]", "Координата элемента должна быть в интервале [%d, %d]" };
