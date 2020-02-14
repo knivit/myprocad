@@ -16,13 +16,14 @@ public class ApplicationPropertiesController extends AbstractPropertiesControlle
 
     @Override
     protected void initObjectProperties() {
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.APPLICATION_VIEW_CATEGORY))
             .setLabelName(L10.get(L10.APPLICATION_LANGUAGE_PROPERTY))
             .setType(ComboBoxPropertyEditor.class)
             .setAvailableValues(Language.values())
             .setValueGetter(application -> ((Application) application).getLanguage())
-            .setValueSetter((application, value) -> { if (value != null) ((Application) application).setLanguage((Language) value); });
+            .setValueSetter((application, value) -> { if (value != null) ((Application) application).setLanguage((Language) value); })
+        );
     }
 
     @Override

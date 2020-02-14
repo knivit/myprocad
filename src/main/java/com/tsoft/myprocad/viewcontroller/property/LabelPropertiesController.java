@@ -20,56 +20,63 @@ public class LabelPropertiesController extends AbstractComponentPropertiesContro
     protected void initObjectProperties() {
         addCommonProperties();
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.LABEL_ROTATION_PROPERTY))
             .setType(ComboBoxPropertyEditor.class)
             .setAvailableValues(Rotation.values())
             .setValueGetter(object -> ((Label) object).getRotation())
-            .setValueSetter((object, value) -> ((Label)object).setRotation((Rotation) value));
+            .setValueSetter((object, value) -> ((Label)object).setRotation((Rotation) value))
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.BORDER_COLOR_PROPERTY))
             .setType(ColorPropertyEditor.class)
             .setValueGetter(object -> ((Label) object).getBorderColor())
-            .setValueSetter((object, value) -> ((Label) object).setBorderColor((Color) value));
+            .setValueSetter((object, value) -> ((Label) object).setBorderColor((Color) value))
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.BORDER_WIDTH_PROPERTY))
             .setType(Integer.class)
             .setValueGetter(object -> ((Label) object).getBorderWidth())
             .setValueValidator((object, value) -> ((Label) object).validateBorderWidth((Integer) value))
-            .setValueSetter((object, value) -> ((Label) object).setBorderWidth((int) value));
+            .setValueSetter((object, value) -> ((Label) object).setBorderWidth((int) value))
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.LABEL_TEXT_PROPERTY))
             .setType(TextPropertyEditor.class)
             .setValueGetter(object -> StringUtil.replaceAll(((Label)object).getText(), Character.toString('\n'), "\\n"))
-            .setValueSetter((object, value) -> ((Label)object).setText(StringUtil.replaceAll((String) value, "\\n", Character.toString('\n'))));
+            .setValueSetter((object, value) -> ((Label)object).setText(StringUtil.replaceAll((String) value, "\\n", Character.toString('\n'))))
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.LABEL_FONT_FAMILY_PROPERTY))
             .setType(ComboBoxPropertyEditor.class)
             .setAvailableValues(Font.DIALOG, Font.SERIF, Font.SANS_SERIF, Font.MONOSPACED)
             .setValueGetter(object -> ((Label) object).getFontFamily())
-            .setValueSetter((object, value) -> { if (value != null) ((Label) object).setFontFamily((String) value); });
+            .setValueSetter((object, value) -> { if (value != null) ((Label) object).setFontFamily((String) value); })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.LABEL_FONT_SIZE_PROPERTY))
             .setType(Integer.class)
             .setValueGetter(object -> ((Label)object).getFontSize())
-            .setValueSetter((object, value) -> { if (value != null) ((Label)object).setFontSize((int)value); });
+            .setValueSetter((object, value) -> { if (value != null) ((Label)object).setFontSize((int)value); })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.AREA_PROPERTY))
             .setType(Float.class)
-            .setValueGetter(item -> ((Label)item).getArea());
+            .setValueGetter(item -> ((Label)item).getArea())
+        );
     }
 
     @Override

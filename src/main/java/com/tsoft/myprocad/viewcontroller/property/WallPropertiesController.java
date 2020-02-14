@@ -23,7 +23,7 @@ public class WallPropertiesController extends AbstractComponentPropertiesControl
     }
 
     private void addViewProperties() {
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.VIEW_CATEGORY))
             .setLabelName(L10.get(L10.WALL_SHAPE_PROPERTY))
             .setType(ComboBoxPropertyEditor.class)
@@ -32,9 +32,10 @@ public class WallPropertiesController extends AbstractComponentPropertiesControl
             .setValueSetter((wall, value) -> {
                 addToHistory((Wall) wall);
                 ((Wall) wall).setWallShape(((WallShape) value));
-            });
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.VIEW_CATEGORY))
             .setLabelName(L10.get(L10.WALL_DIAGONAL_WIDTH_PROPERTY))
             .setType(Integer.class)
@@ -43,35 +44,40 @@ public class WallPropertiesController extends AbstractComponentPropertiesControl
             .setValueSetter((wall, value) -> {
                 addToHistory((Wall) wall);
                 ((Wall) wall).setDiagonalWidth((int) value);
-            });
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.VIEW_CATEGORY))
             .setLabelName(L10.get(L10.WALL_ALWAYS_SHOW_BORDERS_PROPERTY))
             .setType(Boolean.class)
             .setValueGetter(wall -> ((Wall)wall).isAlwaysShowBorders())
-            .setValueSetter((wall, value) -> ((Wall)wall).setAlwaysShowBorders(((boolean) value)));
+            .setValueSetter((wall, value) -> ((Wall)wall).setAlwaysShowBorders(((boolean) value)))
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.WALL_SKIP_IN_REPORTS_PROPERTY))
             .setType(Boolean.class)
             .setValueGetter(wall -> ((Wall)wall).isSkipInReports())
-            .setValueSetter((wall, value) -> ((Wall)wall).setSkipInReports((boolean) value));
+            .setValueSetter((wall, value) -> ((Wall)wall).setSkipInReports((boolean) value))
+        );
     }
 
     private void addInfoProperties() {
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.INFO_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_AMOUNT_PROPERTY))
             .setType(Integer.class)
-            .setValueGetter(wall -> plan.getSelection().getWallsAmount());
+            .setValueGetter(wall -> plan.getSelection().getWallsAmount())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.INFO_CATEGORY))
             .setLabelName(L10.get(L10.WALL_OUTER_LENGTH_PROPERTY))
             .setType(Float.class)
-            .setValueGetter(wall -> plan.getSelection().getWallsOuterLength());
+            .setValueGetter(wall -> plan.getSelection().getWallsOuterLength())
+        );
     }
 
     @Override

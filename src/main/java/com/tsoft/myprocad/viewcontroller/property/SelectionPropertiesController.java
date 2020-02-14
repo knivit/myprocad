@@ -11,138 +11,153 @@ public class SelectionPropertiesController extends AbstractComponentPropertiesCo
 
     @Override
     protected void initObjectProperties() {
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_INFO_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_AMOUNT_PROPERTY))
             .setType(Integer.class)
-            .setValueGetter(selection -> ((Selection)selection).getItems().size());
+            .setValueGetter(selection -> ((Selection)selection).getItems().size())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_X_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_X_MIN_PROPERTY))
             .setType(Integer.class)
-            .setValueGetter(selection -> ((Selection)selection).getXMin());
+            .setValueGetter(selection -> ((Selection)selection).getXMin())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_X_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_X_MAX_PROPERTY))
             .setType(Integer.class)
-            .setValueGetter(selection -> ((Selection)selection).getXMax());
+            .setValueGetter(selection -> ((Selection)selection).getXMax())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_X_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_MOVE_X_PROPERTY))
             .setType(Integer.class)
             .setValueSetter((selection, value) -> {
-            if (value != null) {
-                addToHistory(((Selection) selection).getItems());
-                ((Selection)selection).moveX(plan, (int) value);
-            }
-        });
+                if (value != null) {
+                    addToHistory(((Selection) selection).getItems());
+                    ((Selection)selection).moveX(plan, (int) value);
+                }
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_X_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_MOVE_DX_PROPERTY))
             .setType(Integer.class)
             .setValueSetter((selection, value) -> {
-            if (value != null) {
-                addToHistory(((Selection) selection).getItems());
-                ((Selection)selection).shiftX(plan, (int) value);
-            }
-        });
+                if (value != null) {
+                    addToHistory(((Selection) selection).getItems());
+                    ((Selection)selection).shiftX(plan, (int) value);
+                }
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_Y_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_Y_MIN_PROPERTY))
             .setType(Integer.class)
-            .setValueGetter(selection -> ((Selection)selection).getYMin());
+            .setValueGetter(selection -> ((Selection)selection).getYMin())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_Y_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_Y_MAX_PROPERTY))
             .setType(Integer.class)
-            .setValueGetter(selection -> ((Selection)selection).getYMax());
+            .setValueGetter(selection -> ((Selection)selection).getYMax())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_Y_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_MOVE_Y_PROPERTY))
             .setType(Integer.class)
             .setValueSetter((selection, value) -> {
-            if (value != null) {
-                addToHistory(((Selection) selection).getItems());
-                ((Selection)selection).moveY(plan, (int) value);
-            }
-        });
+                if (value != null) {
+                    addToHistory(((Selection) selection).getItems());
+                    ((Selection)selection).moveY(plan, (int) value);
+                }
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_Y_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_MOVE_DY_PROPERTY))
             .setType(Integer.class)
             .setValueSetter((selection, value) -> {
-            if (value != null) {
-                addToHistory(((Selection) selection).getItems());
-                ((Selection)selection).shiftY(plan, (int) value);
-            }
-        });
+                if (value != null) {
+                    addToHistory(((Selection) selection).getItems());
+                    ((Selection)selection).shiftY(plan, (int) value);
+                }
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_Z_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_Z_MIN_PROPERTY))
             .setType(Integer.class)
-            .setValueGetter(selection -> ((Selection)selection).getZMin());
+            .setValueGetter(selection -> ((Selection)selection).getZMin())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_Z_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_Z_MAX_PROPERTY))
             .setType(Integer.class)
-            .setValueGetter(selection -> ((Selection)selection).getZMax());
+            .setValueGetter(selection -> ((Selection)selection).getZMax())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_Z_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_SET_Z_START_PROPERTY))
             .setType(Integer.class)
             .setValueGetter(selection -> null)
             .setValueSetter((selection, value) -> {
-            if (value != null) {
-                addToHistory(((Selection) selection).getItems());
-                ((Selection)selection).setZStart(plan, (int) value);
-            }
-        });
+                if (value != null) {
+                    addToHistory(((Selection) selection).getItems());
+                    ((Selection)selection).setZStart(plan, (int) value);
+                }
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_Z_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_SET_Z_END_PROPERTY))
             .setType(Integer.class)
             .setValueGetter(selection -> null)
             .setValueSetter((selection, value) -> {
-            if (value != null) {
-                addToHistory(((Selection) selection).getItems());
-                ((Selection)selection).setZEnd(plan, (int) value);
-            }
-        });
+                if (value != null) {
+                    addToHistory(((Selection) selection).getItems());
+                    ((Selection)selection).setZEnd(plan, (int) value);
+                }
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_Z_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_MOVE_Z_PROPERTY))
             .setType(Integer.class)
             .setValueGetter(selection -> null)
             .setValueSetter((selection, value) -> {
-            if (value != null) {
-                addToHistory(((Selection) selection).getItems());
-                ((Selection)selection).moveZ(plan, (int) value);
-            }
-        });
+                if (value != null) {
+                    addToHistory(((Selection) selection).getItems());
+                    ((Selection)selection).moveZ(plan, (int) value);
+                }
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.SELECTION_Z_CATEGORY))
             .setLabelName(L10.get(L10.SELECTION_MOVE_DZ_PROPERTY))
             .setType(Integer.class)
             .setValueSetter((selection, value) -> {
-            if (value != null) {
-                addToHistory(((Selection)selection).getItems());
-                ((Selection)selection).moveDz(plan, (int) value);
-            }
-        });
+                if (value != null) {
+                    addToHistory(((Selection)selection).getItems());
+                    ((Selection)selection).moveDz(plan, (int) value);
+                }
+            })
+        );
     }
 
     @Override

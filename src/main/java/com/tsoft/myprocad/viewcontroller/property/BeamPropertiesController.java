@@ -13,7 +13,7 @@ public class BeamPropertiesController extends AbstractComponentPropertiesControl
     protected void initObjectProperties() {
         addCommonProperties();
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
                 .setCategoryName(L10.get(L10.VIEW_CATEGORY))
                 .setLabelName(L10.get(L10.BEAM_WIDTH_PROPERTY))
                 .setType(Integer.class)
@@ -22,9 +22,10 @@ public class BeamPropertiesController extends AbstractComponentPropertiesControl
                 .setValueSetter((item, value) -> {
                     addToHistory((Beam) item);
                     ((Beam) item).setWidth((int) value);
-                });
+                })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
                 .setCategoryName(L10.get(L10.VIEW_CATEGORY))
                 .setLabelName(L10.get(L10.BEAM_HEIGHT_PROPERTY))
                 .setType(Integer.class)
@@ -35,29 +36,33 @@ public class BeamPropertiesController extends AbstractComponentPropertiesControl
                 .setValueSetter((item, value) -> {
                     addToHistory((Beam) item);
                     ((Beam) item).setHeight((int) value);
-                });
+                })
+        );
 
         addMaterialItemProperties();
 
         addCalculatedProperties();
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
                 .setCategoryName(L10.get(L10.INFO_CATEGORY))
                 .setLabelName(L10.get(L10.BEAM_XOZ_ANGLE_PROPERTY))
                 .setType(Integer.class)
-                .setValueGetter(item -> ((Beam) item).getXozAngle());
+                .setValueGetter(item -> ((Beam) item).getXozAngle())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
                 .setCategoryName(L10.get(L10.INFO_CATEGORY))
                 .setLabelName(L10.get(L10.BEAM_XOY_ANGLE_PROPERTY))
                 .setType(Integer.class)
-                .setValueGetter(item -> ((Beam) item).getXoyAngle());
+                .setValueGetter(item -> ((Beam) item).getXoyAngle())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
                 .setCategoryName(L10.get(L10.INFO_CATEGORY))
                 .setLabelName(L10.get(L10.BEAM_YOZ_ANGLE_PROPERTY))
                 .setType(Integer.class)
-                .setValueGetter(item -> ((Beam) item).getYozAngle());
+                .setValueGetter(item -> ((Beam) item).getYozAngle())
+        );
 
         addMechanicsProperties();
 

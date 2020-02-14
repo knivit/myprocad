@@ -37,6 +37,7 @@ public abstract class AbstractPropertiesController<T> {
 
     public void addObjectProperty(ObjectProperty objectProperty) {
         properties.add(objectProperty);
+        objectProperty.setPropertiesController(this);
     }
 
     private void initPanelProperties() {

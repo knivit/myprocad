@@ -17,7 +17,7 @@ public class LevelMarkPropertiesController extends AbstractComponentPropertiesCo
 
     @Override
     protected void initObjectProperties() {
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.LEVEL_MARK_COORDINATES_CATEGORY))
             .setLabelName(L10.get(L10.LEVEL_MARK_X_PROPERTY))
             .setType(Integer.class)
@@ -26,9 +26,10 @@ public class LevelMarkPropertiesController extends AbstractComponentPropertiesCo
             .setValueSetter((object, value) -> {
                 addToHistory((LevelMark) object);
                 ((LevelMark) object).setX((int) value);
-            });
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.LEVEL_MARK_COORDINATES_CATEGORY))
             .setLabelName(L10.get(L10.MOVE_PROPERTY))
             .setType(Integer.class)
@@ -37,9 +38,10 @@ public class LevelMarkPropertiesController extends AbstractComponentPropertiesCo
                 Selection selection = plan.getSelection();
                 addToHistory(selection.getItems());
                 selection.moveX(plan, (int) value);
-            });
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.LEVEL_MARK_COORDINATES_CATEGORY))
             .setLabelName(L10.get(L10.SHIFT_PROPERTY))
             .setType(Integer.class)
@@ -48,9 +50,10 @@ public class LevelMarkPropertiesController extends AbstractComponentPropertiesCo
                 Selection selection = plan.getSelection();
                 addToHistory(selection.getItems());
                 selection.shiftX(plan, (int) value);
-            });
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.LEVEL_MARK_COORDINATES_CATEGORY))
             .setLabelName(L10.get(L10.LEVEL_MARK_Y_PROPERTY))
             .setType(Integer.class)
@@ -59,9 +62,10 @@ public class LevelMarkPropertiesController extends AbstractComponentPropertiesCo
             .setValueSetter((object, value) -> {
                 addToHistory((LevelMark) object);
                 ((LevelMark)object).setY((int) value);
-            });
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.LEVEL_MARK_COORDINATES_CATEGORY))
             .setLabelName(L10.get(L10.MOVE_PROPERTY))
             .setType(Integer.class)
@@ -70,9 +74,10 @@ public class LevelMarkPropertiesController extends AbstractComponentPropertiesCo
                 Selection selection = plan.getSelection();
                 addToHistory(selection.getItems());
                 selection.moveY(plan, (int) value);
-            });
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.LEVEL_MARK_COORDINATES_CATEGORY))
             .setLabelName(L10.get(L10.SHIFT_PROPERTY))
             .setType(Integer.class)
@@ -81,9 +86,10 @@ public class LevelMarkPropertiesController extends AbstractComponentPropertiesCo
                 Selection selection = plan.getSelection();
                 addToHistory(selection.getItems());
                 selection.shiftY(plan, (int) value);
-            });
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.LEVEL_MARK_COORDINATES_CATEGORY))
             .setLabelName(L10.get(L10.LEVEL_MARK_Z_START_PROPERTY))
             .setType(Integer.class)
@@ -92,9 +98,10 @@ public class LevelMarkPropertiesController extends AbstractComponentPropertiesCo
             .setValueSetter((object, value) -> {
                 addToHistory((LevelMark) object);
                 ((LevelMark)object).setZStart((int) value);
-            });
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.LEVEL_MARK_COORDINATES_CATEGORY))
             .setLabelName(L10.get(L10.LEVEL_MARK_Z_END_PROPERTY))
             .setType(Integer.class)
@@ -103,37 +110,42 @@ public class LevelMarkPropertiesController extends AbstractComponentPropertiesCo
             .setValueSetter((object, value) -> {
                 addToHistory((LevelMark)object);
                 ((LevelMark)object).setZEnd((int) value);
-            });
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.LEVEL_MARK_ROTATED_PROPERTY))
             .setType(ComboBoxPropertyEditor.class)
             .setAvailableValues(Rotation.values())
             .setValueGetter(object -> ((LevelMark) object).getRotation())
-                .setValueSetter((object, value) -> ((LevelMark)object).setRotation((Rotation) value));
+                .setValueSetter((object, value) -> ((LevelMark)object).setRotation((Rotation) value))
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.LEVEL_MARK_TEXT_PROPERTY))
             .setType(String.class)
             .setValueGetter(object -> ((LevelMark)object).getText())
-            .setValueSetter((object, value) -> ((LevelMark)object).setText((String) value));
+            .setValueSetter((object, value) -> ((LevelMark)object).setText((String) value))
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.LEVEL_MARK_FONT_FAMILY_PROPERTY))
             .setType(ComboBoxPropertyEditor.class)
             .setAvailableValues(Font.DIALOG, Font.SERIF, Font.SANS_SERIF, Font.MONOSPACED)
             .setValueGetter(object -> ((LevelMark) object).getFontFamily())
-            .setValueSetter((object, value) -> { if (value != null) ((LevelMark) object).setFontFamily((String) value); });
+            .setValueSetter((object, value) -> { if (value != null) ((LevelMark) object).setFontFamily((String) value); })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.PROPERTIES_CATEGORY))
             .setLabelName(L10.get(L10.LEVEL_MARK_FONT_SIZE_PROPERTY))
             .setType(Integer.class)
             .setValueGetter(object -> ((LevelMark)object).getFontSize())
-            .setValueSetter((object, value) -> { if (value != null) ((LevelMark)object).setFontSize((int) value); });
+            .setValueSetter((object, value) -> { if (value != null) ((LevelMark)object).setFontSize((int) value); })
+        );
     }
 
     @Override

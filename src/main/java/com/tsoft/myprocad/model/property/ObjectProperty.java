@@ -2,6 +2,7 @@ package com.tsoft.myprocad.model.property;
 
 import com.l2fprod.common.beans.editor.AbstractPropertyEditor;
 import com.tsoft.myprocad.swing.menu.MenuAction;
+import com.tsoft.myprocad.viewcontroller.ProjectController;
 import com.tsoft.myprocad.viewcontroller.property.AbstractPropertiesController;
 
 import java.awt.event.ActionListener;
@@ -34,12 +35,6 @@ public class ObjectProperty {
     private Setter setter;
     private Validator validator;
     private boolean isNullable;
-
-    public ObjectProperty(AbstractPropertiesController propertiesController) {
-        this.propertiesController = propertiesController;
-
-        propertiesController.addObjectProperty(this);
-    }
 
     public String getCategoryName() {
         return categoryName;
@@ -157,6 +152,10 @@ public class ObjectProperty {
 
     public AbstractPropertiesController getPropertiesController() {
         return propertiesController;
+    }
+
+    public void setPropertiesController(AbstractPropertiesController propertiesController) {
+        this.propertiesController = propertiesController;
     }
 
     @Override

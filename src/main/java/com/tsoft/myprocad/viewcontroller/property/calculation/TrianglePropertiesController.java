@@ -12,7 +12,7 @@ public class TrianglePropertiesController extends AbstractCalculationPropertiesC
 
     @Override
     protected void initObjectProperties() {
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_A_LEG_PROPERTY))
             .setType(Integer.class)
@@ -20,9 +20,10 @@ public class TrianglePropertiesController extends AbstractCalculationPropertiesC
             .setValueSetter((entity, value) -> {
                 ((Triangle) entity).setALeg((Integer) value);
                 loadAndRefreshValues();
-            });
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_B_LEG_PROPERTY))
             .setType(Integer.class)
@@ -30,9 +31,10 @@ public class TrianglePropertiesController extends AbstractCalculationPropertiesC
             .setValueSetter((entity, value) -> {
                 ((Triangle) entity).setBLeg((Integer) value);
                 loadAndRefreshValues();
-            });
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_C_LEG_PROPERTY))
             .setType(Integer.class)
@@ -40,48 +42,55 @@ public class TrianglePropertiesController extends AbstractCalculationPropertiesC
             .setValueSetter((entity, value) -> {
                 ((Triangle) entity).setCLeg((Integer) value);
                 loadAndRefreshValues();
-            });
+            })
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_A_ANGLE_PROPERTY))
             .setType(Integer.class)
             .setCalculable(true)
-            .setValueGetter(entity -> ((Triangle) entity).getAAngle());
+            .setValueGetter(entity -> ((Triangle) entity).getAAngle())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_B_ANGLE_PROPERTY))
             .setType(Integer.class)
             .setCalculable(true)
-            .setValueGetter(entity -> ((Triangle) entity).getBAngle());
+            .setValueGetter(entity -> ((Triangle) entity).getBAngle())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_C_ANGLE_PROPERTY))
             .setType(Integer.class)
             .setCalculable(true)
-            .setValueGetter(entity -> ((Triangle) entity).getCAngle());
+            .setValueGetter(entity -> ((Triangle) entity).getCAngle())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_AREA_PROPERTY))
             .setType(Integer.class)
             .setCalculable(true)
-            .setValueGetter(entity -> ((Triangle) entity).getArea());
+            .setValueGetter(entity -> ((Triangle) entity).getArea())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_AREA_M2_PROPERTY))
             .setType(Integer.class)
             .setCalculable(true)
-            .setValueGetter(entity -> ((Triangle) entity).getAreaM2());
+            .setValueGetter(entity -> ((Triangle) entity).getAreaM2())
+        );
 
-        new ObjectProperty(this)
+        addObjectProperty(new ObjectProperty()
             .setCategoryName(L10.get(L10.CALCULATION_PARAMETERS_CATEGORY))
             .setLabelName(L10.get(L10.CALCULATION_PERIMETER_PROPERTY))
             .setType(Integer.class)
             .setCalculable(true)
-            .setValueGetter(entity -> ((Triangle) entity).getPerimeter());
+            .setValueGetter(entity -> ((Triangle) entity).getPerimeter())
+        );
     }
 }
