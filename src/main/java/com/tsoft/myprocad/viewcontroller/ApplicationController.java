@@ -35,6 +35,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
+
 public class ApplicationController {
     private ApplicationPanel applicationPanel;
     private List<ProjectController> projectControllers = new ArrayList<>();
@@ -250,7 +252,7 @@ public class ApplicationController {
     }
 
     public void calculatorHelp() {
-        JOptionPane.showMessageDialog(null, L10.get(L10.CALCULATOR_HELP_TEXT));
+        JOptionPane.showMessageDialog(null, L10.get(L10.CALCULATOR_HELP_TEXT), "Calculator Help", INFORMATION_MESSAGE);
     }
 
     public boolean doMenuAction(Menu menu, Menu.Source source) {

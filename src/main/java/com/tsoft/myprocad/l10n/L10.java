@@ -569,18 +569,19 @@ public class L10 {
 
     /** Calculator */
     public static String[] CALCULATOR_HELP_TEXT = {
-            "<html><b>Calculator Help</b>\n" +
-            "Operations:\n" +
-            "  +, -, *, / Arithmetic operations. Example: 2 + 2\n" +
-            "  ^ Power. Example: 2^(1+2)\n" +
-            "Functions:\n" +
-            "  sin(degrees)\n" +
-            "  cos(degrees)\n" +
-            "  tan(degrees)\n" +
-            "  sqrt()) Square Root. Example: sqrt(4)\n" +
-            "  qe(a, b, c) Quadratic Equation. Example: qe(1, 0, 0)\n" +
-            "Constants\n" +
-            "  pi" };
+            "<html>" +
+            "Operations:<br>" +
+            "&nbsp;&nbsp;&nbsp;&nbsp;+, -, *, / Arithmetic operations. Example: 2 + 2<br>" +
+            "&nbsp;&nbsp;&nbsp;&nbsp;^ Power. Example: 2^(1+2)<br>" +
+            "Functions:<br>" +
+            "&nbsp;&nbsp;&nbsp;&nbsp;sin(degrees)<br>" +
+            "&nbsp;&nbsp;&nbsp;&nbsp;cos(degrees)<br>" +
+            "&nbsp;&nbsp;&nbsp;&nbsp;tan(degrees)<br>" +
+            "&nbsp;&nbsp;&nbsp;&nbsp;sqrt()) Square Root. Example: sqrt(4)<br>" +
+            "&nbsp;&nbsp;&nbsp;&nbsp;qe(a, b, c) Quadratic Equation. Example: qe(1, 0, 0)<br>" +
+            "Constants<br>" +
+            "&nbsp;&nbsp;&nbsp;&nbsp;pi<br>" +
+            "</html>" };
     public static String[] EXECUTE_JAVA_SCRIPT = { "Execute Script", "Выполнить скрипт" };
     public static String[] CLEAR_JAVA_SCRIPT_OUTPUT = { "Clear Output", "Очистить результат" };
     public static String[] HIDE_JAVA_SCRIPT_PANEL = { "X", "X" };
